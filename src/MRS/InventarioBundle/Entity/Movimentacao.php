@@ -93,7 +93,7 @@ class Movimentacao
 
 
     /**
-     * @return \DateTime
+     * @return boolean
      */
     public function getStatus()
     {
@@ -101,7 +101,7 @@ class Movimentacao
     }
 
     /**
-     * @param \DateTime $status
+     * @param boolean $status
      * @return Movimentacao
      */
     public function setStatus($status)

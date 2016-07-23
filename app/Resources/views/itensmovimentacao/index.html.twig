@@ -19,11 +19,15 @@
                 {% for itensMovimentacao in itensMovimentacaos %}
                     <tr>
                         <td>
+                            {% if movimentacao.status %}
+
+                            {% else %}
                             <a href="{{ path('cadastro_itensmovimentacao_edit', { 'id': itensMovimentacao.id }) }}"
                                class="btn btn-primary btn-xs">
                                 <span class="glyphicon glyphicon-edit"></span>
                                 Editar
                             </a>
+                            {% endif %}
                         </td>
                         <td>{{ itensMovimentacao.equipamento.patrimonio }}| {{ itensMovimentacao.equipamento.nome }}</td>
                         <td>{{ itensMovimentacao.numeroChamado }}</td>

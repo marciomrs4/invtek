@@ -46,6 +46,14 @@ class ItensMovimentacaoController extends Controller
      */
     public function newAction(Request $request, Movimentacao $movimentacao)
     {
+        if($movimentacao->getStatus()){
+
+            $this->addFlash('notice','Essa movimentação já está finalizado!');
+            return $this->redirectToRoute('movimentacao_show',array(
+                'id'=>$movimentacao->getId()));
+
+        }
+
         $itensMovimentacao = new ItensMovimentacao();
 
         $itensMovimentacao->setMovimentacao($movimentacao);
@@ -127,10 +135,21 @@ class ItensMovimentacaoController extends Controller
      */
     public function editAction(Request $request, ItensMovimentacao $itensMovimentacao)
     {
+
+        if($itensMovimentacao->getMovimentacao()->getStatus()){
+
+            $this->addFlash('notice','Essa movimentação já está finalizado!');
+            return $this->redirectToRoute('movimentacao_show',array(
+                'id'=>$itensMovimentacao->getMovimentacao()->getId()));
+
+        }
+
         $deleteForm = $this->createDeleteForm($itensMovimentacao);
         $editForm = $this->createForm('MRS\InventarioBundle\Form\ItensMovimentacaoType', $itensMovimentacao);
 
-        $departamentoId = $itensMovimentacao->getMovimentacao()->getUsuarioOrigem()->getDepartamento()->getId();
+        $departamentoId = $itensMovimentacao->getMovimentacao()->getUsuarioOrigem()->getDepartamento();
+
+        $equipamentoId = $itensMovimentacao->getEquipamento()->getId();
 
         $movimentacao = $this->getDoctrine()->getRepository('MRSInventarioBundle:Movimentacao')
             ->findBy(array('status'=>false));
@@ -138,29 +157,26 @@ class ItensMovimentacaoController extends Controller
         $itens = $this->getDoctrine()->getRepository('MRSInventarioBundle:ItensMovimentacao')
             ->findBy(array('movimentacao'=>$movimentacao));
 
+        $itensId[] = ($itens == null) ? 'null' : $itens;
+
         foreach($itens as $iten){
 
             $itensId[] = $iten->getEquipamento()->getId();
 
-            //$itensId[] = ($iten->getEquipamento()->getId() == $itensMovimentacao->getId()) ? '' : $iten->getEquipamento()->getId();
-
         }
-
-
-
 
         $editForm->add('equipamento',EntityType::class,array('label'=>'Equipamento',
             'attr'=>array('class'=>'input-sm'),
             'class'=>'MRS\InventarioBundle\Entity\Equipamento',
-            'query_builder' => function(EntityRepository $er)use($departamentoId, $itensMovimentacao, $itensId) {
+            'query_builder' => function(EntityRepository $er)use($departamentoId, $equipamentoId, $itensId) {
 
                 return $er->createQueryBuilder('e')
                     ->join('e.centroMovimentacao', 'cm')
                     ->where('e.centroMovimentacao = :centro')
-                    ->andWhere('e.id = :item OR e.id NOT IN (:equipamento)')
-                    ->setParameter('centro', $departamentoId)
-                    ->setParameter('item',$itensMovimentacao->getId())
-                    ->setParameter('equipamento',$itensId)
+                    ->andWhere('e.id = :equipamento OR e.id NOT IN(:itens)')
+                    ->setParameter('centro',$departamentoId)
+                    ->setParameter('equipamento',$equipamentoId)
+                    ->setParameter('itens',$itensId)
                     ->orderBy('e.tipoequipamento');
             }));
 

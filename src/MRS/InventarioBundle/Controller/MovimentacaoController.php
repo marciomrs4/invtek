@@ -137,6 +137,14 @@ class MovimentacaoController extends Controller
 
         if($movimentacao) {
 
+            if($movimentacao->getStatus()){
+
+                $this->addFlash('notice','Essa movimentação já está finalizado!');
+                return $this->redirectToRoute('movimentacao_show',array(
+                    'id'=>$movimentacao->getId()));
+
+            }
+
             $em = $this->getDoctrine()->getManager();
 
             $movimentacao->setStatus(true);
