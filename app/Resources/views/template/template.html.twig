@@ -1,0 +1,56 @@
+{% extends ':template:base.html.twig' %}
+
+{% block contentheader %}
+
+{#
+    <section class="content-header">
+        <h1>
+            Apontamento
+            <small>Novo</small>
+        </h1>
+    </section>
+#}
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        {% block firstrow %}
+
+        {% endblock %}
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading">
+
+                    {% block panelheading %}
+
+                    {% endblock %}
+
+                </div>
+
+                <div class="panel-body">
+                    {% block panelbody %}
+
+                    {% endblock %}
+                </div>
+
+                <div class="panel-footer">
+                    {% block panelfooter %}
+
+                    {% endblock %}
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}

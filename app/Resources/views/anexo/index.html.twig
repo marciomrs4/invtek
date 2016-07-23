@@ -1,0 +1,72 @@
+{% extends ':template:template.html.twig' %}
+
+
+    {% block contentheader %}
+
+
+        <section class="content-header">
+            <h1>
+                Anexo
+                <small>Listar</small>
+            </h1>
+        </section>
+
+
+    {% endblock %}
+
+
+    {% block panelheading %}
+
+        <a href="{{ path('cadastro_anexoequipamento_new', { 'equipamento' : equipamento.id }) }}" class="btn btn-primary btn-sm">
+            <span class="glyphicon glyphicon-plus"></span>
+            Novo
+        </a>
+
+        <a href="{{ path('cadastro_equipamento_show', { 'id' : equipamento.id }) }}" class="btn btn-primary btn-sm">
+            <span class="glyphicon glyphicon-eye-open"></span>
+            Equipamento
+        </a>
+
+    {% endblock %}
+
+    {% block panelbody %}
+        <div class="table-responsive">
+            <table class="table table-bordered table-condensed table-hover table-striped">
+                <thead>
+                <tr>
+                    <th>Ações</th>
+                    <th>Nome do Arquivo</th>
+                    <th>Nome</th>
+                    <th>Data de Criação</th>
+                    <th>Data de Alteração</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for anexo in anexos %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('cadastro_anexoequipamento_show', { 'id': anexo.id }) }}" class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                Mostrar
+                            </a>
+                            <a href="{{ path('cadastro_anexoequipamento_edit', { 'id': anexo.id }) }}" class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-edit"></span>
+                                Editar
+                            </a>
+                            <a href="{{ vich_uploader_asset(anexo,'imageFile') }}" target="_blank" class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-download"></span>
+                                Baixar
+                            </a>
+                        </td>
+                        <td><a href="{{ path('cadastro_anexoequipamento_show', { 'id': anexo.id }) }}">{{ anexo.imageName }}</a></td>
+                        <td>{{ anexo.nome }}</td>
+                        <td>{% if anexo.datacriacao %}{{ anexo.datacriacao|date('d-m-Y H:i:s') }}{% endif %}</td>
+                        <td>{% if anexo.dataalteracao %}{{ anexo.dataalteracao|date('d-m-Y H:i:s') }}{% endif %}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
+    {% endblock %}

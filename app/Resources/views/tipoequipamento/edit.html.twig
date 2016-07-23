@@ -1,0 +1,134 @@
+{% extends ':template:template.html.twig' %}
+
+
+    {% block contentheader %}
+
+        <section class="content-header">
+            <h1>
+                Tipo de Equipamento
+                <small>Editar</small>
+            </h1>
+        </section>
+
+    {% endblock %}
+
+
+    {% block firstrow %}
+
+        {% for message in app.session.flashBag.get('notice') %}
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <i class="fa fa-info"></i> {{ message }}. <i class="fa fa-smile-o"></i>
+                </div>
+            </div>
+        {% endfor %}
+
+
+    {% endblock %}
+
+
+    {% block panelheading %}
+
+        <div class="row">
+
+            <div class="col-md-2 col-sm-3 col-xs-3">
+
+                <a href="{{ path('cadastro_tipoequipamento_index') }}" class="btn btn-primary btn-sm">
+                    <span class="fa fa-reply"></span>
+                    Voltar
+                </a>
+
+            </div>
+            <div class="col-md-2 col-sm-3 col-xs-3">
+                {{ form_start(delete_form) }}
+                <button type="submit" class="btn btn-danger btn-sm remover-form">
+                    <span class="glyphicon glyphicon-trash"></span>
+                    Deletar
+                </button>
+                {{ form_end(delete_form) }}
+
+            </div>
+
+            <div class="col-md-2 col-sm-3 col-xs-3">
+
+                <button class="btn btn-sm btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample"
+                        aria-expanded="false" aria-controls="collapseExample">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    Ajuda
+                </button>
+
+            </div>
+
+        </div>
+    {% endblock %}
+
+    {% block panelbody %}
+
+        {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+
+    {% endblock %}
+
+    {% block panelfooter %}
+
+        <button type="submit" class="btn btn-primary btn-sm">
+            <span class="glyphicon glyphicon-floppy-disk"></span>
+            Salvar
+        </button>
+
+        {{ form_end(edit_form) }}
+
+        <div class="collapse" id="collapseExample">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Exemplos de Icones
+                </div>
+
+                <div class="panel-body">
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <table class="table table-bordered table-condensed">
+                            <thead>
+                            <tr>
+                                <th>Descrição</th>
+                                <th>Icone</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr><td>fa fa-server</td><td><span class="fa fa-server"></span></td></tr>
+
+                            <tr><td>fa fa-desktop</td><td><span class="fa fa-desktop"></span></td></tr>
+
+                            <tr><td>fa fa-database</td><td><span class="fa fa-database"></span></td></tr>
+
+                            <tr><td>fa fa-television</td><td><span class="fa fa-television"></span></td></tr>
+
+                            <tr><td>fa fa-tablet</td><td><span class="fa fa-tablet"></span></td></tr>
+
+                            <tr><td>fa fa-sitemap</td><td><span class="fa fa-sitemap"></span></td></tr>
+
+                            <tr><td>fa fa-laptop</td><td><span class="fa fa-laptop"></span></td></tr>
+
+                            <tr><td>fa fa-print</td><td><span class="fa fa-print"></span></td></tr>
+
+                            <tr><td>fa fa-mobile</td><td><span class="fa fa-mobile"></span></td></tr>
+
+                            <tr><td>fa fa-battery-half</td><td><span class="fa fa-battery-half"></span></td></tr>
+
+                            <tr><td>glyphicon glyphicon-cd</td><td><span class="glyphicon glyphicon-cd"></span></td></tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+    {% endblock %}
+

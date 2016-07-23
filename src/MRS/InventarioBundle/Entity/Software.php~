@@ -1,0 +1,63 @@
+<?php
+
+namespace MRS\InventarioBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Software
+ *
+ * @ORM\Table(name="software", indexes={@ORM\Index(name="fk_software_tipoSoftware1_idx", columns={"tipoSoftware_id"})})
+ * @ORM\Entity
+ */
+class Software
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descricao", type="string", length=45, nullable=false)
+     */
+    private $descricao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="numerolicensa", type="string", length=45, nullable=true)
+     */
+    private $numerolicensa;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="versao", type="string", length=45, nullable=true)
+     */
+    private $versao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="serial", type="string", length=45, nullable=true)
+     */
+    private $serial;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \MRS\InventarioBundle\Entity\Tiposoftware
+     *
+     * @ORM\ManyToOne(targetEntity="MRS\InventarioBundle\Entity\Tiposoftware")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="tipoSoftware_id", referencedColumnName="id")
+     * })
+     */
+    private $tiposoftware;
+
+
+}

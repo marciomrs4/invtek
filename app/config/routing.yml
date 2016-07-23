@@ -1,0 +1,25 @@
+mrs_inventario_anexo_acompanhamento:
+    resource: "@MRSInventarioBundle/Controller/AnexoAcompanhamentoController.php"
+    type:     annotation
+
+mrs_inventario_anexo:
+    resource: "@MRSInventarioBundle/Controller/AnexoController.php"
+    type:     annotation
+
+mrs_inventario_anexo:
+    resource: "@MRSInventarioBundle/Controller/AnexoController.php"
+    type:     annotation
+
+mrs_inventario_anexo:
+    resource: "@MRSInventarioBundle/Controller/AnexoController.php"
+    type:     annotation
+
+user_user:
+    resource: "@UserBundle/Controller/UserController.php"
+    type:     annotation
+
+mrs_user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+mrs_inventario:
+    resource: "@MRSInventarioBundle/Controller/"
+    type:   annotation

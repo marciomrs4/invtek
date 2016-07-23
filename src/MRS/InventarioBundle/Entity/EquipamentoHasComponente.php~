@@ -1,0 +1,45 @@
+<?php
+
+namespace MRS\InventarioBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EquipamentoHasComponente
+ *
+ * @ORM\Table(name="equipamento_has_componente", indexes={@ORM\Index(name="fk_equipamento_has_componente_componente1_idx", columns={"componente_id"}), @ORM\Index(name="fk_equipamento_has_componente_equipamento1_idx", columns={"equipamento_id"})})
+ * @ORM\Entity
+ */
+class EquipamentoHasComponente
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \MRS\InventarioBundle\Entity\Componente
+     *
+     * @ORM\ManyToOne(targetEntity="MRS\InventarioBundle\Entity\Componente")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="componente_id", referencedColumnName="id")
+     * })
+     */
+    private $componente;
+
+    /**
+     * @var \MRS\InventarioBundle\Entity\Equipamento
+     *
+     * @ORM\ManyToOne(targetEntity="MRS\InventarioBundle\Entity\Equipamento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="equipamento_id", referencedColumnName="id")
+     * })
+     */
+    private $equipamento;
+
+
+}

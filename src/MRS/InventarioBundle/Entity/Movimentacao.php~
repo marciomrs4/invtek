@@ -1,0 +1,82 @@
+<?php
+
+namespace MRS\InventarioBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Movimentacao
+ *
+ * @ORM\Table(name="movimentacao", indexes={@ORM\Index(name="fk_movimentacao_tipoMovimentacao1_idx", columns={"tipoMovimentacao_id"}), @ORM\Index(name="fk_movimentacao_motivoMovimentacao1_idx", columns={"motivoMovimentacao_id"}), @ORM\Index(name="fk_movimentacao_usuario1_idx", columns={"usuario_id_criador"}), @ORM\Index(name="fk_movimentacao_usuario2_idx", columns={"usuario_id_origem"}), @ORM\Index(name="fk_movimentacao_usuario3_idx", columns={"usuario_id_destino"})})
+ * @ORM\Entity
+ */
+class Movimentacao
+{
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dataHora", type="datetime", nullable=false)
+     */
+    private $datahora;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \MRS\InventarioBundle\Entity\Usuario
+     *
+     * @ORM\ManyToOne(targetEntity="MRS\InventarioBundle\Entity\Usuario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="usuario_id_destino", referencedColumnName="id")
+     * })
+     */
+    private $usuarioDestino;
+
+    /**
+     * @var \MRS\InventarioBundle\Entity\Usuario
+     *
+     * @ORM\ManyToOne(targetEntity="MRS\InventarioBundle\Entity\Usuario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="usuario_id_origem", referencedColumnName="id")
+     * })
+     */
+    private $usuarioOrigem;
+
+    /**
+     * @var \MRS\InventarioBundle\Entity\Usuario
+     *
+     * @ORM\ManyToOne(targetEntity="MRS\InventarioBundle\Entity\Usuario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="usuario_id_criador", referencedColumnName="id")
+     * })
+     */
+    private $usuarioCriador;
+
+    /**
+     * @var \MRS\InventarioBundle\Entity\Motivomovimentacao
+     *
+     * @ORM\ManyToOne(targetEntity="MRS\InventarioBundle\Entity\Motivomovimentacao")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="motivoMovimentacao_id", referencedColumnName="id")
+     * })
+     */
+    private $motivomovimentacao;
+
+    /**
+     * @var \MRS\InventarioBundle\Entity\Tipomovimentacao
+     *
+     * @ORM\ManyToOne(targetEntity="MRS\InventarioBundle\Entity\Tipomovimentacao")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="tipoMovimentacao_id", referencedColumnName="id")
+     * })
+     */
+    private $tipomovimentacao;
+
+
+}

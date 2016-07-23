@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8" />
+
+    <title>{% block title %}InvTek{% endblock %}</title>
+
+    {% block stylesheets %}
+
+    {% endblock %}
+
+</head>
+
+<body>
+
+{% block body %}
+
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/mrsinventario/js/jQuery-2.2.0.min.js') }}"></script>
+    <script src="{{ asset('bundles/mrsinventario/css/bootstrap.min.css') }}"></script>
+{% endblock %}
+
+</body>
+</html>

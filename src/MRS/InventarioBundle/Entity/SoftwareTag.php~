@@ -1,0 +1,49 @@
+<?php
+
+namespace MRS\InventarioBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * SoftwareTag
+ *
+ * @ORM\Table(name="software_tag", indexes={@ORM\Index(name="fk_software_tag_software1_idx", columns={"software_id"})})
+ * @ORM\Entity
+ */
+class SoftwareTag
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descricao", type="string", length=45, nullable=true)
+     */
+    private $descricao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nome", type="string", length=45, nullable=true)
+     */
+    private $nome;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \MRS\InventarioBundle\Entity\Software
+     *
+     * @ORM\ManyToOne(targetEntity="MRS\InventarioBundle\Entity\Software")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="software_id", referencedColumnName="id")
+     * })
+     */
+    private $software;
+
+
+}

@@ -1,0 +1,49 @@
+<?php
+
+namespace MRS\InventarioBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EquipamentoTag
+ *
+ * @ORM\Table(name="equipamento_tag", indexes={@ORM\Index(name="fk_equipamento_tag_equipamento1_idx", columns={"equipamento_id"})})
+ * @ORM\Entity
+ */
+class EquipamentoTag
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descricao", type="string", length=45, nullable=true)
+     */
+    private $descricao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nome", type="string", length=45, nullable=true)
+     */
+    private $nome;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \MRS\InventarioBundle\Entity\Equipamento
+     *
+     * @ORM\ManyToOne(targetEntity="MRS\InventarioBundle\Entity\Equipamento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="equipamento_id", referencedColumnName="id")
+     * })
+     */
+    private $equipamento;
+
+
+}

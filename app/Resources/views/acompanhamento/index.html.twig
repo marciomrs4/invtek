@@ -1,0 +1,63 @@
+{% extends ':template:template.html.twig' %}
+
+
+    {% block contentheader %}
+
+
+        <section class="content-header">
+            <h1>
+                Acompanhamento
+                <small>Listar</small>
+            </h1>
+        </section>
+
+
+    {% endblock %}
+
+
+    {% block panelheading %}
+        <a href="{{ path('cadastro_acompanhamento_new',{ 'equipamento': equipamento.id }) }}" class="btn btn-primary btn-sm">
+            <span class="glyphicon glyphicon-plus"></span>
+            Novo
+        </a>
+        <a href="{{ path('cadastro_equipamento_show',{ 'id': equipamento.id }) }}" class="btn btn-primary btn-sm">
+            <span class="glyphicon glyphicon-eye-open"></span>
+            Mostrar Equipamento
+        </a>
+    {% endblock %}
+
+    {% block panelbody %}
+        <div class="table-responsive">
+            <table class="table table-bordered table-condensed table-hover table-striped">
+                <thead>
+                <tr>
+                    <th>Ações</th>
+                    <th>Descricao</th>
+                    <th>Datahora</th>
+                    <th>Tipo de Acompanhamento</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for acompanhamento in acompanhamentos %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('cadastro_acompanhamento_show', { 'id': acompanhamento.id }) }}" class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                Mostrar
+                            </a>
+                            <a href="{{ path('cadastro_acompanhamento_edit', { 'id': acompanhamento.id }) }}" class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-edit"></span>
+                                Editar
+                            </a>
+                        </td>
+                        <td><a href="{{ path('cadastro_acompanhamento_show', { 'id': acompanhamento.id }) }}">{{ acompanhamento.descricao }}</a></td>
+                        <td>{% if acompanhamento.datahora %}{{ acompanhamento.datahora|date('d-m-Y H:i:s') }}{% endif %}</td>
+                        <td>{{ acompanhamento.tipoacompanhamento.nome }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
+    {% endblock %}

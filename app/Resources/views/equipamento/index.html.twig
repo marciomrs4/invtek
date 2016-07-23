@@ -1,0 +1,87 @@
+{% extends ':template:template.html.twig' %}
+
+{% block stylesheets %}
+
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('bundles/mrsinventario/css/dataTables.bootstrap.css') }}">
+
+{% endblock %}
+
+
+    {% block contentheader %}
+
+
+        <section class="content-header">
+            <h1>
+                Equipamento
+                <small>Listar</small>
+            </h1>
+        </section>
+
+
+    {% endblock %}
+
+
+    {% block panelheading %}
+        <a href="{{ path('cadastro_equipamento_new') }}" class="btn btn-primary btn-sm">
+            <span class="glyphicon glyphicon-plus"></span>
+            Novo
+        </a>    {% endblock %}
+
+    {% block panelbody %}
+        <div class="table-responsive">
+            <table class="table table-bordered table-condensed table-hover table-striped table-datatable">
+                <thead>
+                <tr>
+                    <th>Ações</th>
+                    <th>Tipo de Equipamento</th>
+                    <th>Fornecedor</th>
+                    <th>Marca</th>
+                    <th>Patrimonio</th>
+                    <th>Data da Compra</th>
+                    <th>Numero de serie</th>
+                    <th>Status</th>
+                    <th>C. de Movimentação</th>
+                    <th>Descricao</th>
+                    <th>Observacao</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for equipamento in equipamentos %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('cadastro_equipamento_show', { 'id': equipamento.id }) }}" class="btn btn-primary btn-sm">
+                                <span class="{{ equipamento.tipoequipamento.icone }}"></span>
+                            </a>
+                            {#<a href="{{ path('cadastro_equipamento_edit', { 'id': equipamento.id }) }}" class="btn btn-primary btn-sm">#}
+                                {#<span class="glyphicon glyphicon-edit"></span>#}
+                            {#</a>#}
+                        </td>
+                        <td>{{ equipamento.tipoequipamento.descricao }}</td>
+                        <td>{{ equipamento.fornecedor.nome }}</td>
+                        <td>{{ equipamento.marca }}</td>
+                        <td>{{ equipamento.patrimonio }}</td>
+                        <td>{% if equipamento.dataCompra %}{{ equipamento.dataCompra |date('d-m-Y') }}{% endif %}</td>
+                        <td>{{ equipamento.numeroserie }}</td>
+                        <td>{% if equipamento.status %}Sim{% else %}Não{% endif %}</td>
+                        <td>{{ equipamento.centroMovimentacao.nome }}</td>
+                        <td>{{ equipamento.descricao }}</td>
+                        <td>{{ equipamento.observacao }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
+    {% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="{{ asset('bundles/mrsinventario/js/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('bundles/mrsinventario/js/dataTables.bootstrap.js') }}"></script>
+    <script src="{{ asset('bundles/mrsinventario/js/mrs-dataTable.js') }}"></script>
+
+
+{% endblock %}

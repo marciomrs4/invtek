@@ -1,0 +1,42 @@
+<?php
+
+namespace MRS\InventarioBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Componente
+ *
+ * @ORM\Table(name="componente", indexes={@ORM\Index(name="fk_componente_tipoComponente_idx", columns={"tipoComponente_id"})})
+ * @ORM\Entity
+ */
+class Componente
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descricao", type="string", length=255, nullable=false)
+     */
+    private $descricao;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \MRS\InventarioBundle\Entity\Tipocomponente
+     *
+     * @ORM\ManyToOne(targetEntity="MRS\InventarioBundle\Entity\Tipocomponente")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="tipoComponente_id", referencedColumnName="id")
+     * })
+     */
+    private $tipocomponente;
+
+
+}

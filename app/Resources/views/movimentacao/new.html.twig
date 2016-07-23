@@ -1,0 +1,154 @@
+{% extends ':template:template.html.twig' %}
+
+
+    {% block contentheader %}
+
+        <section class="content-header">
+            <h1>
+                Movimentacao
+                <small>Novo</small>
+            </h1>
+        </section>
+
+    {% endblock %}
+
+
+    {% block panelheading %}
+
+        <div class="row">
+
+            <div class="col-md-2 col-sm-3 col-xs-3">
+
+                <a href="{{ path('movimentacao_index') }}" class="btn btn-primary btn-sm">
+                    <span class="fa fa-reply"></span>
+                    Voltar
+                </a>
+
+            </div>
+        </div>
+    {% endblock %}
+
+
+    {% block panelbody %}
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+
+    {% endblock %}
+
+    {% block panelfooter %}
+        <button type="submit" class="btn btn-primary btn-sm">
+            <span class="glyphicon glyphicon-floppy-disk"></span>
+            Salvar
+        </button>
+        {{ form_end(form) }}
+
+        <a href="{{ path('movimentacao_new') }}" id="link"></a>
+
+    {% endblock %}
+
+
+    {% block javascripts %}
+
+        {{ parent() }}
+
+        <script src="{{ asset('bundles/mrsinventario/js/select2.js') }}"></script>
+
+        <script>
+
+            $(document).ready(function(){
+
+                $("#movimentacao_usuarioOrigem").select2();
+
+                $("#movimentacao_usuarioDestino").select2();
+
+            });
+
+        </script>
+
+        <script>
+            var $tipoMovimentacao = $('#movimentacao_tipomovimentacao');
+            // When sport gets selected ...
+            $tipoMovimentacao.change(function() {
+
+                //var $form = $(this).closest('form');
+                var url = $("#link").attr('href');
+
+                //alert(url);
+
+                // alert('Change: ' + $form.attr('action') + $form.attr('method'));
+                // ... retrieve the corresponding form.
+
+                // Simulate form data, but only include the selected sport value.
+                var data = {};
+
+                data = $tipoMovimentacao.serialize();
+
+                // Submit data via AJAX to the form's action path.
+                $.ajax({
+                    url : url,
+                    type: 'POST',
+                    data : data,
+                    success: function(html) {
+
+                        //$("#load").html(html);
+                        // Replace current position field ...
+                        $('#movimentacao_motivomovimentacao').replaceWith(
+                                // ... with the returned one from the AJAX response.
+                                $(html).find('#movimentacao_motivomovimentacao')
+                        );
+                        // Position field now displays the appropriate positions.
+                    },
+                    error: function(err){
+                        $("#loader").html(err);
+                    }
+                });
+
+            });
+
+        </script>
+
+{#
+        <script>
+            var $usuarioOrigem = $('#movimentacao_usuarioOrigem');
+            // When sport gets selected ...
+            $usuarioOrigem.change(function() {
+
+                //var $form = $(this).closest('form');
+                var url = $("#link").attr('href');
+
+                alert(url);
+
+                // alert('Change: ' + $form.attr('action') + $form.attr('method'));
+                // ... retrieve the corresponding form.
+
+                // Simulate form data, but only include the selected sport value.
+                var data = {};
+
+                data = $usuarioOrigem.serialize();
+
+                // Submit data via AJAX to the form's action path.
+                $.ajax({
+                    url : url,
+                    type: 'POST',
+                    data : data,
+                    success: function(html) {
+
+                        //$("#load").html(html);
+                        // Replace current position field ...
+                        $('#movimentacao_usuarioDestino').replaceWith(
+                                // ... with the returned one from the AJAX response.
+                                $(html).find('#movimentacao_usuarioDestino')
+                        );
+                        // Position field now displays the appropriate positions.
+                    },
+                    error: function(err){
+                        $("#loader").html(err);
+                    }
+                });
+
+            });
+
+        </script>
+#}
+    {% endblock %}

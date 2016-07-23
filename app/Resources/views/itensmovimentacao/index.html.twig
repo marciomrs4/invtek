@@ -1,0 +1,38 @@
+
+<div class="panel panel-default">
+
+    <div class="panel-heading">
+        <strong>Itens da Movimentação</strong>
+    </div>
+    <div class="panel-body">
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-condensed table-hover table-striped">
+                <thead>
+                <tr>
+                    <th>Ações</th>
+                    <th>Patrimônio/Nome</th>
+                    <th>Numerochamado</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for itensMovimentacao in itensMovimentacaos %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('cadastro_itensmovimentacao_edit', { 'id': itensMovimentacao.id }) }}"
+                               class="btn btn-primary btn-xs">
+                                <span class="glyphicon glyphicon-edit"></span>
+                                Editar
+                            </a>
+                        </td>
+                        <td>{{ itensMovimentacao.equipamento.patrimonio }}| {{ itensMovimentacao.equipamento.nome }}</td>
+                        <td>{{ itensMovimentacao.numeroChamado }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>

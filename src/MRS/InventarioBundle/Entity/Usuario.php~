@@ -1,0 +1,56 @@
+<?php
+
+namespace MRS\InventarioBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Usuario
+ *
+ * @ORM\Table(name="usuario", indexes={@ORM\Index(name="fk_usuario_departamento1_idx", columns={"departamento_id"})})
+ * @ORM\Entity
+ */
+class Usuario
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomeCompleto", type="string", length=255, nullable=false)
+     */
+    private $nomecompleto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="senha", type="string", length=45, nullable=false)
+     */
+    private $senha;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nome", type="string", length=45, nullable=false)
+     */
+    private $nome;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \MRS\InventarioBundle\Entity\CentroMovimentacao
+     *
+     * @ORM\ManyToOne(targetEntity="MRS\InventarioBundle\Entity\CentroMovimentacao")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="departamento_id", referencedColumnName="id")
+     * })
+     */
+    private $departamento;
+
+
+}

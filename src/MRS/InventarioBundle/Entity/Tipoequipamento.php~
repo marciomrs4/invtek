@@ -1,0 +1,32 @@
+<?php
+
+namespace MRS\InventarioBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tipoequipamento
+ *
+ * @ORM\Table(name="tipoEquipamento")
+ * @ORM\Entity
+ */
+class Tipoequipamento
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descricao", type="string", length=45, nullable=false)
+     */
+    private $descricao;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}

@@ -1,0 +1,117 @@
+{% extends ':template:template.html.twig' %}
+
+
+
+    {% block contentheader %}
+
+        <section class="content-header">
+            <h1>
+                Movimentacao
+                <small>Mostrar</small>
+            </h1>
+        </section>
+
+    {% endblock %}
+
+    {% block firstrow %}
+
+        {% for message in app.session.flashBag.get('notice') %}
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <i class="fa fa-info"></i> {{ message }}. <i class="fa fa-smile-o"></i>
+                </div>
+            </div>
+        {% endfor %}
+
+
+    {% endblock %}
+
+
+    {% block panelheading %}
+
+        <div class="row">
+
+            <div class="col-md-2 col-sm-3 col-xs-3">
+
+                <a href="{{ path('movimentacao_index') }}" class="btn btn-primary btn-sm">
+                    <span class="fa fa-reply"></span>
+                    Voltar
+                </a>
+
+            </div>
+            <div class="col-md-2 col-sm-3 col-xs-3">
+
+                <a href="{{ path('movimentacao_edit', { 'id': movimentacao.id }) }}" class="btn btn-primary btn-sm">
+                    <span class="glyphicon glyphicon-edit"></span>
+                    Editar
+                </a>
+
+            </div>
+            <div class="col-md-2 col-sm-3 col-xs-3">
+
+                {% if movimentacao.status %}
+                    {# nao faz nada se for finalizado#}
+
+                {% else %}
+                    <a href="{{ path('cadastro_itensmovimentacao_new', { 'movimentacao': movimentacao.id }) }}" class="btn btn-primary btn-sm">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        Adicionar Equipamento
+                    </a>
+                {% endif %}
+
+            </div>
+
+            <div class="col-md-2 col-sm-3 col-xs-3">
+                {% if itensMovimentacao %}
+
+                    {% if movimentacao.status  %}
+
+                    {% else %}
+                        <a href="{{ path('movimentacao_createmove', { 'id': movimentacao.id }) }}" class="btn btn-primary btn-sm">
+                            <span class="fa fa-exchange"></span>
+                            Movimentar
+                        </a>
+                    {% endif %}
+                {% endif %}
+
+            </div>
+        </div>
+    {% endblock %}
+
+
+
+    {% block panelbody %}
+
+        <div class="table table-responsive">
+            <table class="table table-bordered table-condensed">
+                <tbody>
+                <tr>
+                    <th>Movimentação</th>
+                    <td>{{ movimentacao.id }} | {{ movimentacao.datahora|date('d-m-Y H:i:s') }}</td>
+                </tr>
+                <tr>
+                    <th>Criado por</th>
+                    <td>{{ movimentacao.usuarioCriador.nome }}</td>
+                </tr>
+                <tr>
+                    <th>Criado Em</th>
+                    <td>{% if movimentacao.datahora %}{{ movimentacao.datahora|date('d-m-Y H:i:s') }}{% endif %}</td>
+                </tr>
+                <tr>
+                    <th>De</th>
+                    <td>{{ movimentacao.usuarioOrigem.departamento.nome }}</td>
+                </tr>
+                <tr>
+                    <th>Para</th>
+                    <td>{{ movimentacao.usuarioDestino.departamento.nome }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        {{ render(controller('MRSInventarioBundle:ItensMovimentacao:index',{ 'movimentacao' : movimentacao.id })) }}
+
+    {% endblock %}

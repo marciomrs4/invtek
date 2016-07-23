@@ -1,0 +1,84 @@
+    {% extends ':template:template.html.twig' %}
+
+
+
+    {% block contentheader %}
+
+    <section class="content-header">
+        <h1>
+            Motivomovimentacao
+            <small>Mostrar</small>
+        </h1>
+    </section>
+
+    {% endblock %}
+
+    {% block firstrow %}
+
+    {% for message in app.session.flashBag.get('notice') %}
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <i class="fa fa-info"></i> {{ message }}. <i class="fa fa-smile-o"></i>
+        </div>
+    </div>
+    {% endfor %}
+
+
+    {% endblock %}
+
+
+    {% block panelheading %}
+
+        <div class="row">
+
+    <div class="col-md-2 col-sm-3 col-xs-3">
+
+        <a href="{{ path('cadastro_motivomovimentacao_index') }}" class="btn btn-primary btn-sm">
+            <span class="fa fa-reply"></span>
+            Voltar
+        </a>
+
+    </div>
+        <div class="col-md-2 col-sm-3 col-xs-3">
+
+            <a href="{{ path('cadastro_motivomovimentacao_edit', { 'id': motivomovimentacao.id }) }}" class="btn btn-primary btn-sm">
+                <span class="glyphicon glyphicon-edit"></span>
+                Editar
+            </a>
+
+        </div>
+        <div class="col-md-2 col-sm-3 col-xs-3">
+            {{ form_start(delete_form) }}
+            <button type="submit" class="btn btn-danger btn-sm remover-form">
+                <span class="glyphicon glyphicon-trash"></span>
+                Deletar
+            </button>
+            {{ form_end(delete_form) }}
+
+        </div>
+</div>{% endblock %}
+
+
+
+    {% block panelbody %}
+
+    <div class="table table-responsive">
+        <table class="table table-bordered table-condensed">
+            <tbody>
+                <tr>
+                    <th>Descricao</th>
+                        <td>{{ motivomovimentacao.descricao }}</td>
+                </tr>
+                <tr>
+                    <th>Id</th>
+                        <td>{{ motivomovimentacao.id }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    {% endblock %}

@@ -1,0 +1,83 @@
+{% extends ':template:login_base.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+{% block stylesheets %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ asset('bundles/mrsinventario/css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+{% endblock %}
+
+
+{% block body %}
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="alert alert-dismissable"></div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-3 col-md-4 col-xs-1">
+                {# Lado esquerdo#}
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-xs-10">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Acesso ao Sistema
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+
+                        <form action="{{ path('user_check') }}" method="post">
+
+                            <div class="form-group">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                        Usuário:
+                                <input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Usuario" required/>
+                            </div>
+
+                            <div class="form-group">
+                                <span class="glyphicon glyphicon-lock"></span>
+                                    Senha:
+                                <input class="form-control" type="password" id="password" name="_password" placeholder="Senha" required/>
+                            </div>
+
+
+                            <button class="btn btn-default" type="submit">
+                                <span class="glyphicon glyphicon-log-in"></span>
+                                Entrar
+                            </button>
+
+                        </form>
+
+                    </div>
+                    <div class="panel-footer">
+                        {% if error %}
+                            <div class="alert alert-danger" role="alert">
+                                <span class="glyphicon glyphicon-ban-circle"></span>
+                                {{ error.messageKey|trans(error.messageData, 'security') }}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-sm-3 col-md-4 col-xs-1">
+                {# lado direito #}
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}
+
+
+{% block footer %}
+
+{% endblock %}

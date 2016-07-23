@@ -1,0 +1,71 @@
+{% extends ':template:template.html.twig' %}
+
+
+    {% block contentheader %}
+
+
+        <section class="content-header">
+            <h1>
+                Usuario
+                <small>Listar</small>
+            </h1>
+        </section>
+
+
+    {% endblock %}
+
+
+    {% block panelheading %}
+        <a href="{{ path('cadastro_usuario_new') }}" class="btn btn-primary btn-sm">
+            <span class="glyphicon glyphicon-plus"></span>
+            Novo
+        </a>    {% endblock %}
+
+    {% block panelbody %}
+        <div class="table-responsive">
+            <table class="table table-bordered table-condensed table-hover table-striped">
+                <thead>
+                <tr>
+                    <th>Ações</th>
+                    <th>Nomecompleto</th>
+                    <th>Nome</th>
+                    <th>Centro de Movimentacao</th>
+                    <th>Unidade</th>
+                    <th>Acesso</th>
+                    <th>Status</th>
+                    <th>Observação</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for usuario in usuarios %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('cadastro_usuario_show', { 'id': usuario.id }) }}" class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                Mostrar
+                            </a>
+                            <a href="{{ path('cadastro_usuario_edit', { 'id': usuario.id }) }}" class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-edit"></span>
+                                Editar
+                            </a>
+                        </td>
+                        <td><a href="{{ path('cadastro_usuario_show', { 'id': usuario.id }) }}">{{ usuario.nomecompleto }}</a></td>
+                        <td>{{ usuario.nome }}</td>
+                        <td>{{ usuario.departamento.nome }}</td>
+                        <td>{{ usuario.departamento.unidade.nome }}</td>
+                        <td>
+                            {% if usuario.userId is not null%}
+                                {{ usuario.userId.email }}
+                            {% endif %}
+                        </td>
+                        <td>{% if usuario.status %}Ativo{% else %}Inativo{% endif %}</td>
+                        <td>{{ usuario.observacao }}</td>
+
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
+    {% endblock %}

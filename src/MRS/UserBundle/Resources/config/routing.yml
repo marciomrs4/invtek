@@ -1,0 +1,16 @@
+user_login:
+  path: /login
+  defaults: {_controller: UserBundle:Login:login }
+
+user_check:
+  path: /logincheck
+  defaults: {_controller: UserBundle:Login:loginCheck }
+
+user_logout:
+  path: /logout
+  defaults: {_controller: UserBundle:Login:logout }
+
+users:
+  resource: "@UserBundle/Controller/"
+  type: annotation
+  prefix: /

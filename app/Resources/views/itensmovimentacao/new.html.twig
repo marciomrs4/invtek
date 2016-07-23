@@ -1,0 +1,46 @@
+{% extends ':template:template.html.twig' %}
+
+
+    {% block contentheader %}
+
+        <section class="content-header">
+            <h1>
+                Adicionar
+                <small>Item</small>
+            </h1>
+        </section>
+
+    {% endblock %}
+
+
+    {% block panelheading %}
+
+        <div class="row">
+
+            <div class="col-md-2 col-sm-3 col-xs-3">
+
+                <a href="{{ path('movimentacao_show',{ 'id': itensMovimentacao.movimentacao.id }) }}" class="btn btn-primary btn-sm">
+                    <span class="fa fa-reply"></span>
+                    Voltar
+                </a>
+
+            </div>
+        </div>
+    {% endblock %}
+
+
+    {% block panelbody %}
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+
+    {% endblock %}
+
+    {% block panelfooter %}
+        <button type="submit" class="btn btn-primary btn-sm">
+            <span class="glyphicon glyphicon-floppy-disk"></span>
+            Salvar
+        </button>
+        {{ form_end(form) }}
+
+    {% endblock %}
