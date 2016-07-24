@@ -3,6 +3,7 @@
 namespace MRS\InventarioBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * EquipamentoHasEquipamento
@@ -28,6 +29,7 @@ class EquipamentoHasEquipamento
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="equipamento_filho_id", referencedColumnName="id")
      * })
+     * @Assert\NotBlank(message="É necessario informar um equipamento")
      */
     private $equipamentoFilho;
 

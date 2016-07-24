@@ -2,13 +2,14 @@
 
 namespace MRS\InventarioBundle\Controller;
 
+use Doctrine\ORM\EntityRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use MRS\InventarioBundle\Entity\EquipamentoHasEquipamento;
 use MRS\InventarioBundle\Entity\Equipamento;
-use MRS\InventarioBundle\Form\EquipamentoHasEquipamentoType;
 
 /**
  * EquipamentoHasEquipamento controller.
@@ -48,7 +49,34 @@ class EquipamentoHasEquipamentoController extends Controller
 
         $equipamentoHasEquipamento->setEquipamentoPai($equipamento);
 
+
+        $equipamentos = $this->getDoctrine()->getRepository('MRSInventarioBundle:EquipamentoHasEquipamento')
+            ->findBy(array('equipamentoPai' => $equipamento));
+
+
+        if(!$equipamentos){
+            $itensId[] = 'null';
+        }
+
+        foreach($equipamentos as $item){
+            $itensId[] = $item->getEquipamentoFilho();
+        }
+
         $form = $this->createForm('MRS\InventarioBundle\Form\EquipamentoHasEquipamentoType', $equipamentoHasEquipamento);
+
+        $form->add('equipamentoFilho',EntityType::class,array('label'=>'Equipamento',
+            'attr'=>array('class'=>'input-sm'),
+            'class' => 'MRS\InventarioBundle\Entity\Equipamento',
+            'query_builder' => function(EntityRepository $er)use($equipamento, $itensId){
+                return $er->createQueryBuilder('e')
+                    ->where('e.id != :equipamento')
+                    ->andWhere('e.id NOT IN (:itens)')
+                    ->setParameter('equipamento',$equipamento)
+                    ->setParameter('itens',$itensId)
+                    ->orderBy('e.descricao');
+            }));
+
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -58,12 +86,14 @@ class EquipamentoHasEquipamentoController extends Controller
 
             $this->addFlash('notice','Criado com sucesso!');
 
-            return $this->redirectToRoute('cadastro_equipamentoaddequipamento_show', array('id' => $equipamentoHasEquipamento->getId()));
+            return $this->redirectToRoute('cadastro_equipamentoaddequipamento_index', array(
+                'equipamento' => $equipamento->getId()));
         }
 
         return $this->render('equipamentohasequipamento/new.html.twig', array(
             'equipamentoHasEquipamento' => $equipamentoHasEquipamento,
             'equipamento' => $equipamento,
+            'itens' => $itensId,
             'form' => $form->createView(),
         ));
     }
@@ -93,7 +123,38 @@ class EquipamentoHasEquipamentoController extends Controller
     public function editAction(Request $request, EquipamentoHasEquipamento $equipamentoHasEquipamento)
     {
         $deleteForm = $this->createDeleteForm($equipamentoHasEquipamento);
+
+
+
+        $equipamento = $equipamentoHasEquipamento->getEquipamentoPai();
+
+        $equipamentos = $this->getDoctrine()->getRepository('MRSInventarioBundle:EquipamentoHasEquipamento')
+            ->findBy(array('equipamentoPai' => $equipamento));
+
+        if(!$equipamentos){
+            $itensId[] = 'null';
+        }
+
+        foreach($equipamentos as $item){
+            $itensId[] = $item->getEquipamentoFilho();
+        }
+
         $editForm = $this->createForm('MRS\InventarioBundle\Form\EquipamentoHasEquipamentoType', $equipamentoHasEquipamento);
+
+        $editForm->add('equipamentoFilho',EntityType::class,array('label'=>'Equipamento',
+            'attr'=>array('class'=>'input-sm'),
+            'class' => 'MRS\InventarioBundle\Entity\Equipamento',
+            'query_builder' => function(EntityRepository $er)use($equipamento, $itensId){
+                return $er->createQueryBuilder('e')
+                    ->where('e.id != :equipamento')
+                    ->andWhere('e.id NOT IN (:itens)')
+                    ->setParameter('equipamento',$equipamento)
+                    ->setParameter('itens',$itensId)
+                    ->orderBy('e.descricao');
+            }));
+
+
+
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -103,7 +164,8 @@ class EquipamentoHasEquipamentoController extends Controller
 
             $this->addFlash('notice','Alterado com sucesso!');
 
-            return $this->redirectToRoute('cadastro_equipamentoaddequipamento_show', array('id' => $equipamentoHasEquipamento->getId()));
+            return $this->redirectToRoute('cadastro_equipamentoaddequipamento_index', array(
+                'equipamento' => $equipamentoHasEquipamento->getEquipamentoPai()->getId()));
         }
 
         return $this->render('equipamentohasequipamento/edit.html.twig', array(
@@ -121,6 +183,8 @@ class EquipamentoHasEquipamentoController extends Controller
      */
     public function deleteAction(Request $request, EquipamentoHasEquipamento $equipamentoHasEquipamento)
     {
+        $equipamentoId = $equipamentoHasEquipamento->getEquipamentoPai()->getId();
+
         $form = $this->createDeleteForm($equipamentoHasEquipamento);
         $form->handleRequest($request);
 
@@ -130,7 +194,9 @@ class EquipamentoHasEquipamentoController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('cadastro_equipamentoaddequipamento_index');
+        return $this->redirectToRoute('cadastro_equipamentoaddequipamento_index',array(
+            'equipamento' => $equipamentoId
+        ));
     }
 
     /**

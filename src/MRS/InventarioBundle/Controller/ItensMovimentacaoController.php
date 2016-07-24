@@ -70,7 +70,7 @@ class ItensMovimentacaoController extends Controller
 
         foreach($itens as $iten){
 
-            $itensId[] = $iten->getEquipamento()->getId();
+            $itensId = $iten->getEquipamento()->getId();
 
         }
 
