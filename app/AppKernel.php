@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new MRS\InventarioBundle\MRSInventarioBundle(),
             new MRS\UserBundle\UserBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
+            new \Endroid\Bundle\QrCodeBundle\EndroidQrCodeBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

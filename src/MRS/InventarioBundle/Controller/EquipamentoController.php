@@ -71,35 +71,8 @@ class EquipamentoController extends Controller
     {
         $deleteForm = $this->createDeleteForm($equipamento);
 
-        $manyequipamentos = $this->getDoctrine()
-            ->getRepository('MRSInventarioBundle:EquipamentoHasEquipamento')
-            ->findBy(array('equipamentoPai' => $equipamento));
-
-        $equipamentosFilho = $this->getDoctrine()
-            ->getRepository('MRSInventarioBundle:EquipamentoHasEquipamento')
-            ->findBy(array('equipamentoFilho' => $equipamento));
-
-        $tags = $this->getDoctrine()
-            ->getRepository('MRSInventarioBundle:EquipamentoTag')
-            ->findBy(array('equipamento'=>$equipamento),
-                    array('descricao'=>'DESC'));
-
-        $softwares = $this->getDoctrine()
-            ->getRepository('MRSInventarioBundle:EquipamentoHasSoftware')
-            ->findBy(array('equipamento'=>$equipamento));
-
-        $componentes = $this->getDoctrine()
-            ->getRepository('MRSInventarioBundle:EquipamentoHasComponente')
-            ->findBy(array('equipamento'=>$equipamento),
-                array('componente'=>'DESC'));
-
         return $this->render('equipamento/show.html.twig', array(
             'equipamento' => $equipamento,
-            'tags'=>$tags,
-            'softwares'=>$softwares,
-            'componentes'=>$componentes,
-            'manyequipamentos' => $manyequipamentos,
-            'equipamentosFilho' => $equipamentosFilho,
             'delete_form' => $deleteForm->createView(),
         ));
     }

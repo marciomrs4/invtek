@@ -1,0 +1,37 @@
+    {% extends ':template:template.html.twig' %}
+
+
+    {% block contentheader %}
+
+    <section class="content-header">
+        <h1>
+            Equipamento
+            <small>QrCode</small>
+        </h1>
+    </section>
+
+    {% endblock %}
+
+
+    {% block panelheading %}
+
+        <div class="row">
+
+    <div class="col-md-2 col-sm-3 col-xs-3">
+
+        <a href="{{ path('cadastro_equipamento_show',{ 'id': equipamento.id }) }}" class="btn btn-primary btn-sm">
+            <span class="fa fa-reply"></span>
+            Voltar
+        </a>
+
+    </div>
+</div>{% endblock %}
+
+
+    {% block panelbody %}
+
+
+        <img src="{{ qrcode_data_uri(absolute_url(path('equipamento_qrcode_show',{ 'equipamento' : equipamento.id }))) }}">
+
+
+    {% endblock %}

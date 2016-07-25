@@ -33,7 +33,7 @@
     {% block panelheading %}
 
         <div class="row">
-
+{#
             <div class="col-md-2 col-sm-3 col-xs-3">
 
                 <a href="{{ path('cadastro_equipamento_index') }}" class="btn btn-primary btn-sm">
@@ -95,16 +95,12 @@
                                 Novo Anexo
                             </a>
                         </li>
-                        <li>
-                            <a href="{{ path('equipamento_qrcode_generate', { 'equipamento': equipamento.id }) }}">
-                                <span class="glyphicon glyphicon-qrcode"></span>
-                                Gerar QrCode
-                            </a>
-                        </li>
                     </ul>
                 </div>
 
             </div>
+
+#}
         </div>
     {% endblock %}
 

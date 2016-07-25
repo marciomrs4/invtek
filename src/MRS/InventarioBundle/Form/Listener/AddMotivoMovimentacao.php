@@ -22,10 +22,10 @@ class AddMotivoMovimentacao implements EventSubscriberInterface
     {
         $tipoMovimentacao = $event->getData();
 
-        $tipoMovimentacao = ($tipoMovimentacao && $tipoMovimentacao->getMotivoMovimentacao())
-                        ? $tipoMovimentacao->getMotivoMovimentacao() : null;
+//        $tipoMovimentacao = ($tipoMovimentacao && $tipoMovimentacao->getMotivoMovimentacao())
+//                        ? $tipoMovimentacao->getMotivoMovimentacao() : null;
 
-        $this->addField($event->getForm(),  $tipoMovimentacao);
+        $this->addField($event->getForm(),  $tipoMovimentacao->getMotivoMovimentacao());
     }
 
     /**

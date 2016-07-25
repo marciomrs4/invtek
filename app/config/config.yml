@@ -81,3 +81,14 @@ vich_uploader:
           uri_prefix: /anexos/acompanhamentos
           upload_destination: "%kernel.root_dir%/../web/anexos/acompanhamentos"
           namer: vich_uploader.namer_origname
+
+#QrCode
+endroid_qr_code:
+    size: 100
+    padding: 10
+    extension: gif
+    error_correction_level: high
+    foreground_color: { r: 0, g: 0, b: 0, a: 0 }
+    background_color: { r: 255, g: 255, b: 255, a: 0 }
+    label: "QrCode"
+    label_font_size: 16

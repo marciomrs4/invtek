@@ -108,6 +108,16 @@
                     <th>Para</th>
                     <td>{{ movimentacao.usuarioDestino.departamento.nome }}</td>
                 </tr>
+                <tr>
+                    <th>Tipo</th>
+                    <td>{{ movimentacao.tipomovimentacao.nome }}</td>
+                </tr>
+                <tr>
+                    <th>Motivo</th>
+                    <td>
+                        {{ movimentacao.motivomovimentacao.descricao }}|{{ movimentacao.motivomovimentacao.tipomovimentacao.nome }}
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </div>

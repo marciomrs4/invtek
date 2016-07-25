@@ -66,14 +66,18 @@ class ItensMovimentacaoController extends Controller
         $itens = $this->getDoctrine()->getRepository('MRSInventarioBundle:ItensMovimentacao')
             ->findBy(array('movimentacao'=>$movimentacao));
 
-        $itensId[] = ($itens == null) ? 'null' : $itens;
 
-        foreach($itens as $iten){
+        $itensId = array();
 
-            $itensId = $iten->getEquipamento()->getId();
+        foreach($itens as $item){
+
+            $itensId[] = $item->getEquipamento()->getId();
 
         }
 
+        if(count($itensId) == 0){
+            $itensId = 'null';
+        }
 
         $form = $this->createForm('MRS\InventarioBundle\Form\ItensMovimentacaoType', $itensMovimentacao);
 
