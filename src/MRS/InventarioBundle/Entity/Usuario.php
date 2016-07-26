@@ -3,6 +3,8 @@
 namespace MRS\InventarioBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * Usuario
  *
@@ -15,13 +17,14 @@ class Usuario
      * @var string
      *
      * @ORM\Column(name="nomeCompleto", type="string", length=255, nullable=false)
+     * @Assert\NotBlank(message="Este campo deve ser preenchido")
      */
     private $nomecompleto;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="observacao", type="text")
+     * @ORM\Column(name="observacao", type="text", nullable=true)
      */
     private $observacao;
 
@@ -29,6 +32,7 @@ class Usuario
      * @var string
      *
      * @ORM\Column(name="nome", type="string", length=45, nullable=false)
+     * @Assert\NotBlank(message="Este campo deve ser preenchido")
      */
     private $nome;
 
@@ -48,6 +52,7 @@ class Usuario
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="departamento_id", referencedColumnName="id")
      * })
+     * @Assert\NotBlank(message="Este campo deve ser preenchido")
      */
     private $departamento;
 
