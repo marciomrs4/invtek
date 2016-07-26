@@ -32,6 +32,8 @@
                     <th>Data Crição</th>
                     <th>De</th>
                     <th>Para</th>
+                    <th>Tipo</th>
+                    <th>Motivo</th>
                     <th>Criador</th>
                     <th>Status</th>
                 </tr>
@@ -53,6 +55,8 @@
                         <td>{{ movimentacao.datahora|date('d-m-Y') }}</td>
                         <td>{{ movimentacao.usuarioOrigem.departamento.nome }}</td>
                         <td>{{ movimentacao.usuarioDestino.departamento.nome }}</td>
+                        <td>{{ movimentacao.tipomovimentacao.nome }}</td>
+                        <td>{{ movimentacao.motivomovimentacao.descricao }}</td>
                         <td>{{ movimentacao.usuarioCriador.nome }}</td>
                         <td>{% if movimentacao.status %}Finalizado{% else %}Aberto{% endif %}</td>
                     </tr>

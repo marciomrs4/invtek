@@ -16,7 +16,7 @@ class Tipoequipamento
     /**
      * @var string
      *
-     * @ORM\Column(name="icone", type="string", length=45, nullable=false)
+     * @ORM\Column(name="icone", type="string", length=45, nullable=true)
      */
     private $icone;
 
