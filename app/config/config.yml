@@ -74,11 +74,11 @@ vich_uploader:
     db_driver: orm
     mappings:
       mapeamento_equipamento:
-          uri_prefix: /anexos/equipamentos
+          uri_prefix: "%base_url%/anexos/equipamentos"
           upload_destination: "%kernel.root_dir%/../web/anexos/equipamentos"
           namer: vich_uploader.namer_origname
       mapeamento_acompanhamento:
-          uri_prefix: /anexos/acompanhamentos
+          uri_prefix: "%base_url%/anexos/acompanhamentos"
           upload_destination: "%kernel.root_dir%/../web/anexos/acompanhamentos"
           namer: vich_uploader.namer_origname
 

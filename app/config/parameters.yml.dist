@@ -17,3 +17,6 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    # BaseURL para anexos, depende qual o nome da pasta do servidor
+    base_url: inventario
