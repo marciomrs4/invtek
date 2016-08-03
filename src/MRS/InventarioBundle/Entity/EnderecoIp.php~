@@ -1,0 +1,67 @@
+<?php
+
+namespace MRS\InventarioBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EnderecoIp
+ *
+ * @ORM\Table(name="endereco_ip", indexes={@ORM\Index(name="categoria_ip_fk_idx", columns={"categoria_id"}), @ORM\Index(name="tipo_acesso_ip_fk_idx", columns={"tipo_acesso_ip_id"})})
+ * @ORM\Entity
+ */
+class EnderecoIp
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="endereco_ip", type="string", length=45, nullable=false)
+     */
+    private $enderecoIp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nome", type="string", length=45, nullable=false)
+     */
+    private $nome;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="observacao", type="text", length=65535, nullable=true)
+     */
+    private $observacao;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \MRS\InventarioBundle\Entity\TipoAcessoIp
+     *
+     * @ORM\ManyToOne(targetEntity="MRS\InventarioBundle\Entity\TipoAcessoIp")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="tipo_acesso_ip_id", referencedColumnName="id")
+     * })
+     */
+    private $tipoAcessoIp;
+
+    /**
+     * @var \MRS\InventarioBundle\Entity\CategoriaIp
+     *
+     * @ORM\ManyToOne(targetEntity="MRS\InventarioBundle\Entity\CategoriaIp")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="categoria_id", referencedColumnName="id")
+     * })
+     */
+    private $categoria;
+
+
+}
+

@@ -1,0 +1,174 @@
+{% extends ':template:template.html.twig' %}
+
+{% block stylesheets %}
+
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('bundles/mrsinventario/css/dataTables.bootstrap.css') }}"
+          xmlns="http://www.w3.org/1999/html">
+
+{% endblock %}
+
+    {% block contentheader %}
+
+
+        <section class="content-header">
+            <h1>
+                Endereço IP
+                <small>Listar</small>
+            </h1>
+        </section>
+
+
+    {% endblock %}
+
+
+    {% block panelheading %}
+        <div class="row">
+
+            <div class="col-md-2">
+
+                <a href="{{ path('cadastro_enderecoip_new') }}" class="btn btn-primary btn-sm">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    Novo
+                </a>
+            </div>
+
+            <div class="col-md-4">
+
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
+                        data-target=".bs-example-modal-sm">
+                    <span class="glyphicon glyphicon-upload"></span>
+                    Importar
+                </button>
+
+            </div>
+
+        </div>
+    {% endblock %}
+
+    {% block panelbody %}
+        <div class="table-responsive">
+            <table class="table table-bordered table-condensed table-hover table-striped table-datatable">
+                <thead>
+                <tr>
+                    <th>Ações</th>
+                    <th>Endereço IP</th>
+                    <th>Host Name</th>
+                    <th>Observação</th>
+                    <th>Tipo de Acesso</th>
+                    <th>Categoria</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for enderecoIp in enderecoIps %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('cadastro_enderecoip_show', { 'id': enderecoIp.id }) }}" class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                Mostrar
+                            </a>
+                            <a href="{{ path('cadastro_enderecoip_edit', { 'id': enderecoIp.id }) }}" class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-edit"></span>
+                                Editar
+                            </a>
+                        </td>
+                        <td><a href="{{ path('cadastro_enderecoip_show', { 'id': enderecoIp.id }) }}">{{ enderecoIp.enderecoIp }}</a></td>
+                        <td>{{ enderecoIp.nome }}</td>
+                        <td>{{ enderecoIp.observacao }}</td>
+                        <td>{{ enderecoIp.tipoAcessoIp }}</td>
+                        <td>{{ enderecoIp.categoria }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+
+            <div class="col-md-3"></div>
+
+            <div class="col-md-6">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title">Importar Arquivo</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <form action="" method="post" enctype="multipart/form-data">
+                            <div class="row">
+
+                                <div class="col-md-4">
+                                    <input type="file" name="ip_csv" required>
+                                </div>
+
+                            </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary btn-sm pull-left">
+                            <span class="glyphicon glyphicon-upload"></span>
+                            Importar
+                        </button>
+                        </form>
+                        <button type="button" class="btn btn-default btn-sm pull-right" data-dismiss="modal">Fechar</button>
+                    </div>
+
+                        <div class="panel panel-default">
+
+                            <div class="panel-heading">
+                                Colunas necessárias: Exemplo
+                            </div>
+
+                            <div class="panel-body">
+
+                                <table class="table table-bordered table-condensed">
+                                    <thead>
+                                    <tr>
+                                        <th>Endereço IP</th>
+                                        <th>Host Name</th>
+                                        <th>Observação</th>
+                                        <th>Tipo de Acesso</th>
+                                        <th>Categoria</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>172.22.0.1</td>
+                                        <td>MEU-SERVIDOR</td>
+                                        <td>Uma Observação</td>
+                                        <td>Bloqueado/Full</td>
+                                        <td>Livre/Em Uso</td>
+                                    </tr>
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+            </div>
+
+        </div>
+
+    {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="{{ asset('bundles/mrsinventario/js/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('bundles/mrsinventario/js/dataTables.bootstrap.js') }}"></script>
+    <script src="{{ asset('bundles/mrsinventario/js/mrs-dataTable.js') }}"></script>
+
+
+{% endblock %}

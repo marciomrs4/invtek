@@ -1,3 +1,15 @@
+mrs_inventario_tipo_acesso_ip:
+    resource: "@MRSInventarioBundle/Controller/TipoAcessoIpController.php"
+    type:     annotation
+
+mrs_inventario_categoria_ip:
+    resource: "@MRSInventarioBundle/Controller/CategoriaIpController.php"
+    type:     annotation
+
+mrs_inventario_endereco_ip:
+    resource: "@MRSInventarioBundle/Controller/EnderecoIpController.php"
+    type:     annotation
+
 mrs_inventario_anexo_acompanhamento:
     resource: "@MRSInventarioBundle/Controller/AnexoAcompanhamentoController.php"
     type:     annotation
