@@ -1,14 +1,14 @@
-    {% extends ':template:template.html.twig' %}
+{% extends ':template:template.html.twig' %}
 
 
     {% block contentheader %}
 
-    <section class="content-header">
-        <h1>
-            Equipamento
-            <small>QrCode</small>
-        </h1>
-    </section>
+        <section class="content-header">
+            <h1>
+                Equipamento
+                <small>QrCode</small>
+            </h1>
+        </section>
 
     {% endblock %}
 
@@ -17,21 +17,35 @@
 
         <div class="row">
 
-    <div class="col-md-2 col-sm-3 col-xs-3">
+        <div class="col-md-2 col-sm-3 col-xs-3">
 
-        <a href="{{ path('cadastro_equipamento_show',{ 'id': equipamento.id }) }}" class="btn btn-primary btn-sm">
-            <span class="fa fa-reply"></span>
-            Voltar
-        </a>
+            <a href="{{ path('cadastro_equipamento_show',{ 'id': equipamento.id }) }}" class="btn btn-primary btn-sm">
+                <span class="fa fa-reply"></span>
+                Voltar
+            </a>
 
-    </div>
-</div>{% endblock %}
+        </div>
+        </div>{% endblock %}
 
 
     {% block panelbody %}
 
+        <div class="row">
+            <div class="col-md-2">
+                <div class="box box-default">
 
-        <img src="{{ qrcode_data_uri(absolute_url(path('equipamento_qrcode_show',{ 'equipamento' : equipamento.id }))) }}">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">
+                           Patrimônio: {{ equipamento.patrimonio }}
+                        </h3>
+                    </div>
 
+                    <div class="box-body" style="display: block;">
+                        <img src="{{ qrcode_data_uri(absolute_url(path('equipamento_qrcode_show',{ 'equipamento' : equipamento.id }))) }}">
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
     {% endblock %}

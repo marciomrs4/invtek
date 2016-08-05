@@ -1,6 +1,6 @@
 <?php
 
-namespace MRS\InventarioBundle\Form;
+namespace MRS\InventarioBundle\Form\Report;
 
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -8,7 +8,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class EquipamentoReportType extends AbstractType
+class PainelEquipamentoReportType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder

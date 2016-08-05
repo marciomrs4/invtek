@@ -1,0 +1,243 @@
+{% extends ':template:template.html.twig' %}
+
+    {% block contentheader %}
+
+        <section class="content-header">
+            <h1>
+                Equipamento
+                <small>Relatórios por Equipamentos</small>
+            </h1>
+        </section>
+
+    {% endblock %}
+
+    {% block content %}
+
+
+
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                <div class="box box-primary">
+                    <!-- /.box-header -->
+                    <div class="box-body">
+
+                        {{ form_start(form, { 'attr':{ 'novalidate':'novalidate' }}) }}
+
+                        <div class="row">
+
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+
+                                <div class="form-group">
+                                    {{ form_row(form.tipoequipamento) }}
+                                </div>
+
+                            </div>
+
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+
+                                <div class="form-group">
+                                    {{ form_row(form.fornecedor) }}
+                                </div>
+
+                            </div>
+
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+
+                                <div class="form-group">
+                                    {{ form_row(form.marca) }}
+                                </div>
+
+                            </div>
+
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+
+                                <div class="form-group">
+                                    {{ form_row(form.centroMovimentacao) }}
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+
+                                <div class="form-group">
+                                    {{ form_row(form.dataCompraA) }}
+                                </div>
+
+                            </div>
+
+                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+
+                                <div class="form-group">
+                                    {{ form_row(form.dataCompraB) }}
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+
+                                <div class="form-group">
+                                    {{ form_row(form.patrimonio) }}
+                                </div>
+
+                            </div>
+
+                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+
+                                <div class="form-group">
+                                    {{ form_row(form.numeroserie) }}
+                                </div>
+
+                            </div>
+
+                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+
+                                <div class="form-group">
+                                    {{ form_row(form.status) }}
+                                </div>
+
+                            </div>
+
+                            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <div class="form-group">
+
+                                            <button class="btn btn-default btn-sm">
+                                                <span class="glyphicon glyphicon-search"></span>
+                                                Procurar
+                                            </button>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <div class="form-group">
+
+                                            <a class="btn btn-default btn-sm" id="export-excel">
+                                                <span class="glyphicon glyphicon-export"></span>
+                                                Exportar
+                                            </a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        {{ form_end(form) }}
+
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                <div class="box box-primary">
+
+                    <div class="box-body">
+
+                        <div class="table-responsive">
+
+                            <table class="table table-bordered table-condensed">
+
+                                <thead>
+                                <tr>
+                                    <th>Ações</th>
+                                    <th>Tipo de Equipamento</th>
+                                    <th>Fornecedor</th>
+                                    <th>Marca</th>
+                                    <th>Patrimônio</th>
+                                    <th>Data da Compra</th>
+                                    <th>Número de Série</th>
+                                    <th>Status</th>
+                                    <th>Centro de Movimentação</th>
+                                    <th>Descrição</th>
+                                    <th>Observação</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for equipamento in equipamentos %}
+
+                                    <tr>
+                                        <td>
+                                            <a href="{{ path('cadastro_equipamento_show', {'id': equipamento.id}) }}"
+                                               class="btn btn-primary btn-sm"
+                                               data-toggle="tooltip" data-placement="top" title="Ir para o Cadastro do item">
+                                                <span class="glyphicon glyphicon-eye-open"></span>
+                                            </a>
+                                        </td>
+                                        <td>{{ equipamento.tipoEquipamento }}</td>
+                                        <td>{{ equipamento.fornecedor }}</td>
+                                        <td>{{ equipamento.marca }}</td>
+                                        <td>{{ equipamento.patrimonio }}</td>
+                                        <td>{{ equipamento.dataCompra|date('d-m-Y') }}</td>
+                                        <td>{{ equipamento.numeroSerie }}</td>
+                                        <td>{{ equipamento.status }}</td>
+                                        <td>{{ equipamento.centroMovimentacao }}</td>
+                                        <td>{{ equipamento.descricao }}</td>
+                                        <td>{{ equipamento.observacao }}</td>
+                                    </tr>
+
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <a href="{{ path('report_export_relatorio_equipamentos') }}" id="link">
+
+    {% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+
+    <script src="{{ asset('bundles/mrsinventario/js/jquery-download.js') }}"></script>
+
+    <script>
+
+        $(document).ready(function(){
+
+            var url = $('#link').attr('href');
+
+            $('#export-excel').click(function(){
+
+                $('#export-excel').attr('disabled','disabled');
+
+
+                $.fileDownload(url,{
+                    httpMethod: "GET",
+                    data:{
+                        dataCompraA : $('#report_equipamentos_dataCompraA').val(),
+                        dataCompraA : $('#report_equipamentos_dataCompraB').val()
+                    }
+                });
+
+
+            });
+
+        });
+
+    </script>
+
+{% endblock %}

@@ -8,8 +8,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use MRS\InventarioBundle\Entity\Equipamento;
-use MRS\InventarioBundle\Form\EquipamentoReportType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use MRS\InventarioBundle\Form\Report\PainelEquipamentoReportType;
+use MRS\InventarioBundle\Form\Report\EquipamentoReportType;
+
 
 /**
  * Equipamento controller.
@@ -21,7 +22,7 @@ class EquipamentoReportController extends Controller
     /**
      * Lists all Equipamento entities.
      *
-     * @Route("/", name="report_equipamento")
+     * @Route("/painel", name="report_painel_equipamento")
      * @Method("GET|POST")
      */
     public function reportEquipamentoAction(Request $request)
@@ -34,8 +35,7 @@ class EquipamentoReportController extends Controller
         $tipoEquipamento = $em->getRepository('MRSInventarioBundle:Tipoequipamento')
             ->findBy(array('id'=>$tipocomponente['tipoequipamento']));
 
-        $form = $this->createForm(EquipamentoReportType::class);
-
+        $form = $this->createForm(PainelEquipamentoReportType::class);
 
         $form->handleRequest($request);
 
@@ -92,14 +92,58 @@ class EquipamentoReportController extends Controller
     }
 
     /**
-     * @Route("/equipomentos",name="report_relatorio_equipomentos")
+     * @Route("/equipamentos",name="report_relatorio_equipamentos")
      */
-    public function relatorioEquipamentoAction()
+    public function relatorioEquipamentoAction(Request $request)
     {
+
+        $form = $this->createForm(EquipamentoReportType::class);
+
+        $date = new \DateTime('now');
+
+        $form->get('dataCompraA')->setData($date->modify('-240 day'));
+
+        $form->get('dataCompraB')->setData($date->modify('+240 day'));
+
+
+        if($request->isMethod('POST')) {
+            $form->handleRequest($request);
+        }
+
+        $equipamentosForm = $request->request->get('report_equipamentos');
+
         $equipamentos = $this->getDoctrine()
             ->getRepository('MRSInventarioBundle:Equipamento')
-            ->findAll();
+            ->reportEquipamentos($equipamentosForm);
 
+        return $this->render(':equipamentoreport:equipamentos.html.twig',array(
+            'equipamentos' => $equipamentos,
+            'form' => $form->createView()
+        ));
+
+    }
+
+    /**
+     * @Route("/export/equipamentos",name="report_export_relatorio_equipamentos")
+     */
+    public function relatorioEquipamentoExportToExcelAction(Request $request)
+    {
+
+        $equipamentosForm = $request->request->get('report_equipamentos');
+
+        $equipamentos = $this->getDoctrine()
+            ->getRepository('MRSInventarioBundle:Equipamento')
+            ->reportEquipamentos($equipamentosForm);
+
+        $response =  $this->render(':equipamentoreport:exportequipamentos.html.twig',array(
+            'equipamentos' => $equipamentos
+        ));
+
+        $response->headers->set('Content-Type', 'text/csv');
+
+        $response->headers->set('Content-Disposition', 'attachment; filename=Equipamentos.csv');
+
+        return $response;
 
     }
 

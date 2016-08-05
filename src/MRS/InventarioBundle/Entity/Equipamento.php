@@ -3,12 +3,13 @@
 namespace MRS\InventarioBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Equipamento
  *
  * @ORM\Table(name="equipamento", indexes={@ORM\Index(name="fk_equipamento_tipoEquipamento1_idx", columns={"tipoEquipamento_id"}), @ORM\Index(name="fk_equipamento_forcedor1_idx", columns={"fornecedor_id"}), @ORM\Index(name="fk_equipamento_marca1_idx", columns={"marca_id"}), @ORM\Index(name="fk_equipamento_centro_movimentacao1_idx", columns={"centro_movimentacao_id"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="MRS\InventarioBundle\Repository\EquipamentoRepository")
  */
 class Equipamento
 {
@@ -16,6 +17,7 @@ class Equipamento
      * @var string
      *
      * @ORM\Column(name="nome", type="string", length=255, nullable=false)
+     * @Assert\NotBlank(message="O nome do equipamento é obrigatório.")
      */
     private $nome;
 
