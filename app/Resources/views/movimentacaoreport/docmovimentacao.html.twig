@@ -1,0 +1,230 @@
+{% extends ':template:template.html.twig' %}
+
+    {% block contentheader %}
+
+        <section class="content-header">
+            <h1>
+                Movimentação
+                <small>Exportação</small>
+            </h1>
+        </section>
+
+    {% endblock %}
+
+    {% block content %}
+
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        <strong>Registro de Movimentação de {{ movimentacao.tipomovimentacao }} de equipamento da TI.</strong>
+                    </div>
+
+                    <div class="panel-body">
+                        Data: {{ movimentacao.datahora|date('d-m-Y') }}
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        <strong>Motivo da {{ movimentacao.tipomovimentacao }}</strong>
+                    </div>
+
+                    <div class="panel-body">
+
+                        <div class="table table-responsive">
+                            <table class="table table-bordered table-condensed">
+                                <tbody>
+                                <tr>
+                                    <td>{{ movimentacao.motivomovimentacao }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        <strong>Descrição do(s) Equipamento(s)</strong>
+                    </div>
+                    <div class="panel-body">
+
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-condensed table-hover table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Equipamento</th>
+                                    <th>Patrimônio</th>
+                                    <th>Número</th>
+                                    <th>Chamado</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for item in itensMovimentacao %}
+                                    <tr>
+                                        <td>{{ item.equipamento.nome }}</td>
+                                        <td>{{ item.equipamento.patrimonio }}</td>
+                                        <td>{{ item.equipamento.numeroserie }}</td>
+                                        <td>{{ item.numeroChamado }}</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        <strong>Descrição do Destino</strong>
+                    </div>
+
+                    <div class="panel-body">
+
+                        <div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">
+
+                            <div class="panel panel-default">
+
+                                <div class="panel-heading">
+                                    <strong>Departamento</strong>
+                                </div>
+
+                                <div class="panel-body">
+                                    {{ movimentacao.usuarioDestino.departamento.nome }}
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">
+
+                            <div class="panel panel-default">
+
+                                <div class="panel-heading">
+                                    <strong>NOME</strong>
+                                </div>
+
+                                <div class="panel-body">
+                                    {{ movimentacao.usuarioDestino.nome }}
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">
+
+                            <div class="panel panel-default">
+
+                                <div class="panel-heading">
+                                    <strong>DRT</strong>
+                                </div>
+
+                                <div class="panel-body">
+                                    {{ movimentacao.usuarioDestino.drt }}
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+
+                <div class="panel panel-default">
+
+                    <div class="panel-body">
+
+                        <div class="col-lg-6 col-md-6 col-xs-6 col-sm-6">
+
+                            <div class="panel panel-default">
+
+                                <div class="panel-heading">
+                                    <strong>Recebedor (Assinar e Carimbar)</strong>
+                                </div>
+
+                                <div class="panel-body">
+                                    Registro
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-xs-6 col-sm-6">
+
+                            <div class="panel panel-default">
+
+                                <div class="panel-heading">
+                                    <strong>Entregador</strong>
+                                </div>
+
+                                <div class="panel-body">
+                                    Tecnologia da Informação
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    {% endblock %}
+
+{% block footer %}
+
+    <footer class="main-footer">
+        <small>RG.TI.06.002 - REGISTRO DE MOVIMENTAÇÃO DE SAÍDA DE EQUIPAMENTO DA TI</small>
+        <strong>- Rev.00-03/03/16</strong>
+    </footer>
+
+{% endblock %}

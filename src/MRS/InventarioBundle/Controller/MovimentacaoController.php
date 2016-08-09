@@ -26,7 +26,8 @@ class MovimentacaoController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $movimentacaos = $em->getRepository('MRSInventarioBundle:Movimentacao')->findAll();
+        $movimentacaos = $em->getRepository('MRSInventarioBundle:Movimentacao')
+            ->findBy(array(),array('id'=>'DESC'));
 
         return $this->render('movimentacao/index.html.twig', array(
             'movimentacaos' => $movimentacaos,

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Movimentacao
  *
  * @ORM\Table(name="movimentacao", indexes={@ORM\Index(name="fk_movimentacao_tipoMovimentacao1_idx", columns={"tipoMovimentacao_id"}), @ORM\Index(name="fk_movimentacao_motivoMovimentacao1_idx", columns={"motivoMovimentacao_id"}), @ORM\Index(name="fk_movimentacao_usuario1_idx", columns={"usuario_id_criador"}), @ORM\Index(name="fk_movimentacao_usuario2_idx", columns={"usuario_id_origem"}), @ORM\Index(name="fk_movimentacao_usuario3_idx", columns={"usuario_id_destino"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="MRS\InventarioBundle\Repository\MovimentacaoRepository")
  */
 class Movimentacao
 {

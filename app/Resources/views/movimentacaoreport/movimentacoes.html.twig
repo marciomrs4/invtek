@@ -4,8 +4,8 @@
 
         <section class="content-header">
             <h1>
-                Equipamento
-                <small>Relatórios por Equipamentos</small>
+                Movimentações
+                <small>Relatórios de Movimentações</small>
             </h1>
         </section>
 
@@ -66,6 +66,34 @@
                             <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
 
                                 <div class="form-group">
+                                    {{ form_row(form.tipomovimentacao) }}
+                                </div>
+
+                            </div>
+
+                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+
+                                <div class="form-group">
+                                    {{ form_row(form.motivomovimentacao) }}
+                                </div>
+
+                            </div>
+
+                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+
+                                <div class="form-group">
+                                    {{ form_row(form.status) }}
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+
+                                <div class="form-group">
                                     {{ form_row(form.dataCompraA) }}
                                 </div>
 
@@ -92,14 +120,6 @@
 
                                 <div class="form-group">
                                     {{ form_row(form.numeroserie) }}
-                                </div>
-
-                            </div>
-
-                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
-
-                                <div class="form-group">
-                                    {{ form_row(form.status) }}
                                 </div>
 
                             </div>
@@ -174,26 +194,26 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {% for equipamento in equipamentos %}
+                                {% for movimentacao in movimentacoes %}
 
                                     <tr>
                                         <td>
-                                            <a href="{{ path('cadastro_equipamento_show', {'id': equipamento.id}) }}"
+                                            <a href="{{ path('cadastro_motivomovimentacao_show', {'id': movimentacao.id }) }}"
                                                class="btn btn-primary btn-sm"
-                                               data-toggle="tooltip" data-placement="top" title="Ir para o Cadastro do item">
+                                               data-toggle="tooltip" data-placement="top" title="Ir para a movimentação">
                                                 <span class="glyphicon glyphicon-eye-open"></span>
                                             </a>
                                         </td>
-                                        <td>{{ equipamento.tipoEquipamento }}</td>
-                                        <td>{{ equipamento.fornecedor }}</td>
-                                        <td>{{ equipamento.marca }}</td>
-                                        <td>{{ equipamento.patrimonio }}</td>
-                                        <td>{{ equipamento.dataCompra|date('d-m-Y') }}</td>
-                                        <td>{{ equipamento.numeroSerie }}</td>
-                                        <td>{{ equipamento.status }}</td>
-                                        <td>{{ equipamento.centroMovimentacao }}</td>
-                                        <td>{{ equipamento.descricao }}</td>
-                                        <td>{{ equipamento.observacao }}</td>
+                                        <td>{{ movimentacao.tipoEquipamento }}</td>
+                                        <td>{{ movimentacao.fornecedor }}</td>
+                                        <td>{{ movimentacao.marca }}</td>
+                                        <td>{{ movimentacao.patrimonio }}</td>
+                                        <td>{{ movimentacao.dataCompra|date('d-m-Y') }}</td>
+                                        <td>{{ movimentacao.numeroSerie }}</td>
+                                        <td>{{ movimentacao.status }}</td>
+                                        <td>{{ movimentacao.centroMovimentacao }}</td>
+                                        <td>{{ movimentacao.descricao }}</td>
+                                        <td>{{ movimentacao.observacao }}</td>
                                     </tr>
 
                                 {% endfor %}

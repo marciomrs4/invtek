@@ -24,6 +24,14 @@ class Usuario
     /**
      * @var string
      *
+     * @ORM\Column(name="drt", type="string", length=255, nullable=true)
+     * @Assert\NotBlank(message="Este campo deve ser preenchido")
+     */
+    private $drt;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="observacao", type="text", nullable=true)
      */
     private $observacao;
@@ -65,7 +73,6 @@ class Usuario
      */
     private $user_id;
 
-
     /**
      * @var boolean
      *
@@ -73,9 +80,28 @@ class Usuario
      */
     private $status;
 
+
     public function __construct()
     {
         $this->status = true;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDrt()
+    {
+        return $this->drt;
+    }
+
+    /**
+     * @param string $drt
+     * @return Usuario
+     */
+    public function setDrt($drt)
+    {
+        $this->drt = $drt;
+        return $this;
     }
 
 

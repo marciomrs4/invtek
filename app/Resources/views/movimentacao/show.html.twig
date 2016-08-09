@@ -53,10 +53,16 @@
             <div class="col-md-2 col-sm-3 col-xs-3">
 
                 {% if movimentacao.status %}
-                    {# nao faz nada se for finalizado#}
+
+                    <a href="{{ path('report_doc_movimentacao', {'movimentacao': movimentacao.id }) }}" target="_blank"
+                       class="btn btn-primary btn-sm">
+                        <span class="glyphicon glyphicon-download"></span>
+                        Gerar Documento
+                    </a>
 
                 {% else %}
-                    <a href="{{ path('cadastro_itensmovimentacao_new', { 'movimentacao': movimentacao.id }) }}" class="btn btn-primary btn-sm">
+                    <a href="{{ path('cadastro_itensmovimentacao_new', { 'movimentacao': movimentacao.id }) }}"
+                       class="btn btn-primary btn-sm">
                         <span class="glyphicon glyphicon-plus"></span>
                         Adicionar Equipamento
                     </a>

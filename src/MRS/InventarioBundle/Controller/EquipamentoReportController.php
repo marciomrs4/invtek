@@ -2,7 +2,6 @@
 
 namespace MRS\InventarioBundle\Controller;
 
-use Symfony\Component\Form\Tests\Extension\Core\Type\SubmitTypeTest;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -125,19 +124,29 @@ class EquipamentoReportController extends Controller
 
     /**
      * @Route("/export/equipamentos",name="report_export_relatorio_equipamentos")
+     * @Method("GET")
      */
     public function relatorioEquipamentoExportToExcelAction(Request $request)
     {
 
-        $equipamentosForm = $request->request->get('report_equipamentos');
+        $dataForm['tipoequipamento'] = $request->query->get('tipoEquipamento');
+        $dataForm['fornecedor'] = $request->query->get('fornecedor');
+        $dataForm['marca'] = $request->query->get('marca');
+        $dataForm['patrimonio'] = $request->query->get('patrimonio');
+        $dataForm['dataCompraA'] = $request->query->get('dataCompraA');
+        $dataForm['dataCompraB'] = $request->query->get('dataCompraB');
+        $dataForm['numeroserie'] = $request->query->get('numeroserie');
+        $dataForm['status'] = $request->query->get('status');
+        $dataForm['centroMovimentacao'] = $request->query->get('centroMovimentacao');
 
         $equipamentos = $this->getDoctrine()
             ->getRepository('MRSInventarioBundle:Equipamento')
-            ->reportEquipamentos($equipamentosForm);
+            ->reportEquipamentos($dataForm);
 
         $response =  $this->render(':equipamentoreport:exportequipamentos.html.twig',array(
             'equipamentos' => $equipamentos
         ));
+
 
         $response->headers->set('Content-Type', 'text/csv');
 
