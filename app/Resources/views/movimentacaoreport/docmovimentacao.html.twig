@@ -1,5 +1,9 @@
 {% extends ':template:template.html.twig' %}
 
+{% block title %}
+    Movimentação: {{ movimentacao.id }}|{{ movimentacao.datahora|date('d-m-Y') }}
+{% endblock %}
+
     {% block contentheader %}
 
         <section class="content-header">

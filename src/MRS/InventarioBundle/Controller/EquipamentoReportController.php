@@ -24,10 +24,10 @@ class EquipamentoReportController extends Controller
      * @Route("/painel", name="report_painel_equipamento")
      * @Method("GET|POST")
      */
-    public function reportEquipamentoAction(Request $request)
+    public function painelEquipamentoAction(Request $request)
     {
 
-        $tipocomponente = $request->request->get('equipamento_report');
+        $tipocomponente = $request->request->get('painel_equipamento');
 
         $em = $this->getDoctrine()->getManager();
 

@@ -20,7 +20,11 @@ class PainelEquipamentoReportType extends AbstractType
             ->add('tipoequipamento',EntityType::class,array('label'=>'Tipo de Componente',
                 'mapped' => false,
                 'attr'=>array('class'=>'input-sm'),
-                'class' => 'MRS\InventarioBundle\Entity\Tipoequipamento'
+                'class' => 'MRS\InventarioBundle\Entity\Tipoequipamento',
+                'query_builder'=>function(EntityRepository $er){
+                    return $er->createQueryBuilder('TE')
+                        ->orderBy('TE.descricao');
+                }
                 ))
         ;
     }
@@ -33,5 +37,10 @@ class PainelEquipamentoReportType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'MRS\InventarioBundle\Entity\Tipoequipamento'
         ));
+    }
+
+    public function getBlockPrefix()
+    {
+        return 'painel_equipamento';
     }
 }

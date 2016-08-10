@@ -26,7 +26,8 @@ class EnderecoIpController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $enderecoIps = $em->getRepository('MRSInventarioBundle:EnderecoIp')->findAll();
+        $enderecoIps = $em->getRepository('MRSInventarioBundle:EnderecoIp')
+            ->findBy(array(),array('enderecoIp'=>'ASC'));
 
         $file = '';
         $posicao = '';
