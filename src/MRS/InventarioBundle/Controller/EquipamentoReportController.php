@@ -51,6 +51,36 @@ class EquipamentoReportController extends Controller
     /**
      * Lists all Equipamento entities.
      *
+     * @Route("/qrcode", name="report_qrcode_equipamento")
+     * @Method("GET|POST")
+     */
+    public function qrcodeEquipamentoAction(Request $request)
+    {
+
+        $tipocomponente = $request->request->get('painel_equipamento');
+
+        $em = $this->getDoctrine()->getManager();
+
+        $tipoEquipamento = $em->getRepository('MRSInventarioBundle:Tipoequipamento')
+            ->findBy(array('id'=>$tipocomponente['tipoequipamento']));
+
+        $form = $this->createForm(PainelEquipamentoReportType::class);
+
+        $form->handleRequest($request);
+
+        $equipamentos = $em->getRepository('MRSInventarioBundle:Equipamento')
+            ->findBy(array('tipoequipamento'=> $tipoEquipamento));
+
+        return $this->render('equipamentoqrcode/index.html.twig', array(
+            'equipamentos' => $equipamentos,
+            'form' => $form->createView()
+
+        ));
+    }
+
+    /**
+     * Lists all Equipamento entities.
+     *
      * @Route("/moreinformation/{equipamento}", name="report_equipamento_moreinformation")
      * @Method("GET|POST")
      */

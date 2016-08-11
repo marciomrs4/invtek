@@ -24,7 +24,7 @@ class EquipamentoQrCodeController extends Controller
     public function indexAction(Equipamento $equipamento)
     {
 
-        return $this->render(':equipamentoqrcode:new.html.twig', array(
+        return $this->render(':equipamentoqrcode:qrcodeshow.html.twig', array(
             'equipamento' => $equipamento,
         ));
     }

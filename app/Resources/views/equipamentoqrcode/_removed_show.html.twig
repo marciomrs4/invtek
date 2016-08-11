@@ -33,74 +33,7 @@
     {% block panelheading %}
 
         <div class="row">
-{#
-            <div class="col-md-2 col-sm-3 col-xs-3">
 
-                <a href="{{ path('cadastro_equipamento_index') }}" class="btn btn-primary btn-sm">
-                    <span class="fa fa-reply"></span>
-                    Voltar
-                </a>
-
-            </div>
-            <div class="col-md-2 col-sm-3 col-xs-3">
-
-                <a href="{{ path('cadastro_equipamento_edit', { 'id': equipamento.id }) }}" class="btn btn-primary btn-sm">
-                    <span class="glyphicon glyphicon-edit"></span>
-                    Editar
-                </a>
-
-            </div>
-            <div class="col-md-2 col-sm-3 col-xs-3">
-
-                <div class="dropdown">
-                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        <span class="glyphicon glyphicon-cog"></span>
-                        Opções
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li>
-                            <a href="{{ path('cadastro_equipamentotag_new', { 'equipamento': equipamento.id }) }}" >
-                                <span class="glyphicon glyphicon-tag"></span>
-                                Nova Tag
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ path('cadastro_equipamentoaddsoftware_new', { 'equipamento': equipamento.id }) }}">
-                                <span class="fa fa-windows"></span>
-                                Adicionar Software
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ path('cadastro_equipamentocomponente_new', { 'equipamento': equipamento.id }) }}">
-                                <span class="fa fa-plug"></span>
-                                Adicionar Componente
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ path('cadastro_equipamentoaddequipamento_new', { 'equipamento': equipamento.id }) }}">
-                                <span class="fa fa-desktop"></span>
-                                Associar Equipamento
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ path('cadastro_acompanhamento_new', { 'equipamento': equipamento.id }) }}">
-                                <span class="fa fa-calendar-plus-o"></span>
-                                Novo Acompanhamento
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ path('cadastro_anexoequipamento_new', { 'equipamento': equipamento.id }) }}">
-                                <span class="glyphicon glyphicon-paperclip"></span>
-                                Novo Anexo
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-
-#}
         </div>
     {% endblock %}
 
