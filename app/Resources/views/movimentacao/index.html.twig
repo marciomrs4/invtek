@@ -60,11 +60,11 @@
                         </td>
                         <td>{{ movimentacao.id }} | {{ movimentacao.datahora|date('d-m-Y') }}</a></td>
                         <td>{{ movimentacao.datahora|date('d-m-Y') }}</td>
-                        <td>{{ movimentacao.usuarioOrigem.departamento.nome }}</td>
-                        <td>{{ movimentacao.usuarioDestino.departamento.nome }}</td>
+                        <td>{{ movimentacao.usuarioOrigem.departamento }}</td>
+                        <td>{{ movimentacao.usuarioDestino.departamento }}</td>
                         <td>{{ movimentacao.tipomovimentacao.nome }}</td>
                         <td>{{ movimentacao.motivomovimentacao.descricao }}</td>
-                        <td>{{ movimentacao.usuarioCriador.nome }}</td>
+                        <td>{{ movimentacao.usuarioCriador }}</td>
                         <td>{% if movimentacao.status %}Finalizado{% else %}Aberto{% endif %}</td>
                     </tr>
                 {% endfor %}

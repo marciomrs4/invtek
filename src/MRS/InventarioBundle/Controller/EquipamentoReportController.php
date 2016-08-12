@@ -9,6 +9,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use MRS\InventarioBundle\Entity\Equipamento;
 use MRS\InventarioBundle\Form\Report\PainelEquipamentoReportType;
 use MRS\InventarioBundle\Form\Report\EquipamentoReportType;
+use MRS\InventarioBundle\Form\Report\ListInventarioReportType;
+use MRS\InventarioBundle\Form\Report\EquipamentoCompradoReportType;
 
 
 /**
@@ -122,6 +124,7 @@ class EquipamentoReportController extends Controller
 
     /**
      * @Route("/equipamentos",name="report_relatorio_equipamentos")
+     * @Method("GET|POST")
      */
     public function relatorioEquipamentoAction(Request $request)
     {
@@ -185,5 +188,121 @@ class EquipamentoReportController extends Controller
         return $response;
 
     }
+
+    /**
+     * @Route("/listinventario",name="report_list_inventario")
+     * @Method("GET|POST")
+     */
+    public function listInventarioAction(Request $request)
+    {
+
+        $form = $this->createForm(ListInventarioReportType::class);
+
+        if($request->isMethod('POST')) {
+            $form->handleRequest($request);
+        }
+
+        $equipamentosForm = $request->request->get('report_equipamentos');
+
+        $equipamentos = $this->getDoctrine()
+            ->getRepository('MRSInventarioBundle:Equipamento')
+            ->listInventario($equipamentosForm);
+
+        return $this->render(':equipamentoreport:listinventario.html.twig',array(
+            'equipamentos' => $equipamentos,
+            'form' => $form->createView()
+        ));
+
+    }
+
+    /**
+     * @Route("/export/listequipamento",name="report_export_list_equipamento")
+     * @Method("GET")
+     */
+    public function listInventarioExportToExcelAction(Request $request)
+    {
+
+        $dataForm['tipoequipamento'] = $request->query->get('tipoEquipamento');
+        $dataForm['status'] = $request->query->get('status');
+        $dataForm['centroMovimentacao'] = $request->query->get('centroMovimentacao');
+
+        $equipamentos = $this->getDoctrine()
+            ->getRepository('MRSInventarioBundle:Equipamento')
+            ->listInventario($dataForm);
+
+        $response =  $this->render(':equipamentoreport:exportlistinventario.html.twig',array(
+            'equipamentos' => $equipamentos
+        ));
+
+
+        $response->headers->set('Content-Type', 'text/csv');
+
+        $response->headers->set('Content-Disposition', 'attachment; filename=ListaInventario.csv');
+
+        return $response;
+
+    }
+
+
+    /**
+     * @Route("/comprados",name="report_comprados")
+     * @Method("GET|POST")
+     */
+    public function equipamentosCompradosAction(Request $request)
+    {
+
+        $form = $this->createForm(EquipamentoCompradoReportType::class);
+
+        $date = new \DateTime('now');
+
+        $form->get('dataCompraA')->setData($date->modify('-240 day'));
+
+        $form->get('dataCompraB')->setData($date->modify('+240 day'));
+
+        if($request->isMethod('POST')) {
+            $form->handleRequest($request);
+        }
+
+        $equipamentosForm = $request->request->get('report_equipamentos');
+
+        $equipamentos = $this->getDoctrine()
+            ->getRepository('MRSInventarioBundle:Equipamento')
+            ->equipamentosComprados($equipamentosForm);
+
+        return $this->render(':equipamentoreport:equipamentoscomprados.html.twig',array(
+            'equipamentos' => $equipamentos,
+            'form' => $form->createView()
+        ));
+
+    }
+
+    /**
+     * @Route("/export/equipamentocomprados",name="report_export_equipamentos_comprados")
+     * @Method("GET")
+     */
+    public function equipamentoCompradosExportToExcelAction(Request $request)
+    {
+
+        $dataForm['tipoequipamento'] = $request->query->get('tipoEquipamento');
+        $dataForm['dataCompraA'] = $request->query->get('dataCompraA');
+        $dataForm['dataCompraB'] = $request->query->get('dataCompraB');
+
+        $equipamentos = $this->getDoctrine()
+            ->getRepository('MRSInventarioBundle:Equipamento')
+            ->equipamentosComprados($dataForm);
+
+        $response =  $this->render(':equipamentoreport:exportequipamentoscomprados.html.twig',array(
+            'equipamentos' => $equipamentos
+        ));
+
+
+        $response->headers->set('Content-Type', 'text/csv');
+
+        $response->headers->set('Content-Disposition', 'attachment; filename=EquipamentosComprados.csv');
+
+        return $response;
+
+    }
+
 
 }

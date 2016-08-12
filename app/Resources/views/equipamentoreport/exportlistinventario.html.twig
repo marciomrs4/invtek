@@ -1,0 +1,4 @@
+Centro de Movimentação;Tipo de Equipamento;Patrimônio;Número de Série;Status
+{% for equipamento in equipamentos %}
+{{ equipamento.centroMovimentacao }};{{ equipamento.tipoEquipamento }};{{ equipamento.patrimonio }};{{ equipamento.numeroSerie }};{{ equipamento.status }}
+{% endfor %}

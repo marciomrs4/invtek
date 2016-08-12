@@ -5,15 +5,13 @@
         <section class="content-header">
             <h1>
                 Equipamento
-                <small>Relatórios por Equipamentos</small>
+                <small>Comprados</small>
             </h1>
         </section>
 
     {% endblock %}
 
     {% block content %}
-
-
 
         <div class="row">
 
@@ -27,6 +25,7 @@
 
                         <div class="row">
 
+
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
 
                                 <div class="form-group">
@@ -38,40 +37,12 @@
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
 
                                 <div class="form-group">
-                                    {{ form_row(form.fornecedor) }}
-                                </div>
-
-                            </div>
-
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-
-                                <div class="form-group">
-                                    {{ form_row(form.marca) }}
-                                </div>
-
-                            </div>
-
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-
-                                <div class="form-group">
-                                    {{ form_row(form.centroMovimentacao) }}
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-
-                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
-
-                                <div class="form-group">
                                     {{ form_row(form.dataCompraA) }}
                                 </div>
 
                             </div>
 
-                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+                            <div class="col-lg-3 col-md-2 col-sm-6 col-xs-6">
 
                                 <div class="form-group">
                                     {{ form_row(form.dataCompraB) }}
@@ -80,31 +51,7 @@
                             </div>
 
 
-                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
-
-                                <div class="form-group">
-                                    {{ form_row(form.patrimonio) }}
-                                </div>
-
-                            </div>
-
-                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
-
-                                <div class="form-group">
-                                    {{ form_row(form.numeroserie) }}
-                                </div>
-
-                            </div>
-
-                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
-
-                                <div class="form-group">
-                                    {{ form_row(form.status) }}
-                                </div>
-
-                            </div>
-
-                            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                            <div class="col-lg-3 col-md-2 col-sm-4 col-xs-4">
 
                                 <div class="row">
                                     <div class="col-md-6 col-sm-6 col-xs-6">
@@ -121,10 +68,12 @@
                                     <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="form-group">
 
-                                            <a class="btn btn-default btn-sm" id="export-excel">
+                                            <button class="btn btn-default btn-sm" id="export-excel"
+                                                    data-toggle="tooltip" data-placement="top" data-delay="5000"
+                                                    title="Para baixar um novo excel faça uma nova busca">
                                                 <span class="glyphicon glyphicon-export"></span>
                                                 Exportar
-                                            </a>
+                                            </button>
 
                                         </div>
                                     </div>
@@ -160,15 +109,12 @@
                                 <tr>
                                     <th>Ações</th>
                                     <th>Tipo de Equipamento</th>
-                                    <th>Fornecedor</th>
                                     <th>Marca</th>
+                                    <th>Fornecedor</th>
                                     <th>Patrimônio</th>
-                                    <th>Data da Compra</th>
                                     <th>Número de Série</th>
-                                    <th>Status</th>
-                                    <th>Centro de Movimentação</th>
-                                    <th>Descrição</th>
-                                    <th>Observação</th>
+                                    <th>Nome do Anexo</th>
+                                    <th>Data da Compra</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -183,15 +129,12 @@
                                             </a>
                                         </td>
                                         <td>{{ equipamento.tipoEquipamento }}</td>
-                                        <td>{{ equipamento.fornecedor }}</td>
                                         <td>{{ equipamento.marca }}</td>
+                                        <td>{{ equipamento.fornecedor }}</td>
                                         <td>{{ equipamento.patrimonio }}</td>
-                                        <td>{{ equipamento.dataCompra|date('d-m-Y') }}</td>
                                         <td>{{ equipamento.numeroSerie }}</td>
-                                        <td>{{ equipamento.status }}</td>
-                                        <td>{{ equipamento.centroMovimentacao }}</td>
-                                        <td>{{ equipamento.descricao }}</td>
-                                        <td>{{ equipamento.observacao }}</td>
+                                        <td>{{ equipamento.nome }}</td>
+                                        <td>{{ equipamento.dataCompra|date('d-m-Y') }}</td>
                                     </tr>
 
                                 {% endfor %}
@@ -204,7 +147,8 @@
             </div>
         </div>
 
-        <a href="{{ path('report_export_relatorio_equipamentos') }}" id="link">
+
+        <a href="{{ path('report_export_equipamentos_comprados') }}" id="link">
 
     {% endblock %}
 
@@ -227,15 +171,9 @@
                 $.fileDownload(url,{
                     httpMethod: "GET",
                     data:{
-                        status : $("#report_equipamentos_status").val(),
-                        numeroserie : $("#report_equipamentos_numeroserie").val(),
-                        patrimonio : $("#report_equipamentos_patrimonio").val(),
-                        centroMovimentacao : $("#report_equipamentos_centroMovimentacao").val(),
-                        marca : $("#report_equipamentos_marca").val(),
-                        fornecedor : $("#report_equipamentos_fornecedor").val(),
-                        tipoEquipamento : $('#report_equipamentos_tipoequipamento').val(),
                         dataCompraA : $('#report_equipamentos_dataCompraA').val(),
-                        dataCompraB : $('#report_equipamentos_dataCompraB').val()
+                        dataCompraB : $('#report_equipamentos_dataCompraB').val(),
+                        tipoEquipamento : $('#report_equipamentos_tipoequipamento').val()
                     }
                 });
 

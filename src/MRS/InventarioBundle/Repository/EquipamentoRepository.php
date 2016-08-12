@@ -76,4 +76,65 @@ class EquipamentoRepository extends EntityRepository
     }
 
 
+    public function listInventario($dataForm = array())
+    {
+        $query = "SELECT EQU.id AS 'id',  CEN.nome AS 'centroMovimentacao', TIP.descricao AS 'tipoEquipamento',
+                           EQU.patrimonio AS 'patrimonio', EQU.numeroSerie AS 'numeroSerie',
+                           IF (EQU.status = 1, 'Ativo', 'Inativo')  AS 'status'
+                    FROM equipamento AS EQU
+                     INNER JOIN tipoEquipamento AS TIP
+                     ON EQU.tipoEquipamento_id = TIP.id
+                     INNER JOIN centro_movimentacao AS CEN
+                     ON EQU.centro_movimentacao_id = CEN.id
+                    WHERE EQU.centro_movimentacao_id LIKE ?
+                        AND EQU.tipoEquipamento_id LIKE ?
+                        AND EQU.status LIKE ?
+                    ORDER BY CEN.nome, TIP.descricao, EQU.patrimonio, EQU.numeroSerie";
+
+        $stmt = $this->prepareStmt($query);
+
+        $stmt->execute(array(
+            "{$this->emptyValue($dataForm['centroMovimentacao'])}",
+            "{$this->emptyValue($dataForm['tipoequipamento'])}",
+            "{$this->emptyValue($dataForm['status'])}",
+        ));
+
+        return $stmt->fetchAll();
+
+    }
+
+
+    public function equipamentosComprados($dataForm = array())
+    {
+
+        $query = "SELECT  EQU.id, TIP.descricao AS 'tipoEquipamento' ,
+                     MAR.nome AS 'marca', FORN.nome AS 'fornecedor', EQU.patrimonio AS 'patrimonio',
+                     EQU.numeroSerie AS 'numeroSerie', ANE.nome AS 'nome', EQU.data_compra AS 'dataCompra'
+                    FROM equipamento AS EQU
+                     INNER JOIN tipoEquipamento as TIP
+                     ON EQU.tipoEquipamento_id = TIP.id
+                     INNER JOIN marca AS MAR
+                     ON EQU.marca_id = MAR.id
+                     INNER JOIN fornecedor AS FORN
+                     ON EQU.fornecedor_id = FORN.id
+                     LEFT JOIN anexo AS ANE
+                     ON EQU.id = ANE.equipamento_id
+                    WHERE EQU.tipoEquipamento_id LIKE ?
+                     AND EQU.data_compra >= ?
+                     AND EQU.data_compra <= ?
+                    GROUP BY TIP.descricao, MAR.nome, FORN.nome, EQU.patrimonio
+                    ORDER BY 5 DESC";
+        $stmt = $this->prepareStmt($query);
+
+        $stmt->execute(array(
+            "{$this->emptyValue($dataForm['tipoequipamento'])}",
+            "{$dataForm['dataCompraA']}",
+            "{$dataForm['dataCompraB']}"
+        ));
+
+        return $stmt->fetchAll();
+
+    }
+
+
 }

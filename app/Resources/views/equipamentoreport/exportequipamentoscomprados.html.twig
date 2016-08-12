@@ -1,0 +1,4 @@
+Tipo de Equipamento;Marca;Fornecedor;Patrimônio;Número de Série;Nome do Anexo;Data da Compra
+{% for equipamento in equipamentos %}
+{{ equipamento.tipoEquipamento }};{{ equipamento.marca }};{{ equipamento.fornecedor }};{{ equipamento.patrimonio }};{{ equipamento.numeroSerie }};{{ equipamento.nome }};{{ equipamento.dataCompra|date('d-m-Y') }}
+{% endfor %}
