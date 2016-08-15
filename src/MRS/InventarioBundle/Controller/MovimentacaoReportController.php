@@ -45,23 +45,23 @@ class MovimentacaoReportController extends Controller
      * @Route("/",name="report_movimentacoes")
      * @Method("GET|POST")
      */
-    public function relatorioEquipamentoAction(Request $request)
+    public function relatorioMovimentacaoAction(Request $request)
     {
 
         $form = $this->createForm(MovimentacoesReportType::class);
 
         $date = new \DateTime('now');
 
-        $form->get('dataCompraA')->setData($date->modify('-240 day'));
+        $form->get('dataMovimentacaoA')->setData($date->modify('-240 day'));
 
-        $form->get('dataCompraB')->setData($date->modify('+240 day'));
+        $form->get('dataMovimentacaoB')->setData($date->modify('+240 day'));
 
 
         if($request->isMethod('POST')) {
             $form->handleRequest($request);
         }
 
-        $movimentacaoForm = $request->request->get('report_equipamentos');
+        $movimentacaoForm = $request->request->get('report_movimentacoes');
 
         $movimentacoes = $this->getDoctrine()
             ->getRepository('MRSInventarioBundle:Movimentacao')
@@ -78,31 +78,24 @@ class MovimentacaoReportController extends Controller
      * @Route("/export/movimentacoes",name="report_export_relatorio_movimentacoes")
      * @Method("GET")
      */
-    public function relatorioEquipamentoExportToExcelAction(Request $request)
+    public function relatorioMovimentacaoExportToExcelAction(Request $request)
     {
+        $dataForm['dataMovimentacaoA'] = $request->query->get('dataCompraA');
+        $dataForm['dataMovimentacaoB'] = $request->query->get('dataCompraB');
 
-        $dataForm['tipoequipamento'] = $request->query->get('tipoEquipamento');
-        $dataForm['fornecedor'] = $request->query->get('fornecedor');
-        $dataForm['marca'] = $request->query->get('marca');
-        $dataForm['patrimonio'] = $request->query->get('patrimonio');
-        $dataForm['dataCompraA'] = $request->query->get('dataCompraA');
-        $dataForm['dataCompraB'] = $request->query->get('dataCompraB');
-        $dataForm['numeroserie'] = $request->query->get('numeroserie');
-        $dataForm['status'] = $request->query->get('status');
-        $dataForm['centroMovimentacao'] = $request->query->get('centroMovimentacao');
 
-        $equipamentos = $this->getDoctrine()
-            ->getRepository('MRSInventarioBundle:Equipamento')
-            ->reportEquipamentos($dataForm);
+        $movimentacoes = $this->getDoctrine()
+            ->getRepository('MRSInventarioBundle:Movimentacao')
+            ->reportMovimentacao($dataForm);
 
-        $response =  $this->render(':equipamentoreport:exportequipamentos.html.twig',array(
-            'equipamentos' => $equipamentos
+        $response =  $this->render('movimentacaoreport/exportmovimentacoes.html.twig',array(
+            'movimentacoes' => $movimentacoes
         ));
 
 
         $response->headers->set('Content-Type', 'text/csv');
 
-        $response->headers->set('Content-Disposition', 'attachment; filename=Equipamentos.csv');
+        $response->headers->set('Content-Disposition', 'attachment; filename=Movimentacoes.csv');
 
         return $response;
 

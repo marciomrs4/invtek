@@ -1,4 +1,0 @@
-Tipo de Equipamento;Fornecedor;Marca;Patrimônio;Data da Compra;Número de Série;Status;Centro de Movimentação;Descrição;Observação
-{% for equipamento in equipamentos %}
-{{ equipamento.tipoEquipamento }};{{ equipamento.fornecedor }};{{ equipamento.marca }};{{ equipamento.patrimonio }};{{ equipamento.dataCompra|date('d-m-Y') }};{{ equipamento.numeroSerie }};{{ equipamento.status }};{{ equipamento.centroMovimentacao }};{{ equipamento.descricao }};{{ equipamento.observacao }}
-{% endfor %}

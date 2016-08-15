@@ -1,0 +1,76 @@
+
+<div class="panel panel-primary">
+
+    <div class="panel-heading">
+        <strong>Movimentações</strong>
+    </div>
+
+    <div class="panel-body">
+
+        <div class="table-responsive">
+
+            {#{{ dump(movimentacoes) }}#}
+
+            <table class="table table-bordered table-condensed table-datatable">
+                <thead>
+                <tr>
+                    <th>Ação</th>
+                    <th>Movimentação</th>
+                    <th>Data</th>
+                    <th>Origem</th>
+                    <th>Destino</th>
+                    <th>Tipo</th>
+                    <th>Motivo</th>
+                    <th>Criador</th>
+                    <th>Chamado</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for movimentacao in movimentacoes %}
+
+                    <tr>
+                        <td>
+                            <a href="{{ path('movimentacao_show', {'id': movimentacao.movimentacao.id }) }}"
+                               class="btn btn-primary btn-xs" data-toggle="tooltip" title="Ir para Movimentação">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                            </a>
+                        </td>
+                        <td>{{ movimentacao.movimentacao.id }}|{{ movimentacao.movimentacao.datahora|date('d-m-Y') }}</td>
+                        <td>{{ movimentacao.movimentacao.datahora|date('d-m-Y H:s:i') }}</td>
+                        <td>{{ movimentacao.movimentacao.usuarioOrigem.departamento.nome }}</td>
+                        <td>{{ movimentacao.movimentacao.usuarioDestino.departamento.nome }}</td>
+                        <td>{{ movimentacao.movimentacao.tipomovimentacao.nome }}</td>
+                        <td>{{ movimentacao.movimentacao.motivomovimentacao.descricao }}</td>
+                        <td>{{ movimentacao.movimentacao.usuarioCriador.nome }}</td>
+                        <td>{{ movimentacao.numeroChamado }}</td>
+                        <td>{% if movimentacao.movimentacao.status %}Finalizado{% else %}Aberto{% endif %}</td>
+                    </tr>
+
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+    <div class="panel-footer">
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <button type="button" class="btn btn-primary btn-xs pull-right" data-dismiss="modal" aria-label="Close">
+                    <span class="glyphicon glyphicon-remove"></span>
+                    Fechar
+                </button>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+

@@ -1,0 +1,4 @@
+Equipamento;Patrimônio;Número de Série;Quantidade;Tipo de Movimentações
+{% for movimentacao in movimentacoes %}
+{{ movimentacao.equipamentoNome }};{{ movimentacao.patrimonio }};{{ movimentacao.numeroSerie }};{{ movimentacao.quantidadeMovimentacoes }};{{ movimentacao.tipoMovimentacao }}
+{% endfor %}

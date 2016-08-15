@@ -30,7 +30,7 @@
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
 
                                 <div class="form-group">
-                                    {{ form_row(form.tipoequipamento) }}
+                                    {{ form_row(form.dataMovimentacaoA) }}
                                 </div>
 
                             </div>
@@ -38,91 +38,11 @@
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
 
                                 <div class="form-group">
-                                    {{ form_row(form.fornecedor) }}
+                                    {{ form_row(form.dataMovimentacaoB) }}
                                 </div>
 
                             </div>
 
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-
-                                <div class="form-group">
-                                    {{ form_row(form.marca) }}
-                                </div>
-
-                            </div>
-
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-
-                                <div class="form-group">
-                                    {{ form_row(form.centroMovimentacao) }}
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-
-                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
-
-                                <div class="form-group">
-                                    {{ form_row(form.tipomovimentacao) }}
-                                </div>
-
-                            </div>
-
-                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
-
-                                <div class="form-group">
-                                    {{ form_row(form.motivomovimentacao) }}
-                                </div>
-
-                            </div>
-
-                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
-
-                                <div class="form-group">
-                                    {{ form_row(form.status) }}
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-
-                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
-
-                                <div class="form-group">
-                                    {{ form_row(form.dataCompraA) }}
-                                </div>
-
-                            </div>
-
-                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
-
-                                <div class="form-group">
-                                    {{ form_row(form.dataCompraB) }}
-                                </div>
-
-                            </div>
-
-
-                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
-
-                                <div class="form-group">
-                                    {{ form_row(form.patrimonio) }}
-                                </div>
-
-                            </div>
-
-                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
-
-                                <div class="form-group">
-                                    {{ form_row(form.numeroserie) }}
-                                </div>
-
-                            </div>
 
                             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
 
@@ -181,16 +101,11 @@
                                 <thead>
                                 <tr>
                                     <th>Ações</th>
-                                    <th>Tipo de Equipamento</th>
-                                    <th>Fornecedor</th>
-                                    <th>Marca</th>
+                                    <th>Equipamento</th>
                                     <th>Patrimônio</th>
-                                    <th>Data da Compra</th>
                                     <th>Número de Série</th>
-                                    <th>Status</th>
-                                    <th>Centro de Movimentação</th>
-                                    <th>Descrição</th>
-                                    <th>Observação</th>
+                                    <th>Quantidade</th>
+                                    <th>Tipo de Movimentações</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -198,22 +113,17 @@
 
                                     <tr>
                                         <td>
-                                            <a href="{{ path('cadastro_motivomovimentacao_show', {'id': movimentacao.id }) }}"
+                                            <a href="{{ path('cadastro_equipamento_show', {'id': movimentacao.id }) }}"
                                                class="btn btn-primary btn-sm"
-                                               data-toggle="tooltip" data-placement="top" title="Ir para a movimentação">
+                                               data-toggle="tooltip" data-placement="top" title="Ir para o equipamento">
                                                 <span class="glyphicon glyphicon-eye-open"></span>
                                             </a>
                                         </td>
-                                        <td>{{ movimentacao.tipoEquipamento }}</td>
-                                        <td>{{ movimentacao.fornecedor }}</td>
-                                        <td>{{ movimentacao.marca }}</td>
+                                        <td>{{ movimentacao.equipamentoNome }}</td>
                                         <td>{{ movimentacao.patrimonio }}</td>
-                                        <td>{{ movimentacao.dataCompra|date('d-m-Y') }}</td>
                                         <td>{{ movimentacao.numeroSerie }}</td>
-                                        <td>{{ movimentacao.status }}</td>
-                                        <td>{{ movimentacao.centroMovimentacao }}</td>
-                                        <td>{{ movimentacao.descricao }}</td>
-                                        <td>{{ movimentacao.observacao }}</td>
+                                        <td>{{ movimentacao.quantidadeMovimentacoes }}</td>
+                                        <td>{{ movimentacao.tipoMovimentacao }}</td>
                                     </tr>
 
                                 {% endfor %}
@@ -226,7 +136,7 @@
             </div>
         </div>
 
-        <a href="{{ path('report_export_relatorio_equipamentos') }}" id="link">
+        <a href="{{ path('report_export_relatorio_movimentacoes') }}" id="link">
 
     {% endblock %}
 
@@ -249,15 +159,8 @@
                 $.fileDownload(url,{
                     httpMethod: "GET",
                     data:{
-                        status : $("#report_equipamentos_status").val(),
-                        numeroserie : $("#report_equipamentos_numeroserie").val(),
-                        patrimonio : $("#report_equipamentos_patrimonio").val(),
-                        centroMovimentacao : $("#report_equipamentos_centroMovimentacao").val(),
-                        marca : $("#report_equipamentos_marca").val(),
-                        fornecedor : $("#report_equipamentos_fornecedor").val(),
-                        tipoEquipamento : $('#report_equipamentos_tipoequipamento').val(),
-                        dataCompraA : $('#report_equipamentos_dataCompraA').val(),
-                        dataCompraB : $('#report_equipamentos_dataCompraB').val()
+                        dataCompraA : $('#report_movimentacoes_dataMovimentacaoA').val(),
+                        dataCompraB : $('#report_movimentacoes_dataMovimentacaoB').val()
                     }
                 });
 

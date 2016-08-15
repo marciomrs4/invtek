@@ -113,7 +113,7 @@
     {% block panelbody %}
 
         <div class="table table-responsive">
-            <table class="table table-bordered table-condensed">
+            <table class="table table-bordered table-condensed table-datatable">
                 <tbody>
                 <tr>
                     <th>Nome</th>
@@ -172,11 +172,11 @@
 
 {% block panelfooter %}
 
-    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal fade bs-maisinformacoes" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel1">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
 
-                <div class="load">
+                <div class="maisinformacoes">
 
                 </div>
 
@@ -184,11 +184,34 @@
         </div>
     </div>
 
-    <a href="{{ path('report_equipamento_moreinformation', { 'equipamento': equipamento.id }) }}"
-       class="link btn btn-primary btn-sm" data-toggle="modal" data-target=".bs-example-modal-lg">
-        <span class="glyphicon glyphicon-exclamation-sign"></span>
-        Mais Informações
-    </a>
+    <div class="modal fade bs-movimentacoes" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel2">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="movimentacoes">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3 col-sm-4 col-xs-4">
+            <a href="{{ path('report_equipamento_moreinformation', { 'equipamento': equipamento.id }) }}"
+               class="maisinformacao btn btn-primary btn-sm" data-toggle="modal" data-target=".bs-maisinformacoes">
+                <span class="glyphicon glyphicon-exclamation-sign"></span>
+                Mais Informações
+            </a>
+        </div>
+        <div class="col-md-3 col-sm-4 col-xs-4">
+            <a href="{{ path('report_movimentacoes_equipamento', { 'equipamento': equipamento.id }) }}"
+               class="movimentacao btn btn-primary btn-sm" data-toggle="modal" data-target=".bs-movimentacoes">
+                <span class="fa fa-exchange"></span>
+                Movimentações
+            </a>
+        </div>
+    </div>
 
 {% endblock %}
 
@@ -196,20 +219,41 @@
 
     {{ parent() }}
 
+    <script src="{{ asset('bundles/mrsinventario/js/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('bundles/mrsinventario/js/dataTables.bootstrap.js') }}"></script>
+    <script src="{{ asset('bundles/mrsinventario/js/mrs-dataTable.js') }}"></script>
+
     <script>
 
-        $(document).ready(function(){
+        $(document).ready(function() {
 
-            var $link = $(".link");
-            var url = $($link).attr('href');
-            var load = $(".load");
 
-            $($link).click(function(e){
+            var maisinformacao = $(".maisinformacao");
+
+            var urlMaisInformacao = $(maisinformacao).attr('href');
+
+            $(".maisinformacao").click(function (e) {
+
 
                 e.preventDefault();
 
-                $.get(url,function(data){
-                    // $(load).html(data);
+                $.get(urlMaisInformacao, function (data) {
+                    $(".maisinformacoes").html(data);
+                });
+
+            });
+
+
+            var movimentacao = $(".movimentacao");
+
+            var urlMovimentacao = $(".movimentacao").attr('href');
+
+            $(movimentacao).click(function(e){
+
+                e.preventDefault();
+
+                $.get(urlMovimentacao,function(data){
+                    $(".movimentacoes").html(data);
                 });
 
             });

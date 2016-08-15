@@ -123,6 +123,24 @@ class EquipamentoReportController extends Controller
     }
 
     /**
+     * @Route("/movimentacoes/{equipamento}", name="report_movimentacoes_equipamento")
+     * @Method("GET")
+     */
+    public function movimentacoesEquipamentoAction(Equipamento $equipamento)
+    {
+        $movimentacoes = $this->getDoctrine()
+            ->getRepository('MRSInventarioBundle:ItensMovimentacao')
+            ->findBy(array('equipamento'=>$equipamento),
+                     array('id'=>'DESC'));
+
+        return $this->render('equipamentoreport/movimentacoes.html.twig', array(
+            'movimentacoes' => $movimentacoes
+        ));
+
+    }
+
+
+    /**
      * @Route("/equipamentos",name="report_relatorio_equipamentos")
      * @Method("GET|POST")
      */

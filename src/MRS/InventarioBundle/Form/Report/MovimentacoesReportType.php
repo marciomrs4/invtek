@@ -21,47 +21,12 @@ class MovimentacoesReportType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('tipoequipamento',EntityType::class,array('label'=>'Tipo de Equipamento',
-                'attr'=>array('class'=>'input-sm'),
-                'class' => 'MRS\InventarioBundle\Entity\Tipoequipamento',
-                'placeholder'=>'Todos'))
-            ->add('fornecedor',EntityType::class,array('label'=>'Fornecedor',
-                'attr'=>array('class'=>'input-sm'),
-                'class'=>'MRS\InventarioBundle\Entity\Fornecedor',
-                'placeholder'=>'Todos'))
-            ->add('marca',EntityType::class,array('label'=>'Marca',
-                'attr'=>array('class'=>'input-sm'),
-                'class'=>'MRS\InventarioBundle\Entity\Marca',
-                'placeholder'=>'Todos'))
-            ->add('patrimonio',TextType::class,array('label'=>'Patrimônio',
-                'attr'=>array('class'=>'input-sm')))
-            ->add('dataCompraA',DateType::class,array('label'=>'Data da Compra: Inicio',
+            ->add('dataMovimentacaoA',DateType::class,array('label'=>'Data da Movimentação: Inicio',
                 'mapped'=>false,
                 'widget'=>'single_text'))
-            ->add('dataCompraB',DateType::class,array('label'=>'Data da Compra: Fim',
+            ->add('dataMovimentacaoB',DateType::class,array('label'=>'Data da Movimentação: Fim',
                 'mapped'=>false,
                 'widget'=>'single_text'))
-            ->add('numeroserie',TextType::class,array('label'=>'Número de Série',
-                'attr'=>array('class'=>'input-sm')))
-            ->add('status',ChoiceType::class,array('label'=>'Status',
-                'choices'=>array(''=>'Todos','1'=>'Ativo','0'=>'Inativo'),
-                'attr'=>array('class'=>'input-sm')))
-            ->add('centroMovimentacao',EntityType::class,array('label'=>'Centro de Movimentação',
-                'attr'=>array('class'=>'input-sm'),
-                'class'=>'MRS\InventarioBundle\Entity\CentroMovimentacao',
-                'placeholder'=>'Todos'))
-            ->add('centroMovimentacao',EntityType::class,array('label'=>'Centro de Movimentação',
-                'attr'=>array('class'=>'input-sm'),
-                'class'=>'MRS\InventarioBundle\Entity\CentroMovimentacao',
-                'placeholder'=>'Todos'))
-            ->add('tipomovimentacao',EntityType::class,array('label'=>'Tipo movimentacao',
-                'mapped'=>false,
-                'class' => 'MRS\InventarioBundle\Entity\Tipomovimentacao',
-                'placeholder'=>'Todos'))
-            ->add('motivomovimentacao',EntityType::class,array('label'=>'Motivo movimentacao',
-                'mapped'=>false,
-                'class' => 'MRS\InventarioBundle\Entity\Motivomovimentacao',
-                'placeholder'=>'Todos'))
         ;
     }
 
