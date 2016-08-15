@@ -2,6 +2,8 @@
 
 namespace MRS\InventarioBundle\Form;
 
+use Doctrine\ORM\EntityRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -15,16 +17,22 @@ class SoftwareType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('descricao',null,array('label'=>'descricao',
+            ->add('descricao',null,array('label'=>'Descrição',
                                            'attr'=>array('class'=>'input-sm')))
-            ->add('numerolicensa',null,array('label'=>'numerolicensa',
+            ->add('numerolicensa',null,array('label'=>'Número liçensa',
                                            'attr'=>array('class'=>'input-sm')))
-            ->add('versao',null,array('label'=>'versao',
+            ->add('versao',null,array('label'=>'Versão',
                                            'attr'=>array('class'=>'input-sm')))
-            ->add('serial',null,array('label'=>'serial',
+            ->add('serial',null,array('label'=>'Serial',
                                            'attr'=>array('class'=>'input-sm')))
-            ->add('tiposoftware',null,array('label'=>'tiposoftware',
-                                           'attr'=>array('class'=>'input-sm')))
+            ->add('tiposoftware',EntityType::class,array('label'=>'Tipo de Software',
+                                           'attr'=>array('class'=>'input-sm'),
+                'class' => 'MRS\InventarioBundle\Entity\Tiposoftware',
+                'query_builder' => function(EntityRepository $er){
+                    return $er->createQueryBuilder('t')
+                        ->orderBy('t.descricao');
+                },
+                'placeholder'=>'Selecione'))
         ;
     }
     

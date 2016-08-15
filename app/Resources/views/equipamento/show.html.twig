@@ -120,7 +120,23 @@
                     <td>{{ equipamento.nome }}</td>
                 </tr>
                 <tr>
-                    <th>Validade</th>
+                    <th>Centro de Movimentação</th>
+                    <td>{{ equipamento.centroMovimentacao.nome }}</td>
+                </tr>
+                <tr>
+                    <th>Fornecedor</th>
+                    <td>{{ equipamento.fornecedor.nome }}</td>
+                </tr>
+                <tr>
+                    <th>Marca</th>
+                    <td>{{ equipamento.marca.nome }}</td>
+                </tr>
+                <tr>
+                    <th>Tipo de Equipamento</th>
+                    <td>{{ equipamento.tipoequipamento.descricao }}</td>
+                </tr>
+                <tr>
+                    <th>Vigência de Garantia</th>
                     <td>{% if equipamento.validade %}{{ equipamento.validade|date('d-m-Y') }}{% endif %}</td>
                 </tr>
                 <tr>
@@ -128,23 +144,23 @@
                     <td>{% if equipamento.dataCompra %}{{ equipamento.dataCompra|date('d-m-Y') }}{% endif %}</td>
                 </tr>
                 <tr>
-                    <th>Numeroserie</th>
+                    <th>Número de série</th>
                     <td>{{ equipamento.numeroserie }}</td>
                 </tr>
                 <tr>
                     <th>Status</th>
-                    <td>{% if equipamento.status %}Yes{% else %}No{% endif %}</td>
+                    <td>{% if equipamento.status %}Ativo{% else %}Inativo{% endif %}</td>
                 </tr>
                 <tr>
-                    <th>Patrimonio</th>
+                    <th>Patrimônio</th>
                     <td>{{ equipamento.patrimonio }}</td>
                 </tr>
                 <tr>
-                    <th>Descricao</th>
+                    <th>Descrição</th>
                     <td>{{ equipamento.descricao }}</td>
                 </tr>
                 <tr>
-                    <th>Observacao</th>
+                    <th>Observação</th>
                     <td>{{ equipamento.observacao }}</td>
                 </tr>
                 </tbody>

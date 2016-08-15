@@ -3,6 +3,7 @@
 namespace MRS\InventarioBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Movimentacao
@@ -35,6 +36,7 @@ class Movimentacao
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="usuario_id_destino", referencedColumnName="id")
      * })
+     * @Assert\NotBlank(message="Deve haver um usuário Destino")
      */
     private $usuarioDestino;
 
@@ -45,6 +47,7 @@ class Movimentacao
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="usuario_id_origem", referencedColumnName="id")
      * })
+     * @Assert\NotBlank(message="Deve haver um usuário Origem")
      */
     private $usuarioOrigem;
 
@@ -55,6 +58,7 @@ class Movimentacao
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="usuario_id_criador", referencedColumnName="id")
      * })
+     * @Assert\NotBlank(message="Deve haver um usuário Criador")
      */
     private $usuarioCriador;
 
@@ -65,6 +69,7 @@ class Movimentacao
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="motivoMovimentacao_id", referencedColumnName="id")
      * })
+     * @Assert\NotBlank(message="Deve haver um motivo de movimentação")
      */
     private $motivomovimentacao;
 
@@ -75,6 +80,7 @@ class Movimentacao
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="tipoMovimentacao_id", referencedColumnName="id")
      * })
+     * @Assert\NotBlank(message="Deve haver um tipo de movimentação")
      */
     private $tipomovimentacao;
 

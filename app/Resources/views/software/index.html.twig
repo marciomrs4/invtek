@@ -19,7 +19,8 @@
         <a href="{{ path('cadastro_software_new') }}" class="btn btn-primary btn-sm">
             <span class="glyphicon glyphicon-plus"></span>
             Novo
-        </a>    {% endblock %}
+        </a>
+    {% endblock %}
 
     {% block panelbody %}
         <div class="table-responsive">
@@ -31,6 +32,7 @@
                     <th>Numerolicensa</th>
                     <th>Versao</th>
                     <th>Serial</th>
+                    <th>Tipo de Software</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -46,10 +48,11 @@
                                 Editar
                             </a>
                         </td>
-                        <td><a href="{{ path('cadastro_software_show', { 'id': software.id }) }}">{{ software.descricao }}</a></td>
+                        <td>{{ software.descricao }}</td>
                         <td>{{ software.numerolicensa }}</td>
                         <td>{{ software.versao }}</td>
                         <td>{{ software.serial }}</td>
+                        <td>{{ software.tiposoftware.descricao }}</td>
                     </tr>
                 {% endfor %}
                 </tbody>

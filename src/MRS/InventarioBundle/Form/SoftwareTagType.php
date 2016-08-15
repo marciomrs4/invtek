@@ -15,12 +15,10 @@ class SoftwareTagType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('descricao',null,array('label'=>'descricao',
+            ->add('descricao',null,array('label'=>'Descrição',
                                            'attr'=>array('class'=>'input-sm')))
-            ->add('nome',null,array('label'=>'nome',
+            ->add('nome',null,array('label'=>'Nome',
                                            'attr'=>array('class'=>'input-sm')))
-//            ->add('software',null,array('label'=>'software',
-//                                           'attr'=>array('class'=>'input-sm')))
         ;
     }
     

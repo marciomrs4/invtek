@@ -1,0 +1,310 @@
+
+<div class="panel panel-primary">
+
+    <div class="panel-body">
+
+        <ul class="timeline">
+
+            <!-- timeline time label -->
+            <li class="time-label">
+                              <span class="bg-gray">
+                                Mais Informações
+                              </span>
+            </li>
+            <!-- /.timeline-label -->
+
+            <!-- timeline item -->
+            <li>
+
+                <i class="fa fa-television bg-orange"></i>
+
+                <div class="timeline-item">
+
+
+                    <div class="box box-default collapsed-box">
+
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Equipamentos</h3>
+
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                                </button>
+                            </div>
+                            <!-- /.box-tools -->
+                        </div>
+
+                        <!-- /.box-header -->
+                        <div class="box-body">
+
+
+                            <table class="table table-bordered table-condensed">
+                                {% for equipamentos in manyequipamentos %}
+                                    <tr>
+                                        <td>
+                                            <a href="{{ path('cadastro_equipamento_show', {'id': equipamentos.equipamentoFilho.id }) }}">
+                                                                <span class="label label-default">
+                                                                    Mostrar
+                                                                </span>
+                                            </a>
+                                        </td>
+                                        <th>
+                                            {{ equipamentos.equipamentoFilho.tipoequipamento.descricao }}
+                                        </th>
+                                        <td>
+                                            {{ equipamentos.equipamentoFilho.descricao }}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+
+                            <table class="table table-bordered table-condensed">
+                                {% for filho in equipamentosFilho %}
+                                    <tr>
+                                        <td>
+                                            <a href="{{ path('cadastro_equipamento_show', {'id': filho.equipamentoPai.id }) }}">
+                                                                <span class="label label-default">
+                                                                    Mostrar
+                                                                </span>
+                                            </a>
+                                        </td>
+                                        <th>
+                                            {{ filho.equipamentoPai.tipoequipamento.descricao }}
+                                        </th>
+                                        <td>
+                                            {{ filho.equipamentoPai.descricao }}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+
+
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+
+
+                </div>
+            </li>
+            <!-- END timeline item -->
+
+            <!-- timeline item -->
+            <li>
+
+                <i class="fa fa-plug bg-orange"></i>
+
+                <div class="timeline-item">
+
+
+                    <div class="box box-default collapsed-box">
+
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Componentes</h3>
+
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                                </button>
+                            </div>
+                            <!-- /.box-tools -->
+                        </div>
+
+                        <!-- /.box-header -->
+                        <div class="box-body">
+
+
+                            <table class="table table-bordered table-condensed">
+                                {% for componente in componentes %}
+                                    <tr>
+                                        <th>
+                                            {{ componente.componente.tipocomponente.descricao }}
+                                        </th>
+                                        <td>
+                                            {{ componente.componente.descricao }}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+
+
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+
+
+                </div>
+            </li>
+            <!-- END timeline item -->
+
+            <!-- timeline item -->
+            <li>
+                <i class="fa fa-windows bg-orange"></i>
+
+                <div class="timeline-item">
+
+                    <div class="box box-default collapsed-box">
+
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Softwares</h3>
+
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                                </button>
+                            </div>
+                            <!-- /.box-tools -->
+                        </div>
+
+                        <!-- /.box-header -->
+                        <div class="box-body">
+
+
+                            <table class="table table-bordered table-condensed">
+                                {% for software in softwares %}
+                                    <tr>
+                                        <td>
+                                            <a href="{{ path('cadastro_software_show', {'id': software.software.id }) }}">
+                                                                <span class="label label-default">
+                                                                    Mostrar
+                                                                </span>
+                                            </a>
+                                        </td>
+                                        <th>
+                                            {{ software.software.tiposoftware.descricao}}
+                                        </th>
+                                        <td>
+                                            {{ software.software }}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+
+
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+
+                </div>
+            </li>
+            <!-- END timeline item -->
+
+{#
+            <!-- timeline item -->
+            <li>
+                <i class="fa fa-tags bg-orange"></i>
+
+                <div class="timeline-item">
+
+                    <div class="box box-default collapsed-box">
+
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Tags</h3>
+
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                                </button>
+                            </div>
+                            <!-- /.box-tools -->
+                        </div>
+
+                        <!-- /.box-header -->
+                        <div class="box-body">
+
+
+                            <table class="table table-bordered table-condensed">
+                                {% for tag in tags %}
+                                    <tr>
+                                        <th>
+                                            {{ tag.descricao }}
+                                        </th>
+                                        <td>
+                                            {{ tag.nome }}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+
+
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+
+                </div>
+            </li>
+            <!-- END timeline item -->
+#}
+
+            <!-- timeline item -->
+            <li>
+                <i class="fa fa-calendar-plus-o bg-orange"></i>
+
+                <div class="timeline-item">
+
+                    <div class="box box-default collapsed-box">
+
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Acompanhamento(s)</h3>
+
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                                </button>
+                            </div>
+                            <!-- /.box-tools -->
+                        </div>
+
+                        <!-- /.box-header -->
+                        <div class="box-body">
+
+
+                            <table class="table table-bordered table-condensed">
+                                {% for acompanhamento in acompanhamentos %}
+                                    <tr>
+                                        <td>
+                                            <a href="{{ path('cadastro_acompanhamento_show', {'id': acompanhamento.id }) }}">
+                                                <span class="label label-default">
+                                                    Mostrar
+                                                </span>
+                                            </a>
+                                        </td>
+                                        <th>
+                                            {{ acompanhamento.datahora|date('d-m-Y H:i:s') }}
+                                        </th>
+                                        <td>
+                                            {{ acompanhamento.tipoacompanhamento.nome }}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+
+
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+
+                </div>
+            </li>
+            <!-- END timeline item -->
+
+
+        </ul>
+
+    </div>
+
+    {#{{ dump(acompanhamentos) }}#}
+
+    <div class="panel-footer">
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <button type="button" class="btn btn-primary btn-xs pull-right" data-dismiss="modal" aria-label="Close">
+                    <span class="glyphicon glyphicon-remove"></span>
+                    Fechar
+                </button>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+

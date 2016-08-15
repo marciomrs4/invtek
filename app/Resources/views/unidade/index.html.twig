@@ -1,56 +1,53 @@
-    {% extends ':template:template.html.twig' %}
+{% extends ':template:template.html.twig' %}
 
 
     {% block contentheader %}
 
-
-    <section class="content-header">
-        <h1>
-            Unidade
-            <small>Listar</small>
-        </h1>
-    </section>
-
+        <section class="content-header">
+            <h1>
+                Unidade
+                <small>Listar</small>
+            </h1>
+        </section>
 
     {% endblock %}
 
 
     {% block panelheading %}
-    <a href="{{ path('cadastro_unidade_new') }}" class="btn btn-primary btn-sm">
+        <a href="{{ path('cadastro_unidade_new') }}" class="btn btn-primary btn-sm">
             <span class="glyphicon glyphicon-plus"></span>
             Novo
-        </a>    {% endblock %}
+        </a>
+    {% endblock %}
 
     {% block panelbody %}
-    <div class="table-responsive">
-        <table class="table table-bordered table-condensed table-hover table-striped">
-            <thead>
-            <tr>
-                <th>Ações</th>
+        <div class="table-responsive">
+            <table class="table table-bordered table-condensed table-hover table-striped">
+                <thead>
+                <tr>
+                    <th>Ações</th>
                     <th>Nome</th>
-                    <th>Id</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for unidade in unidades %}
-            <tr>
-                        <td><a href="{{ path('cadastro_unidade_show', { 'id': unidade.id }) }}">{{ unidade.nome }}</a></td>
-                        <td>{{ unidade.id }}</td>
+                </tr>
+                </thead>
+                <tbody>
+                {% for unidade in unidades %}
+                    <tr>
                         <td>
-                                <a href="{{ path('cadastro_unidade_show', { 'id': unidade.id }) }}" class="btn btn-primary btn-sm">
-                                    <span class="glyphicon glyphicon-show"></span>
-                                    show
-                                </a>
-                                <a href="{{ path('cadastro_unidade_edit', { 'id': unidade.id }) }}" class="btn btn-primary btn-sm">
-                                    <span class="glyphicon glyphicon-edit"></span>
-                                    edit
-                                </a>
+                            <a href="{{ path('cadastro_unidade_show', { 'id': unidade.id }) }}" class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                Mostrar
+                            </a>
+                            <a href="{{ path('cadastro_unidade_edit', { 'id': unidade.id }) }}" class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-edit"></span>
+                                Editar
+                            </a>
                         </td>
-            </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </div>
+                        <td>{{ unidade.nome }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
 
 
     {% endblock %}

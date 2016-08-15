@@ -1,30 +1,30 @@
-    {% extends ':template:template.html.twig' %}
+{% extends ':template:template.html.twig' %}
 
 
     {% block contentheader %}
 
-    <section class="content-header">
-        <h1>
-            Acompanhamento
-            <small>Editar</small>
-        </h1>
-    </section>
+        <section class="content-header">
+            <h1>
+                Acompanhamento
+                <small>Editar</small>
+            </h1>
+        </section>
 
     {% endblock %}
 
 
     {% block firstrow %}
 
-    {% for message in app.session.flashBag.get('notice') %}
-    <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="alert alert-success alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <i class="fa fa-info"></i> {{ message }}. <i class="fa fa-smile-o"></i>
-        </div>
-    </div>
-    {% endfor %}
+        {% for message in app.session.flashBag.get('notice') %}
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <i class="fa fa-info"></i> {{ message }}. <i class="fa fa-smile-o"></i>
+                </div>
+            </div>
+        {% endfor %}
 
 
     {% endblock %}
@@ -34,30 +34,31 @@
 
         <div class="row">
 
-    <div class="col-md-2 col-sm-3 col-xs-3">
+            <div class="col-md-2 col-sm-3 col-xs-3">
 
-        <a href="{{ path('cadastro_acompanhamento_index',{ 'equipamento' : acompanhamento.equipamento.id }) }}" class="btn btn-primary btn-sm">
-            <span class="fa fa-reply"></span>
-            Voltar
-        </a>
+                <a href="{{ path('cadastro_acompanhamento_index',{ 'equipamento' : acompanhamento.equipamento.id }) }}" class="btn btn-primary btn-sm">
+                    <span class="fa fa-reply"></span>
+                    Listar Acompanhamentos
+                </a>
 
-    </div>
-        <div class="col-md-2 col-sm-3 col-xs-3">
+            </div>
+            <div class="col-md-2 col-sm-3 col-xs-3">
 
-            <a href="{{ path('cadastro_equipamento_show',{ 'id': acompanhamento.equipamento.id }) }}" class="btn btn-primary btn-sm">
-                <span class="glyphicon glyphicon-eye-open"></span>
-                Mostrar Equipamento
-            </a>
+                <a href="{{ path('cadastro_equipamento_show',{ 'id': acompanhamento.equipamento.id }) }}" class="btn btn-primary btn-sm">
+                    <span class="glyphicon glyphicon-eye-open"></span>
+                    Mostrar Equipamento
+                </a>
 
-            {#{{ form_start(delete_form) }}#}
-            {#<button type="submit" class="btn btn-danger btn-sm remover-form">#}
+                {#{{ form_start(delete_form) }}#}
+                {#<button type="submit" class="btn btn-danger btn-sm remover-form">#}
                 {#<span class="glyphicon glyphicon-trash"></span>#}
                 {#Deletar#}
-            {#</button>#}
-            {#{{ form_end(delete_form) }}#}
+                {#</button>#}
+                {#{{ form_end(delete_form) }}#}
 
+            </div>
         </div>
-</div>{% endblock %}
+    {% endblock %}
 
     {% block panelbody %}
 

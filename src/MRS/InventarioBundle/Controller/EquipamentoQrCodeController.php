@@ -43,4 +43,54 @@ class EquipamentoQrCodeController extends Controller
         ));
     }
 
+    /**
+     * Lists all Equipamento entities.
+     *
+     * @Route("/moreinformation/{equipamento}", name="qrcode_equipamento_moreinformation_qrcode")
+     * @Method("GET|POST")
+     */
+    public function moreInformationAction(Equipamento $equipamento)
+    {
+
+        $manyequipamentos = $this->getDoctrine()
+            ->getRepository('MRSInventarioBundle:EquipamentoHasEquipamento')
+            ->findBy(array('equipamentoPai' => $equipamento));
+
+        $equipamentosFilho = $this->getDoctrine()
+            ->getRepository('MRSInventarioBundle:EquipamentoHasEquipamento')
+            ->findBy(array('equipamentoFilho' => $equipamento));
+
+        $tags = $this->getDoctrine()
+            ->getRepository('MRSInventarioBundle:EquipamentoTag')
+            ->findBy(array('equipamento'=>$equipamento),
+                array('descricao'=>'DESC'));
+
+        $softwares = $this->getDoctrine()
+            ->getRepository('MRSInventarioBundle:EquipamentoHasSoftware')
+            ->findBy(array('equipamento'=>$equipamento));
+
+        $componentes = $this->getDoctrine()
+            ->getRepository('MRSInventarioBundle:EquipamentoHasComponente')
+            ->findBy(array('equipamento'=>$equipamento),
+                     array('componente'=>'DESC'));
+
+        $acompanhamentos = $this->getDoctrine()
+            ->getRepository('MRSInventarioBundle:Acompanhamento')
+            ->findBy(array('equipamento'=>$equipamento),
+                     array('datahora'=>'DESC'),
+                     3);
+
+        return $this->render('equipamentoqrcode/moreinformationqrcode.html.twig', array(
+            'equipamento' => $equipamento,
+            'tags'=>$tags,
+            'softwares'=>$softwares,
+            'componentes'=>$componentes,
+            'manyequipamentos' => $manyequipamentos,
+            'equipamentosFilho' => $equipamentosFilho,
+            'acompanhamentos' => $acompanhamentos
+        ));
+
+    }
+
+
 }

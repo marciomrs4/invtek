@@ -1,0 +1,123 @@
+{% extends ':template:qrcodebase.html.twig' %}
+
+    {% block body %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <strong>Equipamento</strong>
+                </div>
+
+                <div class="panel-body">
+                    <div class="table table-responsive">
+                        <table class="table table-bordered table-condensed">
+                            <tbody>
+                            <tr>
+                                <th>Nome</th>
+                                <td>{{ equipamento.nome }}</td>
+                            </tr>
+                            <tr>
+                                <th>Centro de Movimentação</th>
+                                <td>{{ equipamento.centroMovimentacao.nome }}</td>
+                            </tr>
+                            <tr>
+                                <th>Fornecedor</th>
+                                <td>{{ equipamento.fornecedor.nome }}</td>
+                            </tr>
+                            <tr>
+                                <th>Marca</th>
+                                <td>{{ equipamento.marca.nome }}</td>
+                            </tr>
+                            <tr>
+                                <th>Tipo de Equipamento</th>
+                                <td>{{ equipamento.tipoequipamento.descricao }}</td>
+                            </tr>
+                            <tr>
+                                <th>Vigência de Garantia</th>
+                                <td>{% if equipamento.validade %}{{ equipamento.validade|date('d-m-Y') }}{% endif %}</td>
+                            </tr>
+                            <tr>
+                                <th>Data da Compra</th>
+                                <td>{% if equipamento.dataCompra %}{{ equipamento.dataCompra|date('d-m-Y') }}{% endif %}</td>
+                            </tr>
+                            <tr>
+                                <th>Número de série</th>
+                                <td>{{ equipamento.numeroserie }}</td>
+                            </tr>
+                            <tr>
+                                <th>Status</th>
+                                <td>{% if equipamento.status %}Ativo{% else %}Inativo{% endif %}</td>
+                            </tr>
+                            <tr>
+                                <th>Patrimônio</th>
+                                <td>{{ equipamento.patrimonio }}</td>
+                            </tr>
+                            <tr>
+                                <th>Descrição</th>
+                                <td>{{ equipamento.descricao }}</td>
+                            </tr>
+                            <tr>
+                                <th>Observação</th>
+                                <td>{{ equipamento.observacao }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+                <div class="panel-footer">
+
+                    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+
+                                <div class="load">
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="{{ path('qrcode_equipamento_moreinformation_qrcode', { 'equipamento': equipamento.id }) }}"
+                       class="link btn btn-primary btn-sm" data-toggle="modal" data-target=".bs-example-modal-lg">
+                        <span class="glyphicon glyphicon-exclamation-sign"></span>
+                        Mais Informações
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
+
+    {% block javascripts %}
+
+        {{ parent() }}
+
+        <script>
+
+            $(document).ready(function(){
+
+                var $link = $(".link");
+                var url = $($link).attr('href');
+                var load = $(".load");
+
+                $($link).click(function(e){
+
+                    e.preventDefault();
+
+                    $.get(url,function(data){
+                        // $(load).html(data);
+                    });
+
+                });
+
+            });
+
+        </script>
+
+    {% endblock %}

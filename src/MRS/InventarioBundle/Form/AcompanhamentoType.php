@@ -16,11 +16,11 @@ class AcompanhamentoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('descricao',null,array('label'=>'Descricao',
+            ->add('descricao',null,array('label'=>'Descrição',
                                            'attr'=>array('class'=>'input-sm')))
             ->add('datahora',DateTimeType::class,array('label'=>'Data e Hora',
                 'date_widget' => 'single_text',
-            'time_widget' => 'single_text'))
+                'time_widget' => 'single_text'))
             ->add('tipoacompanhamento',null,array('label'=>'Tipo de Acompanhamento',
                                            'attr'=>array('class'=>'input-sm')))
         ;

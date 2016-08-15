@@ -15,11 +15,11 @@ class UnidadeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nome',null,array('label'=>'nome',
-                                           'attr'=>array('class'=>'input-sm')))
+            ->add('nome',null,array('label'=>'Nome',
+                'attr'=>array('class'=>'input-sm')))
         ;
     }
-    
+
     /**
      * @param OptionsResolver $resolver
      */

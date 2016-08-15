@@ -34,40 +34,41 @@
 
         <div class="row">
 
-        <div class="col-md-2 col-sm-3 col-xs-3">
+            <div class="col-md-2 col-sm-3 col-xs-3">
 
-            <a href="{{ path('cadastro_software_index') }}" class="btn btn-primary btn-sm">
-                <span class="fa fa-reply"></span>
-                Voltar
-            </a>
+                <a href="{{ path('cadastro_software_index') }}" class="btn btn-primary btn-sm">
+                    <span class="fa fa-reply"></span>
+                    Voltar
+                </a>
 
-        </div>
-        <div class="col-md-2 col-sm-3 col-xs-3">
+            </div>
+            <div class="col-md-2 col-sm-3 col-xs-3">
 
-            <a href="{{ path('cadastro_software_edit', { 'id': software.id }) }}" class="btn btn-primary btn-sm">
-                <span class="glyphicon glyphicon-edit"></span>
-                Editar
-            </a>
+                <a href="{{ path('cadastro_software_edit', { 'id': software.id }) }}" class="btn btn-primary btn-sm">
+                    <span class="glyphicon glyphicon-edit"></span>
+                    Editar
+                </a>
 
-        </div>
-        <div class="col-md-2 col-sm-3 col-xs-3">
-            <div class="dropdown">
-                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    <span class="glyphicon glyphicon-cog"></span>
-                    Opções
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li>
-                        <a href="{{ path('cadastro_softwaretag_new', { 'software': software.id }) }}" >
-                            <span class="glyphicon glyphicon-tag"></span>
-                            Nova Tag
-                        </a>
-                    </li>
-                </ul>
+            </div>
+            <div class="col-md-2 col-sm-3 col-xs-3">
+                <div class="dropdown">
+                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <span class="glyphicon glyphicon-cog"></span>
+                        Opções
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li>
+                            <a href="{{ path('cadastro_softwaretag_new', { 'software': software.id }) }}" >
+                                <span class="glyphicon glyphicon-tag"></span>
+                                Nova Tag
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-        </div>{% endblock %}
+    {% endblock %}
 
 
 
@@ -77,20 +78,24 @@
             <table class="table table-bordered table-condensed">
                 <tbody>
                 <tr>
-                    <th>Descricao</th>
+                    <th>Descrição</th>
                     <td>{{ software.descricao }}</td>
                 </tr>
                 <tr>
-                    <th>Numerolicensa</th>
+                    <th>Número liçensa</th>
                     <td>{{ software.numerolicensa }}</td>
                 </tr>
                 <tr>
-                    <th>Versao</th>
+                    <th>Versão</th>
                     <td>{{ software.versao }}</td>
                 </tr>
                 <tr>
                     <th>Serial</th>
                     <td>{{ software.serial }}</td>
+                </tr>
+                <tr>
+                    <th>Tipo de Software</th>
+                    <td>{{ software.tiposoftware.descricao }}</td>
                 </tr>
                 </tbody>
             </table>
@@ -104,7 +109,7 @@
 
                         <a href="{{ path('cadastro_softwaretag_new', {'software': software.id }) }}" class="btn btn-primary btn-xs">
                             <span class="glyphicon glyphicon-plus"></span>
-                            Novo
+                            Nova Tag
                         </a>
                     </div>
                     <div class="col-xs-3 col-md-3 col-sm-3">

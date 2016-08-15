@@ -42,6 +42,10 @@
                 </a>
 
             </div>
+
+            {% if movimentacao.status %}
+
+            {% else %}
             <div class="col-md-2 col-sm-3 col-xs-3">
 
                 <a href="{{ path('movimentacao_edit', { 'id': movimentacao.id }) }}" class="btn btn-primary btn-sm">
@@ -50,6 +54,8 @@
                 </a>
 
             </div>
+            {% endif %}
+
             <div class="col-md-2 col-sm-3 col-xs-3">
 
                 {% if movimentacao.status %}

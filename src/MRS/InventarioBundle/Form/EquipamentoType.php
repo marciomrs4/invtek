@@ -17,15 +17,15 @@ class EquipamentoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nome',null,array('label'=>'nome',
+            ->add('nome',null,array('label'=>'Nome',
                 'attr'=>array('class'=>'input-sm')))
-            ->add('centroMovimentacao',null,array('label'=>'centroMovimentacao',
+            ->add('centroMovimentacao',null,array('label'=>'Centro de Movimentação',
                 'attr'=>array('class'=>'input-sm')))
-            ->add('fornecedor',null,array('label'=>'fornecedor',
+            ->add('fornecedor',null,array('label'=>'Fornecedor',
                 'attr'=>array('class'=>'input-sm')))
-            ->add('marca',null,array('label'=>'marca',
+            ->add('marca',null,array('label'=>'Marca',
                 'attr'=>array('class'=>'input-sm')))
-            ->add('tipoequipamento',null,array('label'=>'tipoequipamento',
+            ->add('tipoequipamento',null,array('label'=>'Tipo de Equipamento',
                 'attr'=>array('class'=>'input-sm')))
             ->add('validade', DateType::class,array('label'=>'Vigência de Garantia',
                 'widget'=>'single_text',
@@ -33,14 +33,14 @@ class EquipamentoType extends AbstractType
             ->add('dataCompra',DateType::class,array('label'=>'Data da Compra',
                 'widget'=>'single_text',
                 'attr' => array('class'=>'input-sm')))
-            ->add('numeroserie',TextType::class,array('label'=>'numeroserie',
+            ->add('numeroserie',TextType::class,array('label'=>'Número de Série',
                 'attr'=>array('class'=>'input-sm')))
             ->add('status',null,array('label'=>'Status'))
-            ->add('patrimonio',null,array('label'=>'patrimonio',
+            ->add('patrimonio',null,array('label'=>'Patrimônio',
                 'attr'=>array('class'=>'input-sm')))
-            ->add('descricao',null,array('label'=>'descricao',
+            ->add('descricao',null,array('label'=>'Descrição',
                 'attr'=>array('class'=>'input-sm')))
-            ->add('observacao',null,array('label'=>'observacao',
+            ->add('observacao',null,array('label'=>'Observação',
                 'attr'=>array('class'=>'input-sm')))
         ;
     }
