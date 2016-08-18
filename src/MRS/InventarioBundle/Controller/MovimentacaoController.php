@@ -44,14 +44,14 @@ class MovimentacaoController extends Controller
     {
         $movimentacao = new Movimentacao();
 
+        $movimentacao->setUsuarioCriador($this->getUser()->getUsuario())
+                     ->setStatus(false);
+
         $form = $this->createForm('MRS\InventarioBundle\Form\MovimentacaoType', $movimentacao);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-
-            $movimentacao->setUsuarioCriador($this->getUser()->getUsuario())
-                         ->setStatus(false);
 
             $em->persist($movimentacao);
             $em->flush();
