@@ -15,9 +15,9 @@ class MotivomovimentacaoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('descricao',null,array('label'=>'descricao',
+            ->add('descricao',null,array('label'=>'Descrição',
                                            'attr'=>array('class'=>'input-sm')))
-            ->add('tipomovimentacao',null,array('label'=>'tipomovimentacao',
+            ->add('tipomovimentacao',null,array('label'=>'Tipo de movimentação',
                                            'attr'=>array('class'=>'input-sm')))
         ;
     }

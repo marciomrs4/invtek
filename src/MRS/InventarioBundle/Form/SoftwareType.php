@@ -19,7 +19,7 @@ class SoftwareType extends AbstractType
         $builder
             ->add('descricao',null,array('label'=>'Descrição',
                                            'attr'=>array('class'=>'input-sm')))
-            ->add('numerolicensa',null,array('label'=>'Número liçensa',
+            ->add('numerolicensa',null,array('label'=>'Número de licença',
                                            'attr'=>array('class'=>'input-sm')))
             ->add('versao',null,array('label'=>'Versão',
                                            'attr'=>array('class'=>'input-sm')))

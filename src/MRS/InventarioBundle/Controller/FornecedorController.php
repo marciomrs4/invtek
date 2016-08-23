@@ -118,9 +118,20 @@ class FornecedorController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($fornecedor);
-            $em->flush();
+
+            try {
+
+
+                $em = $this->getDoctrine()->getManager();
+                $em->remove($fornecedor);
+                $em->flush();
+
+                $this->addFlash('notice','Erro ao deletar');
+
+            }catch(\DBALException $e){
+                $this->addFlash('notice','Erro ao deletar');
+            }
+
         }
 
         return $this->redirectToRoute('cadastro_fornecedor_index');
@@ -139,6 +150,6 @@ class FornecedorController extends Controller
             ->setAction($this->generateUrl('cadastro_fornecedor_delete', array('id' => $fornecedor->getId())))
             ->setMethod('DELETE')
             ->getForm()
-        ;
+            ;
     }
 }

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-
     <meta charset="UTF-8" />
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{% block title %}InvTek{% endblock %}</title>
-
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     {% block stylesheets %}
 
         <link rel="stylesheet" href="{{ asset('bundles/mrsinventario/css/bootstrap.css') }}">

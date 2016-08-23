@@ -98,6 +98,6 @@ class CentroMovimentacao
 
     public function __toString()
     {
-        return $this->getNome();
+        return $this->getNome() .' | '. $this->getUnidade();
     }
 }

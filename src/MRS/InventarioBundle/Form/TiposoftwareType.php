@@ -15,11 +15,11 @@ class TiposoftwareType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('descricao',null,array('label'=>'descricao',
-                                           'attr'=>array('class'=>'input-sm')))
+            ->add('descricao',null,array('label'=>'Descrição',
+                'attr'=>array('class'=>'input-sm')))
         ;
     }
-    
+
     /**
      * @param OptionsResolver $resolver
      */

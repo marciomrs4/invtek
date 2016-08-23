@@ -87,6 +87,7 @@ class Equipamento
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="centro_movimentacao_id", referencedColumnName="id")
      * })
+     * @Assert\NotBlank(message="O centro de movimentação do equipamento é obrigatório.")
      */
     private $centroMovimentacao;
 
@@ -97,6 +98,7 @@ class Equipamento
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="marca_id", referencedColumnName="id")
      * })
+     * @Assert\NotBlank(message="A marca do equipamento é obrigatório.")
      */
     private $marca;
 
@@ -107,6 +109,7 @@ class Equipamento
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="fornecedor_id", referencedColumnName="id")
      * })
+     * @Assert\NotBlank(message="O fornecedor do equipamento é obrigatório.")
      */
     private $fornecedor;
 
@@ -117,6 +120,7 @@ class Equipamento
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="tipoEquipamento_id", referencedColumnName="id")
      * })
+     * @Assert\NotBlank(message="O tipo de equipamento do equipamento é obrigatório.")
      */
     private $tipoequipamento;
 

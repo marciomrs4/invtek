@@ -28,24 +28,22 @@
             <tr>
                 <th>Ações</th>
                     <th>Nome</th>
-                    <th>Id</th>
             </tr>
             </thead>
             <tbody>
             {% for marca in marcas %}
             <tr>
-                        <td><a href="{{ path('cadastro_marca_show', { 'id': marca.id }) }}">{{ marca.nome }}</a></td>
-                        <td>{{ marca.id }}</td>
                         <td>
                                 <a href="{{ path('cadastro_marca_show', { 'id': marca.id }) }}" class="btn btn-primary btn-sm">
-                                    <span class="glyphicon glyphicon-show"></span>
-                                    show
+                                    <span class="glyphicon glyphicon-eye-open"></span>
+                                    Mostrar
                                 </a>
                                 <a href="{{ path('cadastro_marca_edit', { 'id': marca.id }) }}" class="btn btn-primary btn-sm">
                                     <span class="glyphicon glyphicon-edit"></span>
-                                    edit
+                                    Editar
                                 </a>
                         </td>
+                <td>{{ marca.nome }}</td>
             </tr>
             {% endfor %}
             </tbody>

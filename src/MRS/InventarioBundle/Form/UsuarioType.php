@@ -21,14 +21,20 @@ class UsuarioType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nomecompleto',null,array('label'=>'nomecompleto',
+            ->add('nomecompleto',null,array('label'=>'Nome Completo',
                 'attr'=>array('class'=>'input-sm')))
-            ->add('nome',null,array('label'=>'nome',
+            ->add('nome',null,array('label'=>'Nome',
                 'attr'=>array('class'=>'input-sm')))
             ->add('drt',TextType::class,array('label'=>'DRT',
                 'attr'=>array('class'=>'input-sm')))
-            ->add('departamento',null,array('label'=>'departamento',
-                'attr'=>array('class'=>'input-sm')))
+            ->add('departamento',EntityType::class,array('label'=>'Centro de Movimentação',
+                'attr'=>array('class'=>'input-sm'),
+                'class' => 'MRS\InventarioBundle\Entity\CentroMovimentacao',
+                'query_builder' => function(EntityRepository $er){
+                    return $er->createQueryBuilder('c')
+                        ->orderBy('c.unidade')
+                        ->addOrderBy('c.nome');
+                },'placeholder' => 'Selecione'))
             ->add('user_id',EntityType::class,array('label'=>'Acesso',
                 'class' => 'MRS\UserBundle\Entity\User',
                 'query_builder' => function(EntityRepository $er){
