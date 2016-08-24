@@ -111,6 +111,12 @@ class EquipamentoReportController extends Controller
             ->findBy(array('equipamento'=>$equipamento),
                 array('componente'=>'DESC'));
 
+        $acompanhamentos = $this->getDoctrine()
+            ->getRepository('MRSInventarioBundle:Acompanhamento')
+            ->findBy(array('equipamento'=>$equipamento),
+                array('datahora'=>'DESC'),
+                3);
+
         return $this->render('equipamentoreport/moreinformation.html.twig', array(
             'equipamento' => $equipamento,
             'tags'=>$tags,
@@ -118,6 +124,7 @@ class EquipamentoReportController extends Controller
             'componentes'=>$componentes,
             'manyequipamentos' => $manyequipamentos,
             'equipamentosFilho' => $equipamentosFilho,
+            'acompanhamentos' => $acompanhamentos,
         ));
 
     }
@@ -131,7 +138,7 @@ class EquipamentoReportController extends Controller
         $movimentacoes = $this->getDoctrine()
             ->getRepository('MRSInventarioBundle:ItensMovimentacao')
             ->findBy(array('equipamento'=>$equipamento),
-                     array('id'=>'DESC'));
+                array('id'=>'DESC'));
 
         return $this->render('equipamentoreport/movimentacoes.html.twig', array(
             'movimentacoes' => $movimentacoes

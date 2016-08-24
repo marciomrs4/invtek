@@ -1,0 +1,27 @@
+{% extends ':template:base.html.twig' %}
+
+{#
+{% extends '@Twig/layout.html.twig' %}
+
+{% block head %}
+    <link href="{{ absolute_url(asset('bundles/framework/css/exception.css')) }}" rel="stylesheet" type="text/css" media="all" />
+{% endblock %}
+
+{% block title %}
+    {{ exception.message }} ({{ status_code }} {{ status_text }})
+{% endblock %}
+#}
+
+{% block contentheader %}
+    <section class="content-header">
+        <h1>
+            Erro
+            <small>!</small>
+        </h1>
+
+    </section>
+{% endblock %}
+
+{% block content %}
+    {% include '@Twig/Exception/exception.html.twig' %}
+{% endblock %}
