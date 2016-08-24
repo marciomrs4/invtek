@@ -78,12 +78,16 @@
                         <td>{% if user.roles %}{{ user.roles|join(', ') }}{% endif %}</td>
                 </tr>
                 <tr>
-                    <th>Ativo</th>
-                        <td>{% if user.isActive %}Sim{% else %}Não{% endif %}</td>
+                    <th>Status</th>
+                        <td>{% if user.isActive %}Ativo{% else %}Inativo{% endif %}</td>
                 </tr>
                 <tr>
                     <th>Email</th>
                         <td>{{ user.email }}</td>
+                </tr>
+                <tr>
+                    <th>Usuário</th>
+                    <td>{{ user.usuario.nome }}</td>
                 </tr>
             </tbody>
         </table>

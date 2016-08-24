@@ -27,12 +27,11 @@
                 <thead>
                 <tr>
                     <th>Ações</th>
-                    <th>Id</th>
-                    <th>Username</th>
+                    <th>Login</th>
                     <th>Roles</th>
-                    <th>Isactive</th>
+                    <th>Status</th>
                     <th>Email</th>
-                    <th>Usuario</th>
+                    <th>Usuário</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -48,10 +47,9 @@
                                 Editar
                             </a>
                         </td>
-                        <td><a href="{{ path('admin_usuario_show', { 'id': user.id }) }}">{{ user.id }}</a></td>
                         <td>{{ user.username }}</td>
                         <td>{% if user.roles %}{{ user.roles|join(', ') }}{% endif %}</td>
-                        <td>{% if user.isActive %}Yes{% else %}No{% endif %}</td>
+                        <td>{% if user.isActive %}Ativo{% else %}Inativo{% endif %}</td>
                         <td>{{ user.email }}</td>
                         <td>{{ user.usuario }}</td>
 
