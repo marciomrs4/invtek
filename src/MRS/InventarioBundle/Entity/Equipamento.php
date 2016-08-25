@@ -421,6 +421,6 @@ class Equipamento
 
     public function __toString()
     {
-        return $this->getNome();
+        return $this->getPatrimonio(). ' | ' . $this->getNome();
     }
 }
