@@ -3,6 +3,7 @@
 namespace MRS\InventarioBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Tipoequipamento
@@ -24,6 +25,7 @@ class Tipoequipamento
      * @var string
      *
      * @ORM\Column(name="descricao", type="string", length=45, nullable=false)
+     * @Assert\NotBlank(message="O campo descrição é obrigatório")
      */
     private $descricao;
 
