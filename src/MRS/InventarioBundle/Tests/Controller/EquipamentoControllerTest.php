@@ -3,9 +3,48 @@
 namespace MRS\InventarioBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\BrowserKit\Cookie;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 class EquipamentoControllerTest extends WebTestCase
 {
+
+    private $client = null;
+
+    public function setUp()
+    {
+        $this->client = static::createClient();
+    }
+
+    public function testRouteAcessCode()
+    {
+        $this->logIn();
+
+        $crawler = $this->client->request('GET', '/cadastro/equipamento/');
+
+        //$crawler = $this->client->request('GET', '/qrcode/equipamento/1/show');
+
+
+        $this->assertTrue($this->client->getResponse()->isSuccessful());
+
+        //$this->assertEquals(200,$this->client->getResponse()->getStatusCode());
+    }
+
+    private function logIn()
+    {
+        $session = $this->client->getContainer()->get('session');
+
+        // the firewall context (defaults to the firewall name)
+        $firewall = 'secured_area';
+
+        $token = new UsernamePasswordToken('admin', 'admin', $firewall, array('ROLE_ADMIN'));
+        $session->set('_security_'.$firewall, serialize($token));
+        $session->save();
+
+        $cookie = new Cookie($session->getName(), $session->getId());
+        $this->client->getCookieJar()->set($cookie);
+    }
+
     /*
     public function testCompleteScenario()
     {
