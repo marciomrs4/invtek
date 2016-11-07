@@ -20,3 +20,9 @@ parameters:
 
     # BaseURL para anexos, depende qual o nome da pasta do servidor
     base_url: inventario
+
+    #Informacoes sobre o sistema na tela inicial
+    company:
+    phrase:
+    version:
+    teamcreator:

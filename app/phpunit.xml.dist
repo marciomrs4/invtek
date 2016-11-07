@@ -35,4 +35,18 @@
             </exclude>
         </whitelist>
     </filter>
+
+    <logging>
+
+        <log type="testdox-text" target="../src/MRS/InventarioBundle/Tests/testdox.txt" />
+
+        <log type="coverage-html"
+             target="../src/MRS/InventarioBundle/Tests/coverage"
+             charset="UTF-8"
+             yui="true"
+             highlight="true"
+             lowUpperBound="35"
+             highUpperBound="70" />
+    </logging>
+
 </phpunit>

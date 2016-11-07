@@ -36,6 +36,11 @@ twig:
       - bootstrap_3_layout.html.twig
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    globals:
+        company: "%company%"
+        phrase:  "%phrase%"
+        version: "%version%"
+        teamcreator: "%teamcreator%"
 
 # Doctrine Configuration
 doctrine:

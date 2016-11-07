@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{% block title %}Sistema de Atendimento{% endblock %}</title>
+    <title>{% block title %}InvTek - Controle de Ativos{% endblock %}</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
@@ -74,8 +74,10 @@
                             <li class="user-header">
                                 <h1></h1>
                                 <p>
+                                    {% if app.user %}
                                     {{ app.user.username }}
                                     <small>{{ app.user.email }}</small>
+                                    {% endif %}
                                 </p>
 
                             </li>
@@ -286,9 +288,11 @@
                                 <div class="box box-widget widget-user">
                                     <!-- Add the bg color to the header using any of the bg-* classes -->
                                     <div class="widget-user-header bg-aqua-active">
-                                        <h3 class="widget-user-username"><strong>CEADIS</strong></h3>
+                                        <h3 class="widget-user-username">
+                                            <strong>{{ company }}</strong>
+                                        </h3>
                                         <h5 class="widget-user-desc">
-                                            Centro Estadual de Armazenamento e Distribuição de Insumos de Saúde do Estado de São Paulo
+                                            {{ phrase }}
                                         </h5>
                                     </div>
                                     <div class="widget-user-image">
@@ -306,7 +310,7 @@
                                             <!-- /.col -->
                                             <div class="col-sm-4 border-right">
                                                 <div class="description-block">
-                                                    <h5 class="description-header">1.0.0</h5>
+                                                    <h5 class="description-header">{{ version }}</h5>
                                                     <span class="description-text">VERSÃO</span>
                                                 </div>
                                                 <!-- /.description-block -->
@@ -315,7 +319,7 @@
                                             <div class="col-sm-4 border-right">
                                                 <div class="description-block">
                                                     <h5 class="description-header">{{ 'now'|date('Y') }}</h5>
-                                                    <span class="description-text">TECNOLOGIA CEADIS</span>
+                                                    <span class="description-text">{{ teamcreator }}</span>
                                                 </div>
                                                 <!-- /.description-block -->
                                             </div>

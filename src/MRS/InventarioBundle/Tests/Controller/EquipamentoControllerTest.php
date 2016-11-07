@@ -16,18 +16,67 @@ class EquipamentoControllerTest extends WebTestCase
         $this->client = static::createClient();
     }
 
+    /**
+     * @group Class
+     */
+    public function testIfControllerEquipamentoExist()
+    {
+        $this->assertTrue(class_exists('MRS\InventarioBundle\Controller\EquipamentoController'));
+    }
+
     public function testRouteAcessCode()
     {
         $this->logIn();
 
         $crawler = $this->client->request('GET', '/cadastro/equipamento/');
 
-        //$crawler = $this->client->request('GET', '/qrcode/equipamento/1/show');
+        $this->assertEquals(200,$this->client->getResponse()->getStatusCode());
+    }
 
+
+    public function testRouteAcessIsSuccessful()
+    {
+        $this->logIn();
+
+        $crawler = $this->client->request('GET', '/cadastro/equipamento/');
 
         $this->assertTrue($this->client->getResponse()->isSuccessful());
+    }
 
-        //$this->assertEquals(200,$this->client->getResponse()->getStatusCode());
+    public function testCreateIsAccessToPost()
+    {
+        $this->logIn();
+
+        $crawler = $this->client->request('POST', '/cadastro/equipamento/new');
+
+        $this->assertTrue($this->client->getResponse()->isSuccessful());
+    }
+
+    public function testShowIsAccessSuccessFull()
+    {
+        $this->logIn();
+
+        $crawler = $this->client->request('GET', '/cadastro/equipamento/1');
+
+        $this->assertTrue($this->client->getResponse()->isSuccessful());
+    }
+
+    public function testEditIsAccessSuccessFull()
+    {
+        $this->logIn();
+
+        $crawler = $this->client->request('GET', '/cadastro/equipamento/1/edit');
+
+        $this->assertTrue($this->client->getResponse()->isSuccessful());
+    }
+
+    public function testEditPostIsAccessSuccessFull()
+    {
+        $this->logIn();
+
+        $crawler = $this->client->request('POST', '/cadastro/equipamento/1/edit');
+
+        $this->assertTrue($this->client->getResponse()->isSuccessful());
     }
 
     private function logIn()

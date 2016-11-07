@@ -1,0 +1,8 @@
+MRS\InventarioBundle\Tests\Entity\TipoAcessoIpEntity
+ [x] Set description
+
+MRS\InventarioBundle\Tests\Entity\TipoEquipamentoEntity
+ [x] Number caracter
+ [x] Set icon description
+ [ ] Is object
+
