@@ -37,6 +37,7 @@
                     <th>Tipo de Equipamento</th>
                     <th>Fornecedor</th>
                     <th>Marca</th>
+                    <th>Nome</th>
                     <th>Patrimonio</th>
                     <th>Data da Compra</th>
                     <th>Numero de serie</th>
@@ -60,6 +61,7 @@
                         <td>{{ equipamento.tipoequipamento.descricao }}</td>
                         <td>{{ equipamento.fornecedor.nome }}</td>
                         <td>{{ equipamento.marca }}</td>
+                        <td>{{ equipamento.nome }}</td>
                         <td>{{ equipamento.patrimonio }}</td>
                         <td>{% if equipamento.dataCompra %}{{ equipamento.dataCompra |date('d-m-Y') }}{% endif %}</td>
                         <td>{{ equipamento.numeroserie }}</td>

@@ -49,8 +49,8 @@ class EquipamentoType extends AbstractType
                 'attr'=>array('class'=>'input-sm'),
                 'class'=> 'MRS\InventarioBundle\Entity\Tipoequipamento',
                 'query_builder'=>function(EntityRepository $er){
-                        return $er->createQueryBuilder('t')
-                            ->orderBy('t.descricao');
+                    return $er->createQueryBuilder('t')
+                        ->orderBy('t.descricao');
                 },'placeholder'=> ''))
             ->add('validade', DateType::class,array('label'=>'Vigência de Garantia',
                 'widget'=>'single_text',
@@ -67,6 +67,14 @@ class EquipamentoType extends AbstractType
                 'attr'=>array('class'=>'input-sm')))
             ->add('observacao',TextareaType::class,array('label'=>'Observação',
                 'attr'=>array('class'=>'input-sm')))
+            ->add('compradoPara',EntityType::class,array('label'=>'Comprado Para',
+                'attr'=>array('class'=>'input-sm'),
+                'class' => 'MRS\InventarioBundle\Entity\CentroMovimentacao',
+                'query_builder' => function(EntityRepository $er){
+                    return $er->createQueryBuilder('c')
+                        ->orderBy('c.unidade')
+                        ->addOrderBy('c.nome');
+                },'placeholder' => ''))
         ;
     }
 

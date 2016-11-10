@@ -95,6 +95,17 @@ class Equipamento
     private $centroMovimentacao;
 
     /**
+     * @var \MRS\InventarioBundle\Entity\CentroMovimentacao
+     *
+     * @ORM\ManyToOne(targetEntity="MRS\InventarioBundle\Entity\CentroMovimentacao")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="comprado_para", referencedColumnName="id")
+     * })
+     * @Assert\NotBlank(message="O centro de movimentação do equipamento é obrigatório.")
+     */
+    private $compradoPara;
+
+    /**
      * @var \MRS\InventarioBundle\Entity\Marca
      *
      * @ORM\ManyToOne(targetEntity="MRS\InventarioBundle\Entity\Marca")
@@ -104,7 +115,6 @@ class Equipamento
      * @Assert\NotBlank(message="A marca do equipamento é obrigatório.")
      */
     private $marca;
-
     /**
      * @var \MRS\InventarioBundle\Entity\Fornecedor
      *
@@ -126,7 +136,6 @@ class Equipamento
      * @Assert\NotBlank(message="O tipo de equipamento do equipamento é obrigatório.")
      */
     private $tipoequipamento;
-
 
     public function __construct()
     {
@@ -153,6 +162,7 @@ class Equipamento
         return $this;
     }
 
+
     /**
      * Get nome
      *
@@ -162,6 +172,25 @@ class Equipamento
     {
         return $this->nome;
     }
+
+    /**
+     * @return CentroMovimentacao
+     */
+    public function getCompradoPara()
+    {
+        return $this->compradoPara;
+    }
+
+    /**
+     * @param CentroMovimentacao $compradoPara
+     * @return Equipamento
+     */
+    public function setCompradoPara($compradoPara)
+    {
+        $this->compradoPara = $compradoPara;
+        return $this;
+    }
+
 
     /**
      * Set validade
