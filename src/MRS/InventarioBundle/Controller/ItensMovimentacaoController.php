@@ -92,7 +92,7 @@ class ItensMovimentacaoController extends Controller
                     ->andWhere('e.id NOT IN (:equipamento)')
                     ->setParameter('centro', $departamentoId)
                     ->setParameter('equipamento',$itensId)
-                    ->orderBy('e.tipoequipamento');
+                    ->orderBy('e.nome');
             }));
 
 

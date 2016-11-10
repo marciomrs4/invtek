@@ -20,7 +20,8 @@ class MovimentacaoType extends AbstractType
         $builder
             ->add('datahora', DateTimeType::class, array('label'=>'Data e Hora',
                 'date_widget'=>'single_text',
-                'time_widget'=>'single_text',))
+                'time_widget'=>'single_text',
+                ))
             ->add('usuarioOrigem',null,array('label'=>'Usuário Origem',
                 'attr'=>array('class'=>'input-sm')))
             ->add('usuarioDestino',null,array('label'=>'Usuário Destino',

@@ -38,7 +38,7 @@
                     <th>Ações</th>
                     <th>Nomecompleto</th>
                     <th>Nome</th>
-                    <th>DRT</th>
+                    <th>Número Identificação</th>
                     <th>Centro de Movimentacao</th>
                     <th>Unidade</th>
                     <th>Acesso</th>
@@ -61,7 +61,7 @@
                         </td>
                         <td><a href="{{ path('cadastro_usuario_show', { 'id': usuario.id }) }}">{{ usuario.nomecompleto }}</a></td>
                         <td>{{ usuario.nome }}</td>
-                        <td>{{ usuario.drt }}</td>
+                        <td>{{ usuario.numeroIdentificacao }}</td>
                         <td>{{ usuario.departamento.nome }}</td>
                         <td>{{ usuario.departamento.unidade.nome }}</td>
                         <td>

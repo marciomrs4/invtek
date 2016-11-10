@@ -40,6 +40,7 @@ class Equipamento
      * @var string
      *
      * @ORM\Column(name="numeroSerie", type="string", length=255, nullable=false)
+     * @Assert\NotBlank(message="O campo Numero de Série é obrigatório.")
      */
     private $numeroserie;
 
@@ -54,6 +55,7 @@ class Equipamento
      * @var string
      *
      * @ORM\Column(name="patrimonio", type="string", length=255, nullable=true)
+     * @Assert\NotBlank(message="O campo patrimônio é obrigatório")
      */
     private $patrimonio;
 
@@ -61,13 +63,14 @@ class Equipamento
      * @var string
      *
      * @ORM\Column(name="descricao", type="string", length=255, nullable=true)
+     * @Assert\NotBlank(message="O campo descrição é obrigatório")
      */
     private $descricao;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="observacao", type="text", length=65535, nullable=true)
+     * @ORM\Column(name="observacao", type="text", length=65535, nullable=false)
      */
     private $observacao;
 

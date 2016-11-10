@@ -44,3 +44,23 @@
         {{ form_end(form) }}
 
     {% endblock %}
+
+
+
+    {% block javascripts %}
+
+        {{ parent() }}
+
+        <script src="{{ asset('bundles/mrsinventario/js/select2.js') }}"></script>
+
+        <script>
+
+            $(document).ready(function() {
+
+                $("#itens_movimentacao_equipamento").select2();
+            });
+
+        </script>
+
+
+    {% endblock %}

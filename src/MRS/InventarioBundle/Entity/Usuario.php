@@ -24,10 +24,10 @@ class Usuario
     /**
      * @var string
      *
-     * @ORM\Column(name="drt", type="string", length=255, nullable=true)
+     * @ORM\Column(name="numero_identificacao", type="string", length=255, nullable=true)
      * @Assert\NotBlank(message="Este campo deve ser preenchido")
      */
-    private $drt;
+    private $numeroIdentificacao;
 
     /**
      * @var string
@@ -89,18 +89,18 @@ class Usuario
     /**
      * @return string
      */
-    public function getDrt()
+    public function getNumeroIdentificacao()
     {
-        return $this->drt;
+        return $this->numeroIdentificacao;
     }
 
     /**
-     * @param string $drt
+     * @param string $numeroIdentificacao
      * @return Usuario
      */
-    public function setDrt($drt)
+    public function setNumeroIdentificacao($numeroIdentificacao)
     {
-        $this->drt = $drt;
+        $this->numeroIdentificacao = $numeroIdentificacao;
         return $this;
     }
 
