@@ -155,11 +155,11 @@
                             <div class="panel panel-default">
 
                                 <div class="panel-heading">
-                                    <strong>DRT</strong>
+                                    <strong>Número Identificação</strong>
                                 </div>
 
                                 <div class="panel-body">
-                                    {{ movimentacao.usuarioDestino.drt }}
+                                    {{ movimentacao.usuarioDestino.numeroIdentificacao }}
                                 </div>
 
                             </div>
@@ -187,13 +187,19 @@
 
                             <div class="panel panel-default">
 
+
                                 <div class="panel-heading">
                                     <strong>Recebedor (Assinar e Carimbar)</strong>
                                 </div>
 
                                 <div class="panel-body">
-                                    Registro
+                                    {% if movimentacao.tipomovimentacao.id == 1 %}
+                                        {{ teamcreator }}
+                                    {% else %}
+                                            &nbsp;
+                                    {% endif %}
                                 </div>
+
 
                             </div>
 
@@ -204,11 +210,15 @@
                             <div class="panel panel-default">
 
                                 <div class="panel-heading">
-                                    <strong>Entregador</strong>
+                                    <strong>Entregador (Assinar e Carimbar)</strong>
                                 </div>
 
                                 <div class="panel-body">
-                                    Tecnologia da Informação
+                                    {% if movimentacao.tipomovimentacao.id == 2 %}
+                                        {{ teamcreator }}
+                                    {% else %}
+                                        &nbsp;
+                                    {% endif %}
                                 </div>
 
                             </div>

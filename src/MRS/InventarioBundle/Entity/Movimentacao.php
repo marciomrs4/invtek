@@ -17,6 +17,7 @@ class Movimentacao
      * @var \DateTime
      *
      * @ORM\Column(name="dataHora", type="datetime", nullable=false)
+     * @Assert\NotBlank(message="O campo Data e Hora é obrigatório")
      */
     private $datahora;
 
@@ -93,7 +94,7 @@ class Movimentacao
 
     public function __construct()
     {
-        $this->datahora = new \DateTime('now');
+        //$this->datahora = new \DateTime('now');
     }
 
 

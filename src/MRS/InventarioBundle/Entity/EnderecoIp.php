@@ -3,11 +3,12 @@
 namespace MRS\InventarioBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * EnderecoIp
  *
- * @ORM\Table(name="endereco_ip", indexes={@ORM\Index(name="categoria_ip_fk_idx", columns={"categoria_id"}), @ORM\Index(name="tipo_acesso_ip_fk_idx", columns={"tipo_acesso_ip_id"})})
+ * @ORM\Table(name="endereco_ip", indexes={@ORM\Index(name="categoria_ip_fk_idx", columns={"status_id"}), @ORM\Index(name="tipo_acesso_ip_fk_idx", columns={"tipo_acesso_ip_id"})})
  * @ORM\Entity
  */
 class EnderecoIp
@@ -16,6 +17,7 @@ class EnderecoIp
      * @var string
      *
      * @ORM\Column(name="endereco_ip", type="string", length=45, nullable=false)
+     * @Assert\NotBlank(message="Campo Obrigatório")
      */
     private $enderecoIp;
 
@@ -23,6 +25,7 @@ class EnderecoIp
      * @var string
      *
      * @ORM\Column(name="nome", type="string", length=45, nullable=true)
+     * @Assert\NotBlank(message="Campo Obrigatório")
      */
     private $nome;
 
@@ -49,18 +52,20 @@ class EnderecoIp
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="tipo_acesso_ip_id", referencedColumnName="id")
      * })
+     * @Assert\NotBlank(message="Campo Obrigatório")
      */
     private $tipoAcessoIp;
 
     /**
-     * @var \MRS\InventarioBundle\Entity\CategoriaIp
+     * @var \MRS\InventarioBundle\Entity\StatusIp
      *
-     * @ORM\ManyToOne(targetEntity="MRS\InventarioBundle\Entity\CategoriaIp")
+     * @ORM\ManyToOne(targetEntity="MRS\InventarioBundle\Entity\StatusIp")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="categoria_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="status_id", referencedColumnName="id")
      * })
+     * @Assert\NotBlank(message="Campo Obrigatório")
      */
-    private $categoria;
+    private $status;
 
 
 
@@ -173,24 +178,24 @@ class EnderecoIp
     /**
      * Set categoria
      *
-     * @param \MRS\InventarioBundle\Entity\CategoriaIp $categoria
+     * @param \MRS\InventarioBundle\Entity\StatusIp $status
      *
      * @return EnderecoIp
      */
-    public function setCategoria(\MRS\InventarioBundle\Entity\CategoriaIp $categoria)
+    public function setStatus(\MRS\InventarioBundle\Entity\StatusIp $status)
     {
-        $this->categoria = $categoria;
+        $this->status = $status;
 
         return $this;
     }
 
     /**
-     * Get categoria
+     * Get status
      *
-     * @return \MRS\InventarioBundle\Entity\CategoriaIp
+     * @return \MRS\InventarioBundle\Entity\StatusIp
      */
-    public function getCategoria()
+    public function getStatus()
     {
-        return $this->categoria;
+        return $this->status;
     }
 }

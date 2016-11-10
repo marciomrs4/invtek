@@ -25,7 +25,7 @@ class UsuarioType extends AbstractType
                 'attr'=>array('class'=>'input-sm')))
             ->add('nome',null,array('label'=>'Nome',
                 'attr'=>array('class'=>'input-sm')))
-            ->add('drt',TextType::class,array('label'=>'DRT',
+            ->add('numeroIdentificacao',TextType::class,array('label'=>'Número de Identificacao',
                 'attr'=>array('class'=>'input-sm')))
             ->add('departamento',EntityType::class,array('label'=>'Centro de Movimentação',
                 'attr'=>array('class'=>'input-sm'),

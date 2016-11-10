@@ -40,9 +40,9 @@ class EnderecoIpType extends AbstractType
             ->add('tipoAcessoIp',EntityType::class,array('label'=>'Tipo de Acesso',
                 'attr'=>array('class'=>'input-sm'),
                 'class' => 'MRS\InventarioBundle\Entity\TipoAcessoIp'))
-            ->add('categoria',EntityType::class,array('label'=>'Categoria',
+            ->add('status',EntityType::class,array('label'=>'Status',
                 'attr'=>array('class'=>'input-sm'),
-                'class' => 'MRS\InventarioBundle\Entity\CategoriaIp'))
+                'class' => 'MRS\InventarioBundle\Entity\StatusIp'))
         ;
     }
 

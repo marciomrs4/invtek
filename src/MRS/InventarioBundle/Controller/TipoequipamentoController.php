@@ -26,7 +26,8 @@ class TipoequipamentoController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $tipoequipamentos = $em->getRepository('MRSInventarioBundle:Tipoequipamento')->findAll();
+        $tipoequipamentos = $em->getRepository('MRSInventarioBundle:Tipoequipamento')
+            ->getAllOrderByDescricao();
 
         return $this->render('tipoequipamento/index.html.twig', array(
             'tipoequipamentos' => $tipoequipamentos,

@@ -5,12 +5,12 @@ namespace MRS\InventarioBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * CategoriaIp
+ * StatusIp
  *
- * @ORM\Table(name="categoria_ip")
+ * @ORM\Table(name="status_ip")
  * @ORM\Entity
  */
-class CategoriaIp
+class StatusIp
 {
     /**
      * @var string
@@ -35,7 +35,7 @@ class CategoriaIp
      *
      * @param string $nome
      *
-     * @return CategoriaIp
+     * @return StatusIp
      */
     public function setNome($nome)
     {

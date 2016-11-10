@@ -1,9 +1,9 @@
-mrs_inventario_tipo_acesso_ip:
-    resource: "@MRSInventarioBundle/Controller/TipoAcessoIpController.php"
+mrs_inventario_status_ip:
+    resource: "@MRSInventarioBundle/Controller/StatusIpController.php"
     type:     annotation
 
-mrs_inventario_categoria_ip:
-    resource: "@MRSInventarioBundle/Controller/CategoriaIpController.php"
+mrs_inventario_tipo_acesso_ip:
+    resource: "@MRSInventarioBundle/Controller/TipoAcessoIpController.php"
     type:     annotation
 
 mrs_inventario_endereco_ip:
