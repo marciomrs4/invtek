@@ -3,6 +3,7 @@
 namespace MRS\InventarioBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Software
@@ -58,6 +59,18 @@ class Software
      * })
      */
     private $tiposoftware;
+
+
+    /**
+     * @var \MRS\InventarioBundle\Entity\FornecedorSoftware
+     *
+     * @ORM\ManyToOne(targetEntity="MRS\InventarioBundle\Entity\FornecedorSoftware")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fornecedor_software_id", referencedColumnName="id")
+     * })
+     * @Assert\NotBlank(message="Fornecedor é obrigatório")
+     */
+    private $fornecedor;
 
 
 
@@ -189,5 +202,29 @@ class Software
     public function __toString()
     {
         return $this->getDescricao();
+    }
+
+    /**
+     * Set fornecedor
+     *
+     * @param \MRS\InventarioBundle\Entity\FornecedorSoftware $fornecedor
+     *
+     * @return Software
+     */
+    public function setFornecedor(\MRS\InventarioBundle\Entity\FornecedorSoftware $fornecedor = null)
+    {
+        $this->fornecedor = $fornecedor;
+
+        return $this;
+    }
+
+    /**
+     * Get fornecedor
+     *
+     * @return \MRS\InventarioBundle\Entity\FornecedorSoftware
+     */
+    public function getFornecedor()
+    {
+        return $this->fornecedor;
     }
 }

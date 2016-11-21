@@ -69,11 +69,9 @@ class EquipamentoController extends Controller
      */
     public function showAction(Equipamento $equipamento)
     {
-        $deleteForm = $this->createDeleteForm($equipamento);
 
         return $this->render('equipamento/show.html.twig', array(
-            'equipamento' => $equipamento,
-            'delete_form' => $deleteForm->createView(),
+            'equipamento' => $equipamento
         ));
     }
 

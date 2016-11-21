@@ -46,7 +46,6 @@ class Equipamento
 
     /**
      * @var boolean
-     *
      * @ORM\Column(name="status", type="boolean", nullable=false)
      */
     private $status;

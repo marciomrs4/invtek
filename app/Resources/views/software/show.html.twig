@@ -97,6 +97,12 @@
                     <th>Tipo de Software</th>
                     <td>{{ software.tiposoftware.descricao }}</td>
                 </tr>
+                <tr>
+                    <th>Fornecedor de Software</th>
+                    {% if software.fornecedor %}
+                    <td>{{ software.fornecedor.nome }}</td>
+                    {% endif  %}
+                </tr>
                 </tbody>
             </table>
         </div>

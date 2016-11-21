@@ -1,0 +1,77 @@
+{% extends ':template:template.html.twig' %}
+
+
+    {% block contentheader %}
+
+
+        <section class="content-header">
+            <h1>
+                Custo Equipamento
+                <small>Listar</small>
+            </h1>
+        </section>
+
+
+    {% endblock %}
+
+
+    {% block panelheading %}
+        <a href="{{ path('cadastro_custoequipamento_new',{ 'equipamento' : equipamento.id }) }}" class="btn btn-primary btn-sm">
+            <span class="glyphicon glyphicon-plus"></span>
+            Novo Custo
+        </a>
+
+        <a href="{{ path('cadastro_equipamento_show',{ 'id' : equipamento.id }) }}" class="btn btn-primary btn-sm">
+            <span class="glyphicon glyphicon-eye-open"></span>
+            Mostrar Equipamento
+        </a>
+    {% endblock %}
+
+    {% block panelbody %}
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-condensed table-hover table-striped">
+                <tbody>
+                <tr>
+                    <th>Total</th>
+                    <td>R$ {{ custo.total | number_format(2,',','.')}}</td>
+                    <th>Média</th>
+                    <td>R$ {{ custo.media | number_format(2,',','.') }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-condensed table-hover table-striped">
+                <thead>
+                <tr>
+                    <th>Ações</th>
+                    <th>Valor</th>
+                    <th>Descricao</th>
+                    <th>Data Lançamento</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for custoEquipamento in custoEquipamentos %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('cadastro_custoequipamento_show', { 'id': custoEquipamento.id }) }}" class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                Mostrar
+                            </a>
+                            <a href="{{ path('cadastro_custoequipamento_edit', { 'id': custoEquipamento.id }) }}" class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-edit"></span>
+                                Editar
+                            </a>
+                        </td>
+                        <td>R$ {{ custoEquipamento.valor |number_format(2,',','.') }}</a></td>
+                        <td>{{ custoEquipamento.descricao }}</td>
+                        <td>{{ custoEquipamento.dataCriacao| date('d-m-Y') }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    {% endblock %}

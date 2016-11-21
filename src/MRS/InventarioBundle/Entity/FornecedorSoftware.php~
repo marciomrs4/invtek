@@ -1,0 +1,52 @@
+<?php
+
+namespace MRS\InventarioBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * FornecedorSoftware
+ *
+ * @ORM\Table(name="fornecedor_software")
+ * @ORM\Entity
+ */
+class FornecedorSoftware
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nome", type="string", length=45, nullable=false)
+     */
+    private $nome;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descricao", type="text", length=65535, nullable=true)
+     */
+    private  $descricao;
+
+    /**
+     * @var boolean
+     * @ORM\Column(name="status", type="boolean", nullable=false)
+     */
+    private $status;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+
+
+
+    public function __toString()
+    {
+        return $this->getNome();
+    }
+}

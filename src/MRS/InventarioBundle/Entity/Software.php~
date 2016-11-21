@@ -60,4 +60,145 @@ class Software
     private $tiposoftware;
 
 
+    /**
+     * @var \MRS\InventarioBundle\Entity\FornecedorSoftware
+     *
+     * @ORM\ManyToOne(targetEntity="MRS\InventarioBundle\Entity\FornecedorSoftware")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fornecedor_software_id", referencedColumnName="id")
+     * })
+     */
+    private $fornecedor;
+
+
+
+    /**
+     * Set descricao
+     *
+     * @param string $descricao
+     * @return Software
+     */
+    public function setDescricao($descricao)
+    {
+        $this->descricao = $descricao;
+
+        return $this;
+    }
+
+    /**
+     * Get descricao
+     *
+     * @return string 
+     */
+    public function getDescricao()
+    {
+        return $this->descricao;
+    }
+
+    /**
+     * Set numerolicensa
+     *
+     * @param string $numerolicensa
+     * @return Software
+     */
+    public function setNumerolicensa($numerolicensa)
+    {
+        $this->numerolicensa = $numerolicensa;
+
+        return $this;
+    }
+
+    /**
+     * Get numerolicensa
+     *
+     * @return string 
+     */
+    public function getNumerolicensa()
+    {
+        return $this->numerolicensa;
+    }
+
+    /**
+     * Set versao
+     *
+     * @param string $versao
+     * @return Software
+     */
+    public function setVersao($versao)
+    {
+        $this->versao = $versao;
+
+        return $this;
+    }
+
+    /**
+     * Get versao
+     *
+     * @return string 
+     */
+    public function getVersao()
+    {
+        return $this->versao;
+    }
+
+    /**
+     * Set serial
+     *
+     * @param string $serial
+     * @return Software
+     */
+    public function setSerial($serial)
+    {
+        $this->serial = $serial;
+
+        return $this;
+    }
+
+    /**
+     * Get serial
+     *
+     * @return string 
+     */
+    public function getSerial()
+    {
+        return $this->serial;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set tiposoftware
+     *
+     * @param \MRS\InventarioBundle\Entity\Tiposoftware $tiposoftware
+     * @return Software
+     */
+    public function setTiposoftware(\MRS\InventarioBundle\Entity\Tiposoftware $tiposoftware = null)
+    {
+        $this->tiposoftware = $tiposoftware;
+
+        return $this;
+    }
+
+    /**
+     * Get tiposoftware
+     *
+     * @return \MRS\InventarioBundle\Entity\Tiposoftware 
+     */
+    public function getTiposoftware()
+    {
+        return $this->tiposoftware;
+    }
+
+    public function __toString()
+    {
+        return $this->getDescricao();
+    }
 }

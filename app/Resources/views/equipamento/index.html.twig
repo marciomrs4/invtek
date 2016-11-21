@@ -65,7 +65,7 @@
                         <td>{{ equipamento.patrimonio }}</td>
                         <td>{% if equipamento.dataCompra %}{{ equipamento.dataCompra |date('d-m-Y') }}{% endif %}</td>
                         <td>{{ equipamento.numeroserie }}</td>
-                        <td>{% if equipamento.status %}Sim{% else %}Não{% endif %}</td>
+                        <td>{% if equipamento.status %}Ativo{% else %}Inativo{% endif %}</td>
                         <td>{{ equipamento.centroMovimentacao.nome }}</td>
                         <td>{{ equipamento.descricao }}</td>
                         <td>{{ equipamento.observacao }}</td>

@@ -1,0 +1,59 @@
+{% extends ':template:template.html.twig' %}
+
+
+    {% block contentheader %}
+
+
+        <section class="content-header">
+            <h1>
+                Fornecedor de Software
+                <small>Listar</small>
+            </h1>
+        </section>
+
+
+    {% endblock %}
+
+
+    {% block panelheading %}
+        <a href="{{ path('cadastro_fornecedorsoftware_new') }}" class="btn btn-primary btn-sm">
+            <span class="glyphicon glyphicon-plus"></span>
+            Novo
+        </a>
+    {% endblock %}
+
+    {% block panelbody %}
+        <div class="table-responsive">
+            <table class="table table-bordered table-condensed table-hover table-striped">
+                <thead>
+                <tr>
+                    <th>Ações</th>
+                    <th>Nome</th>
+                    <th>Descricao</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for fornecedorSoftware in fornecedorSoftwares %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('cadastro_fornecedorsoftware_show', { 'id': fornecedorSoftware.id }) }}" class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                Mostrar
+                            </a>
+                            <a href="{{ path('cadastro_fornecedorsoftware_edit', { 'id': fornecedorSoftware.id }) }}" class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-edit"></span>
+                                Editar
+                            </a>
+                        </td>
+                        <td><a href="{{ path('cadastro_fornecedorsoftware_show', { 'id': fornecedorSoftware.id }) }}">{{ fornecedorSoftware.nome }}</a></td>
+                        <td>{{ fornecedorSoftware.descricao }}</td>
+                        <td>{% if fornecedorSoftware.status %}Ativo{% else %}Inativo{% endif %}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
+    {% endblock %}

@@ -1,0 +1,87 @@
+    {% extends ':template:template.html.twig' %}
+
+
+
+    {% block contentheader %}
+
+    <section class="content-header">
+        <h1>
+            Custo Equipamento
+            <small>Mostrar</small>
+        </h1>
+    </section>
+
+    {% endblock %}
+
+    {% block firstrow %}
+
+    {% for message in app.session.flashBag.get('notice') %}
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <i class="fa fa-info"></i> {{ message }}. <i class="fa fa-smile-o"></i>
+        </div>
+    </div>
+    {% endfor %}
+
+
+    {% endblock %}
+
+
+    {% block panelheading %}
+
+        <div class="row">
+
+    <div class="col-md-2 col-sm-3 col-xs-3">
+
+        <a href="{{ path('cadastro_custoequipamento_index',{ 'equipamento' : custoEquipamento.equipamento.id }) }}" class="btn btn-primary btn-sm">
+            <span class="fa fa-reply"></span>
+            Listar Custos
+        </a>
+
+    </div>
+        <div class="col-md-2 col-sm-3 col-xs-3">
+
+            <a href="{{ path('cadastro_custoequipamento_edit', { 'id': custoEquipamento.id }) }}" class="btn btn-primary btn-sm">
+                <span class="glyphicon glyphicon-edit"></span>
+                Editar
+            </a>
+
+        </div>
+        <div class="col-md-2 col-sm-3 col-xs-3">
+
+            <a href="{{ path('cadastro_equipamento_show', { 'id': custoEquipamento.equipamento.id }) }}" class="btn btn-primary btn-sm">
+                <span class="glyphicon glyphicon-eye-open"></span>
+                Mostrar Equipamento
+            </a>
+
+        </div>
+</div>{% endblock %}
+
+
+
+    {% block panelbody %}
+
+    <div class="table table-responsive">
+        <table class="table table-bordered table-condensed">
+            <tbody>
+                <tr>
+                    <th>Valor</th>
+                        <td>{{ custoEquipamento.valor|number_format(2,',','.') }}</td>
+                </tr>
+                <tr>
+                    <th>Descrição</th>
+                        <td>{{ custoEquipamento.descricao }}</td>
+                </tr>
+                <tr>
+                    <th>Data Lançamento</th>
+                        <td>{{ custoEquipamento.dataCriacao | date('d-m-Y') }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    {% endblock %}

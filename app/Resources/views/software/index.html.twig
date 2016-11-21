@@ -40,6 +40,7 @@
                     <th>Versao</th>
                     <th>Serial</th>
                     <th>Tipo de Software</th>
+                    <th>Fornecedor de Software</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -60,6 +61,10 @@
                         <td>{{ software.versao }}</td>
                         <td>{{ software.serial }}</td>
                         <td>{{ software.tiposoftware.descricao }}</td>
+                        <td>{% if software.fornecedor %}
+                            {{ software.fornecedor.nome }}
+                            {% endif %}
+                        </td>
                     </tr>
                 {% endfor %}
                 </tbody>

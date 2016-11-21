@@ -33,6 +33,15 @@ class SoftwareType extends AbstractType
                         ->orderBy('t.descricao');
                 },
                 'placeholder'=>'Selecione'))
+            ->add('fornecedor',EntityType::class,array('label'=>'Fornecedor',
+                'attr'=>array('class'=>'input-sm'),
+                'class' => 'MRS\InventarioBundle\Entity\FornecedorSoftware',
+                'query_builder' => function(EntityRepository $er){
+                    return $er->createQueryBuilder('f')
+                        ->orderBy('f.nome')
+                        ->where('f.status = 1');
+                },
+                'placeholder'=>'Selecione'))
         ;
     }
     

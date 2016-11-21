@@ -1,3 +1,11 @@
+mrs_inventario_fornecedor_software:
+    resource: "@MRSInventarioBundle/Controller/FornecedorSoftwareController.php"
+    type:     annotation
+
+mrs_inventario_custo_equipamento:
+    resource: "@MRSInventarioBundle/Controller/CustoEquipamentoController.php"
+    type:     annotation
+
 mrs_inventario_status_ip:
     resource: "@MRSInventarioBundle/Controller/StatusIpController.php"
     type:     annotation
