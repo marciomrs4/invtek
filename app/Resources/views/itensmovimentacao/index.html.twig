@@ -20,13 +20,17 @@
                     <tr>
                         <td>
                             {% if movimentacao.status %}
-
+                                <a href="{{ path('cadastro_equipamento_show', { 'id': itensMovimentacao.equipamento.id }) }}"
+                                   class="btn btn-primary btn-xs">
+                                    <span class="glyphicon glyphicon-eye-open"></span>
+                                    Mostrar
+                                </a>
                             {% else %}
-                            <a href="{{ path('cadastro_itensmovimentacao_edit', { 'id': itensMovimentacao.id }) }}"
-                               class="btn btn-primary btn-xs">
-                                <span class="glyphicon glyphicon-edit"></span>
-                                Editar
-                            </a>
+                                <a href="{{ path('cadastro_itensmovimentacao_edit', { 'id': itensMovimentacao.id }) }}"
+                                   class="btn btn-primary btn-xs">
+                                    <span class="glyphicon glyphicon-edit"></span>
+                                    Editar
+                                </a>
                             {% endif %}
                         </td>
                         <td>{{ itensMovimentacao.equipamento.patrimonio }}| {{ itensMovimentacao.equipamento.nome }}</td>

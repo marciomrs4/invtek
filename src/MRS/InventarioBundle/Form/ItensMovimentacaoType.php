@@ -18,7 +18,8 @@ class ItensMovimentacaoType extends AbstractType
     {
         $builder
             ->add('numeroChamado',null,array('label'=>'Número Chamado',
-                'attr'=>array('class'=>'input-sm')));
+                  'attr'=>array('class'=>'input-sm')))
+        ;
 
     }
 
