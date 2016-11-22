@@ -21,6 +21,9 @@ parameters:
     # BaseURL para anexos, depende qual o nome da pasta do servidor
     base_url: inventario
 
+    # indicar qual ambiente será usado
+    enviroment: 'Homologacao'
+
     #Informacoes sobre o sistema na tela inicial
     company:
     phrase:
