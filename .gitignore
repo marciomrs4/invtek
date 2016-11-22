@@ -13,4 +13,5 @@
 .idea/
 /web/anexos/acompanhamentos/*
 /web/anexos/equipamentos/*
+/app/sessions/*
 !app/sessions/.gitkeep
