@@ -50,5 +50,15 @@ class MovimentacaoRepository extends EntityRepository
 
     }
 
+    public function finAllOrderByData()
+    {
+        return $this->getEntityManager()
+            ->createQueryBuilder('m')
+            ->orderBy('m.datahora','DESC')
+            ->getQuery()
+            ->getResult();
+
+    }
+
 
 }

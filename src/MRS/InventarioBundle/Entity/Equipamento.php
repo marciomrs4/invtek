@@ -3,6 +3,7 @@
 namespace MRS\InventarioBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -10,6 +11,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Table(name="equipamento", indexes={@ORM\Index(name="fk_equipamento_tipoEquipamento1_idx", columns={"tipoEquipamento_id"}), @ORM\Index(name="fk_equipamento_forcedor1_idx", columns={"fornecedor_id"}), @ORM\Index(name="fk_equipamento_marca1_idx", columns={"marca_id"}), @ORM\Index(name="fk_equipamento_centro_movimentacao1_idx", columns={"centro_movimentacao_id"})})
  * @ORM\Entity(repositoryClass="MRS\InventarioBundle\Repository\EquipamentoRepository")
+ * @UniqueEntity(fields={"patrimonio"},ignoreNull=true,message="Já existe um registro como este")
+ * @UniqueEntity(fields={"numeroserie"},ignoreNull=true,message="Já existe um registro como este")
  */
 class Equipamento
 {
@@ -69,7 +72,7 @@ class Equipamento
     /**
      * @var string
      *
-     * @ORM\Column(name="observacao", type="text", length=65535, nullable=false)
+     * @ORM\Column(name="observacao", type="text", length=65535, nullable=true)
      */
     private $observacao;
 
