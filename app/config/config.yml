@@ -43,6 +43,7 @@ twig:
         version: "%version%"
         teamcreator: "%teamcreator%"
         enviroment: "%enviroment%"
+        color: "%color%"
 
 # Doctrine Configuration
 doctrine:

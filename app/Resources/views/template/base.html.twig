@@ -19,6 +19,7 @@
         <!-- AdminLTE Skins. Choose a skin from the css/skins
              folder instead of downloading all of them to reduce the load. -->
         <link rel="stylesheet" href="{{ asset('bundles/mrsinventario/css/skin-green.css') }}">
+        <link rel="stylesheet" href="{{ asset('bundles/mrsinventario/css/skin-blue.css') }}">
         <!-- pace.css -->
         <link rel="stylesheet" href="{{ asset('bundles/mrsinventario/css/pace.css') }}">
 
@@ -36,7 +37,7 @@
     #}
 
 </head>
-<body class="hold-transition skin-green sidebar-mini fixed sidebar-collapse">
+<body class="hold-transition skin-{{ color }} sidebar-mini fixed sidebar-collapse">
 
 <div class="wrapper">
 
@@ -280,7 +281,7 @@
                         <!-- Widget: user widget style 1 -->
                         <div class="panel panel-default">
 
-                            <div class="panel-heading bg-aqua-active">
+                            <div class="panel-heading bg-{{ color }}-active">
                             </div>
 
                             <!-- /.box-header -->
@@ -288,7 +289,7 @@
 
                                 <div class="box box-widget widget-user">
                                     <!-- Add the bg color to the header using any of the bg-* classes -->
-                                    <div class="widget-user-header bg-aqua-active">
+                                    <div class="widget-user-header bg-{{ color }}-active">
                                         <h3 class="widget-user-username">
                                             <strong>{{ company }}</strong>
                                         </h3>
