@@ -69,6 +69,7 @@ class EnderecoIpController extends Controller
 
             }
 
+            return $this->redirectToRoute('cadastro_enderecoip_index');
 
         }
 
