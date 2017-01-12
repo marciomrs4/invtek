@@ -57,19 +57,18 @@
                     <th>Observação</th>
                     <th>Tipo de Acesso</th>
                     <th>Status</th>
+                    <th>Unidade</th>
                 </tr>
                 </thead>
                 <tbody>
                 {% for enderecoIp in enderecoIps %}
                     <tr>
                         <td>
-                            <a href="{{ path('cadastro_enderecoip_show', { 'id': enderecoIp.id }) }}" class="btn btn-primary btn-sm">
+                            <a href="{{ path('cadastro_enderecoip_show', { 'id': enderecoIp.id }) }}" class="btn btn-primary btn-xs link-search">
                                 <span class="glyphicon glyphicon-eye-open"></span>
-                                Mostrar
                             </a>
-                            <a href="{{ path('cadastro_enderecoip_edit', { 'id': enderecoIp.id }) }}" class="btn btn-primary btn-sm">
+                            <a href="{{ path('cadastro_enderecoip_edit', { 'id': enderecoIp.id }) }}" class="btn btn-primary btn-xs ">
                                 <span class="glyphicon glyphicon-edit"></span>
-                                Editar
                             </a>
                         </td>
                         <td><a href="{{ path('cadastro_enderecoip_show', { 'id': enderecoIp.id }) }}">{{ enderecoIp.enderecoIp }}</a></td>
@@ -77,6 +76,7 @@
                         <td>{{ enderecoIp.observacao }}</td>
                         <td>{{ enderecoIp.tipoAcessoIp }}</td>
                         <td>{{ enderecoIp.status }}</td>
+                        <td>{{ enderecoIp.unidade }}</td>
                     </tr>
                 {% endfor %}
                 </tbody>
@@ -116,39 +116,56 @@
                         <button type="button" class="btn btn-default btn-sm pull-right" data-dismiss="modal">Fechar</button>
                     </div>
 
-                        <div class="panel panel-default">
+                    <div class="panel panel-default">
 
-                            <div class="panel-heading">
-                                Colunas necessárias: Exemplo
-                            </div>
-
-                            <div class="panel-body">
-
-                                <table class="table table-bordered table-condensed">
-                                    <thead>
-                                    <tr>
-                                        <th>Endereço IP</th>
-                                        <th>Host Name</th>
-                                        <th>Observação</th>
-                                        <th>Tipo de Acesso</th>
-                                        <th>Categoria</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>172.22.0.1</td>
-                                        <td>MEU-SERVIDOR</td>
-                                        <td>Uma Observação</td>
-                                        <td>Bloqueado/Full</td>
-                                        <td>Livre/Em Uso</td>
-                                    </tr>
-                                    </tbody>
-
-                                </table>
-
-                            </div>
+                        <div class="panel-heading">
+                            Colunas necessárias: Exemplo
 
                         </div>
+
+                        <div class="panel-body">
+
+                            <table class="table table-bordered table-condensed">
+                                <thead>
+                                <tr>
+                                    <th>Endereço IP</th>
+                                    <th>Host Name</th>
+                                    <th>Observação</th>
+                                    <th>Tipo de Acesso</th>
+                                    <th>Status</th>
+                                    <th>Unidade</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>172.22.0.1</td>
+                                    <td>MEU-SERVIDOR</td>
+                                    <td>Uma Observação</td>
+                                    <td>
+                                        {% for tipoAcesso in tiposAcessos %}
+                                            {{ tipoAcesso.id }} para {{ tipoAcesso.nome }}<br>
+                                        {% endfor %}
+                                    </td>
+
+                                    <td>
+                                        {% for item in status %}
+                                            {{ item.id }} para {{ item.nome }}<br>
+                                        {% endfor %}
+                                    </td>
+
+                                    <td>
+                                        {% for unidade in unidades %}
+                                            {{ unidade.id }} para {{ unidade.nome }}<br>
+                                        {% endfor %}
+                                    </td>
+                                </tr>
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
 
 
                 </div>

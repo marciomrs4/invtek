@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -58,6 +59,9 @@ class EquipamentoType extends AbstractType
             ->add('dataCompra',DateType::class,array('label'=>'Data da Compra',
                 'widget'=>'single_text',
                 'attr' => array('class'=>'input-sm')))
+            ->add('valorCompra', MoneyType::class, array('label' => 'Valor da Compra',
+                'attr' => array('class' => 'input-sm'),
+                'currency' => 'BRL', 'scale' => 2))
             ->add('numeroserie',TextType::class,array('label'=>'Número de Série',
                 'attr'=>array('class'=>'input-sm')))
             ->add('status',CheckboxType::class,array('label'=>'Status'))

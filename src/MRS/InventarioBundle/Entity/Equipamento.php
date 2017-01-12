@@ -42,6 +42,14 @@ class Equipamento
     /**
      * @var string
      *
+     * @ORM\Column(name="valor_compra", type="decimal", precision=10, scale=2 ,nullable=false)
+     * @Assert\NotBlank(message="O campo valor de compra é obrigatorio.")
+     */
+    private $valorCompra;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="numeroSerie", type="string", length=255, nullable=false)
      * @Assert\NotBlank(message="O campo Numero de Série é obrigatório.")
      */
@@ -103,7 +111,7 @@ class Equipamento
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="comprado_para", referencedColumnName="id")
      * })
-     * @Assert\NotBlank(message="O centro de movimentação do equipamento é obrigatório.")
+     * @Assert\NotBlank(message="Este campo é obrigatório.")
      */
     private $compradoPara;
 
@@ -117,6 +125,7 @@ class Equipamento
      * @Assert\NotBlank(message="A marca do equipamento é obrigatório.")
      */
     private $marca;
+
     /**
      * @var \MRS\InventarioBundle\Entity\Fornecedor
      *
@@ -127,7 +136,6 @@ class Equipamento
      * @Assert\NotBlank(message="O fornecedor do equipamento é obrigatório.")
      */
     private $fornecedor;
-
     /**
      * @var \MRS\InventarioBundle\Entity\Tipoequipamento
      *
@@ -149,7 +157,6 @@ class Equipamento
 
         $this->dataCompra = $date;
     }
-
 
     /**
      * Set nome
@@ -175,6 +182,7 @@ class Equipamento
         return $this->nome;
     }
 
+
     /**
      * @return CentroMovimentacao
      */
@@ -193,7 +201,6 @@ class Equipamento
         return $this;
     }
 
-
     /**
      * Set validade
      *
@@ -206,6 +213,7 @@ class Equipamento
 
         return $this;
     }
+
 
     /**
      * Get validade
@@ -232,6 +240,24 @@ class Equipamento
     public function setDataCompra($dataCompra)
     {
         $this->dataCompra = $dataCompra;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getValorCompra()
+    {
+        return $this->valorCompra;
+    }
+
+    /**
+     * @param string $valorCompra
+     * @return Equipamento
+     */
+    public function setValorCompra($valorCompra)
+    {
+        $this->valorCompra = $valorCompra;
         return $this;
     }
 

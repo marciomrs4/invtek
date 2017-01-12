@@ -16,8 +16,8 @@ class CustoEquipamento
     /**
      * @var string
      *
-     * @ORM\Column(name="nome", type="decimal", precision=10, scale=2 ,nullable=false)
-     * @Assert\NotBlank(message="O nome valor é obrigatorio.")
+     * @ORM\Column(name="valor", type="decimal", precision=10, scale=2 ,nullable=false)
+     * @Assert\NotBlank(message="O campo valor é obrigatorio.")
      */
     private $valor;
 
@@ -30,6 +30,16 @@ class CustoEquipamento
      * })
      */
     private $equipamento;
+
+    /**
+     * @var \MRS\InventarioBundle\Entity\Acompanhamento
+     *
+     * @ORM\ManyToOne(targetEntity="MRS\InventarioBundle\Entity\Acompanhamento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="acompanhamento_id", referencedColumnName="id", nullable=true)
+     * })
+     */
+    private $acompanhamento;
 
     /**
      * @var string
@@ -193,5 +203,29 @@ class CustoEquipamento
     public function getDataCriacao()
     {
         return $this->data_criacao;
+    }
+
+    /**
+     * Set acompanhamento
+     *
+     * @param \MRS\InventarioBundle\Entity\Acompanhamento $acompanhamento
+     *
+     * @return CustoEquipamento
+     */
+    public function setAcompanhamento(\MRS\InventarioBundle\Entity\Acompanhamento $acompanhamento = null)
+    {
+        $this->acompanhamento = $acompanhamento;
+
+        return $this;
+    }
+
+    /**
+     * Get acompanhamento
+     *
+     * @return \MRS\InventarioBundle\Entity\Acompanhamento
+     */
+    public function getAcompanhamento()
+    {
+        return $this->acompanhamento;
     }
 }

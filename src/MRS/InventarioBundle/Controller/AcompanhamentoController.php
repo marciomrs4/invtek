@@ -73,11 +73,13 @@ class AcompanhamentoController extends Controller
      */
     public function showAction(Acompanhamento $acompanhamento)
     {
-        $deleteForm = $this->createDeleteForm($acompanhamento);
+
+        $custos = $this->getDoctrine()->getRepository('MRSInventarioBundle:CustoEquipamento')
+            ->findBy(array('acompanhamento'=>$acompanhamento));
 
         return $this->render('acompanhamento/show.html.twig', array(
             'acompanhamento' => $acompanhamento,
-            'delete_form' => $deleteForm->createView(),
+            'custos' => $custos
         ));
     }
 

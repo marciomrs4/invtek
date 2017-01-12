@@ -150,6 +150,10 @@
                     <td>{% if equipamento.dataCompra %}{{ equipamento.dataCompra|date('d-m-Y') }}{% endif %}</td>
                 </tr>
                 <tr>
+                    <th>Valor da Compra</th>
+                    <td>R$ {{ equipamento.valorCompra|number_format(2,',','.') }}</td>
+                </tr>
+                <tr>
                     <th>Número de série</th>
                     <td>{{ equipamento.numeroserie }}</td>
                 </tr>

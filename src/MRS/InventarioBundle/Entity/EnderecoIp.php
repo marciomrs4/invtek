@@ -4,12 +4,14 @@ namespace MRS\InventarioBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * EnderecoIp
  *
  * @ORM\Table(name="endereco_ip", indexes={@ORM\Index(name="categoria_ip_fk_idx", columns={"status_id"}), @ORM\Index(name="tipo_acesso_ip_fk_idx", columns={"tipo_acesso_ip_id"})})
  * @ORM\Entity
+ * @UniqueEntity(fields={"enderecoIp"},ignoreNull=true,message="Já existe um registro como este IP")
  */
 class EnderecoIp
 {
@@ -66,6 +68,17 @@ class EnderecoIp
      * @Assert\NotBlank(message="Campo Obrigatório")
      */
     private $status;
+
+    /**
+     * @var \MRS\InventarioBundle\Entity\Unidade
+     *
+     * @ORM\ManyToOne(targetEntity="MRS\InventarioBundle\Entity\Unidade")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="unidade_id", referencedColumnName="id")
+     * })
+     * @Assert\NotBlank(message="Campo Obrigatório")
+     */
+    private $unidade;
 
 
 
@@ -197,5 +210,29 @@ class EnderecoIp
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * Set unidade
+     *
+     * @param \MRS\InventarioBundle\Entity\Unidade $unidade
+     *
+     * @return EnderecoIp
+     */
+    public function setUnidade(\MRS\InventarioBundle\Entity\Unidade $unidade = null)
+    {
+        $this->unidade = $unidade;
+
+        return $this;
+    }
+
+    /**
+     * Get unidade
+     *
+     * @return \MRS\InventarioBundle\Entity\Unidade
+     */
+    public function getUnidade()
+    {
+        return $this->unidade;
     }
 }

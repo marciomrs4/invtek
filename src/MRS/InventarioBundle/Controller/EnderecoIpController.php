@@ -40,22 +40,28 @@ class EnderecoIpController extends Controller
 
             foreach($file as $item){
 
-            $posicao = explode(';',$item);
+            $posicao = explode(',',$item);
+
+                //dump($posicao); die();
 
                 $enderecoIp = new EnderecoIp();
 
                 $TipoAcessoIp = $em->getRepository('MRSInventarioBundle:TipoAcessoIp')
                     ->find($posicao['3']);
 
-                $CategoriaIp = $em->getRepository('MRSInventarioBundle:CategoriaIp')
+                $Status = $em->getRepository('MRSInventarioBundle:StatusIp')
                     ->find($posicao['4']);
+
+                $Unidade = $em->getRepository('MRSInventarioBundle:Unidade')
+                    ->find($posicao['5']);
 
 
                 $enderecoIp->setEnderecoIp($posicao['0'])
                     ->setNome($posicao['1'])
                     ->setObservacao($posicao['2'])
                     ->setTipoAcessoIp($TipoAcessoIp)
-                    ->setCategoria($CategoriaIp);
+                    ->setStatus($Status)
+                    ->setUnidade($Unidade);
 
                 $em->persist($enderecoIp);
                 $em->flush();
@@ -66,8 +72,20 @@ class EnderecoIpController extends Controller
 
         }
 
+        $tipoAcessos = $em->getRepository('MRSInventarioBundle:StatusIp')
+            ->findAll();
+
+        $status = $em->getRepository('MRSInventarioBundle:TipoAcessoIp')
+            ->findAll();
+
+        $unidades = $em->getRepository('MRSInventarioBundle:Unidade')
+            ->findAll();
+
         return $this->render('enderecoip/index.html.twig', array(
             'enderecoIps' => $enderecoIps,
+            'tiposAcessos' => $tipoAcessos,
+            'status' => $status,
+            'unidades' => $unidades
         ));
     }
 
@@ -107,11 +125,13 @@ class EnderecoIpController extends Controller
      */
     public function showAction(EnderecoIp $enderecoIp)
     {
-        $deleteForm = $this->createDeleteForm($enderecoIp);
+        $ip = escapeshellarg($enderecoIp->getEnderecoIp());
+
+        $ping = shell_exec("ping -c 4 {$ip}");
 
         return $this->render('enderecoip/show.html.twig', array(
             'enderecoIp' => $enderecoIp,
-            'delete_form' => $deleteForm->createView(),
+            'ping' => $ping
         ));
     }
 

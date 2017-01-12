@@ -425,6 +425,13 @@
         });
 
 
+        //Usado para botoes que são Links
+        $(".link-search").click(function(){
+
+            $(this).replaceWith('<img src="{{ asset('load.gif') }}" />');
+
+        });
+
         //$(document).on("click","#remover",myConfirm() );
 
 

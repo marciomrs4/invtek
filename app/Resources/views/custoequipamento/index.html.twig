@@ -35,8 +35,10 @@
                 <tr>
                     <th>Total</th>
                     <td>R$ {{ custo.total | number_format(2,',','.')}}</td>
-                    <th>Média</th>
-                    <td>R$ {{ custo.media | number_format(2,',','.') }}</td>
+                    <th>Data da Compra</th>
+                    <td>{{ equipamento.dataCompra | date('d-m-Y') }}</td>
+                    <th>Valor da Compra</th>
+                    <td>R$ {{ equipamento.valorCompra | number_format(2,',','.') }}</td>
                 </tr>
                 </tbody>
             </table>
@@ -50,24 +52,33 @@
                     <th>Valor</th>
                     <th>Descricao</th>
                     <th>Data Lançamento</th>
+                    <th>Acompanhamento</th>
                 </tr>
                 </thead>
                 <tbody>
                 {% for custoEquipamento in custoEquipamentos %}
                     <tr>
                         <td>
-                            <a href="{{ path('cadastro_custoequipamento_show', { 'id': custoEquipamento.id }) }}" class="btn btn-primary btn-sm">
+                            <a href="{{ path('cadastro_custoequipamento_show', { 'id': custoEquipamento.id }) }}" class="btn btn-primary btn-xs"
+                               data-toggle="tooltip" data-placement="top" title="Mostar Custo">
                                 <span class="glyphicon glyphicon-eye-open"></span>
-                                Mostrar
                             </a>
-                            <a href="{{ path('cadastro_custoequipamento_edit', { 'id': custoEquipamento.id }) }}" class="btn btn-primary btn-sm">
+                            <a href="{{ path('cadastro_custoequipamento_edit', { 'id': custoEquipamento.id }) }}" class="btn btn-primary btn-xs"
+                               data-toggle="tooltip" data-placement="top" title="Editar Custo">
                                 <span class="glyphicon glyphicon-edit"></span>
-                                Editar
                             </a>
                         </td>
                         <td>R$ {{ custoEquipamento.valor |number_format(2,',','.') }}</a></td>
                         <td>{{ custoEquipamento.descricao }}</td>
                         <td>{{ custoEquipamento.dataCriacao| date('d-m-Y') }}</td>
+                        <td>
+                            {% if custoEquipamento.acompanhamento %}
+                                {{ custoEquipamento.acompanhamento.tipoacompanhamento.nome }}
+                            {% else %}
+                                -
+                            {% endif %}
+
+                        </td>
                     </tr>
                 {% endfor %}
                 </tbody>

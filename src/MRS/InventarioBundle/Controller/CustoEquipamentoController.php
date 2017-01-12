@@ -2,6 +2,7 @@
 
 namespace MRS\InventarioBundle\Controller;
 
+use MRS\InventarioBundle\Entity\Acompanhamento;
 use MRS\InventarioBundle\Entity\Equipamento;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -73,6 +74,43 @@ class CustoEquipamentoController extends Controller
             'form' => $form->createView(),
         ));
     }
+
+    /**
+     * Creates a new CustoEquipamento entity.
+     *
+     * @Route("/new/{acompanhamento}/acompanhamento", name="cadastro_custoequipamento_acompanhamento_new")
+     * @Method({"GET", "POST"})
+     */
+    public function newCustoAcompanhametnoAction(Acompanhamento $acompanhamento, Request $request)
+    {
+        $custoEquipamento = new CustoEquipamento();
+
+        $equipamento = $acompanhamento->getEquipamento();
+
+        $custoEquipamento->setAcompanhamento($acompanhamento);
+        $custoEquipamento->setEquipamento($equipamento);
+        $custoEquipamento->setUsuario($this->getUser()->getUsuario());
+
+        $form = $this->createForm('MRS\InventarioBundle\Form\CustoEquipamentoType', $custoEquipamento);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($custoEquipamento);
+            $em->flush();
+
+            $this->addFlash('notice','Criado com sucesso!');
+
+            return $this->redirectToRoute('cadastro_acompanhamento_show', array('id' => $acompanhamento->getId()));
+        }
+
+        return $this->render('custoequipamento/new.html.twig', array(
+            'custoEquipamento' => $custoEquipamento,
+            'equipamento' => $equipamento,
+            'form' => $form->createView(),
+        ));
+    }
+
 
     /**
      * Finds and displays a CustoEquipamento entity.

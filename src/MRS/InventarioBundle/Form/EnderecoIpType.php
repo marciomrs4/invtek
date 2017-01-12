@@ -43,6 +43,7 @@ class EnderecoIpType extends AbstractType
             ->add('status',EntityType::class,array('label'=>'Status',
                 'attr'=>array('class'=>'input-sm'),
                 'class' => 'MRS\InventarioBundle\Entity\StatusIp'))
+            ->add('unidade',null,array('label'=>'Unidade'))
         ;
     }
 

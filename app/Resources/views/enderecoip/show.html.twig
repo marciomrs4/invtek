@@ -51,12 +51,12 @@
 
         </div>
         <div class="col-md-2 col-sm-3 col-xs-3">
-            {{ form_start(delete_form) }}
-            <button type="submit" class="btn btn-danger btn-sm remover-form">
-                <span class="glyphicon glyphicon-trash"></span>
-                Deletar
-            </button>
-            {{ form_end(delete_form) }}
+            {#{{ form_start(delete_form) }}#}
+            {#<button type="submit" class="btn btn-danger btn-sm remover-form">#}
+                {#<span class="glyphicon glyphicon-trash"></span>#}
+                {#Deletar#}
+            {#</button>#}
+            {#{{ form_end(delete_form) }}#}
 
         </div>
 </div>{% endblock %}
@@ -92,5 +92,13 @@
         </table>
     </div>
 
+
+    {% endblock %}
+
+    {% block panelfooter %}
+
+        <pre>
+            {{ ping }}
+        </pre>
 
     {% endblock %}
