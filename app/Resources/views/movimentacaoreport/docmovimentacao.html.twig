@@ -19,48 +19,37 @@
 
         <div class="row">
 
+
             <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
 
                 <div class="panel panel-default">
 
-                    <div class="panel-heading">
-                        <strong>Registro de Movimentação de {{ movimentacao.tipomovimentacao }} de equipamento da TI.</strong>
-                    </div>
-
-                    <div class="panel-body">
-                        Data: {{ movimentacao.datahora|date('d-m-Y') }}
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="row">
-
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
-                <div class="panel panel-default">
-
-                    <div class="panel-heading">
-                        <strong>Motivo da {{ movimentacao.tipomovimentacao }}</strong>
-                    </div>
-
                     <div class="panel-body">
 
-                        <div class="table table-responsive">
-                            <table class="table table-bordered table-condensed">
-                                <tbody>
-                                <tr>
-                                    <td>{{ movimentacao.motivomovimentacao }}</td>
-                                </tr>
-                                </tbody>
-                            </table>
+                        <div class="row">
+                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                <img src="{{ asset('logoRelatorio.jpeg') }}" alt="" width="200">
+                            </div>
+
+                            <div class="col-md-9 col-sm-9 col-xs-9">
+                            <span class="info-box-number">
+                                Data: {{ movimentacao.datahora|date('d-m-Y') }}
+                            </span>
+
+                            <span class="info-box-number">
+                                Registro de Movimentação<br>
+                                {{ movimentacao.tipomovimentacao }} de equipamento na TI.
+                            </span>
+
+                            </div>
                         </div>
+
+
                     </div>
                 </div>
+
             </div>
+
         </div>
 
 
@@ -113,7 +102,7 @@
                 <div class="panel panel-default">
 
                     <div class="panel-heading">
-                        <strong>Descrição do Destino</strong>
+                        <strong>Destino</strong>
                     </div>
 
                     <div class="panel-body">
@@ -175,6 +164,34 @@
 
         </div>
 
+
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        <strong>Motivo da {{ movimentacao.tipomovimentacao }}</strong>
+                    </div>
+
+                    <div class="panel-body">
+
+                        <div class="table table-responsive">
+                            <table class="table table-bordered table-condensed">
+                                <tbody>
+                                <tr>
+                                    <td>{{ movimentacao.motivomovimentacao }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <div class="row">
 
             <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
@@ -189,15 +206,16 @@
 
 
                                 <div class="panel-heading">
-                                    <strong>Recebedor (Assinar e Carimbar)</strong>
+                                    <strong>Recebedor (Nome Legível)</strong>
                                 </div>
 
                                 <div class="panel-body">
-                                    {% if movimentacao.tipomovimentacao.id == 1 %}
-                                        {{ teamcreator }}
-                                    {% else %}
-                                            &nbsp;
-                                    {% endif %}
+                                    &nbsp;
+                                    {#{% if movimentacao.tipomovimentacao.id == 1 %}#}
+                                        {#{{ teamcreator }}#}
+                                    {#{% else %}#}
+                                        {#&nbsp;#}
+                                    {#{% endif %}#}
                                 </div>
 
 
@@ -210,15 +228,16 @@
                             <div class="panel panel-default">
 
                                 <div class="panel-heading">
-                                    <strong>Entregador (Assinar e Carimbar)</strong>
+                                    <strong>Entregador (Nome Legível)</strong>
                                 </div>
 
                                 <div class="panel-body">
-                                    {% if movimentacao.tipomovimentacao.id == 2 %}
-                                        {{ teamcreator }}
-                                    {% else %}
-                                        &nbsp;
-                                    {% endif %}
+                                    &nbsp;
+                                    {#{% if movimentacao.tipomovimentacao.id == 2 %}#}
+                                        {#{{ teamcreator }}#}
+                                    {#{% else %}#}
+                                        {#&nbsp;#}
+                                    {#{% endif %}#}
                                 </div>
 
                             </div>
@@ -232,13 +251,33 @@
 
         </div>
 
+
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+
+                <div class="panel panel-default">
+
+                    <div class="panel-body">
+                        <div style="margin: auto; width: 85%">
+                            <small>RG.TI.06.002 - REGISTRO DE MOVIMENTAÇÃO DE SAÍDA DE EQUIPAMENTO NA TI</small>
+                            <strong>- Rev.01-16/01/17</strong>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
     {% endblock %}
 
 {% block footer %}
 
-    <footer class="main-footer">
-        <small>RG.TI.06.002 - REGISTRO DE MOVIMENTAÇÃO DE SAÍDA DE EQUIPAMENTO DA TI</small>
-        <strong>- Rev.01-10/01/17</strong>
-    </footer>
+    {#<footer class="main-footer">#}
+    {#<small>RG.TI.06.002 - REGISTRO DE MOVIMENTAÇÃO DE SAÍDA DE EQUIPAMENTO DA TI</small>#}
+    {#<strong>- Rev.01-10/01/17</strong>#}
+    {#</footer>#}
 
 {% endblock %}
