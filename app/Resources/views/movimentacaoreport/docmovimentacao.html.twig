@@ -10,6 +10,7 @@
             <h1>
                 Movimentação
                 <small>Exportação</small>
+                <button class="btn btn-default" id="print">Imprimir</button>
             </h1>
         </section>
 
@@ -279,5 +280,19 @@
     {#<small>RG.TI.06.002 - REGISTRO DE MOVIMENTAÇÃO DE SAÍDA DE EQUIPAMENTO DA TI</small>#}
     {#<strong>- Rev.01-10/01/17</strong>#}
     {#</footer>#}
+
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+
+    <script>
+
+        $("#print").click(function(){
+
+            window.print();
+        });
+
+    </script>
 
 {% endblock %}
