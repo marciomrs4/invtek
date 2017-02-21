@@ -86,7 +86,7 @@ class EquipamentoControllerTest extends WebTestCase
         // the firewall context (defaults to the firewall name)
         $firewall = 'secured_area';
 
-        $token = new UsernamePasswordToken('admin', 'admin', $firewall, array('ROLE_ADMIN'));
+        $token = new UsernamePasswordToken('root', 'root', $firewall, array('ROLE_ADMIN'));
         $session->set('_security_'.$firewall, serialize($token));
         $session->save();
 

@@ -126,9 +126,13 @@ class EnderecoIpController extends Controller
      */
     public function showAction(EnderecoIp $enderecoIp)
     {
-        $ip = escapeshellarg($enderecoIp->getEnderecoIp());
+        $ping = false;
 
-        $ping = shell_exec("ping -c 4 {$ip}");
+        if($enderecoIp->isDoPing() && $this->getParameter('do_ping')) {
+            $ip = escapeshellarg($enderecoIp->getEnderecoIp());
+
+            $ping = shell_exec("ping -c 4 {$ip}");
+        }
 
         return $this->render('enderecoip/show.html.twig', array(
             'enderecoIp' => $enderecoIp,

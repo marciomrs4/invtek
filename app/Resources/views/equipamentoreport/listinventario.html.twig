@@ -1,5 +1,13 @@
 {% extends ':template:template.html.twig' %}
 
+{% block stylesheets %}
+
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('bundles/mrsinventario/css/dataTables.bootstrap.css') }}">
+
+{% endblock %}
+
     {% block contentheader %}
 
         <section class="content-header">
@@ -103,7 +111,7 @@
 
                         <div class="table-responsive">
 
-                            <table class="table table-bordered table-condensed">
+                            <table class="table table-bordered table-condensed table-hover table-striped table-datatable">
 
                                 <thead>
                                 <tr>
@@ -152,11 +160,20 @@
 
     {{ parent() }}
 
+    <script src="{{ asset('bundles/mrsinventario/js/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('bundles/mrsinventario/js/dataTables.bootstrap.js') }}"></script>
+    <script src="{{ asset('bundles/mrsinventario/js/mrs-dataTable.js') }}"></script>
+
     <script src="{{ asset('bundles/mrsinventario/js/jquery-download.js') }}"></script>
+    <script src="{{ asset('bundles/mrsinventario/js/select2.js') }}"></script>
+
 
     <script>
 
         $(document).ready(function(){
+
+                $("#report_equipamentos_centroMovimentacao").select2();
+                $("#report_equipamentos_tipoequipamento").select2();
 
             var url = $('#link').attr('href');
 

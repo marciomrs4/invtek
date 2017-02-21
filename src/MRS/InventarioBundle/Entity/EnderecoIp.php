@@ -20,6 +20,7 @@ class EnderecoIp
      *
      * @ORM\Column(name="endereco_ip", type="string", length=45, nullable=false)
      * @Assert\NotBlank(message="Campo Obrigatório")
+     * @Assert\Ip(message="Deve ser um IP valido")
      */
     private $enderecoIp;
 
@@ -80,7 +81,11 @@ class EnderecoIp
      */
     private $unidade;
 
-
+    /**
+     * @var boolean
+     * @ORM\Column(name="do_ping", type="boolean", nullable=true)
+     */
+    private $doPing;
 
     /**
      * Set enderecoIp
@@ -95,6 +100,7 @@ class EnderecoIp
 
         return $this;
     }
+
 
     /**
      * Get enderecoIp
@@ -234,5 +240,23 @@ class EnderecoIp
     public function getUnidade()
     {
         return $this->unidade;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isDoPing()
+    {
+        return $this->doPing;
+    }
+
+    /**
+     * @param boolean $doPing
+     * @return EnderecoIp
+     */
+    public function setDoPing($doPing)
+    {
+        $this->doPing = $doPing;
+        return $this;
     }
 }

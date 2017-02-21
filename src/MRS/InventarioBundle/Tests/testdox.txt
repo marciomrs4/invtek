@@ -1,8 +1,5 @@
-MRS\InventarioBundle\Tests\Entity\TipoAcessoIpEntity
- [x] Set description
-
-MRS\InventarioBundle\Tests\Entity\TipoEquipamentoEntity
- [x] Number caracter
- [x] Set icon description
- [ ] Is object
+MRS\InventarioBundle\Tests\Timex\Sla
+ [x] Is return time correct
+ [x] Class was found
+ [ ] Calculate time
 

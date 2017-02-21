@@ -5,6 +5,8 @@ namespace MRS\InventarioBundle\Form;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\CallbackTransformer;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -44,6 +46,7 @@ class EnderecoIpType extends AbstractType
                 'attr'=>array('class'=>'input-sm'),
                 'class' => 'MRS\InventarioBundle\Entity\StatusIp'))
             ->add('unidade',null,array('label'=>'Unidade'))
+            ->add('doPing',CheckboxType::class,array('label'=>'Faz Ping ?'))
         ;
     }
 

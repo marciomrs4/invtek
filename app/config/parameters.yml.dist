@@ -29,3 +29,7 @@ parameters:
     phrase:
     version:
     teamcreator:
+    # Determina se no modulo de ips deve ser feito ping na consulta
+    do_ping: false
+    #App color
+    color: green
