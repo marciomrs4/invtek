@@ -1,0 +1,209 @@
+{% extends ':template:template.html.twig' %}
+
+{% block stylesheets %}
+
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('bundles/mrsinventario/css/dataTables.bootstrap.css') }}">
+
+{% endblock %}
+
+
+    {% block contentheader %}
+
+
+        <section class="content-header">
+            <h1>
+                Acompanhamentos
+                <small>{{ acompanhamentos | length }} resultado(s)</small>
+            </h1>
+        </section>
+
+
+    {% endblock %}
+
+
+    {% block content %}
+
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                <div class="box box-primary">
+                    <!-- /.box-header -->
+                    <div class="box-body">
+
+                        {{ form_start(form_acompanhamento,{'attr': {'novalidate':'novalidate'}}) }}
+
+                        <div class="row">
+
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+
+                                <div class="form-group">
+                                    {{ form_row(form_acompanhamento.tipoequipamento)  }}
+                                </div>
+
+                            </div>
+
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+
+                                <div class="form-group">
+                                    {{ form_row(form_acompanhamento.centroMovimentacao)  }}
+                                </div>
+
+                            </div>
+
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+
+                                <div class="form-group">
+                                    {{ form_row(form_acompanhamento.tipoAcompanhamento)  }}
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-default btn-sm">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                        Procurar
+                                    </button>
+                                </div>
+
+                            </div>
+
+                            {{ form_end(form_acompanhamento) }}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {#
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                <div class="box box-primary">
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        Quantidade de Equipamento(s) sem acompanhamento:
+
+                        <a href="{{ path('report_equipamento_no_acompanhamento') }}">
+                            <span class="label label-primary">{{ equipamentoNoAcompanhamento|length }}</span>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+#}
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                <div class="box box-primary">
+                    <!-- /.box-header -->
+                    <div class="box-body">
+
+                        {#{{ dump(acompanhamentos) }}#}
+
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-condensed table-hover table-striped table-datatable">
+                                <thead>
+                                <tr>
+                                    {#<th>Ações</th>#}
+                                    <th>Descrição</th>
+                                    <th>Patrimônio</th>
+                                    <th>Número Série</th>
+                                    <th>Tipo de Equipamento</th>
+                                    <th>Centro de Movimentação</th>
+                                    <th>Tipo de Acompanhamento</th>
+                                    <th>Data do Acompanhamento</th>
+                                    <th>Data Prevista</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for acompanhamento in acompanhamentos %}
+
+                                    {% set data = '+'~acompanhamento.tempoPrevencao ~'month' %}
+
+                                    {% set dateCompar = acompanhamento.acompanhamento_data|date_modify(data)|date('Y-m-d') %}
+
+
+                                    {% if 'now'|date('Y-m-d') >= dateCompar %}
+                                        {% set color = 'danger' %}
+                                            {% else %}
+                                        {% set color = '' %}
+                                    {% endif %}
+
+                                    <tr class="{{ color }}">
+                                        {#<td>#}
+                                        {#<a href="{{ path('cadastro_equipamento_show', { 'id': equipamento.id }) }}" class="btn btn-primary btn-sm">#}
+                                        {#<span class="{{ equipamento.tipoequipamento.icone }}"></span>#}
+                                        {#</a>#}
+                                        {#</td>#}
+                                        <td>{{ acompanhamento.descricao }}</td>
+                                        <td>{{ acompanhamento.patrimonio }}</td>
+                                        <td>{{ acompanhamento.numeroSerie }}</td>
+                                        <td>{{ acompanhamento.tipoEquipamento }}</td>
+                                        <td>{{ acompanhamento.centroMovimentacao }}</td>
+                                        <td>{{ acompanhamento.tipoAcompanhamento }}</td>
+                                        <td>{{ acompanhamento.acompanhamento_data|date('d-m-Y') }}</td>
+                                        <td>{{ dateCompar }}</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    {% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="{{ asset('bundles/mrsinventario/js/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('bundles/mrsinventario/js/dataTables.bootstrap.js') }}"></script>
+
+    <script src="{{ asset('bundles/mrsinventario/js/select2.js') }}"></script>
+
+
+    <script>
+
+        $(".table-datatable").DataTable({
+            "order": [[6,"asc"]],
+            "oLanguage": {
+                "oPaginate":{
+                    "sPrevious": "Anterior ",
+                    "sNext": " Proximo "
+                },
+                "sLengthMenu": "Mostrar _MENU_ resultado(s)",
+                "sSearch": "Pesquisar: ",
+                "sInfo": "Mostrando _START_ a _END_ de _TOTAL_ resultado(s)",
+                "sInfoFiltered": "(Total: _MAX_ )",
+                "sZeroRecords": "Resultado nao encontrado",
+                "sInfoEmpty": "Sem resultados"
+            }
+        });
+
+
+        $(document).ready(function() {
+
+            $("#report_acompanhamento_tipoequipamento").select2();
+            $("#report_acompanhamento_centroMovimentacao").select2();
+            $("#report_acompanhamento_tipoAcompanhamento").select2();
+
+        });
+    </script>
+
+{% endblock %}

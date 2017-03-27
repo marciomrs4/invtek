@@ -1,0 +1,145 @@
+{% extends ':template:template.html.twig' %}
+
+{% block stylesheets %}
+
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('bundles/mrsinventario/css/dataTables.bootstrap.css') }}">
+
+{% endblock %}
+
+
+    {% block contentheader %}
+
+
+        <section class="content-header">
+            <h1>
+                Equipamento sem Acompanhamento
+                <small>{{ acompanhamentos | length }} resultado(s)</small>
+            </h1>
+        </section>
+
+
+    {% endblock %}
+
+
+    {% block content %}
+
+<div class="row">
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+        <div class="box box-primary">
+            <!-- /.box-header -->
+            <div class="box-body">
+
+                {{ form_start(form_acompanhamento,{'attr': {'novalidate':'novalidate'}}) }}
+
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+
+                        <div class="form-group">
+                            {{ form_row(form_acompanhamento.tipoequipamento)  }}
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+
+                        <div class="form-group">
+                            {{ form_row(form_acompanhamento.centroMovimentacao)  }}
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-default btn-sm">
+                                <span class="glyphicon glyphicon-search"></span>
+                                Procurar
+                            </button>
+                        </div>
+
+                    </div>
+
+                    {{ form_end(form_acompanhamento) }}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+        <div class="box box-primary">
+            <!-- /.box-header -->
+            <div class="box-body">
+
+                {#{{ dump(acompanhamentos) }}#}
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-condensed table-hover table-striped table-datatable">
+                        <thead>
+                        <tr>
+                            <th>Ações</th>
+                            <th>Descrição</th>
+                            <th>Patrimônio</th>
+                            <th>Número Série</th>
+                            <th>Tipo de Equipamento</th>
+                            <th>Centro de Movimentação</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for acompanhamento in acompanhamentos %}
+                            <tr>
+                                <td>
+                                    <a href="{{ path('cadastro_acompanhamento_new', { 'equipamento': acompanhamento.id }) }}" class="btn btn-primary btn-xs">
+                                        <span class="fa fa-calendar-plus-o" title="Criar Acompanhamento"></span>
+                                    </a>
+                                </td>
+                                <td>{{ acompanhamento.descricao }}</td>
+                                <td>{{ acompanhamento.patrimonio }}</td>
+                                <td>{{ acompanhamento.numeroSerie }}</td>
+                                <td>{{ acompanhamento.tipoEquipamento }}</td>
+                                <td>{{ acompanhamento.centroMovimentacao }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="{{ asset('bundles/mrsinventario/js/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('bundles/mrsinventario/js/dataTables.bootstrap.js') }}"></script>
+    <script src="{{ asset('bundles/mrsinventario/js/mrs-dataTable.js') }}"></script>
+    <script src="{{ asset('bundles/mrsinventario/js/select2.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            $("#report_acompanhamento_tipoequipamento").select2();
+            $("#report_acompanhamento_centroMovimentacao").select2();
+
+        });
+    </script>
+
+{% endblock %}

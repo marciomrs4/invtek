@@ -1,5 +1,1 @@
-MRS\InventarioBundle\Tests\Timex\Sla
- [x] Is return time correct
- [x] Class was found
- [ ] Calculate time
 

@@ -159,6 +159,15 @@
                         <li><a href="{{ path('report_list_inventario') }}"><i class="fa fa-file-text-o"></i>Lista de Inventário</a></li>
                         <li><a href="{{ path('report_comprados') }}"><i class="fa fa-file-text-o"></i>Equipamentos Comprados</a></li>
                         <li><a href="{{ path('report_movimentacoes') }}"><i class="fa fa-file-text-o"></i>Movimentações</a></li>
+
+                        <li>
+                            <a href="#"><i class="fa fa-file"></i>Acompanhamento<i class="fa fa-angle-left pull-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a href="{{ path('report_acompanhamento_equipamento') }}"><i class="fa fa-file-text-o"></i>Acompanhamentos</a></li>
+                                <li><a href="{{ path('report_equipamento_no_acompanhamento') }}"><i class="fa fa-file-text-o"></i>Sem Acompanhamento</a></li>
+                            </ul>
+                        </li>
+
                     </ul>
                 </li>
 

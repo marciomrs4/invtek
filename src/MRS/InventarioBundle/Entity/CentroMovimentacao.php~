@@ -21,6 +21,12 @@ class CentroMovimentacao
 
     /**
      * @var integer
+     * @ORM\Column(name="tempo_prevencao", type="integer", nullable=true)
+     */
+    private $tempoPrevencao;
+
+    /**
+     * @var integer
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -39,4 +45,65 @@ class CentroMovimentacao
     private $unidade;
 
 
+
+    /**
+     * Set nome
+     *
+     * @param string $nome
+     * @return CentroMovimentacao
+     */
+    public function setNome($nome)
+    {
+        $this->nome = $nome;
+
+        return $this;
+    }
+
+    /**
+     * Get nome
+     *
+     * @return string 
+     */
+    public function getNome()
+    {
+        return $this->nome;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set unidade
+     *
+     * @param \MRS\InventarioBundle\Entity\Unidade $unidade
+     * @return CentroMovimentacao
+     */
+    public function setUnidade(\MRS\InventarioBundle\Entity\Unidade $unidade = null)
+    {
+        $this->unidade = $unidade;
+
+        return $this;
+    }
+
+    /**
+     * Get unidade
+     *
+     * @return \MRS\InventarioBundle\Entity\Unidade 
+     */
+    public function getUnidade()
+    {
+        return $this->unidade;
+    }
+
+    public function __toString()
+    {
+        return $this->getNome() .' | '. $this->getUnidade();
+    }
 }

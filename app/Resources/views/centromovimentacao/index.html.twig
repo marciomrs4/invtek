@@ -29,6 +29,7 @@
                 <tr>
                     <th>Ações</th>
                     <th>Nome</th>
+                    <th>Preventiva - ( em meses )</th>
                     <th>Unidade</th>
                 </tr>
                 </thead>
@@ -46,6 +47,7 @@
                             </a>
                         </td>
                         <td>{{ centroMovimentacao.nome }}</td>
+                        <td>{{ centroMovimentacao.tempoPrevencao }}</td>
                         <td>{{ centroMovimentacao.unidade.nome }}</td>
                     </tr>
                 {% endfor %}
