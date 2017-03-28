@@ -58,11 +58,29 @@
                 </a>
 
             </div>
+
             <div class="col-md-2 col-sm-3 col-xs-3">
-                <a href="{{ path('cadastro_anexoacompanhamento_new',{ 'acompanhamento': acompanhamento.id }) }}" class="btn btn-primary btn-sm">
-                    <span class="glyphicon glyphicon-paperclip"></span>
-                    Anexar
-                </a>
+                <div class="dropdown">
+                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <span class="glyphicon glyphicon-paperclip"></span>
+                        Anexo
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li>
+                            <a href="{{ path('cadastro_anexoacompanhamento_index',{ 'acompanhamento': acompanhamento.id }) }}">
+                                <span class="glyphicon glyphicon-list"></span>
+                                Listar
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('cadastro_anexoacompanhamento_new',{ 'acompanhamento': acompanhamento.id }) }}">
+                                <span class="glyphicon glyphicon-plus"></span>
+                                Novo
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
             <div class="col-md-2 col-sm-3 col-xs-3">

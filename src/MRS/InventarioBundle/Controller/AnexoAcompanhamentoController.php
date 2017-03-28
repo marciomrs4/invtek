@@ -121,6 +121,8 @@ class AnexoAcompanhamentoController extends Controller
      */
     public function deleteAction(Request $request, AnexoAcompanhamento $anexoAcompanhamento)
     {
+        $acompanhamento = $anexoAcompanhamento->getAcompanhamento();
+
         $form = $this->createDeleteForm($anexoAcompanhamento);
         $form->handleRequest($request);
 
@@ -130,7 +132,8 @@ class AnexoAcompanhamentoController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('cadastro_anexoacompanhamento_index');
+        return $this->redirectToRoute('cadastro_anexoacompanhamento_index',
+                        array('acompanhamento' => $acompanhamento->getId()));
     }
 
     /**
