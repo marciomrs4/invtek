@@ -153,7 +153,7 @@
                                         <td>{{ acompanhamento.centroMovimentacao }}</td>
                                         <td>{{ acompanhamento.tipoAcompanhamento }}</td>
                                         <td>{{ acompanhamento.acompanhamento_data|date('d-m-Y') }}</td>
-                                        <td>{{ dateCompar }}</td>
+                                        <td>{{ dateCompar|date('d-m-Y') }}</td>
                                     </tr>
                                 {% endfor %}
                                 </tbody>
