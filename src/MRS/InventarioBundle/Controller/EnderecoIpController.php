@@ -64,10 +64,9 @@ class EnderecoIpController extends Controller
                     ->setUnidade($Unidade);
 
                 $em->persist($enderecoIp);
-                $em->flush();
-
-
             }
+
+            $em->flush();
 
             return $this->redirectToRoute('cadastro_enderecoip_index');
 
