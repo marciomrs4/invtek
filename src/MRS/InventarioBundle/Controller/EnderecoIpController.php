@@ -73,10 +73,10 @@ class EnderecoIpController extends Controller
 
         }
 
-        $tipoAcessos = $em->getRepository('MRSInventarioBundle:StatusIp')
+        $status = $em->getRepository('MRSInventarioBundle:StatusIp')
             ->findAll();
 
-        $status = $em->getRepository('MRSInventarioBundle:TipoAcessoIp')
+        $tipoAcessos= $em->getRepository('MRSInventarioBundle:TipoAcessoIp')
             ->findAll();
 
         $unidades = $em->getRepository('MRSInventarioBundle:Unidade')
