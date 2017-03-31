@@ -2,3 +2,9 @@ services:
 #    mrs_inventario.example:
 #        class: MRS\InventarioBundle\Example
 #        arguments: ["@service_id", "plain_value", %parameter%]
+# app/config/services.yml
+    app.twig_extension:
+        class: MRS\InventarioBundle\Twig\PrintFTwig
+        public: false
+        tags:
+            - { name: twig.extension }

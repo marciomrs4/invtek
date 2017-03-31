@@ -69,6 +69,14 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
 
+        #Stof\Gedmo
+        mappings:
+           loggable:
+               type: annotation
+               alias: Gedmo
+               prefix: Gedmo\Loggable\Entity
+               dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Loggable/Entity"
+
 # Swiftmailer Configuration
 swiftmailer:
     transport: "%mailer_transport%"

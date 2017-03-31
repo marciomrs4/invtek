@@ -5,6 +5,7 @@ namespace MRS\InventarioBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * EnderecoIp
@@ -12,6 +13,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Table(name="endereco_ip", indexes={@ORM\Index(name="categoria_ip_fk_idx", columns={"status_id"}), @ORM\Index(name="tipo_acesso_ip_fk_idx", columns={"tipo_acesso_ip_id"})})
  * @ORM\Entity
  * @UniqueEntity(fields={"enderecoIp"},ignoreNull=true,message="Já existe um registro como este IP")
+ * @Gedmo\Loggable()
  */
 class EnderecoIp
 {
@@ -21,6 +23,7 @@ class EnderecoIp
      * @ORM\Column(name="endereco_ip", type="string", length=45, nullable=false)
      * @Assert\NotBlank(message="Campo Obrigatório")
      * @Assert\Ip(message="Deve ser um IP valido")
+     * @Gedmo\Versioned()
      */
     private $enderecoIp;
 
@@ -29,6 +32,7 @@ class EnderecoIp
      *
      * @ORM\Column(name="nome", type="string", length=45, nullable=true)
      * @Assert\NotBlank(message="Campo Obrigatório")
+     * @Gedmo\Versioned()
      */
     private $nome;
 
@@ -36,6 +40,7 @@ class EnderecoIp
      * @var string
      *
      * @ORM\Column(name="observacao", type="text", length=65535, nullable=true)
+     * @Gedmo\Versioned()
      */
     private $observacao;
 
@@ -56,6 +61,7 @@ class EnderecoIp
      *   @ORM\JoinColumn(name="tipo_acesso_ip_id", referencedColumnName="id")
      * })
      * @Assert\NotBlank(message="Campo Obrigatório")
+     * @Gedmo\Versioned()
      */
     private $tipoAcessoIp;
 
@@ -67,6 +73,7 @@ class EnderecoIp
      *   @ORM\JoinColumn(name="status_id", referencedColumnName="id")
      * })
      * @Assert\NotBlank(message="Campo Obrigatório")
+     * @Gedmo\Versioned()
      */
     private $status;
 
@@ -78,12 +85,14 @@ class EnderecoIp
      *   @ORM\JoinColumn(name="unidade_id", referencedColumnName="id")
      * })
      * @Assert\NotBlank(message="Campo Obrigatório")
+     * @Gedmo\Versioned()
      */
     private $unidade;
 
     /**
      * @var boolean
      * @ORM\Column(name="do_ping", type="boolean", nullable=true)
+     * @Gedmo\Versioned()
      */
     private $doPing;
 

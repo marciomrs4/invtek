@@ -203,4 +203,23 @@ class EnderecoIpController extends Controller
             ->getForm()
         ;
     }
+
+    /**
+     * @param EnderecoIp $equipamento
+     * @Route("/view/log/{enderecoIp}",name="enderecoip_view_log")
+     */
+    public function viewLogEntryAction(EnderecoIp $enderecoIp)
+    {
+
+        $gedmo = $this->getDoctrine()->getRepository('Gedmo:LogEntry');
+
+        $logs = $gedmo->getLogEntries($enderecoIp);
+
+        //dump($logs); exit();
+
+        return $this->render('logentry/logentry.html.twig',array(
+            'logs' => $logs,
+        ));
+
+    }
 }

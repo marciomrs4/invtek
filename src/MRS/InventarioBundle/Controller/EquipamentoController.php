@@ -139,4 +139,23 @@ class EquipamentoController extends Controller
             ->getForm()
         ;
     }
+
+    /**
+     * @param Equipamento $equipamento
+     * @Route("/view/log/{equipamento}",name="equipamento_view_log")
+     */
+    public function viewLogEntryAction(Equipamento $equipamento)
+    {
+
+        $gedmo = $this->getDoctrine()->getRepository('Gedmo:LogEntry');
+
+        $logs = $gedmo->getLogEntries($equipamento);
+
+        //dump($logs); exit();
+
+        return $this->render('logentry/logentry.html.twig',array(
+            'logs' => $logs,
+        ));
+
+    }
 }

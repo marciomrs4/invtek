@@ -1,0 +1,76 @@
+{% extends ':template:template.html.twig' %}
+
+{% block stylesheets %}
+
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('bundles/mrsinventario/css/dataTables.bootstrap.css') }}">
+
+{% endblock %}
+
+    {% block contentheader %}
+
+        <section class="content-header">
+            <h1>
+                Log de alterações
+                <small></small>
+            </h1>
+        </section>
+
+    {% endblock %}
+
+    {% block content %}
+
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                <div class="box box-primary">
+
+                    <div class="box-body">
+
+                        <div class="table-responsive">
+
+                            <table class="table table-bordered table-condensed table-hover table-striped table-datatable">
+
+                                <thead>
+                                <tr>
+                                    <th>Objeto</th>
+                                    <th>Ação</th>
+                                    <th>Data Ação</th>
+                                    <th>Usuário</th>
+                                    <th>Dados do Objeto</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for log in logs %}
+                                    <tr>
+                                        <td>{{ log.objectClass }} | {{ log.objectId }}</td>
+                                        <td>{{ log.action }}</td>
+                                        <td>{{ log.loggedAt|date('d-m-Y H:i:s') }}</td>
+                                        <td>{{ log.username }}</td>
+                                        <td>{{ log.data|print }}</td>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="{{ asset('bundles/mrsinventario/js/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('bundles/mrsinventario/js/dataTables.bootstrap.js') }}"></script>
+    <script src="{{ asset('bundles/mrsinventario/js/mrs-dataTable.js') }}"></script>
+
+
+{% endblock %}

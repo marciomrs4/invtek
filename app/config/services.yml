@@ -7,3 +7,22 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+
+      gedmo.listener.loggable:
+              class: Gedmo\Loggable\LoggableListener
+              tags:
+                  - { name: doctrine.event_subscriber, connection: default }
+              calls:
+                  - [ setAnnotationReader, [ "@annotation_reader" ] ]
+
+      extension.listener:
+              class: MRS\InventarioBundle\Listener\DoctrineExtensionListener
+              calls:
+                  - [ setContainer, [ "@service_container" ] ]
+              tags:
+                  # translatable sets locale after router processing
+                  - { name: kernel.event_listener, event: kernel.request, method: onLateKernelRequest, priority: -10 }
+                  # loggable hooks user username if one is in security context
+                  - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+                  # translatable sets locale such as default application locale before command execute
+                  - { name: kernel.event_listener, event: console.command, method: onConsoleCommand, priority: -10 }

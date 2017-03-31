@@ -5,6 +5,7 @@ namespace MRS\InventarioBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Equipamento
@@ -13,6 +14,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity(repositoryClass="MRS\InventarioBundle\Repository\EquipamentoRepository")
  * @UniqueEntity(fields={"patrimonio"},ignoreNull=true,message="Já existe um registro como este")
  * @UniqueEntity(fields={"numeroserie"},ignoreNull=true,message="Já existe um registro como este")
+ *
+ * @Gedmo\Loggable
  */
 class Equipamento
 {
@@ -21,6 +24,7 @@ class Equipamento
      *
      * @ORM\Column(name="nome", type="string", length=255, nullable=false)
      * @Assert\NotBlank(message="O nome do equipamento é obrigatório.")
+     * @Gedmo\Versioned()
      */
     private $nome;
 
@@ -28,6 +32,7 @@ class Equipamento
      * @var \DateTime
      *
      * @ORM\Column(name="validade", type="date", nullable=false)
+     * @Gedmo\Versioned()
      */
     private $validade;
 
@@ -35,6 +40,7 @@ class Equipamento
      * @var \DateTime
      *
      * @ORM\Column(name="data_compra", type="date", nullable=true)
+     * @Gedmo\Versioned()
      */
     private $dataCompra;
 
@@ -44,6 +50,7 @@ class Equipamento
      *
      * @ORM\Column(name="valor_compra", type="decimal", precision=10, scale=2 ,nullable=false)
      * @Assert\NotBlank(message="O campo valor de compra é obrigatorio.")
+     * @Gedmo\Versioned()
      */
     private $valorCompra;
 
@@ -52,12 +59,14 @@ class Equipamento
      *
      * @ORM\Column(name="numeroSerie", type="string", length=255, nullable=false)
      * @Assert\NotBlank(message="O campo Numero de Série é obrigatório.")
+     * @Gedmo\Versioned()
      */
     private $numeroserie;
 
     /**
      * @var boolean
      * @ORM\Column(name="status", type="boolean", nullable=false)
+     * @Gedmo\Versioned()
      */
     private $status;
 
@@ -66,6 +75,7 @@ class Equipamento
      *
      * @ORM\Column(name="patrimonio", type="string", length=255, nullable=true)
      * @Assert\NotBlank(message="O campo patrimônio é obrigatório")
+     * @Gedmo\Versioned()
      */
     private $patrimonio;
 
@@ -74,6 +84,7 @@ class Equipamento
      *
      * @ORM\Column(name="descricao", type="string", length=255, nullable=true)
      * @Assert\NotBlank(message="O campo descrição é obrigatório")
+     * @Gedmo\Versioned()
      */
     private $descricao;
 
@@ -81,6 +92,7 @@ class Equipamento
      * @var string
      *
      * @ORM\Column(name="observacao", type="text", length=65535, nullable=true)
+     * @Gedmo\Versioned()
      */
     private $observacao;
 
@@ -101,6 +113,7 @@ class Equipamento
      *   @ORM\JoinColumn(name="centro_movimentacao_id", referencedColumnName="id")
      * })
      * @Assert\NotBlank(message="O centro de movimentação do equipamento é obrigatório.")
+     * @Gedmo\Versioned()
      */
     private $centroMovimentacao;
 
@@ -112,6 +125,7 @@ class Equipamento
      *   @ORM\JoinColumn(name="comprado_para", referencedColumnName="id")
      * })
      * @Assert\NotBlank(message="Este campo é obrigatório.")
+     * @Gedmo\Versioned()
      */
     private $compradoPara;
 
@@ -123,6 +137,7 @@ class Equipamento
      *   @ORM\JoinColumn(name="marca_id", referencedColumnName="id")
      * })
      * @Assert\NotBlank(message="A marca do equipamento é obrigatório.")
+     * @Gedmo\Versioned()
      */
     private $marca;
 
@@ -134,6 +149,7 @@ class Equipamento
      *   @ORM\JoinColumn(name="fornecedor_id", referencedColumnName="id")
      * })
      * @Assert\NotBlank(message="O fornecedor do equipamento é obrigatório.")
+     * @Gedmo\Versioned()
      */
     private $fornecedor;
     /**
@@ -144,6 +160,7 @@ class Equipamento
      *   @ORM\JoinColumn(name="tipoEquipamento_id", referencedColumnName="id")
      * })
      * @Assert\NotBlank(message="O tipo de equipamento do equipamento é obrigatório.")
+     * @Gedmo\Versioned()
      */
     private $tipoequipamento;
 
