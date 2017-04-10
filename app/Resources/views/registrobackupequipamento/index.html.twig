@@ -1,0 +1,20 @@
+{% block panelbody %}
+    <div class="table-responsive">
+        <table class="table table-bordered table-condensed table-hover table-striped">
+            <thead>
+            <tr>
+                <th>Equipamento</th>
+                <th>Unidade</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for registroBackupEquipamento in registroBackupEquipamentos %}
+                <tr>
+                    <td>{{ registroBackupEquipamento.equipamento }}</td>
+                    <td>{{ registroBackupEquipamento.unidade }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

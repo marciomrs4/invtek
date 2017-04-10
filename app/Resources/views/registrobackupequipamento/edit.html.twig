@@ -1,0 +1,73 @@
+    {% extends ':template:template.html.twig' %}
+
+
+    {% block contentheader %}
+
+    <section class="content-header">
+        <h1>
+            RegistroBackupEquipamento
+            <small>Editar</small>
+        </h1>
+    </section>
+
+    {% endblock %}
+
+
+    {% block firstrow %}
+
+    {% for message in app.session.flashBag.get('notice') %}
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <i class="fa fa-info"></i> {{ message }}. <i class="fa fa-smile-o"></i>
+        </div>
+    </div>
+    {% endfor %}
+
+
+    {% endblock %}
+
+
+    {% block panelheading %}
+
+        <div class="row">
+
+    <div class="col-md-2 col-sm-3 col-xs-3">
+
+        <a href="{{ path('cadastro_regitrobackupequipamento_index') }}" class="btn btn-primary btn-sm">
+            <span class="fa fa-reply"></span>
+            Voltar
+        </a>
+
+    </div>
+        <div class="col-md-2 col-sm-3 col-xs-3">
+            {{ form_start(delete_form) }}
+            <button type="submit" class="btn btn-danger btn-sm remover-form">
+                <span class="glyphicon glyphicon-trash"></span>
+                Deletar
+            </button>
+            {{ form_end(delete_form) }}
+
+        </div>
+</div>{% endblock %}
+
+    {% block panelbody %}
+
+        {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+
+    {% endblock %}
+
+    {% block panelfooter %}
+
+        <button type="submit" class="btn btn-primary btn-sm">
+            <span class="glyphicon glyphicon-floppy-disk"></span>
+            Salvar
+        </button>
+
+        {{ form_end(edit_form) }}
+
+    {% endblock %}
+

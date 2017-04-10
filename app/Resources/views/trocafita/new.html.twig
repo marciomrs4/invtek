@@ -1,0 +1,107 @@
+    {% extends ':template:template.html.twig' %}
+
+
+    {% block contentheader %}
+
+    <section class="content-header">
+        <h1>
+            Troca de Fita
+            <small>Novo</small>
+        </h1>
+    </section>
+
+    {% endblock %}
+
+
+    {% block panelheading %}
+
+        <div class="row">
+
+    <div class="col-md-2 col-sm-3 col-xs-3">
+
+        <a href="{{ path('cadastro_trocafita_index') }}" class="btn btn-primary btn-sm">
+            <span class="fa fa-reply"></span>
+            Voltar
+        </a>
+
+    </div>
+</div>{% endblock %}
+
+
+    {% block panelbody %}
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+
+    {% endblock %}
+
+    {% block panelfooter %}
+    <button type="submit" class="btn btn-primary btn-sm">
+        <span class="glyphicon glyphicon-floppy-disk"></span>
+        Salvar
+    </button>
+    {{ form_end(form) }}
+
+
+            <a href="{{ path('cadastro_trocafita_new') }}" id="link">
+    {% endblock %}
+
+
+{% block javascripts %}
+
+            {{ parent() }}
+
+            <script src="{{ asset('bundles/mrsinventario/js/select2.js') }}"></script>
+
+            <script>
+
+                $(document).ready(function(){
+
+                    //$("#registro_backup_job").select2();
+
+                    //("#registro_backup_job").hidden();
+
+                });
+
+            </script>
+
+            <script>
+                var $troca_fita_unidade = $('#troca_fita_unidade');
+                // When sport gets selected ...
+                $troca_fita_unidade.change(function() {
+
+                   // alert('TESTE');
+
+                    //var $form = $(this).closest('form');
+                    var url = $("#link").attr('href');
+
+                    var data = {};
+
+                    data = $troca_fita_unidade.serialize();
+
+                    // Submit data via AJAX to the form's action path.
+                    $.ajax({
+                        url : url,
+                        type: 'POST',
+                        data : data,
+                        success: function(html) {
+
+                            //$("#load").html(html);
+                            // Replace current position field ...
+                            $('#troca_fita_fita').replaceWith(
+                                    // ... with the returned one from the AJAX response.
+                                    $(html).find('#troca_fita_fita')
+                            );
+
+                            // Position field now displays the appropriate positions.
+                        },
+                        error: function(err){
+                            $("#loader").html(err);
+                        }
+                    });
+
+                });
+
+            </script>
+
+        {% endblock %}

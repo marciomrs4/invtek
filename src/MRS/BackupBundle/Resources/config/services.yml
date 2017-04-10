@@ -1,0 +1,9 @@
+services:
+#    mrs_backup.example:
+#        class: MRS\BackupBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+     form_restore.tiposequipamentos:
+         class: MRS\BackupBundle\Form\RegistroRestoreType
+         arguments: ["@service_container"]
+         tags:
+              - { name: form.type }

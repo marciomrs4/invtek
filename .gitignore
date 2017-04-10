@@ -12,6 +12,8 @@
 /composer.phar
 .idea/
 /web/anexos/acompanhamentos/*
+/web/anexos/backup/*
+/web/anexos/restore/*
 /web/anexos/equipamentos/*
 /app/sessions/*
 !app/sessions/.gitkeep

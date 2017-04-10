@@ -76,8 +76,8 @@
                                 <h1></h1>
                                 <p>
                                     {% if app.user %}
-                                    {{ app.user.username }}
-                                    <small>{{ app.user.email }}</small>
+                                        {{ app.user.username }}
+                                        <small>{{ app.user.email }}</small>
                                     {% endif %}
                                 </p>
 
@@ -95,8 +95,8 @@
 
                                 <div class="pull-right">
                                     <a href="{{ path('user_logout') }}" class="btn btn-default btn-flat">
-                                    <span class="glyphicon glyphicon-off"></span>
-                                    Sair
+                                        <span class="glyphicon glyphicon-off"></span>
+                                        Sair
                                     </a>
                                 </div>
 
@@ -232,6 +232,36 @@
 
                 <li class="treeview">
                     <a href="#">
+                        <i class="fa fa-save"></i>
+                        <span>Gestão de Dados</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+
+                        <li>
+                            <a href="#"><i class="fa fa-gears"></i>Operações<i class="fa fa-angle-left pull-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a href="{{ path('cadastro_registrobackup_index') }}"><i class="glyphicon glyphicon-floppy-open"></i>Registro Backup</a></li>
+                                <li><a href="{{ path('cadastro_registrorestore_index') }}"><i class="glyphicon glyphicon-floppy-save"></i>Registro Restore</a></li>
+                                <li><a href="{{ path('cadastro_trocafita_index') }}"><i class="glyphicon glyphicon-transfer"></i>Troca de Fita</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#"><i class="fa fa-gears"></i>Cadastros<i class="fa fa-angle-left pull-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a href="{{ path('cadastro_job_index') }}"><i class="fa fa-cogs"></i>Job</a></li>
+                                <li><a href="{{ path('cadastro_tipojob_index') }}"><i class="fa fa-cog"></i>Tipo de Job</a></li>
+                                <li><a href="{{ path('cadastro_fita_index') }}"><i class="fa fa-simplybuilt"></i>Fita</a></li>
+                                <li><a href="{{ path('cadastro_tipomidia_index') }}"><i class="fa fa-cog"></i>Tipo de Mídia</a></li>
+                                <li><a href="{{ path('cadastro_status_index') }}"><i class="fa fa-sort"></i>Status</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
                         <i class="fa fa-signal"></i>
                         <span>Gerênciamento de IP</span>
                         <i class="fa fa-angle-left pull-right"></i>
@@ -264,10 +294,10 @@
 
         {% block contentheader %}
             {#<section class="content-header">#}
-                {#<h1>#}
-                    {#Dashboard#}
-                    {#<small>home</small>#}
-                {#</h1>#}
+            {#<h1>#}
+            {#Dashboard#}
+            {#<small>home</small>#}
+            {#</h1>#}
 
             {#</section>#}
         {% endblock %}

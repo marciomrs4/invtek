@@ -1,0 +1,70 @@
+{% extends ':template:template.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/mrsinventario/css/dataTables.bootstrap.css') }}">
+{% endblock %}
+
+    {% block contentheader %}
+
+
+        <section class="content-header">
+            <h1>
+                Job
+                <small>Listar</small>
+            </h1>
+        </section>
+
+
+    {% endblock %}
+
+
+    {% block panelheading %}
+        <a href="{{ path('cadastro_job_new') }}" class="btn btn-primary btn-sm">
+            <span class="glyphicon glyphicon-plus"></span>
+            Novo
+        </a>    {% endblock %}
+
+    {% block panelbody %}
+        <div class="table-responsive">
+            <table class="table table-bordered table-condensed table-hover table-striped table-datatable" data-order='[]'>
+                <thead>
+                <tr>
+                    <th>Ações</th>
+                    <th>Descricao</th>
+                    <th>Tipo de Job</th>
+                    <th>Unidade</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for job in jobs %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('cadastro_job_show', { 'id': job.id }) }}" class="btn btn-primary btn-xs">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                            </a>
+                            <a href="{{ path('cadastro_job_edit', { 'id': job.id }) }}" class="btn btn-primary btn-xs">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </a>
+                        </td>
+                        <td><a href="{{ path('cadastro_job_show', { 'id': job.id }) }}">{{ job.descricao }}</a></td>
+                        <td>{{ job.tipoJob.descricao }}</td>
+                        <td>{{ job.unidade.nome }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ parent() }}
+
+        <script src="{{ asset('bundles/mrsinventario/js/jquery.dataTables.js') }}"></script>
+        <script src="{{ asset('bundles/mrsinventario/js/dataTables.bootstrap.js') }}"></script>
+        <script src="{{ asset('bundles/mrsinventario/js/mrs-dataTable.js') }}"></script>
+
+
+    {% endblock %}

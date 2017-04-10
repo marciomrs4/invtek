@@ -33,3 +33,4 @@ parameters:
     do_ping: false
     #App color
     color: green
+    tiposequipamentos: [3, 13]

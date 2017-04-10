@@ -1,0 +1,109 @@
+{% extends ':template:template.html.twig' %}
+
+
+
+    {% block contentheader %}
+
+        <section class="content-header">
+            <h1>
+                Registro de Restore
+                <small>Mostrar</small>
+            </h1>
+        </section>
+
+    {% endblock %}
+
+    {% block firstrow %}
+
+        {% for message in app.session.flashBag.get('notice') %}
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <i class="fa fa-info"></i> {{ message }}. <i class="fa fa-smile-o"></i>
+                </div>
+            </div>
+        {% endfor %}
+
+
+    {% endblock %}
+
+
+    {% block panelheading %}
+
+        <div class="row">
+
+        <div class="col-md-2 col-sm-3 col-xs-3">
+
+            <a href="{{ path('cadastro_registrorestore_index') }}" class="btn btn-primary btn-sm">
+                <span class="fa fa-reply"></span>
+                Voltar
+            </a>
+
+        </div>
+        <div class="col-md-2 col-sm-3 col-xs-3">
+
+            <a href="{{ path('cadastro_registrorestore_edit', { 'id': registroRestore.id }) }}" class="btn btn-primary btn-sm">
+                <span class="glyphicon glyphicon-edit"></span>
+                Editar
+            </a>
+
+        </div>
+
+        <div class="col-md-2 col-sm-3 col-xs-3">
+            <a href="{{ path('view_log_registrorestore', {'registrorestore': registroRestore.id}) }}" target="_blank" class="btn btn-success btn-sm">
+                <span class="glyphicon glyphicon-list"></span>
+                Log
+            </a>
+        </div>
+        </div>{% endblock %}
+
+
+
+    {% block panelbody %}
+
+        <div class="table table-responsive">
+            <table class="table table-bordered table-condensed">
+                <tbody>
+                <tr>
+                    <th>Data</th>
+                    <td>{% if registroRestore.data %}{{ registroRestore.data|date('d-m-Y') }}{% endif %}</td>
+                </tr>
+                <tr>
+                    <th>Equipamento</th>
+                    <td>{{ registroRestore.equipamentoName }}</td>
+                </tr>
+                <tr>
+                    <th>Fita</th>
+                    <td>{{ registroRestore.fitaName }}</td>
+                </tr>
+                <tr>
+                    <th>Tipo de Job</th>
+                    <td>{{ registroRestore.tipoJobName }}</td>
+                </tr>
+                <tr>
+                    <th>Status</th>
+                    <td>{{ registroRestore.status }}</td>
+                </tr>
+                <tr>
+                    <th>Observacao</th>
+                    <td>{{ registroRestore.observacao }}</td>
+                </tr>
+                <tr>
+                    <th>Anexo</th>
+                    <td>
+                        {% if registroRestore.imageName %}
+                        <a href="{{ vich_uploader_asset(registroRestore,'imageFile') }}" target="_blank" class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-download"></span>
+                            Baixar
+                        </a>
+                        {% endif %}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    {% endblock %}

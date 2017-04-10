@@ -1,0 +1,64 @@
+<?php
+
+namespace MRS\BackupBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\DateTime;
+
+/**
+ * RegistroBackupEquipamento
+ *
+ * @ORM\Table(name="registro_backup_equipamento")
+ * @ORM\Entity(repositoryClass="MRS\BackupBundle\Repository\RegistroBackupEquipamentoRepository")
+ */
+class RegistroBackupEquipamento
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     * @ORM\Column(name="equipamento", type="string", length=255, nullable=false)
+     */
+    private $equipamento;
+
+    /**
+     * @var DateTime
+     * @ORM\Column(name="data_criacao", type="date", length=255, nullable=false)
+     */
+    private $dataCriacao;
+
+    /**
+     * @var string
+     * @ORM\Column(name="centro_movimentacao", type="string", length=255, nullable=false)
+     */
+    private $centroMovimentacao;
+
+
+    /**
+     * @var \MRS\BackupBundle\Entity\RegistroBackup
+     *
+     * @ORM\ManyToOne(targetEntity="MRS\BackupBundle\Entity\RegistroBackup")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="registro_backup_id", referencedColumnName="id")
+     * })
+     */
+    private $registroBackupId;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}

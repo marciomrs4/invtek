@@ -97,6 +97,14 @@ vich_uploader:
           uri_prefix: "%base_url%/anexos/acompanhamentos"
           upload_destination: "%kernel.root_dir%/../web/anexos/acompanhamentos"
           namer: vich_uploader.namer_origname
+      mapeamento_restore:
+          uri_prefix: "%base_url%/anexos/restore"
+          upload_destination: "%kernel.root_dir%/../web/anexos/restore"
+          namer: vich_uploader.namer_origname
+      mapeamento_backup:
+          uri_prefix: "%base_url%/anexos/backup"
+          upload_destination: "%kernel.root_dir%/../web/anexos/backup"
+          namer: vich_uploader.namer_origname
 
 #QrCode
 endroid_qr_code:

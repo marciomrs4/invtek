@@ -26,7 +26,8 @@ class CentroMovimentacaoController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $centroMovimentacaos = $em->getRepository('MRSInventarioBundle:CentroMovimentacao')->findAll();
+        $centroMovimentacaos = $em->getRepository('MRSInventarioBundle:CentroMovimentacao')
+            ->findBy(array(),array('nome' => 'ASC'));
 
         return $this->render('centromovimentacao/index.html.twig', array(
             'centroMovimentacaos' => $centroMovimentacaos,

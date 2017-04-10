@@ -1,3 +1,67 @@
+mrs_backup_registro_backup_equipamento:
+    resource: "@MRSBackupBundle/Controller/RegistroBackupEquipamentoController.php"
+    type:     annotation
+
+mrs_backup_tipo_midia:
+    resource: "@MRSBackupBundle/Controller/TipoMidiaController.php"
+    type:     annotation
+
+mrs_backup_job:
+    resource: "@MRSBackupBundle/Controller/JobController.php"
+    type:     annotation
+
+mrs_backup_fita:
+    resource: "@MRSBackupBundle/Controller/FitaController.php"
+    type:     annotation
+
+mrs_backup_job_servidor:
+    resource: "@MRSBackupBundle/Controller/JobServidorController.php"
+    type:     annotation
+
+mrs_backup_job:
+    resource: "@MRSBackupBundle/Controller/JobController.php"
+    type:     annotation
+
+mrs_backup_tipo_job:
+    resource: "@MRSBackupBundle/Controller/TipoJobController.php"
+    type:     annotation
+
+mrs_backup_troca_fita:
+    resource: "@MRSBackupBundle/Controller/TrocaFitaController.php"
+    type:     annotation
+
+mrs_backup_fita:
+    resource: "@MRSBackupBundle/Controller/FitaController.php"
+    type:     annotation
+
+mrs_backup_registro_restore:
+    resource: "@MRSBackupBundle/Controller/RegistroRestoreController.php"
+    type:     annotation
+
+mrs_backup_registro_backup:
+    resource: "@MRSBackupBundle/Controller/RegistroBackupController.php"
+    type:     annotation
+
+mrs_backup_status:
+    resource: "@MRSBackupBundle/Controller/StatusController.php"
+    type:     annotation
+
+mrs_backup_status:
+    resource: "@MRSBackupBundle/Controller/StatusController.php"
+    type:     annotation
+
+mrs_backup_status:
+    resource: "@MRSBackupBundle/Controller/StatusController.php"
+    type:     annotation
+
+mrs_backup_status:
+    resource: "@MRSBackupBundle/Controller/StatusController.php"
+    type:     annotation
+
+mrs_backup:
+    resource: "@MRSBackupBundle/Resources/config/routing.yml"
+    prefix:   /
+
 mrs_inventario_fornecedor_software:
     resource: "@MRSInventarioBundle/Controller/FornecedorSoftwareController.php"
     type:     annotation

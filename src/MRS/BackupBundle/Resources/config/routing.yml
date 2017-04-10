@@ -1,0 +1,3 @@
+#mrs_backup_homepage:
+#    path:     /
+#    defaults: { _controller: MRSBackupBundle:Default:index }

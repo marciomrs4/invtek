@@ -1,5 +1,12 @@
 {% extends ':template:template.html.twig' %}
 
+    {% block stylesheets %}
+
+        {{ parent() }}
+
+        <link rel="stylesheet" href="{{ asset('bundles/mrsinventario/css/dataTables.bootstrap.css') }}">
+
+    {% endblock %}
 
     {% block contentheader %}
 
@@ -24,7 +31,7 @@
 
     {% block panelbody %}
         <div class="table-responsive">
-            <table class="table table-bordered table-condensed table-hover table-striped">
+            <table class="table table-bordered table-condensed table-hover table-striped table-datatable" data-order='[]'>
                 <thead>
                 <tr>
                     <th>Ações</th>
@@ -37,13 +44,11 @@
                 {% for centroMovimentacao in centroMovimentacaos %}
                     <tr>
                         <td>
-                            <a href="{{ path('cadastro_centromovimentacao_show', { 'id': centroMovimentacao.id }) }}" class="btn btn-primary btn-sm">
+                            <a href="{{ path('cadastro_centromovimentacao_show', { 'id': centroMovimentacao.id }) }}" class="btn btn-primary btn-xs">
                                 <span class="glyphicon glyphicon-eye-open"></span>
-                                Mostrar
                             </a>
-                            <a href="{{ path('cadastro_centromovimentacao_edit', { 'id': centroMovimentacao.id }) }}" class="btn btn-primary btn-sm">
+                            <a href="{{ path('cadastro_centromovimentacao_edit', { 'id': centroMovimentacao.id }) }}" class="btn btn-primary btn-xs">
                                 <span class="glyphicon glyphicon-edit"></span>
-                                Editar
                             </a>
                         </td>
                         <td>{{ centroMovimentacao.nome }}</td>
@@ -54,6 +59,17 @@
                 </tbody>
             </table>
         </div>
+
+
+    {% endblock %}
+
+
+    {% block javascripts %}
+        {{ parent() }}
+
+        <script src="{{ asset('bundles/mrsinventario/js/jquery.dataTables.js') }}"></script>
+        <script src="{{ asset('bundles/mrsinventario/js/dataTables.bootstrap.js') }}"></script>
+        <script src="{{ asset('bundles/mrsinventario/js/mrs-dataTable.js') }}"></script>
 
 
     {% endblock %}
