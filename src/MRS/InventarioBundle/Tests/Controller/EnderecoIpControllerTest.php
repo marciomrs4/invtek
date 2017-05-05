@@ -3,9 +3,20 @@
 namespace MRS\InventarioBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use MRS\InventarioBundle\Tests\Controller\UsuarioControllerTest;
 
-class EnderecoIpControllerTest extends WebTestCase
+class EnderecoIpControllerTest extends UsuarioControllerTest
 {
+
+    public function testRouteAcessCode()
+    {
+        $this->logIn();
+
+        $crawler = $this->client->request('GET', '/cadastro/equipamento/');
+
+        $this->assertEquals(200,$this->client->getResponse()->getStatusCode());
+    }
+
     /*
     public function testCompleteScenario()
     {

@@ -71,3 +71,17 @@
 
     {% endblock %}
 
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="{{ asset('bundles/mrsinventario/js/select2.js') }}"></script>
+
+    <script>
+        $(document).ready(function(){
+
+            $('#job_servidor_equipamento').select2();
+
+        });
+    </script>
+
+{% endblock %}

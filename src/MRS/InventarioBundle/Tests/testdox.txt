@@ -1,1 +1,4 @@
+MRS\InventarioBundle\Tests\Controller\DefaultController
+ [x] Index
+ [x] Access home is success
 

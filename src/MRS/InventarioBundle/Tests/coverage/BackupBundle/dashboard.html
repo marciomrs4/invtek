@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /home/marcio/Desenvolvimentos/invtek/src/MRS/BackupBundle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../.css/bootstrap.min.css" rel="stylesheet">
+  <link href="../.css/nv.d3.min.css" rel="stylesheet">
+  <link href="../.css/style.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+  <script src="../.js/html5shiv.min.js"></script>
+  <script src="../.js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="../index.html">/home/marcio/Desenvolvimentos/invtek/src/MRS</a></li>
+        <li><a href="index.html">BackupBundle</a></li>
+        <li class="active">(Dashboard)</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/DefaultController.php.html#7">DefaultController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/RegistroBackupEquipamentoType.php.html#9">RegistroBackupEquipamentoType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/TrocaFita.php.html#16">TrocaFita</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/FitaType.php.html#9">FitaType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/JobServidorType.php.html#11">JobServidorType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/JobType.php.html#9">JobType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Listener/AddJob.php.html#11">AddJob</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Listener/AddRegistroRestore.php.html#12">AddRegistroRestore</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Listener/AddTrocaFita.php.html#11">AddTrocaFita</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/RegistroBackupType.php.html#12">RegistroBackupType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/TipoJob.php.html#15">TipoJob</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/RegistroRestoreType.php.html#15">RegistroRestoreType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/StatusType.php.html#9">StatusType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/TipoJobType.php.html#9">TipoJobType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/TipoMidiaType.php.html#9">TipoMidiaType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/TrocaFitaType.php.html#13">TrocaFitaType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/RegistroBackupRepository.php.html#13">RegistroBackupRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/RegistroRestoreRepository.php.html#13">RegistroRestoreRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/TipoMidia.php.html#15">TipoMidia</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Status.php.html#15">Status</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/FitaController.php.html#17">FitaController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TipoMidiaController.php.html#17">TipoMidiaController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/JobController.php.html#17">JobController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/JobServidorController.php.html#20">JobServidorController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/RegistroBackupController.php.html#18">RegistroBackupController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/RegistroBackupEquipamentoController.php.html#18">RegistroBackupEquipamentoController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/RegistroRestoreController.php.html#17">RegistroRestoreController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/StatusController.php.html#17">StatusController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TipoJobController.php.html#17">TipoJobController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TrocaFitaController.php.html#17">TrocaFitaController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#19">RegistroRestore</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DependencyInjection/Configuration.php.html#13">Configuration</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DependencyInjection/MRSBackupExtension.php.html#15">MRSBackupExtension</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Fita.php.html#15">Fita</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Job.php.html#15">Job</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/JobServidor.php.html#14">JobServidor</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackup.php.html#19">RegistroBackup</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackupEquipamento.php.html#14">RegistroBackupEquipamento</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/TrocaFitaRepository.php.html#13">TrocaFitaRepository</a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Entity/RegistroRestore.php.html#19">RegistroRestore</a></td><td class="text-right">992</td></tr>
+       <tr><td><a href="Entity/RegistroBackup.php.html#19">RegistroBackup</a></td><td class="text-right">552</td></tr>
+       <tr><td><a href="Controller/JobServidorController.php.html#20">JobServidorController</a></td><td class="text-right">306</td></tr>
+       <tr><td><a href="Controller/RegistroBackupController.php.html#18">RegistroBackupController</a></td><td class="text-right">306</td></tr>
+       <tr><td><a href="Controller/RegistroRestoreController.php.html#17">RegistroRestoreController</a></td><td class="text-right">210</td></tr>
+       <tr><td><a href="Controller/TrocaFitaController.php.html#17">TrocaFitaController</a></td><td class="text-right">210</td></tr>
+       <tr><td><a href="Controller/FitaController.php.html#17">FitaController</a></td><td class="text-right">182</td></tr>
+       <tr><td><a href="Controller/JobController.php.html#17">JobController</a></td><td class="text-right">182</td></tr>
+       <tr><td><a href="Controller/StatusController.php.html#17">StatusController</a></td><td class="text-right">182</td></tr>
+       <tr><td><a href="Controller/TipoJobController.php.html#17">TipoJobController</a></td><td class="text-right">182</td></tr>
+       <tr><td><a href="Controller/TipoMidiaController.php.html#17">TipoMidiaController</a></td><td class="text-right">182</td></tr>
+       <tr><td><a href="Controller/RegistroBackupEquipamentoController.php.html#18">RegistroBackupEquipamentoController</a></td><td class="text-right">156</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/DefaultController.php.html#10"><abbr title="DefaultController::indexAction">indexAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#408"><abbr title="RegistroRestore::getDateAlterFile">getDateAlterFile</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#288"><abbr title="RegistroRestore::getEquipamento">getEquipamento</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#300"><abbr title="RegistroRestore::setFita">setFita</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#312"><abbr title="RegistroRestore::getFita">getFita</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#324"><abbr title="RegistroRestore::setStatus">setStatus</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#336"><abbr title="RegistroRestore::getStatus">getStatus</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#348"><abbr title="RegistroRestore::setTipoJob">setTipoJob</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#360"><abbr title="RegistroRestore::getTipoJob">getTipoJob</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#372"><abbr title="RegistroRestore::setUser">setUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#384"><abbr title="RegistroRestore::getUser">getUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#396"><abbr title="RegistroRestore::setDateAlterFile">setDateAlterFile</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#420"><abbr title="RegistroRestore::setFileName">setFileName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#264"><abbr title="RegistroRestore::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#432"><abbr title="RegistroRestore::getFileName">getFileName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#444"><abbr title="RegistroRestore::setEquipamentoName">setEquipamentoName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#456"><abbr title="RegistroRestore::getEquipamentoName">getEquipamentoName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#468"><abbr title="RegistroRestore::setFitaName">setFitaName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#480"><abbr title="RegistroRestore::getFitaName">getFitaName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#492"><abbr title="RegistroRestore::setTipoJobName">setTipoJobName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#504"><abbr title="RegistroRestore::getTipoJobName">getTipoJobName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Status.php.html#43"><abbr title="Status::setDescricao">setDescricao</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Status.php.html#55"><abbr title="Status::getDescricao">getDescricao</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Status.php.html#65"><abbr title="Status::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Status.php.html#70"><abbr title="Status::__toString">__toString</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#276"><abbr title="RegistroRestore::setEquipamento">setEquipamento</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#254"><abbr title="RegistroRestore::getImageName">getImageName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/TipoJob.php.html#55"><abbr title="TipoJob::getDescricao">getDescricao</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackupEquipamento.php.html#96"><abbr title="RegistroBackupEquipamento::setDataCriacao">setDataCriacao</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackup.php.html#284"><abbr title="RegistroBackup::getImageFile">getImageFile</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackup.php.html#293"><abbr title="RegistroBackup::setImageFile">setImageFile</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackup.php.html#311"><abbr title="RegistroBackup::setUser">setUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackup.php.html#323"><abbr title="RegistroBackup::getUser">getUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackup.php.html#335"><abbr title="RegistroBackup::setJobName">setJobName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackup.php.html#347"><abbr title="RegistroBackup::getJobName">getJobName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackup.php.html#359"><abbr title="RegistroBackup::setTipoJob">setTipoJob</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackup.php.html#371"><abbr title="RegistroBackup::getTipoJob">getTipoJob</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackupEquipamento.php.html#60"><abbr title="RegistroBackupEquipamento::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackupEquipamento.php.html#72"><abbr title="RegistroBackupEquipamento::setEquipamento">setEquipamento</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackupEquipamento.php.html#84"><abbr title="RegistroBackupEquipamento::getEquipamento">getEquipamento</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackupEquipamento.php.html#108"><abbr title="RegistroBackupEquipamento::getDataCriacao">getDataCriacao</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#242"><abbr title="RegistroRestore::setImageName">setImageName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackupEquipamento.php.html#120"><abbr title="RegistroBackupEquipamento::setUnidade">setUnidade</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackupEquipamento.php.html#132"><abbr title="RegistroBackupEquipamento::getUnidade">getUnidade</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackupEquipamento.php.html#144"><abbr title="RegistroBackupEquipamento::setRegistroBackupId">setRegistroBackupId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackupEquipamento.php.html#156"><abbr title="RegistroBackupEquipamento::getRegistroBackupId">getRegistroBackupId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#158"><abbr title="RegistroRestore::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#166"><abbr title="RegistroRestore::getImageFile">getImageFile</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#175"><abbr title="RegistroRestore::setImageFile">setImageFile</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#194"><abbr title="RegistroRestore::setData">setData</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#206"><abbr title="RegistroRestore::getData">getData</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#218"><abbr title="RegistroRestore::setObservacao">setObservacao</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#230"><abbr title="RegistroRestore::getObservacao">getObservacao</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/TipoJob.php.html#43"><abbr title="TipoJob::setDescricao">setDescricao</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/TipoJob.php.html#65"><abbr title="TipoJob::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackup.php.html#264"><abbr title="RegistroBackup::setDataAlterFile">setDataAlterFile</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/RegistroRestoreType.php.html#45"><abbr title="RegistroRestoreType::anonymous function">anonymous function</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Listener/AddTrocaFita.php.html#14"><abbr title="AddTrocaFita::getSubscribedEvents">getSubscribedEvents</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Listener/AddTrocaFita.php.html#33"><abbr title="AddTrocaFita::preSubmit">preSubmit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Listener/AddTrocaFita.php.html#39"><abbr title="AddTrocaFita::addField">addField</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Listener/AddTrocaFita.php.html#45"><abbr title="AddTrocaFita::anonymous function">anonymous function</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/RegistroBackupEquipamentoType.php.html#15"><abbr title="RegistroBackupEquipamentoType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/RegistroBackupEquipamentoType.php.html#32"><abbr title="RegistroBackupEquipamentoType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/RegistroBackupType.php.html#18"><abbr title="RegistroBackupType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/RegistroBackupType.php.html#43"><abbr title="RegistroBackupType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/RegistroRestoreType.php.html#20"><abbr title="RegistroRestoreType::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/RegistroRestoreType.php.html#30"><abbr title="RegistroRestoreType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/RegistroRestoreType.php.html#67"><abbr title="RegistroRestoreType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Listener/AddRegistroRestore.php.html#50"><abbr title="AddRegistroRestore::addField">addField</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/StatusType.php.html#15"><abbr title="StatusType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/StatusType.php.html#26"><abbr title="StatusType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/TipoJobType.php.html#15"><abbr title="TipoJobType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/TipoJobType.php.html#26"><abbr title="TipoJobType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/TipoMidiaType.php.html#15"><abbr title="TipoMidiaType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/TipoMidiaType.php.html#26"><abbr title="TipoMidiaType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/TrocaFitaType.php.html#19"><abbr title="TrocaFitaType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/TrocaFitaType.php.html#29"><abbr title="TrocaFitaType::anonymous function">anonymous function</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/TrocaFitaType.php.html#42"><abbr title="TrocaFitaType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/RegistroBackupRepository.php.html#16"><abbr title="RegistroBackupRepository::getMaxId">getMaxId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/RegistroRestoreRepository.php.html#16"><abbr title="RegistroRestoreRepository::getMaxId">getMaxId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Listener/AddRegistroRestore.php.html#64"><abbr title="AddRegistroRestore::anonymous function">anonymous function</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Listener/AddRegistroRestore.php.html#41"><abbr title="AddRegistroRestore::preSubmit">preSubmit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/TipoJob.php.html#70"><abbr title="TipoJob::__toString">__toString</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/TrocaFita.php.html#139"><abbr title="TrocaFita::getUser">getUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/TipoMidia.php.html#43"><abbr title="TipoMidia::setDescricao">setDescricao</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/TipoMidia.php.html#55"><abbr title="TipoMidia::getDescricao">getDescricao</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/TipoMidia.php.html#65"><abbr title="TipoMidia::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/TipoMidia.php.html#70"><abbr title="TipoMidia::__toString">__toString</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/TrocaFita.php.html#55"><abbr title="TrocaFita::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/TrocaFita.php.html#69"><abbr title="TrocaFita::setDataCriacao">setDataCriacao</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/TrocaFita.php.html#81"><abbr title="TrocaFita::getDataCriacao">getDataCriacao</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/TrocaFita.php.html#91"><abbr title="TrocaFita::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/TrocaFita.php.html#103"><abbr title="TrocaFita::setFita">setFita</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/TrocaFita.php.html#115"><abbr title="TrocaFita::getFita">getFita</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/TrocaFita.php.html#127"><abbr title="TrocaFita::setUser">setUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/FitaType.php.html#15"><abbr title="FitaType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Listener/AddRegistroRestore.php.html#22"><abbr title="AddRegistroRestore::getSubscribedEvents">getSubscribedEvents</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/FitaType.php.html#36"><abbr title="FitaType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/JobServidorType.php.html#17"><abbr title="JobServidorType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/JobServidorType.php.html#22"><abbr title="JobServidorType::anonymous function">anonymous function</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/JobServidorType.php.html#34"><abbr title="JobServidorType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/JobType.php.html#15"><abbr title="JobType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/JobType.php.html#30"><abbr title="JobType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Listener/AddJob.php.html#13"><abbr title="AddJob::getSubscribedEvents">getSubscribedEvents</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Listener/AddJob.php.html#32"><abbr title="AddJob::preSubmit">preSubmit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Listener/AddJob.php.html#41"><abbr title="AddJob::addField">addField</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Listener/AddJob.php.html#47"><abbr title="AddJob::anonymous function">anonymous function</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/Listener/AddRegistroRestore.php.html#17"><abbr title="AddRegistroRestore::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackup.php.html#276"><abbr title="RegistroBackup::getDataAlterFile">getDataAlterFile</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackup.php.html#252"><abbr title="RegistroBackup::getStatus">getStatus</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/FitaController.php.html#25"><abbr title="FitaController::indexAction">indexAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/RegistroRestoreController.php.html#164"><abbr title="RegistroRestoreController::createDeleteForm">createDeleteForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/RegistroBackupEquipamentoController.php.html#44"><abbr title="RegistroBackupEquipamentoController::newAction">newAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/RegistroBackupEquipamentoController.php.html#72"><abbr title="RegistroBackupEquipamentoController::showAction">showAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/RegistroBackupEquipamentoController.php.html#88"><abbr title="RegistroBackupEquipamentoController::editAction">editAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/RegistroBackupEquipamentoController.php.html#117"><abbr title="RegistroBackupEquipamentoController::deleteAction">deleteAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/RegistroBackupEquipamentoController.php.html#138"><abbr title="RegistroBackupEquipamentoController::createDeleteForm">createDeleteForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/RegistroRestoreController.php.html#25"><abbr title="RegistroRestoreController::indexAction">indexAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/RegistroRestoreController.php.html#46"><abbr title="RegistroRestoreController::newAction">newAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/RegistroRestoreController.php.html#82"><abbr title="RegistroRestoreController::showAction">showAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/RegistroRestoreController.php.html#98"><abbr title="RegistroRestoreController::editAction">editAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/RegistroRestoreController.php.html#143"><abbr title="RegistroRestoreController::deleteAction">deleteAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/RegistroRestoreController.php.html#176"><abbr title="RegistroRestoreController::viewLogAction">viewLogAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/RegistroBackupController.php.html#224"><abbr title="RegistroBackupController::viewLogAction">viewLogAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/StatusController.php.html#25"><abbr title="StatusController::indexAction">indexAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/StatusController.php.html#42"><abbr title="StatusController::newAction">newAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/StatusController.php.html#70"><abbr title="StatusController::showAction">showAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/StatusController.php.html#86"><abbr title="StatusController::editAction">editAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/StatusController.php.html#115"><abbr title="StatusController::deleteAction">deleteAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/StatusController.php.html#136"><abbr title="StatusController::createDeleteForm">createDeleteForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/StatusController.php.html#149"><abbr title="StatusController::viewLogAction">viewLogAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TipoJobController.php.html#25"><abbr title="TipoJobController::indexAction">indexAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TipoJobController.php.html#42"><abbr title="TipoJobController::newAction">newAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TipoJobController.php.html#70"><abbr title="TipoJobController::showAction">showAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TipoJobController.php.html#86"><abbr title="TipoJobController::editAction">editAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/RegistroBackupEquipamentoController.php.html#26"><abbr title="RegistroBackupEquipamentoController::indexAction">indexAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/RegistroBackupController.php.html#210"><abbr title="RegistroBackupController::createDeleteForm">createDeleteForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TipoJobController.php.html#136"><abbr title="TipoJobController::createDeleteForm">createDeleteForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/JobController.php.html#137"><abbr title="JobController::createDeleteForm">createDeleteForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/FitaController.php.html#43"><abbr title="FitaController::newAction">newAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/FitaController.php.html#71"><abbr title="FitaController::showAction">showAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/FitaController.php.html#87"><abbr title="FitaController::editAction">editAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/FitaController.php.html#116"><abbr title="FitaController::deleteAction">deleteAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/FitaController.php.html#137"><abbr title="FitaController::createDeleteForm">createDeleteForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/FitaController.php.html#150"><abbr title="FitaController::viewLogAction">viewLogAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/JobController.php.html#25"><abbr title="JobController::indexAction">indexAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/JobController.php.html#43"><abbr title="JobController::newAction">newAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/JobController.php.html#71"><abbr title="JobController::showAction">showAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/JobController.php.html#87"><abbr title="JobController::editAction">editAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/JobController.php.html#116"><abbr title="JobController::deleteAction">deleteAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/JobController.php.html#149"><abbr title="JobController::viewLogAction">viewLogAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/RegistroBackupController.php.html#189"><abbr title="RegistroBackupController::deleteAction">deleteAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/JobServidorController.php.html#28"><abbr title="JobServidorController::indexAction">indexAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/JobServidorController.php.html#46"><abbr title="JobServidorController::newAction">newAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/JobServidorController.php.html#161"><abbr title="JobServidorController::anonymous function">anonymous function</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/JobServidorController.php.html#115"><abbr title="JobServidorController::showAction">showAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/JobServidorController.php.html#131"><abbr title="JobServidorController::editAction">editAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/JobServidorController.php.html#198"><abbr title="JobServidorController::deleteAction">deleteAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/JobServidorController.php.html#221"><abbr title="JobServidorController::createDeleteForm">createDeleteForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/RegistroBackupController.php.html#26"><abbr title="RegistroBackupController::indexAction">indexAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/RegistroBackupController.php.html#47"><abbr title="RegistroBackupController::newAction">newAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/RegistroBackupController.php.html#101"><abbr title="RegistroBackupController::showAction">showAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/RegistroBackupController.php.html#117"><abbr title="RegistroBackupController::editAction">editAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TipoJobController.php.html#115"><abbr title="TipoJobController::deleteAction">deleteAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TipoJobController.php.html#149"><abbr title="TipoJobController::viewLogAction">viewLogAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackup.php.html#240"><abbr title="RegistroBackup::setStatus">setStatus</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/JobServidor.php.html#78"><abbr title="JobServidor::getEquipamento">getEquipamento</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Fita.php.html#234"><abbr title="Fita::getMidia">getMidia</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Job.php.html#65"><abbr title="Job::setDescricao">setDescricao</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Job.php.html#77"><abbr title="Job::getDescricao">getDescricao</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Job.php.html#87"><abbr title="Job::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Job.php.html#99"><abbr title="Job::setTipoJob">setTipoJob</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Job.php.html#111"><abbr title="Job::getTipoJob">getTipoJob</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Job.php.html#116"><abbr title="Job::__toString">__toString</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Job.php.html#128"><abbr title="Job::setUnidade">setUnidade</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Job.php.html#140"><abbr title="Job::getUnidade">getUnidade</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/JobServidor.php.html#54"><abbr title="JobServidor::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/JobServidor.php.html#66"><abbr title="JobServidor::setEquipamento">setEquipamento</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/JobServidor.php.html#90"><abbr title="JobServidor::setJob">setJob</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Fita.php.html#210"><abbr title="Fita::getUnidade">getUnidade</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/JobServidor.php.html#102"><abbr title="JobServidor::getJob">getJob</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackup.php.html#120"><abbr title="RegistroBackup::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackup.php.html#132"><abbr title="RegistroBackup::setData">setData</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackup.php.html#146"><abbr title="RegistroBackup::getData">getData</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackup.php.html#158"><abbr title="RegistroBackup::setObservacao">setObservacao</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackup.php.html#170"><abbr title="RegistroBackup::getObservacao">getObservacao</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackup.php.html#182"><abbr title="RegistroBackup::setFileName">setFileName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackup.php.html#194"><abbr title="RegistroBackup::getFileName">getFileName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackup.php.html#204"><abbr title="RegistroBackup::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackup.php.html#216"><abbr title="RegistroBackup::setJob">setJob</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RegistroBackup.php.html#228"><abbr title="RegistroBackup::getJob">getJob</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Fita.php.html#222"><abbr title="Fita::setMidia">setMidia</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Fita.php.html#198"><abbr title="Fita::setUnidade">setUnidade</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TipoMidiaController.php.html#25"><abbr title="TipoMidiaController::indexAction">indexAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TrocaFitaController.php.html#153"><abbr title="TrocaFitaController::createDeleteForm">createDeleteForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TipoMidiaController.php.html#42"><abbr title="TipoMidiaController::newAction">newAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TipoMidiaController.php.html#70"><abbr title="TipoMidiaController::showAction">showAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TipoMidiaController.php.html#86"><abbr title="TipoMidiaController::editAction">editAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TipoMidiaController.php.html#115"><abbr title="TipoMidiaController::deleteAction">deleteAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TipoMidiaController.php.html#136"><abbr title="TipoMidiaController::createDeleteForm">createDeleteForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TipoMidiaController.php.html#150"><abbr title="TipoMidiaController::viewLogAction">viewLogAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TrocaFitaController.php.html#25"><abbr title="TrocaFitaController::indexAction">indexAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TrocaFitaController.php.html#45"><abbr title="TrocaFitaController::newAction">newAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TrocaFitaController.php.html#76"><abbr title="TrocaFitaController::showAction">showAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TrocaFitaController.php.html#92"><abbr title="TrocaFitaController::editAction">editAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TrocaFitaController.php.html#132"><abbr title="TrocaFitaController::deleteAction">deleteAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/TrocaFitaController.php.html#165"><abbr title="TrocaFitaController::viewLogAction">viewLogAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Fita.php.html#186"><abbr title="Fita::__toString">__toString</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DependencyInjection/Configuration.php.html#18"><abbr title="Configuration::getConfigTreeBuilder">getConfigTreeBuilder</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DependencyInjection/MRSBackupExtension.php.html#20"><abbr title="MRSBackupExtension::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Fita.php.html#87"><abbr title="Fita::setBarCode">setBarCode</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Fita.php.html#99"><abbr title="Fita::getBarCode">getBarCode</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Fita.php.html#111"><abbr title="Fita::setCiclo">setCiclo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Fita.php.html#123"><abbr title="Fita::getCiclo">getCiclo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Fita.php.html#135"><abbr title="Fita::setJogo">setJogo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Fita.php.html#147"><abbr title="Fita::getJogo">getJogo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Fita.php.html#159"><abbr title="Fita::setDescricao">setDescricao</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Fita.php.html#171"><abbr title="Fita::getDescricao">getDescricao</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Fita.php.html#181"><abbr title="Fita::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/TrocaFitaRepository.php.html#16"><abbr title="TrocaFitaRepository::getMaxId">getMaxId</abbr></a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/RegistroBackupController.php.html#117"><abbr title="RegistroBackupController::editAction">editAction</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Controller/JobServidorController.php.html#46"><abbr title="JobServidorController::newAction">newAction</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Controller/JobServidorController.php.html#131"><abbr title="JobServidorController::editAction">editAction</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Controller/RegistroRestoreController.php.html#98"><abbr title="RegistroRestoreController::editAction">editAction</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Controller/TrocaFitaController.php.html#92"><abbr title="TrocaFitaController::editAction">editAction</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Controller/RegistroBackupController.php.html#47"><abbr title="RegistroBackupController::newAction">newAction</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Controller/StatusController.php.html#115"><abbr title="StatusController::deleteAction">deleteAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/TipoJobController.php.html#42"><abbr title="TipoJobController::newAction">newAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/TipoJobController.php.html#86"><abbr title="TipoJobController::editAction">editAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/TipoJobController.php.html#115"><abbr title="TipoJobController::deleteAction">deleteAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/TipoMidiaController.php.html#86"><abbr title="TipoMidiaController::editAction">editAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/TipoMidiaController.php.html#42"><abbr title="TipoMidiaController::newAction">newAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/StatusController.php.html#42"><abbr title="StatusController::newAction">newAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/TipoMidiaController.php.html#115"><abbr title="TipoMidiaController::deleteAction">deleteAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/TrocaFitaController.php.html#45"><abbr title="TrocaFitaController::newAction">newAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/TrocaFitaController.php.html#132"><abbr title="TrocaFitaController::deleteAction">deleteAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/StatusController.php.html#86"><abbr title="StatusController::editAction">editAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/FitaController.php.html#43"><abbr title="FitaController::newAction">newAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/RegistroRestoreController.php.html#143"><abbr title="RegistroRestoreController::deleteAction">deleteAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/FitaController.php.html#87"><abbr title="FitaController::editAction">editAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/RegistroRestoreController.php.html#46"><abbr title="RegistroRestoreController::newAction">newAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/RegistroBackupEquipamentoController.php.html#117"><abbr title="RegistroBackupEquipamentoController::deleteAction">deleteAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/RegistroBackupEquipamentoController.php.html#88"><abbr title="RegistroBackupEquipamentoController::editAction">editAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/RegistroBackupEquipamentoController.php.html#44"><abbr title="RegistroBackupEquipamentoController::newAction">newAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/RegistroBackupController.php.html#189"><abbr title="RegistroBackupController::deleteAction">deleteAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/JobServidorController.php.html#198"><abbr title="JobServidorController::deleteAction">deleteAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/JobController.php.html#116"><abbr title="JobController::deleteAction">deleteAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/JobController.php.html#87"><abbr title="JobController::editAction">editAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/JobController.php.html#43"><abbr title="JobController::newAction">newAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/FitaController.php.html#116"><abbr title="FitaController::deleteAction">deleteAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Entity/RegistroBackup.php.html#293"><abbr title="RegistroBackup::setImageFile">setImageFile</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Entity/RegistroRestore.php.html#175"><abbr title="RegistroRestore::setImageFile">setImageFile</abbr></a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 5.2.1</a> using <a href="https://secure.php.net/" target="_top">PHP 7.0.15-0ubuntu0.16.04.4</a> with <a href="https://xdebug.org/">Xdebug 2.4.0</a> and <a href="https://phpunit.de/">PHPUnit 6.1.2</a> at Thu May 4 14:25:46 BRT 2017.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../.js/jquery.min.js" type="text/javascript"></script>
+  <script src="../.js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="../.js/holder.min.js" type="text/javascript"></script>
+  <script src="../.js/d3.min.js" type="text/javascript"></script>
+  <script src="../.js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([39,0,0,0,0,0,0,0,0,0,0,2], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([220,0,0,0,0,0,0,0,0,0,0,0], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"Controller\/DefaultController.php.html#7\">DefaultController<\/a>"],[0,13,"<a href=\"Controller\/FitaController.php.html#17\">FitaController<\/a>"],[0,13,"<a href=\"Controller\/JobController.php.html#17\">JobController<\/a>"],[0,17,"<a href=\"Controller\/JobServidorController.php.html#20\">JobServidorController<\/a>"],[0,17,"<a href=\"Controller\/RegistroBackupController.php.html#18\">RegistroBackupController<\/a>"],[0,12,"<a href=\"Controller\/RegistroBackupEquipamentoController.php.html#18\">RegistroBackupEquipamentoController<\/a>"],[0,14,"<a href=\"Controller\/RegistroRestoreController.php.html#17\">RegistroRestoreController<\/a>"],[0,13,"<a href=\"Controller\/StatusController.php.html#17\">StatusController<\/a>"],[0,13,"<a href=\"Controller\/TipoJobController.php.html#17\">TipoJobController<\/a>"],[0,13,"<a href=\"Controller\/TipoMidiaController.php.html#17\">TipoMidiaController<\/a>"],[0,14,"<a href=\"Controller\/TrocaFitaController.php.html#17\">TrocaFitaController<\/a>"],[0,1,"<a href=\"DependencyInjection\/Configuration.php.html#13\">Configuration<\/a>"],[0,1,"<a href=\"DependencyInjection\/MRSBackupExtension.php.html#15\">MRSBackupExtension<\/a>"],[0,14,"<a href=\"Entity\/Fita.php.html#15\">Fita<\/a>"],[0,8,"<a href=\"Entity\/Job.php.html#15\">Job<\/a>"],[0,5,"<a href=\"Entity\/JobServidor.php.html#14\">JobServidor<\/a>"],[0,23,"<a href=\"Entity\/RegistroBackup.php.html#19\">RegistroBackup<\/a>"],[0,9,"<a href=\"Entity\/RegistroBackupEquipamento.php.html#14\">RegistroBackupEquipamento<\/a>"],[0,31,"<a href=\"Entity\/RegistroRestore.php.html#19\">RegistroRestore<\/a>"],[0,4,"<a href=\"Entity\/Status.php.html#15\">Status<\/a>"],[0,4,"<a href=\"Entity\/TipoJob.php.html#15\">TipoJob<\/a>"],[0,4,"<a href=\"Entity\/TipoMidia.php.html#15\">TipoMidia<\/a>"],[0,8,"<a href=\"Entity\/TrocaFita.php.html#16\">TrocaFita<\/a>"],[0,2,"<a href=\"Form\/FitaType.php.html#9\">FitaType<\/a>"],[0,3,"<a href=\"Form\/JobServidorType.php.html#11\">JobServidorType<\/a>"],[0,2,"<a href=\"Form\/JobType.php.html#9\">JobType<\/a>"],[0,4,"<a href=\"Form\/Listener\/AddJob.php.html#11\">AddJob<\/a>"],[0,5,"<a href=\"Form\/Listener\/AddRegistroRestore.php.html#12\">AddRegistroRestore<\/a>"],[0,4,"<a href=\"Form\/Listener\/AddTrocaFita.php.html#11\">AddTrocaFita<\/a>"],[0,2,"<a href=\"Form\/RegistroBackupEquipamentoType.php.html#9\">RegistroBackupEquipamentoType<\/a>"],[0,2,"<a href=\"Form\/RegistroBackupType.php.html#12\">RegistroBackupType<\/a>"],[0,4,"<a href=\"Form\/RegistroRestoreType.php.html#15\">RegistroRestoreType<\/a>"],[0,2,"<a href=\"Form\/StatusType.php.html#9\">StatusType<\/a>"],[0,2,"<a href=\"Form\/TipoJobType.php.html#9\">TipoJobType<\/a>"],[0,2,"<a href=\"Form\/TipoMidiaType.php.html#9\">TipoMidiaType<\/a>"],[0,3,"<a href=\"Form\/TrocaFitaType.php.html#13\">TrocaFitaType<\/a>"],[100,0,"<a href=\"MRSBackupBundle.php.html#7\">MRSBackupBundle<\/a>"],[100,0,"<a href=\"Repository\/RegistroBackupEquipamentoRepository.php.html#11\">RegistroBackupEquipamentoRepository<\/a>"],[0,1,"<a href=\"Repository\/RegistroBackupRepository.php.html#13\">RegistroBackupRepository<\/a>"],[0,1,"<a href=\"Repository\/RegistroRestoreRepository.php.html#13\">RegistroRestoreRepository<\/a>"],[0,1,"<a href=\"Repository\/TrocaFitaRepository.php.html#13\">TrocaFitaRepository<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"Controller\/DefaultController.php.html#10\">DefaultController::indexAction<\/a>"],[0,1,"<a href=\"Controller\/FitaController.php.html#25\">FitaController::indexAction<\/a>"],[0,3,"<a href=\"Controller\/FitaController.php.html#43\">FitaController::newAction<\/a>"],[0,1,"<a href=\"Controller\/FitaController.php.html#71\">FitaController::showAction<\/a>"],[0,3,"<a href=\"Controller\/FitaController.php.html#87\">FitaController::editAction<\/a>"],[0,3,"<a href=\"Controller\/FitaController.php.html#116\">FitaController::deleteAction<\/a>"],[0,1,"<a href=\"Controller\/FitaController.php.html#137\">FitaController::createDeleteForm<\/a>"],[0,1,"<a href=\"Controller\/FitaController.php.html#150\">FitaController::viewLogAction<\/a>"],[0,1,"<a href=\"Controller\/JobController.php.html#25\">JobController::indexAction<\/a>"],[0,3,"<a href=\"Controller\/JobController.php.html#43\">JobController::newAction<\/a>"],[0,1,"<a href=\"Controller\/JobController.php.html#71\">JobController::showAction<\/a>"],[0,3,"<a href=\"Controller\/JobController.php.html#87\">JobController::editAction<\/a>"],[0,3,"<a href=\"Controller\/JobController.php.html#116\">JobController::deleteAction<\/a>"],[0,1,"<a href=\"Controller\/JobController.php.html#137\">JobController::createDeleteForm<\/a>"],[0,1,"<a href=\"Controller\/JobController.php.html#149\">JobController::viewLogAction<\/a>"],[0,1,"<a href=\"Controller\/JobServidorController.php.html#28\">JobServidorController::indexAction<\/a>"],[0,5,"<a href=\"Controller\/JobServidorController.php.html#46\">JobServidorController::newAction<\/a>"],[0,1,"<a href=\"Controller\/JobServidorController.php.html#161\">JobServidorController::anonymous function<\/a>"],[0,1,"<a href=\"Controller\/JobServidorController.php.html#115\">JobServidorController::showAction<\/a>"],[0,5,"<a href=\"Controller\/JobServidorController.php.html#131\">JobServidorController::editAction<\/a>"],[0,3,"<a href=\"Controller\/JobServidorController.php.html#198\">JobServidorController::deleteAction<\/a>"],[0,1,"<a href=\"Controller\/JobServidorController.php.html#221\">JobServidorController::createDeleteForm<\/a>"],[0,1,"<a href=\"Controller\/RegistroBackupController.php.html#26\">RegistroBackupController::indexAction<\/a>"],[0,4,"<a href=\"Controller\/RegistroBackupController.php.html#47\">RegistroBackupController::newAction<\/a>"],[0,1,"<a href=\"Controller\/RegistroBackupController.php.html#101\">RegistroBackupController::showAction<\/a>"],[0,6,"<a href=\"Controller\/RegistroBackupController.php.html#117\">RegistroBackupController::editAction<\/a>"],[0,3,"<a href=\"Controller\/RegistroBackupController.php.html#189\">RegistroBackupController::deleteAction<\/a>"],[0,1,"<a href=\"Controller\/RegistroBackupController.php.html#210\">RegistroBackupController::createDeleteForm<\/a>"],[0,1,"<a href=\"Controller\/RegistroBackupController.php.html#224\">RegistroBackupController::viewLogAction<\/a>"],[0,1,"<a href=\"Controller\/RegistroBackupEquipamentoController.php.html#26\">RegistroBackupEquipamentoController::indexAction<\/a>"],[0,3,"<a href=\"Controller\/RegistroBackupEquipamentoController.php.html#44\">RegistroBackupEquipamentoController::newAction<\/a>"],[0,1,"<a href=\"Controller\/RegistroBackupEquipamentoController.php.html#72\">RegistroBackupEquipamentoController::showAction<\/a>"],[0,3,"<a href=\"Controller\/RegistroBackupEquipamentoController.php.html#88\">RegistroBackupEquipamentoController::editAction<\/a>"],[0,3,"<a href=\"Controller\/RegistroBackupEquipamentoController.php.html#117\">RegistroBackupEquipamentoController::deleteAction<\/a>"],[0,1,"<a href=\"Controller\/RegistroBackupEquipamentoController.php.html#138\">RegistroBackupEquipamentoController::createDeleteForm<\/a>"],[0,1,"<a href=\"Controller\/RegistroRestoreController.php.html#25\">RegistroRestoreController::indexAction<\/a>"],[0,3,"<a href=\"Controller\/RegistroRestoreController.php.html#46\">RegistroRestoreController::newAction<\/a>"],[0,1,"<a href=\"Controller\/RegistroRestoreController.php.html#82\">RegistroRestoreController::showAction<\/a>"],[0,4,"<a href=\"Controller\/RegistroRestoreController.php.html#98\">RegistroRestoreController::editAction<\/a>"],[0,3,"<a href=\"Controller\/RegistroRestoreController.php.html#143\">RegistroRestoreController::deleteAction<\/a>"],[0,1,"<a href=\"Controller\/RegistroRestoreController.php.html#164\">RegistroRestoreController::createDeleteForm<\/a>"],[0,1,"<a href=\"Controller\/RegistroRestoreController.php.html#176\">RegistroRestoreController::viewLogAction<\/a>"],[0,1,"<a href=\"Controller\/StatusController.php.html#25\">StatusController::indexAction<\/a>"],[0,3,"<a href=\"Controller\/StatusController.php.html#42\">StatusController::newAction<\/a>"],[0,1,"<a href=\"Controller\/StatusController.php.html#70\">StatusController::showAction<\/a>"],[0,3,"<a href=\"Controller\/StatusController.php.html#86\">StatusController::editAction<\/a>"],[0,3,"<a href=\"Controller\/StatusController.php.html#115\">StatusController::deleteAction<\/a>"],[0,1,"<a href=\"Controller\/StatusController.php.html#136\">StatusController::createDeleteForm<\/a>"],[0,1,"<a href=\"Controller\/StatusController.php.html#149\">StatusController::viewLogAction<\/a>"],[0,1,"<a href=\"Controller\/TipoJobController.php.html#25\">TipoJobController::indexAction<\/a>"],[0,3,"<a href=\"Controller\/TipoJobController.php.html#42\">TipoJobController::newAction<\/a>"],[0,1,"<a href=\"Controller\/TipoJobController.php.html#70\">TipoJobController::showAction<\/a>"],[0,3,"<a href=\"Controller\/TipoJobController.php.html#86\">TipoJobController::editAction<\/a>"],[0,3,"<a href=\"Controller\/TipoJobController.php.html#115\">TipoJobController::deleteAction<\/a>"],[0,1,"<a href=\"Controller\/TipoJobController.php.html#136\">TipoJobController::createDeleteForm<\/a>"],[0,1,"<a href=\"Controller\/TipoJobController.php.html#149\">TipoJobController::viewLogAction<\/a>"],[0,1,"<a href=\"Controller\/TipoMidiaController.php.html#25\">TipoMidiaController::indexAction<\/a>"],[0,3,"<a href=\"Controller\/TipoMidiaController.php.html#42\">TipoMidiaController::newAction<\/a>"],[0,1,"<a href=\"Controller\/TipoMidiaController.php.html#70\">TipoMidiaController::showAction<\/a>"],[0,3,"<a href=\"Controller\/TipoMidiaController.php.html#86\">TipoMidiaController::editAction<\/a>"],[0,3,"<a href=\"Controller\/TipoMidiaController.php.html#115\">TipoMidiaController::deleteAction<\/a>"],[0,1,"<a href=\"Controller\/TipoMidiaController.php.html#136\">TipoMidiaController::createDeleteForm<\/a>"],[0,1,"<a href=\"Controller\/TipoMidiaController.php.html#150\">TipoMidiaController::viewLogAction<\/a>"],[0,1,"<a href=\"Controller\/TrocaFitaController.php.html#25\">TrocaFitaController::indexAction<\/a>"],[0,3,"<a href=\"Controller\/TrocaFitaController.php.html#45\">TrocaFitaController::newAction<\/a>"],[0,1,"<a href=\"Controller\/TrocaFitaController.php.html#76\">TrocaFitaController::showAction<\/a>"],[0,4,"<a href=\"Controller\/TrocaFitaController.php.html#92\">TrocaFitaController::editAction<\/a>"],[0,3,"<a href=\"Controller\/TrocaFitaController.php.html#132\">TrocaFitaController::deleteAction<\/a>"],[0,1,"<a href=\"Controller\/TrocaFitaController.php.html#153\">TrocaFitaController::createDeleteForm<\/a>"],[0,1,"<a href=\"Controller\/TrocaFitaController.php.html#165\">TrocaFitaController::viewLogAction<\/a>"],[0,1,"<a href=\"DependencyInjection\/Configuration.php.html#18\">Configuration::getConfigTreeBuilder<\/a>"],[0,1,"<a href=\"DependencyInjection\/MRSBackupExtension.php.html#20\">MRSBackupExtension::load<\/a>"],[0,1,"<a href=\"Entity\/Fita.php.html#87\">Fita::setBarCode<\/a>"],[0,1,"<a href=\"Entity\/Fita.php.html#99\">Fita::getBarCode<\/a>"],[0,1,"<a href=\"Entity\/Fita.php.html#111\">Fita::setCiclo<\/a>"],[0,1,"<a href=\"Entity\/Fita.php.html#123\">Fita::getCiclo<\/a>"],[0,1,"<a href=\"Entity\/Fita.php.html#135\">Fita::setJogo<\/a>"],[0,1,"<a href=\"Entity\/Fita.php.html#147\">Fita::getJogo<\/a>"],[0,1,"<a href=\"Entity\/Fita.php.html#159\">Fita::setDescricao<\/a>"],[0,1,"<a href=\"Entity\/Fita.php.html#171\">Fita::getDescricao<\/a>"],[0,1,"<a href=\"Entity\/Fita.php.html#181\">Fita::getId<\/a>"],[0,1,"<a href=\"Entity\/Fita.php.html#186\">Fita::__toString<\/a>"],[0,1,"<a href=\"Entity\/Fita.php.html#198\">Fita::setUnidade<\/a>"],[0,1,"<a href=\"Entity\/Fita.php.html#210\">Fita::getUnidade<\/a>"],[0,1,"<a href=\"Entity\/Fita.php.html#222\">Fita::setMidia<\/a>"],[0,1,"<a href=\"Entity\/Fita.php.html#234\">Fita::getMidia<\/a>"],[0,1,"<a href=\"Entity\/Job.php.html#65\">Job::setDescricao<\/a>"],[0,1,"<a href=\"Entity\/Job.php.html#77\">Job::getDescricao<\/a>"],[0,1,"<a href=\"Entity\/Job.php.html#87\">Job::getId<\/a>"],[0,1,"<a href=\"Entity\/Job.php.html#99\">Job::setTipoJob<\/a>"],[0,1,"<a href=\"Entity\/Job.php.html#111\">Job::getTipoJob<\/a>"],[0,1,"<a href=\"Entity\/Job.php.html#116\">Job::__toString<\/a>"],[0,1,"<a href=\"Entity\/Job.php.html#128\">Job::setUnidade<\/a>"],[0,1,"<a href=\"Entity\/Job.php.html#140\">Job::getUnidade<\/a>"],[0,1,"<a href=\"Entity\/JobServidor.php.html#54\">JobServidor::getId<\/a>"],[0,1,"<a href=\"Entity\/JobServidor.php.html#66\">JobServidor::setEquipamento<\/a>"],[0,1,"<a href=\"Entity\/JobServidor.php.html#78\">JobServidor::getEquipamento<\/a>"],[0,1,"<a href=\"Entity\/JobServidor.php.html#90\">JobServidor::setJob<\/a>"],[0,1,"<a href=\"Entity\/JobServidor.php.html#102\">JobServidor::getJob<\/a>"],[0,1,"<a href=\"Entity\/RegistroBackup.php.html#120\">RegistroBackup::__construct<\/a>"],[0,1,"<a href=\"Entity\/RegistroBackup.php.html#132\">RegistroBackup::setData<\/a>"],[0,1,"<a href=\"Entity\/RegistroBackup.php.html#146\">RegistroBackup::getData<\/a>"],[0,1,"<a href=\"Entity\/RegistroBackup.php.html#158\">RegistroBackup::setObservacao<\/a>"],[0,1,"<a href=\"Entity\/RegistroBackup.php.html#170\">RegistroBackup::getObservacao<\/a>"],[0,1,"<a href=\"Entity\/RegistroBackup.php.html#182\">RegistroBackup::setFileName<\/a>"],[0,1,"<a href=\"Entity\/RegistroBackup.php.html#194\">RegistroBackup::getFileName<\/a>"],[0,1,"<a href=\"Entity\/RegistroBackup.php.html#204\">RegistroBackup::getId<\/a>"],[0,1,"<a href=\"Entity\/RegistroBackup.php.html#216\">RegistroBackup::setJob<\/a>"],[0,1,"<a href=\"Entity\/RegistroBackup.php.html#228\">RegistroBackup::getJob<\/a>"],[0,1,"<a href=\"Entity\/RegistroBackup.php.html#240\">RegistroBackup::setStatus<\/a>"],[0,1,"<a href=\"Entity\/RegistroBackup.php.html#252\">RegistroBackup::getStatus<\/a>"],[0,1,"<a href=\"Entity\/RegistroBackup.php.html#264\">RegistroBackup::setDataAlterFile<\/a>"],[0,1,"<a href=\"Entity\/RegistroBackup.php.html#276\">RegistroBackup::getDataAlterFile<\/a>"],[0,1,"<a href=\"Entity\/RegistroBackup.php.html#284\">RegistroBackup::getImageFile<\/a>"],[0,2,"<a href=\"Entity\/RegistroBackup.php.html#293\">RegistroBackup::setImageFile<\/a>"],[0,1,"<a href=\"Entity\/RegistroBackup.php.html#311\">RegistroBackup::setUser<\/a>"],[0,1,"<a href=\"Entity\/RegistroBackup.php.html#323\">RegistroBackup::getUser<\/a>"],[0,1,"<a href=\"Entity\/RegistroBackup.php.html#335\">RegistroBackup::setJobName<\/a>"],[0,1,"<a href=\"Entity\/RegistroBackup.php.html#347\">RegistroBackup::getJobName<\/a>"],[0,1,"<a href=\"Entity\/RegistroBackup.php.html#359\">RegistroBackup::setTipoJob<\/a>"],[0,1,"<a href=\"Entity\/RegistroBackup.php.html#371\">RegistroBackup::getTipoJob<\/a>"],[0,1,"<a href=\"Entity\/RegistroBackupEquipamento.php.html#60\">RegistroBackupEquipamento::getId<\/a>"],[0,1,"<a href=\"Entity\/RegistroBackupEquipamento.php.html#72\">RegistroBackupEquipamento::setEquipamento<\/a>"],[0,1,"<a href=\"Entity\/RegistroBackupEquipamento.php.html#84\">RegistroBackupEquipamento::getEquipamento<\/a>"],[0,1,"<a href=\"Entity\/RegistroBackupEquipamento.php.html#96\">RegistroBackupEquipamento::setDataCriacao<\/a>"],[0,1,"<a href=\"Entity\/RegistroBackupEquipamento.php.html#108\">RegistroBackupEquipamento::getDataCriacao<\/a>"],[0,1,"<a href=\"Entity\/RegistroBackupEquipamento.php.html#120\">RegistroBackupEquipamento::setUnidade<\/a>"],[0,1,"<a href=\"Entity\/RegistroBackupEquipamento.php.html#132\">RegistroBackupEquipamento::getUnidade<\/a>"],[0,1,"<a href=\"Entity\/RegistroBackupEquipamento.php.html#144\">RegistroBackupEquipamento::setRegistroBackupId<\/a>"],[0,1,"<a href=\"Entity\/RegistroBackupEquipamento.php.html#156\">RegistroBackupEquipamento::getRegistroBackupId<\/a>"],[0,1,"<a href=\"Entity\/RegistroRestore.php.html#158\">RegistroRestore::__construct<\/a>"],[0,1,"<a href=\"Entity\/RegistroRestore.php.html#166\">RegistroRestore::getImageFile<\/a>"],[0,2,"<a href=\"Entity\/RegistroRestore.php.html#175\">RegistroRestore::setImageFile<\/a>"],[0,1,"<a href=\"Entity\/RegistroRestore.php.html#194\">RegistroRestore::setData<\/a>"],[0,1,"<a href=\"Entity\/RegistroRestore.php.html#206\">RegistroRestore::getData<\/a>"],[0,1,"<a href=\"Entity\/RegistroRestore.php.html#218\">RegistroRestore::setObservacao<\/a>"],[0,1,"<a href=\"Entity\/RegistroRestore.php.html#230\">RegistroRestore::getObservacao<\/a>"],[0,1,"<a href=\"Entity\/RegistroRestore.php.html#242\">RegistroRestore::setImageName<\/a>"],[0,1,"<a href=\"Entity\/RegistroRestore.php.html#254\">RegistroRestore::getImageName<\/a>"],[0,1,"<a href=\"Entity\/RegistroRestore.php.html#264\">RegistroRestore::getId<\/a>"],[0,1,"<a href=\"Entity\/RegistroRestore.php.html#276\">RegistroRestore::setEquipamento<\/a>"],[0,1,"<a href=\"Entity\/RegistroRestore.php.html#288\">RegistroRestore::getEquipamento<\/a>"],[0,1,"<a href=\"Entity\/RegistroRestore.php.html#300\">RegistroRestore::setFita<\/a>"],[0,1,"<a href=\"Entity\/RegistroRestore.php.html#312\">RegistroRestore::getFita<\/a>"],[0,1,"<a href=\"Entity\/RegistroRestore.php.html#324\">RegistroRestore::setStatus<\/a>"],[0,1,"<a href=\"Entity\/RegistroRestore.php.html#336\">RegistroRestore::getStatus<\/a>"],[0,1,"<a href=\"Entity\/RegistroRestore.php.html#348\">RegistroRestore::setTipoJob<\/a>"],[0,1,"<a href=\"Entity\/RegistroRestore.php.html#360\">RegistroRestore::getTipoJob<\/a>"],[0,1,"<a href=\"Entity\/RegistroRestore.php.html#372\">RegistroRestore::setUser<\/a>"],[0,1,"<a href=\"Entity\/RegistroRestore.php.html#384\">RegistroRestore::getUser<\/a>"],[0,1,"<a href=\"Entity\/RegistroRestore.php.html#396\">RegistroRestore::setDateAlterFile<\/a>"],[0,1,"<a href=\"Entity\/RegistroRestore.php.html#408\">RegistroRestore::getDateAlterFile<\/a>"],[0,1,"<a href=\"Entity\/RegistroRestore.php.html#420\">RegistroRestore::setFileName<\/a>"],[0,1,"<a href=\"Entity\/RegistroRestore.php.html#432\">RegistroRestore::getFileName<\/a>"],[0,1,"<a href=\"Entity\/RegistroRestore.php.html#444\">RegistroRestore::setEquipamentoName<\/a>"],[0,1,"<a href=\"Entity\/RegistroRestore.php.html#456\">RegistroRestore::getEquipamentoName<\/a>"],[0,1,"<a href=\"Entity\/RegistroRestore.php.html#468\">RegistroRestore::setFitaName<\/a>"],[0,1,"<a href=\"Entity\/RegistroRestore.php.html#480\">RegistroRestore::getFitaName<\/a>"],[0,1,"<a href=\"Entity\/RegistroRestore.php.html#492\">RegistroRestore::setTipoJobName<\/a>"],[0,1,"<a href=\"Entity\/RegistroRestore.php.html#504\">RegistroRestore::getTipoJobName<\/a>"],[0,1,"<a href=\"Entity\/Status.php.html#43\">Status::setDescricao<\/a>"],[0,1,"<a href=\"Entity\/Status.php.html#55\">Status::getDescricao<\/a>"],[0,1,"<a href=\"Entity\/Status.php.html#65\">Status::getId<\/a>"],[0,1,"<a href=\"Entity\/Status.php.html#70\">Status::__toString<\/a>"],[0,1,"<a href=\"Entity\/TipoJob.php.html#43\">TipoJob::setDescricao<\/a>"],[0,1,"<a href=\"Entity\/TipoJob.php.html#55\">TipoJob::getDescricao<\/a>"],[0,1,"<a href=\"Entity\/TipoJob.php.html#65\">TipoJob::getId<\/a>"],[0,1,"<a href=\"Entity\/TipoJob.php.html#70\">TipoJob::__toString<\/a>"],[0,1,"<a href=\"Entity\/TipoMidia.php.html#43\">TipoMidia::setDescricao<\/a>"],[0,1,"<a href=\"Entity\/TipoMidia.php.html#55\">TipoMidia::getDescricao<\/a>"],[0,1,"<a href=\"Entity\/TipoMidia.php.html#65\">TipoMidia::getId<\/a>"],[0,1,"<a href=\"Entity\/TipoMidia.php.html#70\">TipoMidia::__toString<\/a>"],[0,1,"<a href=\"Entity\/TrocaFita.php.html#55\">TrocaFita::__construct<\/a>"],[0,1,"<a href=\"Entity\/TrocaFita.php.html#69\">TrocaFita::setDataCriacao<\/a>"],[0,1,"<a href=\"Entity\/TrocaFita.php.html#81\">TrocaFita::getDataCriacao<\/a>"],[0,1,"<a href=\"Entity\/TrocaFita.php.html#91\">TrocaFita::getId<\/a>"],[0,1,"<a href=\"Entity\/TrocaFita.php.html#103\">TrocaFita::setFita<\/a>"],[0,1,"<a href=\"Entity\/TrocaFita.php.html#115\">TrocaFita::getFita<\/a>"],[0,1,"<a href=\"Entity\/TrocaFita.php.html#127\">TrocaFita::setUser<\/a>"],[0,1,"<a href=\"Entity\/TrocaFita.php.html#139\">TrocaFita::getUser<\/a>"],[0,1,"<a href=\"Form\/FitaType.php.html#15\">FitaType::buildForm<\/a>"],[0,1,"<a href=\"Form\/FitaType.php.html#36\">FitaType::configureOptions<\/a>"],[0,1,"<a href=\"Form\/JobServidorType.php.html#17\">JobServidorType::buildForm<\/a>"],[0,1,"<a href=\"Form\/JobServidorType.php.html#22\">JobServidorType::anonymous function<\/a>"],[0,1,"<a href=\"Form\/JobServidorType.php.html#34\">JobServidorType::configureOptions<\/a>"],[0,1,"<a href=\"Form\/JobType.php.html#15\">JobType::buildForm<\/a>"],[0,1,"<a href=\"Form\/JobType.php.html#30\">JobType::configureOptions<\/a>"],[0,1,"<a href=\"Form\/Listener\/AddJob.php.html#13\">AddJob::getSubscribedEvents<\/a>"],[0,1,"<a href=\"Form\/Listener\/AddJob.php.html#32\">AddJob::preSubmit<\/a>"],[0,1,"<a href=\"Form\/Listener\/AddJob.php.html#41\">AddJob::addField<\/a>"],[0,1,"<a href=\"Form\/Listener\/AddJob.php.html#47\">AddJob::anonymous function<\/a>"],[0,1,"<a href=\"Form\/Listener\/AddRegistroRestore.php.html#17\">AddRegistroRestore::__construct<\/a>"],[0,1,"<a href=\"Form\/Listener\/AddRegistroRestore.php.html#22\">AddRegistroRestore::getSubscribedEvents<\/a>"],[0,1,"<a href=\"Form\/Listener\/AddRegistroRestore.php.html#41\">AddRegistroRestore::preSubmit<\/a>"],[0,1,"<a href=\"Form\/Listener\/AddRegistroRestore.php.html#50\">AddRegistroRestore::addField<\/a>"],[0,1,"<a href=\"Form\/Listener\/AddRegistroRestore.php.html#64\">AddRegistroRestore::anonymous function<\/a>"],[0,1,"<a href=\"Form\/Listener\/AddTrocaFita.php.html#14\">AddTrocaFita::getSubscribedEvents<\/a>"],[0,1,"<a href=\"Form\/Listener\/AddTrocaFita.php.html#33\">AddTrocaFita::preSubmit<\/a>"],[0,1,"<a href=\"Form\/Listener\/AddTrocaFita.php.html#39\">AddTrocaFita::addField<\/a>"],[0,1,"<a href=\"Form\/Listener\/AddTrocaFita.php.html#45\">AddTrocaFita::anonymous function<\/a>"],[0,1,"<a href=\"Form\/RegistroBackupEquipamentoType.php.html#15\">RegistroBackupEquipamentoType::buildForm<\/a>"],[0,1,"<a href=\"Form\/RegistroBackupEquipamentoType.php.html#32\">RegistroBackupEquipamentoType::configureOptions<\/a>"],[0,1,"<a href=\"Form\/RegistroBackupType.php.html#18\">RegistroBackupType::buildForm<\/a>"],[0,1,"<a href=\"Form\/RegistroBackupType.php.html#43\">RegistroBackupType::configureOptions<\/a>"],[0,1,"<a href=\"Form\/RegistroRestoreType.php.html#20\">RegistroRestoreType::__construct<\/a>"],[0,1,"<a href=\"Form\/RegistroRestoreType.php.html#30\">RegistroRestoreType::buildForm<\/a>"],[0,1,"<a href=\"Form\/RegistroRestoreType.php.html#45\">RegistroRestoreType::anonymous function<\/a>"],[0,1,"<a href=\"Form\/RegistroRestoreType.php.html#67\">RegistroRestoreType::configureOptions<\/a>"],[0,1,"<a href=\"Form\/StatusType.php.html#15\">StatusType::buildForm<\/a>"],[0,1,"<a href=\"Form\/StatusType.php.html#26\">StatusType::configureOptions<\/a>"],[0,1,"<a href=\"Form\/TipoJobType.php.html#15\">TipoJobType::buildForm<\/a>"],[0,1,"<a href=\"Form\/TipoJobType.php.html#26\">TipoJobType::configureOptions<\/a>"],[0,1,"<a href=\"Form\/TipoMidiaType.php.html#15\">TipoMidiaType::buildForm<\/a>"],[0,1,"<a href=\"Form\/TipoMidiaType.php.html#26\">TipoMidiaType::configureOptions<\/a>"],[0,1,"<a href=\"Form\/TrocaFitaType.php.html#19\">TrocaFitaType::buildForm<\/a>"],[0,1,"<a href=\"Form\/TrocaFitaType.php.html#29\">TrocaFitaType::anonymous function<\/a>"],[0,1,"<a href=\"Form\/TrocaFitaType.php.html#42\">TrocaFitaType::configureOptions<\/a>"],[0,1,"<a href=\"Repository\/RegistroBackupRepository.php.html#16\">RegistroBackupRepository::getMaxId<\/a>"],[0,1,"<a href=\"Repository\/RegistroRestoreRepository.php.html#16\">RegistroRestoreRepository::getMaxId<\/a>"],[0,1,"<a href=\"Repository\/TrocaFitaRepository.php.html#16\">TrocaFitaRepository::getMaxId<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

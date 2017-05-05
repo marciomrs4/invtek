@@ -2,16 +2,25 @@
 
 namespace MRS\InventarioBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use MRS\InventarioBundle\Tests\Controller\UsuarioControllerTest;
 
-class DefaultControllerTest extends WebTestCase
+class DefaultControllerTest extends UsuarioControllerTest
 {
     public function testIndex()
     {
-        $client = static::createClient();
+        $this->logIn();
 
-        $crawler = $client->request('GET', '/');
+        $crawler = $this->client->request('GET', '/home');
 
-        $this->assertContains('Hello World', $client->getResponse()->getContent());
+        $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
+
+    }
+
+    public function testAccessHomeIsSuccess()
+    {
+        $this->logIn();
+
+        $crawler = $this->client->request('GET', '/home');
+        $this->assertTrue($this->client->getResponse()->isSuccessful());
     }
 }

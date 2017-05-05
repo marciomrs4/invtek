@@ -3,9 +3,34 @@
 namespace MRS\InventarioBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\BrowserKit\Cookie;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 class UsuarioControllerTest extends WebTestCase
 {
+
+    protected $client = null;
+
+    public function setUp()
+    {
+        $this->client = static::createClient();
+    }
+
+    protected function logIn()
+    {
+        $session = $this->client->getContainer()->get('session');
+
+        // the firewall context (defaults to the firewall name)
+        $firewall = 'secured_area';
+
+        $token = new UsernamePasswordToken('root', 'root', $firewall, array('ROLE_ADMIN'));
+        $session->set('_security_'.$firewall, serialize($token));
+        $session->save();
+
+        $cookie = new Cookie($session->getName(), $session->getId());
+        $this->client->getCookieJar()->set($cookie);
+    }
+
     /*
     public function testCompleteScenario()
     {

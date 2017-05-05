@@ -21,7 +21,7 @@ class JobServidorType extends AbstractType
                 'class' => 'MRS\InventarioBundle\Entity\Equipamento',
                 'query_builder' => function(EntityRepository $er){
                     return $er->createQueryBuilder('E')
-                        ->where('E.tipoequipamento = 3')
+                        ->where('E.tipoequipamento IN (3, 35)')
                         ->andWhere('E.centroMovimentacao = 29');
                 },
                 'attr'=>array('class'=>'input-sm')))

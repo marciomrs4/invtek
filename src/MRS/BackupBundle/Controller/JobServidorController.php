@@ -59,7 +59,6 @@ class JobServidorController extends Controller
                    ->findBy(array('job' => $job));
 
 
-
         $centroMovimentacao = '';
         foreach($centros as $centroEquipamento){
             $centroMovimentacao[] = $centroEquipamento->getId();
@@ -68,20 +67,21 @@ class JobServidorController extends Controller
         $equipamento = '';
         foreach($jobs as $jobEquipamento){
             $equipamento[] = $jobEquipamento->getEquipamento()->getId();
-
         }
 
-        //dump($centroMovimentacao); exit();
+        $tipoEquipamento = $this->getParameter('tiposequipamentos');
 
         $form->add('equipamento',EntityType::class,array('label'=>'Equipamento',
         'class' => 'MRS\InventarioBundle\Entity\Equipamento',
-        'query_builder' => function(EntityRepository $er) use ($equipamento, $centroMovimentacao){
+        'query_builder' => function(EntityRepository $er) use ($tipoEquipamento, $equipamento, $centroMovimentacao){
             return $er->createQueryBuilder('E')
-                ->where('E.tipoequipamento = 3')
-                ->andWhere('E.id NOT IN(:equipamento)')
+                ->where('E.tipoequipamento IN (:tipoequipamento)')
+                ->andWhere('E.id NOT IN (:equipamento)')
                 ->andWhere('E.centroMovimentacao IN (:centromovimentacao)')
-                ->setParameters(array('equipamento' => $equipamento,
-                                      'centromovimentacao' => $centroMovimentacao));
+                ->setParameters(array('tipoequipamento' => $tipoEquipamento,
+                                      'equipamento' => $equipamento,
+                                      'centromovimentacao' => $centroMovimentacao))
+                ->orderBy('E.descricao');
 
         },
         'attr'=>array('class'=>'input-sm')));
@@ -156,16 +156,21 @@ class JobServidorController extends Controller
 
         }
 
+        $tipoEquipamento = $this->getParameter('tiposequipamentos');
+
+
         $editForm->add('equipamento',EntityType::class,array('label'=>'Equipamento',
             'class' => 'MRS\InventarioBundle\Entity\Equipamento',
-            'query_builder' => function(EntityRepository $er) use ($equipamento, $centroMovimentacao, $id){
+            'query_builder' => function(EntityRepository $er) use ($tipoEquipamento, $equipamento, $centroMovimentacao, $id){
                 return $er->createQueryBuilder('E')
-                    ->where('E.tipoequipamento = 3')
-                    ->andWhere('E.id NOT IN(:equipamento) OR E.id = :id')
+                    ->where('E.tipoequipamento IN (:tipoequipamento)')
+                    ->andWhere('E.id NOT IN (:equipamento) OR E.id = :id')
                     ->andWhere('E.centroMovimentacao IN (:centromovimentacao)')
-                    ->setParameters(array('id' => $id,
-                        'equipamento' => $equipamento,
-                        'centromovimentacao' => $centroMovimentacao));
+                    ->setParameters(array('tipoequipamento' => $tipoEquipamento,
+                                          'id' => $id,
+                                          'equipamento' => $equipamento,
+                                          'centromovimentacao' => $centroMovimentacao))
+                    ->orderBy('E.descricao');
 
             },
             'attr'=>array('class'=>'input-sm')));

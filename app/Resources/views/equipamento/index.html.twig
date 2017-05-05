@@ -54,9 +54,6 @@
                             <a href="{{ path('cadastro_equipamento_show', { 'id': equipamento.id }) }}" class="btn btn-primary btn-sm">
                                 <span class="{{ equipamento.tipoequipamento.icone }}"></span>
                             </a>
-                            {#<a href="{{ path('cadastro_equipamento_edit', { 'id': equipamento.id }) }}" class="btn btn-primary btn-sm">#}
-                            {#<span class="glyphicon glyphicon-edit"></span>#}
-                            {#</a>#}
                         </td>
                         <td>{{ equipamento.tipoequipamento.descricao }}</td>
                         <td>{{ equipamento.fornecedor.nome }}</td>

@@ -26,7 +26,8 @@ class EquipamentoController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $equipamentos = $em->getRepository('MRSInventarioBundle:Equipamento')->findAll();
+        $equipamentos = $em->getRepository('MRSInventarioBundle:Equipamento')
+                           ->findBy(array(),array('id' => 'DESC'));
 
         return $this->render('equipamento/index.html.twig', array(
             'equipamentos' => $equipamentos,

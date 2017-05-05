@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /home/marcio/Desenvolvimentos/invtek/src/MRS/BackupBundle/Controller</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../../.css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../.css/nv.d3.min.css" rel="stylesheet">
+  <link href="../../.css/style.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+  <script src="../../.js/html5shiv.min.js"></script>
+  <script src="../../.js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="../../index.html">/home/marcio/Desenvolvimentos/invtek/src/MRS</a></li>
+        <li><a href="../index.html">BackupBundle</a></li>
+        <li><a href="index.html">Controller</a></li>
+        <li class="active">(Dashboard)</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="DefaultController.php.html#7">DefaultController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FitaController.php.html#17">FitaController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="JobController.php.html#17">JobController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="JobServidorController.php.html#20">JobServidorController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RegistroBackupController.php.html#18">RegistroBackupController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RegistroBackupEquipamentoController.php.html#18">RegistroBackupEquipamentoController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RegistroRestoreController.php.html#17">RegistroRestoreController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="StatusController.php.html#17">StatusController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TipoJobController.php.html#17">TipoJobController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TipoMidiaController.php.html#17">TipoMidiaController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TrocaFitaController.php.html#17">TrocaFitaController</a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="JobServidorController.php.html#20">JobServidorController</a></td><td class="text-right">306</td></tr>
+       <tr><td><a href="RegistroBackupController.php.html#18">RegistroBackupController</a></td><td class="text-right">306</td></tr>
+       <tr><td><a href="RegistroRestoreController.php.html#17">RegistroRestoreController</a></td><td class="text-right">210</td></tr>
+       <tr><td><a href="TrocaFitaController.php.html#17">TrocaFitaController</a></td><td class="text-right">210</td></tr>
+       <tr><td><a href="FitaController.php.html#17">FitaController</a></td><td class="text-right">182</td></tr>
+       <tr><td><a href="JobController.php.html#17">JobController</a></td><td class="text-right">182</td></tr>
+       <tr><td><a href="StatusController.php.html#17">StatusController</a></td><td class="text-right">182</td></tr>
+       <tr><td><a href="TipoJobController.php.html#17">TipoJobController</a></td><td class="text-right">182</td></tr>
+       <tr><td><a href="TipoMidiaController.php.html#17">TipoMidiaController</a></td><td class="text-right">182</td></tr>
+       <tr><td><a href="RegistroBackupEquipamentoController.php.html#18">RegistroBackupEquipamentoController</a></td><td class="text-right">156</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="DefaultController.php.html#10"><abbr title="DefaultController::indexAction">indexAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TipoJobController.php.html#86"><abbr title="TipoJobController::editAction">editAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RegistroRestoreController.php.html#98"><abbr title="RegistroRestoreController::editAction">editAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RegistroRestoreController.php.html#143"><abbr title="RegistroRestoreController::deleteAction">deleteAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RegistroRestoreController.php.html#164"><abbr title="RegistroRestoreController::createDeleteForm">createDeleteForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RegistroRestoreController.php.html#176"><abbr title="RegistroRestoreController::viewLogAction">viewLogAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="StatusController.php.html#25"><abbr title="StatusController::indexAction">indexAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="StatusController.php.html#42"><abbr title="StatusController::newAction">newAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="StatusController.php.html#70"><abbr title="StatusController::showAction">showAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="StatusController.php.html#86"><abbr title="StatusController::editAction">editAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="StatusController.php.html#115"><abbr title="StatusController::deleteAction">deleteAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="StatusController.php.html#136"><abbr title="StatusController::createDeleteForm">createDeleteForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="StatusController.php.html#149"><abbr title="StatusController::viewLogAction">viewLogAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TipoJobController.php.html#25"><abbr title="TipoJobController::indexAction">indexAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TipoJobController.php.html#42"><abbr title="TipoJobController::newAction">newAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TipoJobController.php.html#70"><abbr title="TipoJobController::showAction">showAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TipoJobController.php.html#115"><abbr title="TipoJobController::deleteAction">deleteAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RegistroRestoreController.php.html#46"><abbr title="RegistroRestoreController::newAction">newAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TipoMidiaController.php.html#150"><abbr title="TipoMidiaController::viewLogAction">viewLogAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TrocaFitaController.php.html#153"><abbr title="TrocaFitaController::createDeleteForm">createDeleteForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TrocaFitaController.php.html#132"><abbr title="TrocaFitaController::deleteAction">deleteAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TrocaFitaController.php.html#92"><abbr title="TrocaFitaController::editAction">editAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TrocaFitaController.php.html#76"><abbr title="TrocaFitaController::showAction">showAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TrocaFitaController.php.html#45"><abbr title="TrocaFitaController::newAction">newAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TrocaFitaController.php.html#25"><abbr title="TrocaFitaController::indexAction">indexAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TipoMidiaController.php.html#136"><abbr title="TipoMidiaController::createDeleteForm">createDeleteForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TipoJobController.php.html#136"><abbr title="TipoJobController::createDeleteForm">createDeleteForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TipoMidiaController.php.html#115"><abbr title="TipoMidiaController::deleteAction">deleteAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TipoMidiaController.php.html#86"><abbr title="TipoMidiaController::editAction">editAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TipoMidiaController.php.html#70"><abbr title="TipoMidiaController::showAction">showAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TipoMidiaController.php.html#42"><abbr title="TipoMidiaController::newAction">newAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TipoMidiaController.php.html#25"><abbr title="TipoMidiaController::indexAction">indexAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TipoJobController.php.html#149"><abbr title="TipoJobController::viewLogAction">viewLogAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RegistroRestoreController.php.html#82"><abbr title="RegistroRestoreController::showAction">showAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RegistroRestoreController.php.html#25"><abbr title="RegistroRestoreController::indexAction">indexAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FitaController.php.html#25"><abbr title="FitaController::indexAction">indexAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="JobController.php.html#43"><abbr title="JobController::newAction">newAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="JobServidorController.php.html#28"><abbr title="JobServidorController::indexAction">indexAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="JobController.php.html#149"><abbr title="JobController::viewLogAction">viewLogAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="JobController.php.html#137"><abbr title="JobController::createDeleteForm">createDeleteForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="JobController.php.html#116"><abbr title="JobController::deleteAction">deleteAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="JobController.php.html#87"><abbr title="JobController::editAction">editAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="JobController.php.html#71"><abbr title="JobController::showAction">showAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="JobController.php.html#25"><abbr title="JobController::indexAction">indexAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="JobServidorController.php.html#161"><abbr title="JobServidorController::anonymous function">anonymous function</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FitaController.php.html#150"><abbr title="FitaController::viewLogAction">viewLogAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FitaController.php.html#137"><abbr title="FitaController::createDeleteForm">createDeleteForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FitaController.php.html#116"><abbr title="FitaController::deleteAction">deleteAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FitaController.php.html#87"><abbr title="FitaController::editAction">editAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FitaController.php.html#71"><abbr title="FitaController::showAction">showAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FitaController.php.html#43"><abbr title="FitaController::newAction">newAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="JobServidorController.php.html#46"><abbr title="JobServidorController::newAction">newAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="JobServidorController.php.html#115"><abbr title="JobServidorController::showAction">showAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RegistroBackupEquipamentoController.php.html#138"><abbr title="RegistroBackupEquipamentoController::createDeleteForm">createDeleteForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RegistroBackupController.php.html#210"><abbr title="RegistroBackupController::createDeleteForm">createDeleteForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RegistroBackupEquipamentoController.php.html#117"><abbr title="RegistroBackupEquipamentoController::deleteAction">deleteAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RegistroBackupEquipamentoController.php.html#88"><abbr title="RegistroBackupEquipamentoController::editAction">editAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RegistroBackupEquipamentoController.php.html#72"><abbr title="RegistroBackupEquipamentoController::showAction">showAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RegistroBackupEquipamentoController.php.html#44"><abbr title="RegistroBackupEquipamentoController::newAction">newAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RegistroBackupEquipamentoController.php.html#26"><abbr title="RegistroBackupEquipamentoController::indexAction">indexAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RegistroBackupController.php.html#224"><abbr title="RegistroBackupController::viewLogAction">viewLogAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RegistroBackupController.php.html#189"><abbr title="RegistroBackupController::deleteAction">deleteAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="JobServidorController.php.html#131"><abbr title="JobServidorController::editAction">editAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RegistroBackupController.php.html#117"><abbr title="RegistroBackupController::editAction">editAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RegistroBackupController.php.html#101"><abbr title="RegistroBackupController::showAction">showAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RegistroBackupController.php.html#47"><abbr title="RegistroBackupController::newAction">newAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="RegistroBackupController.php.html#26"><abbr title="RegistroBackupController::indexAction">indexAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="JobServidorController.php.html#221"><abbr title="JobServidorController::createDeleteForm">createDeleteForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="JobServidorController.php.html#198"><abbr title="JobServidorController::deleteAction">deleteAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TrocaFitaController.php.html#165"><abbr title="TrocaFitaController::viewLogAction">viewLogAction</abbr></a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="RegistroBackupController.php.html#117"><abbr title="RegistroBackupController::editAction">editAction</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="JobServidorController.php.html#46"><abbr title="JobServidorController::newAction">newAction</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="JobServidorController.php.html#131"><abbr title="JobServidorController::editAction">editAction</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="RegistroRestoreController.php.html#98"><abbr title="RegistroRestoreController::editAction">editAction</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="TrocaFitaController.php.html#92"><abbr title="TrocaFitaController::editAction">editAction</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="RegistroBackupController.php.html#47"><abbr title="RegistroBackupController::newAction">newAction</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="StatusController.php.html#86"><abbr title="StatusController::editAction">editAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="StatusController.php.html#115"><abbr title="StatusController::deleteAction">deleteAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="TipoJobController.php.html#42"><abbr title="TipoJobController::newAction">newAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="TipoJobController.php.html#86"><abbr title="TipoJobController::editAction">editAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="FitaController.php.html#43"><abbr title="FitaController::newAction">newAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="TipoJobController.php.html#115"><abbr title="TipoJobController::deleteAction">deleteAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="StatusController.php.html#42"><abbr title="StatusController::newAction">newAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="TipoMidiaController.php.html#86"><abbr title="TipoMidiaController::editAction">editAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="TipoMidiaController.php.html#115"><abbr title="TipoMidiaController::deleteAction">deleteAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="TrocaFitaController.php.html#45"><abbr title="TrocaFitaController::newAction">newAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="TipoMidiaController.php.html#42"><abbr title="TipoMidiaController::newAction">newAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="RegistroRestoreController.php.html#46"><abbr title="RegistroRestoreController::newAction">newAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="RegistroRestoreController.php.html#143"><abbr title="RegistroRestoreController::deleteAction">deleteAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="FitaController.php.html#87"><abbr title="FitaController::editAction">editAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="RegistroBackupEquipamentoController.php.html#117"><abbr title="RegistroBackupEquipamentoController::deleteAction">deleteAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="RegistroBackupEquipamentoController.php.html#88"><abbr title="RegistroBackupEquipamentoController::editAction">editAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="RegistroBackupEquipamentoController.php.html#44"><abbr title="RegistroBackupEquipamentoController::newAction">newAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="RegistroBackupController.php.html#189"><abbr title="RegistroBackupController::deleteAction">deleteAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="JobServidorController.php.html#198"><abbr title="JobServidorController::deleteAction">deleteAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="JobController.php.html#116"><abbr title="JobController::deleteAction">deleteAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="JobController.php.html#87"><abbr title="JobController::editAction">editAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="JobController.php.html#43"><abbr title="JobController::newAction">newAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="FitaController.php.html#116"><abbr title="FitaController::deleteAction">deleteAction</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="TrocaFitaController.php.html#132"><abbr title="TrocaFitaController::deleteAction">deleteAction</abbr></a></td><td class="text-right">12</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 5.2.1</a> using <a href="https://secure.php.net/" target="_top">PHP 7.0.15-0ubuntu0.16.04.4</a> with <a href="https://xdebug.org/">Xdebug 2.4.0</a> and <a href="https://phpunit.de/">PHPUnit 6.1.2</a> at Thu May 4 14:25:46 BRT 2017.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../../.js/jquery.min.js" type="text/javascript"></script>
+  <script src="../../.js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="../../.js/holder.min.js" type="text/javascript"></script>
+  <script src="../../.js/d3.min.js" type="text/javascript"></script>
+  <script src="../../.js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([11,0,0,0,0,0,0,0,0,0,0,0], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([70,0,0,0,0,0,0,0,0,0,0,0], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"DefaultController.php.html#7\">DefaultController<\/a>"],[0,13,"<a href=\"FitaController.php.html#17\">FitaController<\/a>"],[0,13,"<a href=\"JobController.php.html#17\">JobController<\/a>"],[0,17,"<a href=\"JobServidorController.php.html#20\">JobServidorController<\/a>"],[0,17,"<a href=\"RegistroBackupController.php.html#18\">RegistroBackupController<\/a>"],[0,12,"<a href=\"RegistroBackupEquipamentoController.php.html#18\">RegistroBackupEquipamentoController<\/a>"],[0,14,"<a href=\"RegistroRestoreController.php.html#17\">RegistroRestoreController<\/a>"],[0,13,"<a href=\"StatusController.php.html#17\">StatusController<\/a>"],[0,13,"<a href=\"TipoJobController.php.html#17\">TipoJobController<\/a>"],[0,13,"<a href=\"TipoMidiaController.php.html#17\">TipoMidiaController<\/a>"],[0,14,"<a href=\"TrocaFitaController.php.html#17\">TrocaFitaController<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"DefaultController.php.html#10\">DefaultController::indexAction<\/a>"],[0,1,"<a href=\"FitaController.php.html#25\">FitaController::indexAction<\/a>"],[0,3,"<a href=\"FitaController.php.html#43\">FitaController::newAction<\/a>"],[0,1,"<a href=\"FitaController.php.html#71\">FitaController::showAction<\/a>"],[0,3,"<a href=\"FitaController.php.html#87\">FitaController::editAction<\/a>"],[0,3,"<a href=\"FitaController.php.html#116\">FitaController::deleteAction<\/a>"],[0,1,"<a href=\"FitaController.php.html#137\">FitaController::createDeleteForm<\/a>"],[0,1,"<a href=\"FitaController.php.html#150\">FitaController::viewLogAction<\/a>"],[0,1,"<a href=\"JobController.php.html#25\">JobController::indexAction<\/a>"],[0,3,"<a href=\"JobController.php.html#43\">JobController::newAction<\/a>"],[0,1,"<a href=\"JobController.php.html#71\">JobController::showAction<\/a>"],[0,3,"<a href=\"JobController.php.html#87\">JobController::editAction<\/a>"],[0,3,"<a href=\"JobController.php.html#116\">JobController::deleteAction<\/a>"],[0,1,"<a href=\"JobController.php.html#137\">JobController::createDeleteForm<\/a>"],[0,1,"<a href=\"JobController.php.html#149\">JobController::viewLogAction<\/a>"],[0,1,"<a href=\"JobServidorController.php.html#28\">JobServidorController::indexAction<\/a>"],[0,5,"<a href=\"JobServidorController.php.html#46\">JobServidorController::newAction<\/a>"],[0,1,"<a href=\"JobServidorController.php.html#161\">JobServidorController::anonymous function<\/a>"],[0,1,"<a href=\"JobServidorController.php.html#115\">JobServidorController::showAction<\/a>"],[0,5,"<a href=\"JobServidorController.php.html#131\">JobServidorController::editAction<\/a>"],[0,3,"<a href=\"JobServidorController.php.html#198\">JobServidorController::deleteAction<\/a>"],[0,1,"<a href=\"JobServidorController.php.html#221\">JobServidorController::createDeleteForm<\/a>"],[0,1,"<a href=\"RegistroBackupController.php.html#26\">RegistroBackupController::indexAction<\/a>"],[0,4,"<a href=\"RegistroBackupController.php.html#47\">RegistroBackupController::newAction<\/a>"],[0,1,"<a href=\"RegistroBackupController.php.html#101\">RegistroBackupController::showAction<\/a>"],[0,6,"<a href=\"RegistroBackupController.php.html#117\">RegistroBackupController::editAction<\/a>"],[0,3,"<a href=\"RegistroBackupController.php.html#189\">RegistroBackupController::deleteAction<\/a>"],[0,1,"<a href=\"RegistroBackupController.php.html#210\">RegistroBackupController::createDeleteForm<\/a>"],[0,1,"<a href=\"RegistroBackupController.php.html#224\">RegistroBackupController::viewLogAction<\/a>"],[0,1,"<a href=\"RegistroBackupEquipamentoController.php.html#26\">RegistroBackupEquipamentoController::indexAction<\/a>"],[0,3,"<a href=\"RegistroBackupEquipamentoController.php.html#44\">RegistroBackupEquipamentoController::newAction<\/a>"],[0,1,"<a href=\"RegistroBackupEquipamentoController.php.html#72\">RegistroBackupEquipamentoController::showAction<\/a>"],[0,3,"<a href=\"RegistroBackupEquipamentoController.php.html#88\">RegistroBackupEquipamentoController::editAction<\/a>"],[0,3,"<a href=\"RegistroBackupEquipamentoController.php.html#117\">RegistroBackupEquipamentoController::deleteAction<\/a>"],[0,1,"<a href=\"RegistroBackupEquipamentoController.php.html#138\">RegistroBackupEquipamentoController::createDeleteForm<\/a>"],[0,1,"<a href=\"RegistroRestoreController.php.html#25\">RegistroRestoreController::indexAction<\/a>"],[0,3,"<a href=\"RegistroRestoreController.php.html#46\">RegistroRestoreController::newAction<\/a>"],[0,1,"<a href=\"RegistroRestoreController.php.html#82\">RegistroRestoreController::showAction<\/a>"],[0,4,"<a href=\"RegistroRestoreController.php.html#98\">RegistroRestoreController::editAction<\/a>"],[0,3,"<a href=\"RegistroRestoreController.php.html#143\">RegistroRestoreController::deleteAction<\/a>"],[0,1,"<a href=\"RegistroRestoreController.php.html#164\">RegistroRestoreController::createDeleteForm<\/a>"],[0,1,"<a href=\"RegistroRestoreController.php.html#176\">RegistroRestoreController::viewLogAction<\/a>"],[0,1,"<a href=\"StatusController.php.html#25\">StatusController::indexAction<\/a>"],[0,3,"<a href=\"StatusController.php.html#42\">StatusController::newAction<\/a>"],[0,1,"<a href=\"StatusController.php.html#70\">StatusController::showAction<\/a>"],[0,3,"<a href=\"StatusController.php.html#86\">StatusController::editAction<\/a>"],[0,3,"<a href=\"StatusController.php.html#115\">StatusController::deleteAction<\/a>"],[0,1,"<a href=\"StatusController.php.html#136\">StatusController::createDeleteForm<\/a>"],[0,1,"<a href=\"StatusController.php.html#149\">StatusController::viewLogAction<\/a>"],[0,1,"<a href=\"TipoJobController.php.html#25\">TipoJobController::indexAction<\/a>"],[0,3,"<a href=\"TipoJobController.php.html#42\">TipoJobController::newAction<\/a>"],[0,1,"<a href=\"TipoJobController.php.html#70\">TipoJobController::showAction<\/a>"],[0,3,"<a href=\"TipoJobController.php.html#86\">TipoJobController::editAction<\/a>"],[0,3,"<a href=\"TipoJobController.php.html#115\">TipoJobController::deleteAction<\/a>"],[0,1,"<a href=\"TipoJobController.php.html#136\">TipoJobController::createDeleteForm<\/a>"],[0,1,"<a href=\"TipoJobController.php.html#149\">TipoJobController::viewLogAction<\/a>"],[0,1,"<a href=\"TipoMidiaController.php.html#25\">TipoMidiaController::indexAction<\/a>"],[0,3,"<a href=\"TipoMidiaController.php.html#42\">TipoMidiaController::newAction<\/a>"],[0,1,"<a href=\"TipoMidiaController.php.html#70\">TipoMidiaController::showAction<\/a>"],[0,3,"<a href=\"TipoMidiaController.php.html#86\">TipoMidiaController::editAction<\/a>"],[0,3,"<a href=\"TipoMidiaController.php.html#115\">TipoMidiaController::deleteAction<\/a>"],[0,1,"<a href=\"TipoMidiaController.php.html#136\">TipoMidiaController::createDeleteForm<\/a>"],[0,1,"<a href=\"TipoMidiaController.php.html#150\">TipoMidiaController::viewLogAction<\/a>"],[0,1,"<a href=\"TrocaFitaController.php.html#25\">TrocaFitaController::indexAction<\/a>"],[0,3,"<a href=\"TrocaFitaController.php.html#45\">TrocaFitaController::newAction<\/a>"],[0,1,"<a href=\"TrocaFitaController.php.html#76\">TrocaFitaController::showAction<\/a>"],[0,4,"<a href=\"TrocaFitaController.php.html#92\">TrocaFitaController::editAction<\/a>"],[0,3,"<a href=\"TrocaFitaController.php.html#132\">TrocaFitaController::deleteAction<\/a>"],[0,1,"<a href=\"TrocaFitaController.php.html#153\">TrocaFitaController::createDeleteForm<\/a>"],[0,1,"<a href=\"TrocaFitaController.php.html#165\">TrocaFitaController::viewLogAction<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>
