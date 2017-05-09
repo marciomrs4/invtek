@@ -27,7 +27,8 @@ class FitaController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $fitas = $em->getRepository('MRSBackupBundle:Fita')
-            ->findBy(array(),array('id' => 'DESC'));
+            ->findBy(array(),array('unidade' => 'ASC',
+                                   'barCode' => 'ASC'));
 
         return $this->render('fita/index.html.twig', array(
             'fitas' => $fitas,

@@ -15,7 +15,7 @@ class FitaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('barCode',null,array('label'=>'barCode',
+            ->add('barCode',null,array('label'=>'BarCode',
                                            'attr'=>array('class'=>'input-sm')))
             ->add('ciclo',null,array('label'=>'ciclo',
                                            'attr'=>array('class'=>'input-sm')))

@@ -115,7 +115,7 @@ class Job
 
     public function __toString()
     {
-        return $this->getDescricao();
+        return $this->getDescricao() . ' | ' . $this->getTipoJob()->getDescricao();
     }
 
     /**
