@@ -3,6 +3,8 @@
 namespace MRS\BackupBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
@@ -10,6 +12,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *
  * @ORM\Table(name="job", indexes={@ORM\Index(name="tipo_job_fk_idx", columns={"tipo_job_id"})})
  * @ORM\Entity
+ * @UniqueEntity(fields={"descricao"},ignoreNull=false,message="Já existe um registro com esta descrição")
  * @Gedmo\Loggable()
  */
 class Job
