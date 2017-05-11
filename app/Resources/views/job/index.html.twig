@@ -34,6 +34,7 @@
                     <th>Descricao</th>
                     <th>Tipo de Job</th>
                     <th>Unidade</th>
+                    <th>Status</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -50,6 +51,9 @@
                         <td><a href="{{ path('cadastro_job_show', { 'id': job.id }) }}">{{ job.descricao }}</a></td>
                         <td>{{ job.tipoJob.descricao }}</td>
                         <td>{{ job.unidade.nome }}</td>
+                        <td>
+                            {% if job.status %}Ativo{% else %}Inativo{% endif %}
+                        </td>
                     </tr>
                 {% endfor %}
                 </tbody>

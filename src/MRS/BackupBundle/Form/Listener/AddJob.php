@@ -47,8 +47,11 @@ class AddJob implements EventSubscriberInterface
             'query_builder' => function(EntityRepository $er) use ($registroBackupUnidade){
                     return $er->createQueryBuilder('J')
                         ->where('J.unidade = :unidade')
+                        ->andWhere('J.status = 1')
+                        ->orderBy('J.descricao')
+                        ->addOrderBy('J.unidade')
                         ->setParameter('unidade',$registroBackupUnidade);
-            }));
+            },'placeholder'=>'Selecione'));
 
     }
 }

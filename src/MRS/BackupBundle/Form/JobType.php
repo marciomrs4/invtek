@@ -21,6 +21,7 @@ class JobType extends AbstractType
                                            'attr'=>array('class'=>'input-sm')))
             ->add('unidade',null,array('label'=>'Unidade',
                                            'attr'=>array('class'=>'input-sm')))
+            ->add('status',null,array('label' => 'Status'))
         ;
     }
     

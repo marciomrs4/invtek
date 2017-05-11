@@ -20,8 +20,9 @@ class Job
     /**
      * @var string
      *
-     * @ORM\Column(name="descricao", type="string", length=45, nullable=false)
+     * @ORM\Column(name="descricao", type="string", length=255, nullable=false)
      * @Gedmo\Versioned()
+     * @Assert\NotBlank(message="Este campo é obrigatório")
      */
     private $descricao;
 
@@ -42,6 +43,7 @@ class Job
      *   @ORM\JoinColumn(name="tipo_job_id", referencedColumnName="id")
      * })
      * @Gedmo\Versioned()
+     * @Assert\NotBlank(message="Este campo é obrigatório")
      */
     private $tipoJob;
 
@@ -53,10 +55,23 @@ class Job
      *   @ORM\JoinColumn(name="unidade_id", referencedColumnName="id")
      * })
      * @Gedmo\Versioned()
+     * @Assert\NotBlank(message="Este campo é obrigatório")
      */
     private $unidade;
 
 
+    /**
+     * @var boolean
+     * @ORM\Column(name="status", type="boolean", nullable=false)
+     * @Gedmo\Versioned()
+     */
+    private $status;
+
+
+    public function __construct()
+    {
+        $this->status = true;
+    }
 
     /**
      * Set descricao
@@ -143,5 +158,29 @@ class Job
     public function getUnidade()
     {
         return $this->unidade;
+    }
+
+    /**
+     * Set status
+     *
+     * @param boolean $status
+     *
+     * @return Job
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return boolean
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 }

@@ -2,6 +2,7 @@
 
 namespace MRS\BackupBundle\Form;
 
+use Doctrine\ORM\EntityRepository;
 use MRS\BackupBundle\Form\Listener\AddJob;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -25,8 +26,15 @@ class RegistroBackupType extends AbstractType
                 'mapped' => false,
                 'class' => 'MRS\InventarioBundle\Entity\Unidade',
                 'placeholder' => 'Selecione'))
-            ->add('job',null,array('label'=>'Job',
-                'attr'=>array('class'=>'input-sm')))
+            ->add('job',EntityType::class,array('label'=>'Job',
+                'attr'=>array('class'=>'input-sm'),
+                'class' => 'MRS\BackupBundle\Entity\Job',
+                'query_builder' => function(EntityRepository $er){
+                    return $er->createQueryBuilder('JOB')
+                        ->where('JOB.status = 1')
+                        ->orderBy('JOB.descricao')
+                        ->addOrderBy('JOB.unidade');
+                },'placeholder'=>''))
             ->add('status',null,array('label'=>'Status',
                 'attr'=>array('class'=>'input-sm')))
             ->add('observacao',null,array('label'=>'Observação',

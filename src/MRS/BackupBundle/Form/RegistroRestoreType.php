@@ -48,8 +48,14 @@ class RegistroRestoreType extends AbstractType
                         ->setParameter('tipoequipamento',$tiposequipamentos)
                         ->orderBy('Equipamento.patrimonio');
                 },'placeholder'=>''))
-            ->add('fita',null,array('label'=>'Fita',
-                'attr'=>array('class'=>'input-sm')))
+            ->add('fita',EntityType::class,array('label'=>'Fita',
+                'attr'=>array('class'=>'input-sm'),
+                'class' => 'MRS\BackupBundle\Entity\Fita',
+                'query_builder' => function(EntityRepository $er){
+                    return $er->createQueryBuilder('FITA')
+                        ->orderBy('FITA.barCode')
+                        ->addOrderBy('FITA.descricao');
+                },'placeholder' =>''))
             ->add('tipoJob',null,array('label'=>'Tipo de Job',
                 'attr'=>array('class'=>'input-sm')))
             ->add('status',null,array('label'=>'Status',

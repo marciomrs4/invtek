@@ -3,6 +3,8 @@
 namespace MRS\BackupBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
@@ -10,6 +12,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *
  * @ORM\Table(name="job", indexes={@ORM\Index(name="tipo_job_fk_idx", columns={"tipo_job_id"})})
  * @ORM\Entity
+ * @UniqueEntity(fields={"descricao"},ignoreNull=false,message="Já existe um registro com esta descrição")
  * @Gedmo\Loggable()
  */
 class Job
@@ -17,8 +20,9 @@ class Job
     /**
      * @var string
      *
-     * @ORM\Column(name="descricao", type="string", length=45, nullable=false)
+     * @ORM\Column(name="descricao", type="string", length=255, nullable=false)
      * @Gedmo\Versioned()
+     * @Assert\NotBlank(message="Este campo é obrigatório")
      */
     private $descricao;
 
@@ -39,6 +43,7 @@ class Job
      *   @ORM\JoinColumn(name="tipo_job_id", referencedColumnName="id")
      * })
      * @Gedmo\Versioned()
+     * @Assert\NotBlank(message="Este campo é obrigatório")
      */
     private $tipoJob;
 
@@ -50,10 +55,17 @@ class Job
      *   @ORM\JoinColumn(name="unidade_id", referencedColumnName="id")
      * })
      * @Gedmo\Versioned()
+     * @Assert\NotBlank(message="Este campo é obrigatório")
      */
     private $unidade;
 
 
+    /**
+     * @var boolean
+     * @ORM\Column(name="status", type="boolean", nullable=false)
+     * @Gedmo\Versioned()
+     */
+    private $status;
 
     /**
      * Set descricao
@@ -115,7 +127,7 @@ class Job
 
     public function __toString()
     {
-        return $this->getDescricao();
+        return $this->getDescricao() . ' | ' . $this->getTipoJob()->getDescricao();
     }
 
     /**

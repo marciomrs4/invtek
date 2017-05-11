@@ -27,7 +27,8 @@ class JobController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $jobs = $em->getRepository('MRSBackupBundle:Job')
-                   ->findBy(array(),array('id' => 'DESC'));
+                   ->findBy(array(),array('unidade' => 'ASC',
+                                          'descricao' => 'ASC'));
 
         return $this->render('job/index.html.twig', array(
             'jobs' => $jobs,

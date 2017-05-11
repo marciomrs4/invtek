@@ -86,6 +86,10 @@
                     <th>Unidade</th>
                     <td>{{ job.unidade.nome }}</td>
                 </tr>
+                <tr>
+                    <th>Status</th>
+                    <td>{% if job.status %}Ativo{% else %}Inativo{% endif %}</td>
+                </tr>
             </tbody>
         </table>
         {{ render(path('cadastro_jobservidor_index',{ 'job': job.id }))  }}
