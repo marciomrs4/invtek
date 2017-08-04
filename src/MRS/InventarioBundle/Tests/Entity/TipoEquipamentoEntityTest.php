@@ -10,9 +10,9 @@
 namespace MRS\InventarioBundle\Tests\Entity;
 
 use MRS\InventarioBundle\Entity\Tipoequipamento;
+use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
 
-
-class TipoEquipamentoEntityTest extends \PHPUnit_Framework_TestCase
+class TipoEquipamentoEntityTest extends TestCase
 {
 
     public function dataProvider()

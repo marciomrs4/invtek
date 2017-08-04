@@ -81,7 +81,11 @@ class RegistroBackupController extends Controller
 
             $em->flush();
 
-            $this->addFlash('notice','Criado com sucesso!');
+            $mensagens = array('mensagem' => 'Registrado com sucesso!',
+                               'tipo_mensagem' => 'success');
+
+            $this->addFlash('notice',$mensagens);
+
 
             return $this->redirectToRoute('cadastro_registrobackup_show', array('id' => $registroBackup->getId()));
         }
@@ -126,7 +130,11 @@ class RegistroBackupController extends Controller
 
         if($maxId['1'] > $id){
 
-            $this->addFlash('notice','Esse registro não pode ser alterado, pois não é o último');
+            $mensagens = array('mensagem' => 'Esse registro não pode ser alterado, pois não é o último',
+                                'tipo_mensagem' => 'danger');
+
+            $this->addFlash('notice',$mensagens);
+
             return $this->redirectToRoute('cadastro_registrobackup_show', array('id' => $id));
         }
 
@@ -169,7 +177,10 @@ class RegistroBackupController extends Controller
             $em->persist($registroBackup);
             $em->flush();
 
-            $this->addFlash('notice','Alterado com sucesso!');
+            $mensagens = array('mensagem' => 'Registrado com sucesso!',
+                'tipo_mensagem' => 'success');
+
+            $this->addFlash('notice',$mensagens);
 
             return $this->redirectToRoute('cadastro_registrobackup_show', array('id' => $registroBackup->getId()));
         }

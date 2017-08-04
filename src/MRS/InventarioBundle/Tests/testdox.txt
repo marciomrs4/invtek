@@ -2,3 +2,15 @@ MRS\InventarioBundle\Tests\Controller\DefaultController
  [x] Index
  [x] Access home is success
 
+MRS\InventarioBundle\Tests\Controller\EnderecoIpController
+ [x] Route acess code
+
+MRS\InventarioBundle\Tests\Controller\EquipamentoController
+ [x] If controller equipamento exist
+ [x] Route acess code
+ [x] Route acess is successful
+ [x] Create is access to post
+ [x] Show is access success full
+ [x] Edit is access success full
+ [x] Edit post is access success full
+

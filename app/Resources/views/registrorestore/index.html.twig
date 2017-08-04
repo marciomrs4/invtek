@@ -45,7 +45,13 @@
             </thead>
             <tbody>
             {% for registroRestore in registroRestores %}
-            <tr>
+
+                {% if registroRestore.status == 'FALHA' %}
+                    <tr class="danger">
+                {% else %}
+                    <tr>
+                {% endif %}
+
                 <td>
                     <a href="{{ path('cadastro_registrorestore_show', { 'id': registroRestore.id }) }}" class="btn btn-primary btn-xs">
                         <span class="glyphicon glyphicon-eye-open"></span>

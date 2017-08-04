@@ -39,7 +39,6 @@ class RegistroBackupType extends AbstractType
                 'attr'=>array('class'=>'input-sm')))
             ->add('observacao',null,array('label'=>'Observação',
                 'attr'=>array('class'=>'input-sm')))
-            ->add('image_file',FileType::class,array('label'=>'Anexo'))
         ;
 
         $builder->addEventSubscriber(new AddJob());

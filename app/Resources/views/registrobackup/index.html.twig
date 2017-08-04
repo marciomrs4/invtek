@@ -1,4 +1,4 @@
-    {% extends ':template:template.html.twig' %}
+{% extends ':template:template.html.twig' %}
 
 
     {% block stylesheets %}
@@ -12,59 +12,64 @@
     {% block contentheader %}
 
 
-    <section class="content-header">
-        <h1>
-            Registro de Backup
-            <small>Listar</small>
-        </h1>
-    </section>
+        <section class="content-header">
+            <h1>
+                Registro de Backup
+                <small>Listar</small>
+            </h1>
+        </section>
 
 
     {% endblock %}
 
 
     {% block panelheading %}
-    <a href="{{ path('cadastro_registrobackup_new') }}" class="btn btn-primary btn-sm">
+        <a href="{{ path('cadastro_registrobackup_new') }}" class="btn btn-primary btn-sm">
             <span class="glyphicon glyphicon-plus"></span>
             Novo
         </a>    {% endblock %}
 
     {% block panelbody %}
-    <div class="table-responsive">
-        <table class="table table-bordered table-condensed table-hover table-striped table-datatable" data-order='[]'>
-            <thead>
-            <tr>
-                <th>Ações</th>
+        <div class="table-responsive">
+            <table class="table table-bordered table-condensed table-hover table-striped table-datatable" data-order='[]'>
+                <thead>
+                <tr>
+                    <th>Ações</th>
                     <th>Data</th>
                     <th>Job</th>
                     <th>Status</th>
                     <th>Observacao</th>
                     <th>Usuário</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for registroBackup in registroBackups %}
-            <tr>
-                <td>
-                    <a href="{{ path('cadastro_registrobackup_show', { 'id': registroBackup.id }) }}" class="btn btn-primary btn-xs">
-                        <span class="glyphicon glyphicon-eye-open"></span>
-                    </a>
-                    {% if maxId == registroBackup.id %}
-                    <a href="{{ path('cadastro_registrobackup_edit', { 'id': registroBackup.id }) }}" class="btn btn-primary btn-xs">
-                        <span class="glyphicon glyphicon-edit"></span>
-                    </a>
+                </tr>
+                </thead>
+                <tbody>
+                {% for registroBackup in registroBackups %}
+
+                    {% if registroBackup.status == 'FALHA' %}
+                        <tr class="danger">
+                    {% else %}
+                        <tr>
                     {% endif %}
-                </td>
-                <td><a href="{{ path('cadastro_registrobackup_show', { 'id': registroBackup.id }) }}">{{ registroBackup.data|date('d-m-Y') }}</a></td>
-                <td>{{ registroBackup.job }}</td>
-                <td>{{ registroBackup.status}}</td>
-                <td>{{ registroBackup.observacao}}</td>
-                <td>{{ registroBackup.user}}</td>
-            </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </div>
+                    <td>
+                        <a href="{{ path('cadastro_registrobackup_show', { 'id': registroBackup.id }) }}" class="btn btn-primary btn-xs">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                        </a>
+                        {% if maxId == registroBackup.id %}
+                            <a href="{{ path('cadastro_registrobackup_edit', { 'id': registroBackup.id }) }}" class="btn btn-primary btn-xs">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </a>
+                        {% endif %}
+                    </td>
+                    <td><a href="{{ path('cadastro_registrobackup_show', { 'id': registroBackup.id }) }}">{{ registroBackup.data|date('d-m-Y') }}</a></td>
+                    <td>{{ registroBackup.job }}</td>
+                    <td>{{ registroBackup.status}}</td>
+                    <td>{{ registroBackup.observacao}}</td>
+                    <td>{{ registroBackup.user}}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
 
 
     {% endblock %}

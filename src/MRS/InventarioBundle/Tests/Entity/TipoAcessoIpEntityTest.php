@@ -10,9 +10,10 @@
 namespace MRS\InventarioBundle\Tests\Entity;
 
 use MRS\InventarioBundle\Entity\TipoAcessoIp;
+use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
 
 
-class TipoAcessoIpEntityTest extends \PHPUnit_Framework_TestCase
+class TipoAcessoIpEntityTest extends TestCase
 {
 
 

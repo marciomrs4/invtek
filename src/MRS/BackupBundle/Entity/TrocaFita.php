@@ -6,12 +6,15 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
 /**
  * TrocaFita
  *
  * @ORM\Table(name="troca_fita", indexes={@ORM\Index(name="fita_id_fk_idx", columns={"fita_id"})})
  * @ORM\Entity(repositoryClass="MRS\BackupBundle\Repository\TrocaFitaRepository")
  * @Gedmo\Loggable()
+ * @UniqueEntity(fields={"fita", "dataCriacao"},message="A fita selecionada já foi registrada hoje.")
  */
 class TrocaFita
 {
@@ -54,8 +57,7 @@ class TrocaFita
 
     public function __construct()
     {
-        $data = new \DateTime('now');
-        $this->dataCriacao = $data->modify('-1day');
+        $this->setDataCriacao(new \DateTime('now'));
     }
 
 

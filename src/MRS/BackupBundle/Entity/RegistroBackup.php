@@ -7,6 +7,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * RegistroBackup
@@ -15,6 +16,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity(repositoryClass="MRS\BackupBundle\Repository\RegistroBackupRepository")
  * @Vich\Uploadable
  * @Gedmo\Loggable()
+ * @UniqueEntity(fields={"job","data"}, message="Já existe esse Job registrado hoje.")
  */
 class RegistroBackup
 {
@@ -119,7 +121,9 @@ class RegistroBackup
 
     public function __construct()
     {
-        $this->setData(new \DateTime('now'));
+        $date = new \DateTime('now');
+        $date->modify('-1day');
+        $this->setData($date);
     }
 
     /**
