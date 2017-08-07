@@ -1,3 +1,7 @@
+mrs_backup_anexo_restore:
+    resource: "@MRSBackupBundle/Controller/AnexoRestoreController.php"
+    type:     annotation
+
 mrs_backup_anexo_backup:
     resource: "@MRSBackupBundle/Controller/AnexoBackupController.php"
     type:     annotation

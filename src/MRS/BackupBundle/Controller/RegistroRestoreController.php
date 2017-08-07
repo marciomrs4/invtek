@@ -62,7 +62,13 @@ class RegistroRestoreController extends Controller
             $em->persist($registroRestore);
             $em->flush();
 
-            $this->addFlash('notice','Criado com sucesso!');
+
+            $mensagens = [
+                'mensagem' => 'Criado com sucesso!',
+                'tipo_mensagem' => 'success'
+            ];
+
+            $this->addFlash('notice',$mensagens);
 
             return $this->redirectToRoute('cadastro_registrorestore_show', array('id' => $registroRestore->getId()));
         }
@@ -105,7 +111,12 @@ class RegistroRestoreController extends Controller
         $id = $registroRestore->getId();
         if($maxId['1'] > $id ){
 
-            $this->addFlash('notice','Esse registro não pode ser alterado pois não é o ultimo registro.');
+            $mensagens = [
+                'mensagem' => 'Esse registro não pode ser alterado pois não é o ultimo registro!',
+                'tipo_mensagem' => 'danger'
+            ];
+
+            $this->addFlash('notice',$mensagens);
 
             return $this->redirectToRoute('cadastro_registrorestore_show',array('id' => $id));
         }
@@ -123,7 +134,13 @@ class RegistroRestoreController extends Controller
             $em->persist($registroRestore);
             $em->flush();
 
-            $this->addFlash('notice','Alterado com sucesso!');
+
+            $mensagens = [
+                'mensagem' => 'Alterado com sucesso!',
+                'tipo_mensagem' => 'success'
+            ];
+
+            $this->addFlash('notice',$mensagens);
 
             return $this->redirectToRoute('cadastro_registrorestore_show', array('id' => $registroRestore->getId()));
         }

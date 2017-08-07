@@ -10,20 +10,20 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * AnexoBackup
+ * AnexoRestore
  *
- * @ORM\Table(name="anexo_backup", indexes={@ORM\Index(name="fk_backup_idx", columns={"backup_id"})})
+ * @ORM\Table(name="anexo_restore", indexes={@ORM\Index(name="fk_restore_idx", columns={"restore_id"})})
  * @ORM\Entity
  * @Vich\Uploadable
  * @Gedmo\Loggable()
  */
-class AnexoBackup
+class AnexoRestore
 {
 
     /**
      * @var File
      *
-     * @Vich\UploadableField(mapping="mapeamento_backup", fileNameProperty="imageName")
+     * @Vich\UploadableField(mapping="mapeamento_restore", fileNameProperty="imageName")
      * @Assert\File(mimeTypes={"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
      *     "application/msword",
      *     "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
@@ -78,15 +78,15 @@ class AnexoBackup
     private $id;
 
     /**
-     * @var \MRS\BackupBundle\Entity\RegistroBackup
+     * @var \MRS\BackupBundle\Entity\RegistroRestore
      *
-     * @ORM\ManyToOne(targetEntity="MRS\BackupBundle\Entity\RegistroBackup")
+     * @ORM\ManyToOne(targetEntity="MRS\BackupBundle\Entity\RegistroRestore")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="backup_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="restore_id", referencedColumnName="id")
      * })
      * @Gedmo\Versioned()
      */
-    private $registroBackup;
+    private $registroRestore;
 
     public function __construct()
     {
@@ -103,7 +103,7 @@ class AnexoBackup
 
     /**
      * @param string $dataalteracao
-     * @return AnexoBackup
+     * @return AnexoRestore
      */
     public function setDataalteracao($dataalteracao)
     {
@@ -121,7 +121,7 @@ class AnexoBackup
 
     /**
      * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $imageFile
-     * @return AnexoBackup
+     * @return AnexoRestore
      */
     public function setImageFile(File $imageFile)
     {
@@ -129,6 +129,7 @@ class AnexoBackup
 
         if($imageFile){
             $this->dataalteracao = new \DateTime('now');
+            $this->imageName = $this->getImageName();
         }
 
         return $this;
@@ -144,7 +145,7 @@ class AnexoBackup
 
     /**
      * @param string $imageName
-     * @return AnexoBackup
+     * @return AnexoRestore
      */
     public function setImageName($imageName)
     {
@@ -159,7 +160,7 @@ class AnexoBackup
      * Set nome
      *
      * @param string $nome
-     * @return AnexoBackup
+     * @return AnexoRestore
      */
     public function setNome($nome)
     {
@@ -182,7 +183,7 @@ class AnexoBackup
      * Set datacriacao
      *
      * @param string $datacriacao
-     * @return AnexoBackup
+     * @return AnexoRestore
      */
     public function setDatacriacao($datacriacao)
     {
@@ -212,25 +213,25 @@ class AnexoBackup
     }
 
     /**
-     * Set RegistroBackup
+     * Set RegistroRestore
      *
-     * @param \MRS\BackupBundle\Entity\RegistroBackup $registroBackup
-     * @return AnexoBackup
+     * @param \MRS\BackupBundle\Entity\RegistroRestore $registroRestore
+     * @return AnexoRestore
      */
-    public function setRegistroBackup(\MRS\BackupBundle\Entity\RegistroBackup $registroBackup = null)
+    public function setRegistroRestore(\MRS\BackupBundle\Entity\RegistroRestore $registroRestore = null)
     {
-        $this->registroBackup = $registroBackup;
+        $this->registroRestore = $registroRestore;
 
         return $this;
     }
 
     /**
-     * Get RegistroBackup
+     * Get RegistroRestore
      *
-     * @return \MRS\BackupBundle\Entity\RegistroBackup
+     * @return \MRS\BackupBundle\Entity\RegistroRestore
      */
-    public function getRegistroBackup()
+    public function getRegistroRestore()
     {
-        return $this->registroBackup;
+        return $this->registroRestore;
     }
 }

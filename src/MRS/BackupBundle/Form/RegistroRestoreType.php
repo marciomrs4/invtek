@@ -61,8 +61,7 @@ class RegistroRestoreType extends AbstractType
             ->add('status',null,array('label'=>'Status',
                 'attr'=>array('class'=>'input-sm')))
             ->add('observacao',null,array('label'=>'Observação',
-                'attr'=>array('class'=>'input-sm')))
-            ->add('image_file',FileType::class,array('label'=>'Anexo'));
+                'attr'=>array('class'=>'input-sm')));
 
         $builder->addEventSubscriber(new AddRegistroRestore($this->container));
     }

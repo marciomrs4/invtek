@@ -166,4 +166,21 @@ class AnexoBackupController extends Controller
             ->getForm()
         ;
     }
+
+    /**
+     * @Route("/view/log/{anexoBackup}", name="view_log_anexo_backup")
+     * @Method("GET")
+     */
+    public function viewLogAction(AnexoBackup $anexoBackup)
+    {
+        $gedmo = $this->getDoctrine()
+            ->getRepository('Gedmo:LogEntry');
+
+        $logs = $gedmo->getLogEntries($anexoBackup);
+
+        return $this->render('logentry/logentry.html.twig',array(
+            'logs' => $logs
+        ));
+
+    }
 }

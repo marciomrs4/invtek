@@ -6,7 +6,7 @@
 
     <section class="content-header">
         <h1>
-            AnexoBackup
+            AnexoRestore
             <small>Mostrar</small>
         </h1>
     </section>
@@ -36,7 +36,7 @@
 
     <div class="col-md-2 col-sm-3 col-xs-3">
 
-        <a href="{{ path('cadastro_anexobackup_index') }}" class="btn btn-primary btn-sm">
+        <a href="{{ path('cadastro_anexorestore_index') }}" class="btn btn-primary btn-sm">
             <span class="fa fa-reply"></span>
             Voltar
         </a>
@@ -44,7 +44,7 @@
     </div>
         <div class="col-md-2 col-sm-3 col-xs-3">
 
-            <a href="{{ path('cadastro_anexobackup_edit', { 'id': anexoBackup.id }) }}" class="btn btn-primary btn-sm">
+            <a href="{{ path('cadastro_anexorestore_edit', { 'id': anexoRestore.id }) }}" class="btn btn-primary btn-sm">
                 <span class="glyphicon glyphicon-edit"></span>
                 Editar
             </a>
@@ -70,23 +70,23 @@
             <tbody>
                 <tr>
                     <th>Imagename</th>
-                        <td>{{ anexoBackup.imageName }}</td>
+                        <td>{{ anexoRestore.imageName }}</td>
                 </tr>
                 <tr>
                     <th>Nome</th>
-                        <td>{{ anexoBackup.nome }}</td>
+                        <td>{{ anexoRestore.nome }}</td>
                 </tr>
                 <tr>
                     <th>Datacriacao</th>
-                        <td>{% if anexoBackup.datacriacao %}{{ anexoBackup.datacriacao|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        <td>{% if anexoRestore.datacriacao %}{{ anexoRestore.datacriacao|date('Y-m-d H:i:s') }}{% endif %}</td>
                 </tr>
                 <tr>
                     <th>Dataalteracao</th>
-                        <td>{% if anexoBackup.dataalteracao %}{{ anexoBackup.dataalteracao|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        <td>{% if anexoRestore.dataalteracao %}{{ anexoRestore.dataalteracao|date('Y-m-d H:i:s') }}{% endif %}</td>
                 </tr>
                 <tr>
                     <th>Id</th>
-                        <td>{{ anexoBackup.id }}</td>
+                        <td>{{ anexoRestore.id }}</td>
                 </tr>
             </tbody>
         </table>

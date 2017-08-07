@@ -5,7 +5,7 @@
 
         <section class="content-header">
             <h1>
-                AnexoBackup
+                AnexoRestore
                 <small>Editar</small>
             </h1>
         </section>
@@ -34,41 +34,38 @@
 
         <div class="row">
 
-            <div class="col-md-2 col-sm-3 col-xs-3">
+        <div class="col-md-2 col-sm-3 col-xs-3">
 
-                <a href="{{ path('cadastro_registrobackup_show',{ 'id': anexoBackup.registroBackup.id }) }}" class="btn btn-primary btn-sm">
-                    <span class="fa fa-reply"></span>
-                    Voltar
-                </a>
-
-            </div>
-
-            <div class="col-md-2 col-sm-3 col-xs-3">
-
-                <a href="{{ path('view_log_anexo_backup',{ 'anexoBackup': anexoBackup.id }) }}" class="btn btn-primary btn-sm">
-                    <span class="fa fa-reply"></span>
-                    Log
-                </a>
-
-            </div>
-
-            <div class="col-md-2 col-sm-3 col-xs-3">
-                {{ form_start(delete_form) }}
-                <button type="submit" class="btn btn-danger btn-sm remover-form">
-                    <span class="glyphicon glyphicon-trash"></span>
-                    Deletar
-                </button>
-                {{ form_end(delete_form) }}
-
-            </div>
+            <a href="{{ path('cadastro_registrorestore_show',{ 'id' : anexoRestore.registroRestore.id }) }}" class="btn btn-primary btn-sm">
+                <span class="fa fa-reply"></span>
+                Voltar
+            </a>
         </div>
-    {% endblock %}
+        <div class="col-md-2 col-sm-3 col-xs-3">
+
+            <a href="{{ path('view_log_anexo_restore',{ 'anexoRestore' : anexoRestore.id }) }}" target="_blank" class="btn btn-primary btn-sm">
+                <span class="fa fa-reply"></span>
+                Log
+            </a>
+
+        </div>
+        <div class="col-md-2 col-sm-3 col-xs-3">
+            {{ form_start(delete_form) }}
+            <button type="submit" class="btn btn-danger btn-sm remover-form">
+                <span class="glyphicon glyphicon-trash"></span>
+                Deletar
+            </button>
+            {{ form_end(delete_form) }}
+
+        </div>
+        </div>{% endblock %}
 
     {% block panelbody %}
 
         {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <h5><b>Arquivo Atual:</b> {{ anexoBackup.imageName }}</h5>
+
+        <h5><b>Arquivo Atual: </b>{{ anexoRestore.imageName }}</h5>
     {% endblock %}
 
     {% block panelfooter %}
