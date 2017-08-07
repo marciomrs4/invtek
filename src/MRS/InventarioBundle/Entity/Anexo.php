@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Anexo
@@ -21,6 +22,16 @@ class Anexo
      * @var File
      *
      * @Vich\UploadableField(mapping="mapeamento_equipamento", fileNameProperty="imageName")
+     * @Assert\File(mimeTypes={"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+     *     "application/msword",
+     *     "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+     *     "text/plain",
+     *     "application/vnd.ms-excel",
+     *     "application/vnd.ms-office",
+     *     "application/pdf",
+     *     "text/html"},
+     *     mimeTypesMessage="Por favor envie o tipo de arquivo correto! tipo enviado {{ type }}
+     *                       Os tipos suportados são ({{ types }})")
      */
     private $imageFile;
 
