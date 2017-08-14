@@ -12,7 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * RegistroRestore
  *
  * @ORM\Table(name="registro_restore", indexes={@ORM\Index(name="tipo_job_fk_idx", columns={"tipo_job_id"}), @ORM\Index(name="fita_id_fk_idx", columns={"fita_id"}), @ORM\Index(name="equipamento_id_fk_idx", columns={"equipamento_id"}), @ORM\Index(name="tipo_job_restore_fk_idx", columns={"tipo_job_id"}), @ORM\Index(name="fita_id_restore_fk_idx", columns={"fita_id"}), @ORM\Index(name="equipamento_id_restore_fk_idx", columns={"equipamento_id"}), @ORM\Index(name="status_restore_fk_idx", columns={"status_id"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="MRS\BackupBundle\Repository\RegistroRestoreRepository")
  * @Vich\Uploadable
  * @Gedmo\Loggable()
  */
@@ -432,5 +432,77 @@ class RegistroRestore
     public function getFileName()
     {
         return $this->file_name;
+    }
+
+    /**
+     * Set equipamentoName
+     *
+     * @param string $equipamentoName
+     *
+     * @return RegistroRestore
+     */
+    public function setEquipamentoName($equipamentoName)
+    {
+        $this->equipamentoName = $equipamentoName;
+
+        return $this;
+    }
+
+    /**
+     * Get equipamentoName
+     *
+     * @return string
+     */
+    public function getEquipamentoName()
+    {
+        return $this->equipamentoName;
+    }
+
+    /**
+     * Set fitaName
+     *
+     * @param string $fitaName
+     *
+     * @return RegistroRestore
+     */
+    public function setFitaName($fitaName)
+    {
+        $this->fitaName = $fitaName;
+
+        return $this;
+    }
+
+    /**
+     * Get fitaName
+     *
+     * @return string
+     */
+    public function getFitaName()
+    {
+        return $this->fitaName;
+    }
+
+    /**
+     * Set tipoJobName
+     *
+     * @param string $tipoJobName
+     *
+     * @return RegistroRestore
+     */
+    public function setTipoJobName($tipoJobName)
+    {
+        $this->tipoJobName = $tipoJobName;
+
+        return $this;
+    }
+
+    /**
+     * Get tipoJobName
+     *
+     * @return string
+     */
+    public function getTipoJobName()
+    {
+        return $this->tipoJobName;
     }
 }

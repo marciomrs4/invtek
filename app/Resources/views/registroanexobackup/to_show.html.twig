@@ -1,0 +1,39 @@
+<div class="box">
+    <div class="box-header">
+        Anexos Compartilhado
+    </div>
+    <div class="box-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-condensed table-hover table-striped">
+                <thead>
+                <tr>
+                    <th>Ações</th>
+                    <th>Arquivo</th>
+                    <th>Descrição</th>
+                    <th>Data da Criação</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for registroAnexoBackup in registroAnexoBackups %}
+                    <tr>
+                        <td>
+                            <a href="{{ vich_uploader_asset(registroAnexoBackup.anexoCompartilhado,'imageFile') }}" target="_blank" class="btn btn-primary btn-xs">
+                                <span class="glyphicon glyphicon-download"></span>
+                            </a>
+                        <td>
+                            {% if registroAnexoBackup.anexoCompartilhado.imageName %}
+                            <a href="{{ vich_uploader_asset(registroAnexoBackup.anexoCompartilhado,'imageFile') }}" target="_blank">
+                                {% endif %}
+                                {{ registroAnexoBackup.anexoCompartilhado.imagename }}
+                            </a>
+                        </td>
+                        </td>
+                        <td>{{ registroAnexoBackup.anexoCompartilhado.nome }}</td>
+                        <td>{{ registroAnexoBackup.anexoCompartilhado.dataCriacao | date('d-m-Y H:i:s') }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

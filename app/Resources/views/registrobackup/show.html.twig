@@ -53,10 +53,28 @@
 
         <div class="col-md-2 col-sm-3 col-xs-3">
 
-            <a href="{{ path('cadastro_anexobackup_new', { 'registroBackup': registroBackup.id }) }}" class="btn btn-primary btn-sm">
-                <span class="fa fa-paperclip"></span>
-                Anexo
-            </a>
+            <div class="dropdown">
+                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    Anexos
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li>
+                        <a href="{{ path('cadastro_anexobackup_new', { 'registroBackup': registroBackup.id }) }}" >
+                            <span class="fa fa-paperclip"></span>
+                            Exclusivo
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('cadastro_registroanexobackup_new',{'registroBackup': registroBackup.id}) }}">
+                            <span class="fa fa-paperclip"></span>
+                            Compartilhado
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
 
         </div>
 
@@ -89,18 +107,18 @@
                     <th>Observacao</th>
                     <td>{{ registroBackup.observacao }}</td>
                 </tr>
-                <tr>
-                    <th>Anexo</th>
-                    <td>
-                        {% if registroBackup.fileName %}
-                            <a href="{{ vich_uploader_asset(registroBackup,'imageFile') }}" target="_blank" class="btn btn-primary btn-sm">
-                                <span class="glyphicon glyphicon-download"></span>
-                                Baixar
-                            </a>
-                            | {{ registroBackup.fileName }}
-                        {% endif %}
-                    </td>
-                </tr>
+                {#<tr>#}
+                    {#<th>Anexo</th>#}
+                    {#<td>#}
+                        {#{% if registroBackup.fileName %}#}
+                            {#<a href="{{ vich_uploader_asset(registroBackup,'imageFile') }}" target="_blank" class="btn btn-primary btn-sm">#}
+                                {#<span class="glyphicon glyphicon-download"></span>#}
+                                {#Baixar#}
+                            {#</a>#}
+                            {#| {{ registroBackup.fileName }}#}
+                        {#{% endif %}#}
+                    {#</td>#}
+                {#</tr>#}
                 <tr>
                     <th>Usuário</th>
                     <td>{{ registroBackup.user }}</td>
@@ -122,6 +140,9 @@
             {{ render(path('cadastro_regitrobackupequipamento_index',{'registrobackup': registroBackup.id })) }}
 
             {{ render(path('cadastro_anexobackup_index', { 'registroBackup' : registroBackup.id })) }}
+
+            {{ render(path('cadastro_registroanexobackup_to_show', { 'registroBackup' : registroBackup.id })) }}
+
         </div>
 
     {% endblock %}

@@ -51,6 +51,11 @@ class AnexoBackupController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+            if($anexoBackup->getNome() == null){
+                $anexoBackup->setNome($anexoBackup->getImageName());
+            }
+
             $em->persist($anexoBackup);
             $em->flush();
 

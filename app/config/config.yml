@@ -105,6 +105,10 @@ vich_uploader:
           uri_prefix: "%base_url%/anexos/backup"
           upload_destination: "%kernel.root_dir%/../web/anexos/backup"
           namer: vich_uploader.namer_origname
+      mapeamento_backup_compartilhado:
+          uri_prefix: "%base_url%/anexos/backupcompartilhado"
+          upload_destination: "%kernel.root_dir%/../web/anexos/backupcompartilhado"
+          namer: vich_uploader.namer_origname
 
 #QrCode
 endroid_qr_code:

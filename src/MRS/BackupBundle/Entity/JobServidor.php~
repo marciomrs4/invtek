@@ -3,6 +3,7 @@
 namespace MRS\BackupBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * JobServidor
@@ -22,12 +23,13 @@ class JobServidor
     private $id;
 
     /**
-     * @var \MRS\BackupBundle\Entity\Equipamento
+     * @var \MRS\InventarioBundle\Entity\Equipamento
      *
      * @ORM\ManyToOne(targetEntity="MRS\InventarioBundle\Entity\Equipamento")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="equipamento_id", referencedColumnName="id")
      * })
+     * @Assert\NotBlank(message="Equipamento é obrigatório")
      */
     private $equipamento;
 
@@ -38,6 +40,7 @@ class JobServidor
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="job_id", referencedColumnName="id")
      * })
+     * @Assert\NotBlank(message="Job é obrigatório")
      */
     private $job;
 
@@ -56,7 +59,7 @@ class JobServidor
     /**
      * Set equipamento
      *
-     * @param \MRS\BackupBundle\Entity\Equipamento $equipamento
+     * @param \MRS\InventarioBundle\Entity\Equipamento $equipamento
      *
      * @return JobServidor
      */

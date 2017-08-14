@@ -27,7 +27,7 @@ class TrocaFitaController extends Controller
         $repository = $this->getDoctrine()
                            ->getRepository('MRSBackupBundle:TrocaFita');
 
-        $trocaFitas = $repository->findBy(array(),array('id' => 'DESC'));
+        $trocaFitas = $repository->findBy(array(),array('dataCriacao' => 'DESC'));
         $maxId = $repository->getMaxId();
 
         return $this->render('trocafita/index.html.twig', array(

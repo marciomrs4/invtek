@@ -1,3 +1,11 @@
+mrs_backup_registro_anexo_backup:
+    resource: "@MRSBackupBundle/Controller/RegistroAnexoBackupController.php"
+    type:     annotation
+
+mrs_backup_anexo_compartilhado:
+    resource: "@MRSBackupBundle/Controller/AnexoCompartilhadoController.php"
+    type:     annotation
+
 mrs_backup_anexo_restore:
     resource: "@MRSBackupBundle/Controller/AnexoRestoreController.php"
     type:     annotation

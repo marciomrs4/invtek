@@ -242,4 +242,5 @@ class RegistroBackupController extends Controller
             'logs' => $logs
         ));
     }
+
 }

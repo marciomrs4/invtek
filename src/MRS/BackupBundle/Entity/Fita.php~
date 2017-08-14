@@ -3,6 +3,8 @@
 namespace MRS\BackupBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
@@ -10,6 +12,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *
  * @ORM\Table(name="fita", uniqueConstraints={@ORM\UniqueConstraint(name="bar_code_UNIQUE", columns={"bar_code"})})
  * @ORM\Entity
+ * @UniqueEntity(fields={"barCode"},ignoreNull=false,message="Já existe um registro com este código")
  * @Gedmo\Loggable()
  */
 class Fita
@@ -19,6 +22,7 @@ class Fita
      *
      * @ORM\Column(name="bar_code", type="string", length=45, nullable=false)
      * @Gedmo\Versioned()
+     * @Assert\NotBlank(message="O BarCode é obrigatório")
      */
     private $barCode;
 
@@ -27,6 +31,7 @@ class Fita
      *
      * @ORM\Column(name="ciclo", type="string", length=45, nullable=false)
      * @Gedmo\Versioned()
+     * @Assert\NotBlank(message="O campo é obrigatório")
      */
     private $ciclo;
 
@@ -35,6 +40,7 @@ class Fita
      *
      * @ORM\Column(name="jogo", type="string", length=45, nullable=false)
      * @Gedmo\Versioned()
+     * @Assert\NotBlank(message="O campo é obrigatório")
      */
     private $jogo;
 
@@ -43,6 +49,7 @@ class Fita
      *
      * @ORM\Column(name="descricao", type="string", length=255, nullable=false)
      * @Gedmo\Versioned()
+     * @Assert\NotBlank(message="O campo é obrigatório")
      */
     private $descricao;
 
@@ -63,6 +70,7 @@ class Fita
      *   @ORM\JoinColumn(name="unidade_id", referencedColumnName="id")
      * })
      * @Gedmo\Versioned()
+     * @Assert\NotBlank(message="O Campo Unidade é obrigatório")
      */
     private $unidade;
 
@@ -74,6 +82,7 @@ class Fita
      *   @ORM\JoinColumn(name="midia_id", referencedColumnName="id")
      * })
      * @Gedmo\Versioned()
+     * @Assert\NotBlank(message="O Campo midia é obrigatório")
      */
     private $midia;
 
@@ -185,7 +194,7 @@ class Fita
 
     public function __toString()
     {
-        return $this->getDescricao();
+        return $this->getDescricao() . ' | ' . $this->getBarCode();
     }
 
     /**

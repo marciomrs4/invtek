@@ -1,0 +1,68 @@
+{% extends ':template:template.html.twig' %}
+
+
+    {% block contentheader %}
+
+
+        <section class="content-header">
+            <h1>
+                Anexo Compartilhado
+                <small>Listar</small>
+            </h1>
+        </section>
+
+
+    {% endblock %}
+
+
+    {% block panelheading %}
+        <a href="{{ path('cadastro_anexocompartilhado_new') }}" class="btn btn-primary btn-sm">
+            <span class="glyphicon glyphicon-plus"></span>
+            Novo
+        </a>
+
+        <a href="{{ path('cadastro_registrobackup_index') }}" class="btn btn-primary btn-sm">
+            <span class="fa fa-backward"></span>
+            Registro Backup
+        </a>
+
+    {% endblock %}
+
+    {% block panelbody %}
+        <div class="table-responsive">
+            <table class="table table-bordered table-condensed table-hover table-striped">
+                <thead>
+                <tr>
+                    <th>Ações</th>
+                    <th>Arquivo</th>
+                    <th>Descrição</th>
+                    <th>Data de criação</th>
+                    <th>Data da alteração</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for anexoCompartilhado in anexoCompartilhados %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('cadastro_anexocompartilhado_show', { 'id': anexoCompartilhado.id }) }}"
+                               class="btn btn-primary btn-xs">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                            </a>
+                            <a href="{{ path('cadastro_anexocompartilhado_edit', { 'id': anexoCompartilhado.id }) }}"
+                               class="btn btn-primary btn-xs">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </a>
+                            <a href="{{ vich_uploader_asset(anexoCompartilhado,'imageFile') }}" target="_blank" class="btn btn-primary btn-xs">
+                                <span class="glyphicon glyphicon-download"></span>
+                            </a>
+                        </td>
+                        <td><a href="{{ vich_uploader_asset(anexoCompartilhado,'imageFile') }}" target="_blank">{{ anexoCompartilhado.imagename }}</a></td>
+                        <td>{{ anexoCompartilhado.nome }}</td>
+                        <td>{{ anexoCompartilhado.dataCriacao | date('d-m-Y') }}</td>
+                        <td>{{ anexoCompartilhado.dataAlteracao | date('d-m-Y') }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+{% endblock %}

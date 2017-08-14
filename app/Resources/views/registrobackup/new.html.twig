@@ -43,6 +43,9 @@
     {{ form_end(form) }}
 
         <a href="{{ path('cadastro_registrobackup_new') }}" id="link">
+
+        {#<a href="{{ path('job_list_by_unidade') }}" id="link">#}
+
     {% endblock %}
 
         {% block javascripts %}
@@ -53,17 +56,46 @@
 
             <script>
 
+{#
                 $(document).ready(function(){
 
-                    //$("#registro_backup_job").select2();
 
-                   // ("#registro_backup_job").hidden();
+                var $registro_backup_unidade = $('#registro_backup_unidade');
+
+                $registro_backup_unidade.change(function(){
+
+                    var unidade = $registro_backup_unidade.val();
+
+                    var url = $("#link").attr('href');
+
+                    var url = url+'/'+unidade;
+
+                   $.ajax({
+                        url: url,
+                        data: '',
+                        type: 'get',
+                        dataType: 'json',
+                        success: function(dados){
+
+                        $("#registro_backup_job").select2({
+                            data: dados,
+                         })
+                         console.log(dados)
+
+                        }
+                   });
+
+
 
                 });
 
+             });
+
+#}
             </script>
 
             <script>
+
                 var $registro_backup_unidade = $('#registro_backup_unidade');
                 // When sport gets selected ...
                 $registro_backup_unidade.change(function() {
@@ -94,11 +126,13 @@
                                     // ... with the returned one from the AJAX response.
                                     $(html).find('#registro_backup_job')
                             );
+
+                            //$("#registro_backup_job").select2();
                             // Position field now displays the appropriate positions.
                         },
                         error: function(err){
-                            $("#loader").html(err);
-                        }
+                           $("#loader").html(err);
+                       }
                     });
 
                 });

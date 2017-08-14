@@ -2,6 +2,8 @@
 
 namespace MRS\BackupBundle\Controller;
 
+use MRS\InventarioBundle\Entity\Unidade;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -156,6 +158,19 @@ class JobController extends Controller
         return $this->render('logentry/logentry.html.twig',array(
             'logs' => $logs
         ));
+
+    }
+
+    /**
+     * @Route("/json/list/{unidade}",name="job_list_by_unidade")
+     * @Method("GET")
+     */
+    public function jobListByUnidadeAction(Unidade $unidade = null)
+    {
+        $data = $this->getDoctrine()->getRepository('MRSBackupBundle:Job')
+                     ->getJobByUnidade($unidade);
+
+        return new JsonResponse($data);
 
     }
 }

@@ -11,7 +11,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * Job
  *
  * @ORM\Table(name="job", indexes={@ORM\Index(name="tipo_job_fk_idx", columns={"tipo_job_id"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="MRS\InventarioBundle\Repository\JobRepository")
  * @UniqueEntity(fields={"descricao"},ignoreNull=false,message="Já existe um registro com esta descrição")
  * @Gedmo\Loggable()
  */

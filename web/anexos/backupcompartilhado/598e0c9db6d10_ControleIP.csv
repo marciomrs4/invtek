@@ -1,0 +1,346 @@
+172.22.0.1,CEADIS-ISA-01,,1,2,1
+172.22.0.2,CEADIS-DC-02,,1,2,1
+172.22.0.3,CEADIS-DC-01,,1,2,1
+172.22.0.4,CS1-DC-01,,1,2,1
+172.22.0.5,CS1-DC-02,,1,2,1
+172.22.0.6,CS1-MAIL-01,,1,2,1
+172.22.0.7,CEADIS-BKP-01,,1,2,1
+172.22.0.8,CEADIS-WSUS-01,,1,2,1
+172.22.0.9,???????,,1,2,1
+172.22.0.10,ESX01,,1,2,1
+172.22.0.11,ESX02,,1,2,1
+172.22.0.12,CEADIS-DP,,1,2,1
+172.22.0.13,?????,,1,2,1
+172.22.0.14,?????,,1,2,1
+172.22.0.15,CS1-IMP-01,,1,2,1
+172.22.0.16,CS1-FIR-01,,1,2,1
+172.22.0.17,CS1-PHP-01,,1,2,1
+172.22.0.18,CEADIS-VPN-02,,1,2,1
+172.22.0.19,CS1-WSUS-01,,1,2,1
+172.22.0.20,CEADIS-IMP-01,,1,2,1
+172.22.0.21,CEADIS-IMP-02,,1,2,1
+172.22.0.22,CEADIS-DHCP-01,,1,2,1
+172.22.0.23,CEADIS-DHCP-02,,1,2,1
+172.22.0.24,CS1-SYMEP-01,,1,2,1
+172.22.0.25,CS1-IMP-02,,1,2,1
+172.22.0.26,SERVERWEB-PC,,1,2,1
+172.22.0.27,CS1-WMS-02,,1,2,1
+172.22.0.28,CS1-WMS-01,,1,2,1
+172.22.0.29,CS1-BKP-02,Servidor Dell T610 da UDTP,1,2,1
+172.22.0.30,CS1-SGA-APL-01,,1,2,1
+172.22.0.31,CEADIS-MAIL-01,,1,2,1
+172.22.0.32,CEADIS-MON-01,Cacti / VPN / SSH,1,2,1
+172.22.0.33,CEADIS-PORTAL-01,,1,2,1
+172.22.0.34,CEADIS-PORTAL-02,,1,2,1
+172.22.0.35,CEADIS-RF-01,,1,2,1
+172.22.0.36,CEADIS-SCE-01,,1,2,1
+172.22.0.37,CEADIS-SCE-02,,1,2,1
+172.22.0.38,CEADIS-SHP-02,CEADIS-SHP-02,1,2,1
+172.22.0.39,CEADIS-SHP-05,CEADIS-SHP-05,1,2,1
+172.22.0.40,CEADIS-TSS-01,CEADIS-TSS-01,1,2,1
+172.22.0.41,CEADIS-WEB-01,CEADIS-WEB-01,1,2,1
+172.22.0.42,CEADIS-WMS-01,,1,2,1
+172.22.0.43,CEADIS-WMS-02,,1,2,1
+172.22.0.44,CEADISTARIFADOR,CEADISTARIFADOR,1,2,1
+172.22.0.45,CEADIS-BD-01,,1,2,1
+172.22.0.46,iDRAC do novo Servidor Dell R230,iDRAC do novo Servidor Dell R230,1,2,1
+172.22.0.47,CS1-APL-01,Novo servidor Dell R230,1,2,1
+172.22.0.48,CS1-TAPE-01,Tape library Dell TL2000,1,2,1
+172.22.0.50,ESX-N01,,1,2,1
+172.22.0.51,ESX-N02,,1,2,1
+172.22.0.52,STORAGE NOVO,,1,2,1
+172.22.0.53,SW-NS01 Gerenciamento,,1,2,1
+172.22.0.54,CEADIS-VCE-03,,1,2,1
+172.22.0.55,ESX-N01,IDRAC MGMT,1,2,1
+172.22.0.56,ESX-N02,IDRAC MGMT,1,2,1
+172.22.0.57,Gerencia Storage 1 virtual,,1,2,1
+172.22.0.58,Gerencia Storage 2 fisico,,1,2,1
+172.22.0.59,CEADIS-VCE-03,,1,2,1
+172.22.0.60,CITRIX- HOMOLOGAÇÃO,,1,2,1
+172.22.0.61,CEADIS-DP-01,Liberado internet,1,2,1
+172.22.0.62,Hostname,Liberado internet,1,2,1
+172.22.0.63,,Liberado internet,1,2,1
+172.22.0.64,CS1-SW-CORE-01,Switch core novo Dell N3048,1,2,1
+172.22.0.65,CS1-SW-CORE-02,Switch core novo Dell N3048,1,2,1
+172.22.0.66,CEADIS PRÉ PROD,CEADIS PRÉ PROD,1,2,1
+172.22.0.67,CS1-WMS-01,Nova VM CentOS,1,2,1
+172.22.0.68,CS1-WMS-BD1,Nova VM CentOS,1,2,1
+172.22.0.69,CEADIS-SGA-01,Máquina virtual no XenServer,1,2,1
+172.22.0.70,CEADIS-PORTAL-03,HOMOLOGAÇÃO SCE-02,1,2,1
+172.22.0.71,CS1-OCS-02,,1,2,1
+172.22.0.85,CS1-SGA-BD-01,SSH 2255,1,2,1
+172.22.0.86,CS1-SGA-BD-02,SSH 2256,1,2,1
+172.22.0.87,CS1-CONT-LOIS-01,SSH 2257,1,2,1
+172.22.0.88,CS1-PORTAL-HOM-01,SSH 2258,1,2,1
+172.22.0.89,ceadis-rdp-01,usado pelo adm para acessar soft 32bits tarifador,1,2,1
+172.22.0.90,Servidor - software- UDTP,,1,2,1
+172.22.0.91,CEADIS-FIR-01,,1,2,1
+172.22.0.92,CEADIS-IIS-01,,1,2,1
+172.22.0.94,CEADIS-APL-01,,1,2,1
+172.22.0.95,CS1-FILE-SERVER01,,1,2,1
+172.22.0.100,ceadis-tss-02,Homologação,1,2,1
+172.22.0.101,CS1-PORTAL_WEB1,SSH 2241,1,2,1
+172.22.0.102,CS1-PORTAL_APP1,SSH 2247,1,2,1
+172.22.0.103,CS1-PORTAL_FILES1,SSH 2248,1,2,1
+172.22.0.104,CS1-PORTAL_APP2,SSH 2244,1,2,1
+172.22.0.105,CS1-PORTAL_BD1,SSH 2245,1,2,1
+172.22.0.106,CS1-PORTAL_BD2,SSH 2246,1,2,1
+172.22.0.107,CS1-PORTAL_WEB2,SSH 2250,1,2,1
+172.22.0.108,CS1-FILE-SYSTEM1,SSH 2251,1,2,1
+172.22.0.110,AMES-HOMOL-CEADIS,teste de impressão Sorocaba,1,2,1
+172.22.0.115,CS1-PES-01,,1,2,1
+172.22.0.120,CS1-HOMOL-SGA-01,,1,2,1
+172.22.0.125,CS1-NAGIOS-01,,1,2,1
+172.22.0.137,Servidor _lois-homologação,,1,2,1
+172.22.0.150,Concentradora MADIS,Torniquete do NAF,1,2,1
+172.22.0.190,CEADIS-PHP-01,,1,2,1
+172.22.0.250,ESX UDTP,TEMPORARIO,1,2,1
+172.22.0.252,Link VPN Vivo,,1,2,1
+172.22.1.1,Antena 1,,1,2,1
+172.22.1.2,Antena 2,Ok,1,2,1
+172.22.1.3,Antena 3,,1,2,1
+172.22.1.4,Antena 4,Ok,1,2,1
+172.22.1.5,Antena 5,Ok,1,2,1
+172.22.1.6,Antena 6,Ok,1,2,1
+172.22.1.7,Antena 7,Ok,1,2,1
+172.22.1.8,Antena 8,Ok,1,2,1
+172.22.1.9,Antena 9,,1,2,1
+172.22.1.10,Antena 10,,1,2,1
+172.22.1.11,Antena 11,,1,2,1
+172.22.1.12,Catraca acesso galpão,,1,2,1
+172.22.1.13,Catraca acesso CEADIS,,1,2,1
+172.22.1.14,Relógio de Ponto Galpão,,1,2,1
+172.22.1.15,Antena TP-Link 01,,1,2,1
+172.22.1.16,Antena TP-Link 02,,1,2,1
+172.22.1.17,Concentradora Madis,,1,2,1
+172.22.1.18,Facial Madis,,1,2,1
+172.22.1.19,Relógio de Ponto RH,,1,2,1
+172.22.1.24,CEADIS-PORTAL-03-HOMOLOCAO,Servidor de testes do Louis do AMD,1,2,1
+17.22.1.101,Painel Spider,,1,2,1
+172.22.2.1,IMP-GER-01,,1,2,1
+172.22.2.2,IMP-RH-01,,1,2,1
+172.22.2.3,IMP-REC-01,,1,2,1
+172.22.2.4,IMP-EXP-01,,1,2,1
+172.22.2.5,IMP-GAL-01,,1,2,1
+172.22.2.6,IMP-GAL-02,,1,2,1
+172.22.2.7,IMP-NAF-01,,1,2,1
+172.22.2.8,IMP-BKP-01,,1,2,1
+172.22.2.9,CS1-IMP-EXP-01,,1,2,1
+172.22.2.10,CS1-IMP-GAL-01,,1,2,1
+172.22.2.11,CS1-IMP-GAL-02,,1,2,1
+172.22.2.20,Zebra Doca 4,Print Server ,1,2,1
+172.22.2.30,Termica 01,Disponivel,1,2,1
+172.22.2.31,Termica 02,,1,2,1
+172.22.2.32,Termica 03,,1,2,1
+172.22.2.33,Termica 04,,1,2,1
+172.22.2.60,Termica 05,Em uso,1,2,1
+172.22.2.35,Termica 06,,1,2,1
+172.22.2.36,Termica 07,,1,2,1
+172.22.2.37,Termica 08,,1,2,1
+172.22.2.39,Termica 10,Em uso,1,2,1
+172.22.2.40,Termica 11,,1,2,1
+172.22.2.41,Termica 12,Em uso,1,2,1
+172.22.2.42,Termica 13,,1,2,1
+172.22.2.43,Termica 14,,1,2,1
+172.22.2.44,Termica 15,,1,2,1
+172.22.2.46,Termica 17,,1,2,1
+172.22.2.48,Termica 19,Em uso,1,2,1
+172.22.2.51,Termica 22,,1,2,1
+172.22.2.52,Termica 23,,1,2,1
+172.22.2.53,Termica 24,,1,2,1
+172.22.2.54,Termica_025,,1,2,1
+172.22.2.55,Print_MOV,Pablo/Ronaldo/Rubia,1,2,1
+172.22.2.57,Termica 27,,1,2,1
+172.22.2.58,TERMICA28,zebra ,1,2,1
+172.22.2.59,Termica29,zebra ,1,2,1
+172.22.2.60,EMBALAGEM,zebra ,1,2,1
+172.22.2.61,CONF-01,,1,2,1
+172.22.2.62,CONF-02,,1,2,1
+172.22.2.63,Termica30,zebra ,1,2,1
+172.22.2.64,Termica31,zebra ,1,2,1
+172.22.2.65,Termica32,zebra ,1,2,1
+172.22.2.66,Termica33,zebra ,1,2,1
+172.22.2.67,TERMICA34,zebra ,1,2,1
+172.22.2.68,TERMICA35,zebra ,1,2,1
+172.22.2.69,TERMICA36,zebra ,1,2,1
+172.22.2.70,IMPRESSORA BACKUP,BROTHER,1,2,1
+172.22.2.71,IMPRESSORA PM4I ,MARIO,1,2,1
+172.22.2.72,TERMICA37,zebra ,1,2,1
+172.22.2.73,TERMICA20,EM USO,1,2,1
+172.22.2.74,TERMICA26,EM USO,1,2,1
+172.22.2.75,TERMICA21,EM USO,1,2,1
+172.22.2.76,TERMICA16,EM USO,1,2,1
+172.22.2.77,TERMICA18,EM USO,1,2,1
+172.22.2.78,TERMICA9,Em USO,1,2,1
+172.22.2.80,dlink-print-10,,1,2,1
+172.22.2.81,dlink-print-1,,1,2,1
+172.22.2.82,dlink-print-2,,1,2,1
+172.22.2.83,dlink-print-3,,1,2,1
+172.22.2.84,dlink-print-4,,1,2,1
+172.22.2.85,Termica_NAF,,1,2,1
+172.22.2.86,dlink-print-6,,1,2,1
+172.22.2.87,dlink-print-7,,1,2,1
+172.22.2.88,dlink-print-8,,1,2,1
+172.22.2.89,dlink-print-9,,1,2,1
+172.22.2.100,PM4i Doca 2,Doca 2,1,2,1
+172.22.2.140,Teste impressão - AMES,,1,2,1
+172.22.2.141,Teste impressão - AMES,,1,2,1
+172.22.3.6,,Jose Carlos PORTA 21037,1,2,1
+172.22.3.11,,Liberado para Carlos MHA {21/05/2014},1,2,1
+172.22.3.12,,Elaine(antes Felipe),1,2,1
+172.22.3.15,,YONAS,1,2,1
+172.22.3.16,,Em uso,1,2,1
+172.22.3.17,,Em uso,1,2,1
+172.22.3.18,,TV,1,2,1
+172.22.3.20,,ZABBIX,1,2,1
+172.22.3.44,,Em uso,1,2,1
+172.22.3.41,INOVAPAR,DANIEL,1,2,1
+172.22.3.45,INOVAPAR,KASTEN,1,2,1
+172.22.3.46,INOVAPAR,THAIS,1,2,1
+172.22.3.80,,Relogio 1,1,2,1
+172.22.3.81,,Relogio2,1,2,1
+172.22.3.100,SGA-PRE-PROD,,1,2,1
+172.22.3.101,DEBIAN-8,,1,2,1
+172.22.4.1,,TI,1,2,1
+172.22.4.2,,TI,1,2,1
+172.22.4.3,,TI,1,2,1
+172.22.4.4,,TI,1,2,1
+172.22.4.5,,TI,1,2,1
+172.22.4.6,,TI,1,2,1
+172.22.4.7,,TI,1,2,1
+172.22.4.8,,TI,1,2,1
+172.22.4.9,,TI,1,2,1
+172.22.4.10,,TI,1,2,1
+172.22.4.11,,TI,1,2,1
+172.22.4.12,,TI,1,2,1
+172.22.4.13,,TI,1,2,1
+172.22.4.14,,TI,1,2,1
+172.22.4.15,,TI,1,2,1
+172.22.4.16,,TI,1,2,1
+172.22.4.17,,TI,1,2,1
+172.22.4.18,,TI,1,2,1
+172.22.4.19,,TI,1,2,1
+172.22.4.20,,TI,1,2,1
+172.22.4.21,CEADIS-COO-02,JOSE IDELFONSO,1,2,1
+172.22.4.22,,SUP/COORD/GERENCIA,1,2,1
+172.22.4.23,,SUP/COORD/GERENCIA,1,2,1
+172.22.4.24,,SUP/COORD/GERENCIA,1,2,1
+172.22.4.25,,SUP/COORD/GERENCIA,1,2,1
+172.22.4.26,,SUP/COORD/GERENCIA,1,2,1
+172.22.4.27,,SUP/COORD/GERENCIA,1,2,1
+172.22.4.28,,SUP/COORD/GERENCIA,1,2,1
+172.22.4.29,,SUP/COORD/GERENCIA,1,2,1
+172.22.4.30,,SUP/COORD/GERENCIA,1,2,1
+172.22.4.31,,SUP/COORD/GERENCIA,1,2,1
+172.22.4.32,,SUP/COORD/GERENCIA,1,2,1
+172.22.4.33,,SUP/COORD/GERENCIA,1,2,1
+172.22.4.34,,SUP/COORD/GERENCIA,1,2,1
+172.22.4.35,,SUP/COORD/GERENCIA,1,2,1
+172.22.4.36,,SUP/COORD/GERENCIA,1,2,1
+172.22.4.37,,SUP/COORD/GERENCIA,1,2,1
+172.22.4.38,,SUP/COORD/GERENCIA,1,2,1
+172.22.4.39,,SUP/COORD/GERENCIA,1,2,1
+172.22.4.40,,SUP/COORD/GERENCIA,1,2,1
+172.22.4.41,,SUP/COORD/GERENCIA,1,2,1
+172.22.4.42,,SUP/COORD/GERENCIA,1,2,1
+172.22.4.43,,SUP/COORD/GERENCIA,1,2,1
+172.22.4.44,,SUP/COORD/GERENCIA,1,2,1
+172.22.4.45,,SUP/COORD/GERENCIA,1,2,1
+172.22.4.46,,SUP/COORD/GERENCIA,1,2,1
+172.22.4.47,,SUP/COORD/GERENCIA,1,2,1
+172.22.4.48,,SUP/COORD/GERENCIA,1,2,1
+172.22.4.49,,SUP/COORD/GERENCIA,1,2,1
+172.22.4.50,Maria Cristina,,1,2,1
+172.22.4.51,ceadis-fat-06,Thiago,1,2,1
+172.22.4.53,Manutenção,,1,2,1
+172.22.4.55,DOCA03,,1,2,1
+172.22.4.57,,Thamy,1,2,1
+172.22.4.58,ceadis-inf-200,Jeferson,1,2,1
+172.22.4.59,ceadis-li-10,Jefferson,1,2,1
+172.22.4.60,ceadis-bkpc-01,Máquina sem usuário,1,2,1
+172.22.4.61,ceadis-plan-01,Rodinaldo Lins,1,2,1
+172.22.4.62,ceadis-inf,Mario,1,2,1
+172.22.4.63,ceadis-adm-01,Thiago Moreira,1,2,1
+172.22.4.64,ceadis-adm-15,Mikaela,1,2,1
+172.22.4.65,ceadis-adm-06,Clécio,1,2,1
+172.22.4.66,ceadis-adm-02,Marisa,1,2,1
+172.22.4.67,ceadis-plan-04,Raquel,1,2,1
+172.22.4.68,ceadis-plan-05,Maria,1,2,1
+172.22.4.69,ceadis-LI-03,Wagner,1,2,1
+172.22.4.70,ceadis-LI-04,Rodrigo,1,2,1
+172.22.4.71,ceadis-plan-02,Hugo,1,2,1
+172.22.4.72,ceadis-adm-10,Daniel,1,2,1
+172.22.4.73,ceadis-plan-03,Ivo,1,2,1
+172.22.4.74,ceadis-fat-09,Renato,1,2,1
+172.22.4.75,ceadis-conf-15,ceadis.conf,1,2,1
+172.22.4.76,ceadis-adm-05,Ionas,1,2,1
+172.22.4.77,ceadis-far-03,Ana Paula,1,2,1
+172.22.4.78,ceadis-far-07,Deleine,1,2,1
+172.22.4.79,ceadis-rh-02,Elaine,1,2,1
+172.22.4.80,ceadis-rh-01,Camila,1,2,1
+172.22.4.81,ceadis-fat-03,Regina,1,2,1
+172.22.4.82,ceadis-fat-15,Rodrigo,1,2,1
+172.22.4.83,ceadis-fat-10,Irakeli,1,2,1
+172.22.4.84,ceadis-exp-06,Elissandro,1,2,1
+172.22.4.85,ceadis-exp-02,Leandro,1,2,1
+172.22.4.86,ceadis-exp-08,Sem Usuário,1,2,1
+172.22.4.87,ceadis-exp-04,Pablo,1,2,1
+172.22.4.88,ceadis-exp-01,Marli Rubia,1,2,1
+172.22.4.89,ceadis-exp-07,Ronaldo,1,2,1
+172.22.4.90,ceadis-fat-05,Marcilândia,1,2,1
+172.22.4.91,ceadis-rec-02,Tainan,1,2,1
+172.22.4.92,ceadis-rec-08,Bruno,1,2,1
+172.22.4.93,ceadis-rec-98,Marcos Vinícius,1,2,1
+172.22.4.94,ceadis-rec-09,Lilian,1,2,1
+172.22.4.95,ceadis-gal-02,Operação 2,1,2,1
+172.22.4.96,ceadis-conf-01,Conferente 1,1,2,1
+172.22.4.97,ceadis-LI-01,Carolina,1,2,1
+172.22.4.98,ceadis-LI-02,Wilson,1,2,1
+172.22.4.99,ceadis-dir-01,José Carlos PORTA: 21456,1,2,1
+172.22.4.100,ceadis-inf-98,Danilo Medeiros,1,2,1
+172.22.4.101,ceadis-fat-04,Francisco Eudes,1,2,1
+172.22.4.102,ceadis-inf-02,Márcio Ramos Santos,2,2,1
+172.22.4.103,CS1-QUA-03,Lucia Oliveira Batista,1,2,1
+172.22.4.110,,Mikaela,1,2,1
+172.22.4.111,ceadis-rec-04,Expedição,1,2,1
+172.22.4.115,ceadis-far-10,Claudia Porta: 21022,1,2,1
+172.22.4.116,,Sandra,1,2,1
+172.22.4.117,NOTE,Gustavo Melo,1,2,1
+172.22.4.118,ceadis-far-02,Fernanda Ferreira,1,2,1
+172.22.4.121,NOTE,Bruno,1,2,1
+172.22.4.149,CS-QUA-01,Ingrid,1,2,1
+172.22.4.150,,Mario,1,2,1
+172.22.4.151,,Ionas,1,2,1
+172.22.4.151,,PC dos Seguranças,1,2,1
+172.22.4.152,,Notebook do José Carlos,1,2,1
+172.22.4.155,,Bruno Lima,1,2,1
+172.22.4.200,ceadis-desk-01,Micro acesso outlook José Carlos,1,2,1
+172.22.4.202,CS1-R1-03,Micro da Elaine,1,2,1
+172.22.4.210,ames-lois-01,Micro do sistema Lois AMES,1,2,1
+172.22.1.72,ceadis-inf-14,Thamy Oliveira,1,2,1
+172.22.4.156,,Edgard Gomes,1,2,1
+172.22.4.160,CS1-EVO-01,Gravador de ligações - PC da Ana,1,2,1
+172.22.4.161,CS1-EVO-02,Gravador de ligações - PC da Ingrid,1,2,1
+172.22.5.40,,Smartphone Asus Zenphone 5 (Cristiano Santos - TI),2,2,1
+172.22.5.41,,Dell Optiplex 790 (Felipe Santos - TI),2,2,1
+172.22.5.42,,Smartphone Sony Xperia ZQ (Felipe Santos - TI),2,2,1
+172.22.5.43,,Dell Optiplex 780 (Márcio Santos - TI) ,2,2,1
+172.22.5.44,,Dell Optiplex 780 (Edgard Gomes - TI),2,2,1
+172.22.5.45,,Dell Optiplex 3010 (Cristiano Santos - TI),2,2,1
+172.22.5.46,,Dell Optiplex 3020 (Cláudia Mazzilli - Gerência Operacional),2,2,1
+172.22.5.47,,CS1-GLPI-01 (Sistema de inventário),2,2,1
+172.22.5.48,,(Wagner Santos - Logística Interna),2,2,1
+172.22.5.49,,Dell Optiplex 790 (Mário Júnior - TI),2,2,1
+172.22.5.50,,CS1-TSS-02,2,2,1
+172.22.5.51,,Samsung Galaxy S3 Mini (Ana Melo - Qualidade),2,2,1
+172.22.5.52,,,2,1,1
+172.22.5.53,,,2,1,1
+172.22.5.54,,,2,1,1
+172.22.5.55,,,2,1,1
+172.22.5.56,,,2,1,1
+172.22.5.57,,,2,1,1
+172.22.5.58,,,2,1,1
+172.22.5.59,,,2,1,1
+172.22.5.60,,,2,1,1
+172.22.5.100,ATS-SWITCHES,ATS do rack de switches,1,2,1
+172.22.5.101,ATS-SERVERS,ATS do rack de servidores,1,2,1

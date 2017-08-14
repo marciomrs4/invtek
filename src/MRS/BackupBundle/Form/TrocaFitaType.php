@@ -19,7 +19,7 @@ class TrocaFitaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('dataCriacao',DateType::class,array('label'=>'Data de criação',
+            ->add('dataCriacao',DateType::class,array('label'=>'Data da troca',
                 'widget' => 'single_text',
                 'attr'=>array('class'=>'input-sm')))
             ->add('unidade',EntityType::class,array('label' =>'Unidade',

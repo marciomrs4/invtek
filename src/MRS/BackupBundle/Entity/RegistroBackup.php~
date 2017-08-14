@@ -7,14 +7,16 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * RegistroBackup
  *
  * @ORM\Table(name="registro_backup", indexes={@ORM\Index(name="registro_backup_job_fk_idx", columns={"job_id"}), @ORM\Index(name="registro_backup_status_fk_idx", columns={"status_id"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="MRS\BackupBundle\Repository\RegistroBackupRepository")
  * @Vich\Uploadable
  * @Gedmo\Loggable()
+ * @UniqueEntity(fields={"job","data"}, message="Já existe esse Job registrado hoje.")
  */
 class RegistroBackup
 {
@@ -103,7 +105,6 @@ class RegistroBackup
      * @var string
      *
      * @ORM\Column(name="job_name", type="string", length=255, nullable=true)
-     * @Assert\NotBlank(message="O Nome do Job é obrigatório")
      * @Gedmo\Versioned()
      */
     private $jobName;
@@ -114,14 +115,15 @@ class RegistroBackup
      *
      * @ORM\Column(name="tipo_job", type="string", length=255, nullable=true)
      * @Gedmo\Versioned()
-     * @Assert\NotBlank(message="O tipo de job é obrigatório")
      */
     private $tipoJob;
 
 
     public function __construct()
     {
-        $this->setData(new \DateTime('now'));
+        $date = new \DateTime('now');
+        $date->modify('-1day');
+        $this->setData($date);
     }
 
     /**
@@ -325,5 +327,53 @@ class RegistroBackup
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set jobName
+     *
+     * @param string $jobName
+     *
+     * @return RegistroBackup
+     */
+    public function setJobName($jobName)
+    {
+        $this->jobName = $jobName;
+
+        return $this;
+    }
+
+    /**
+     * Get jobName
+     *
+     * @return string
+     */
+    public function getJobName()
+    {
+        return $this->jobName;
+    }
+
+    /**
+     * Set tipoJob
+     *
+     * @param string $tipoJob
+     *
+     * @return RegistroBackup
+     */
+    public function setTipoJob($tipoJob)
+    {
+        $this->tipoJob = $tipoJob;
+
+        return $this;
+    }
+
+    /**
+     * Get tipoJob
+     *
+     * @return string
+     */
+    public function getTipoJob()
+    {
+        return $this->tipoJob;
     }
 }
