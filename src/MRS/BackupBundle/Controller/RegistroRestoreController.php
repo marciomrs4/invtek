@@ -96,6 +96,21 @@ class RegistroRestoreController extends Controller
     }
 
     /**
+     * Finds and displays a RegistroRestore entity.
+     *
+     * @Route("/doc/{id}", name="cadastro_registrorestore_show_doc")
+     * @Method("GET")
+     */
+    public function showDocAction(RegistroRestore $registroRestore)
+    {
+
+        return $this->render('registrorestore/doc_show.html.twig', array(
+            'registroRestore' => $registroRestore,
+         ));
+    }
+
+
+    /**
      * Displays a form to edit an existing RegistroRestore entity.
      *
      * @Route("/{id}/edit", name="cadastro_registrorestore_edit")

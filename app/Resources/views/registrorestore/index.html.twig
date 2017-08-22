@@ -34,13 +34,14 @@
             <thead>
             <tr>
                 <th>Ações</th>
-                    <th>Data</th>
+                    <th>Data de criação</th>
                     <th>Equipamento</th>
                     <th>Fita</th>
                     <th>Tipo de Job</th>
                     <th>Status</th>
                     <th>Observação</th>
                     <th>Usuário</th>
+                    <th>Unidade</th>
             </tr>
             </thead>
             <tbody>
@@ -69,6 +70,7 @@
                 <td>{{ registroRestore.status }}</td>
                 <td>{{ registroRestore.observacao }}</td>
                 <td>{{ registroRestore.user }}</td>
+                <td>{{ registroRestore.fita.unidade.nome }}</td>
             </tr>
             {% endfor %}
             </tbody>

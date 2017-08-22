@@ -113,6 +113,20 @@ class RegistroBackupController extends Controller
     }
 
     /**
+     * Finds and displays a RegistroBackup entity.
+     *
+     * @Route("/doc/{id}", name="cadastro_registrobackup_show_doc")
+     * @Method("GET")
+     */
+    public function showDocAction(RegistroBackup $registroBackup)
+    {
+
+        return $this->render('registrobackup/doc_show.html.twig', array(
+            'registroBackup' => $registroBackup,
+        ));
+    }
+
+    /**
      * Displays a form to edit an existing RegistroBackup entity.
      *
      * @Route("/{id}/edit", name="cadastro_registrobackup_edit")

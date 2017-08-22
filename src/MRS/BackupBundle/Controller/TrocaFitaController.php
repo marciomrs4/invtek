@@ -84,6 +84,20 @@ class TrocaFitaController extends Controller
     }
 
     /**
+     * Finds and displays a TrocaFita entity.
+     *
+     * @Route("/doc/{id}", name="cadastro_trocafita_show_doc")
+     * @Method("GET")
+     */
+    public function showDocAction(TrocaFita $trocaFitum)
+    {
+
+        return $this->render('trocafita/doc_show.html.twig', array(
+            'trocaFitum' => $trocaFitum,
+        ));
+    }
+
+    /**
      * Displays a form to edit an existing TrocaFita entity.
      *
      * @Route("/{id}/edit", name="cadastro_trocafita_edit")

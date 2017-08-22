@@ -40,7 +40,7 @@ class AnexoCompartilhado
     /**
      * @var string
      *
-     * @ORM\Column(name="imageName", type="string", length=45, nullable=true)
+     * @ORM\Column(name="imageName", type="string", length=255, nullable=true)
      * @Gedmo\Versioned()
      */
     private $imagename;
@@ -48,7 +48,7 @@ class AnexoCompartilhado
     /**
      * @var string
      *
-     * @ORM\Column(name="nome", type="string", length=45, nullable=true)
+     * @ORM\Column(name="nome", type="string", length=255, nullable=true)
      * @Gedmo\Versioned()
      */
     private $nome;

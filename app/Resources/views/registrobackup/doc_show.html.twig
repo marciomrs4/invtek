@@ -1,0 +1,128 @@
+{% extends ':template:template.html.twig' %}
+
+
+
+    {% block contentheader %}
+
+        <section class="content-header">
+            <h1>
+                Registro de Backup
+                <small></small>
+                <button class="btn btn-default" id="print">
+                    <span class="fa fa-print"></span>
+                    Imprimir
+                </button>
+            </h1>
+        </section>
+
+    {% endblock %}
+
+
+    {% block content %}
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                <img src="{{ asset('logoRelatorio.jpeg') }}" alt="" width="200">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="table table-responsive">
+                                <table class="table table-bordered table-condensed">
+                                    <tbody>
+                                    <tr>
+                                        <th>Data</th>
+                                        <td>{% if registroBackup.data %}{{ registroBackup.data|date('d-m-Y') }}{% endif %}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Status</th>
+                                        <td>{{ registroBackup.status }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Observacao</th>
+                                        <td>{{ registroBackup.observacao }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Usuário</th>
+                                        <td>{{ registroBackup.user }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Job</th>
+                                        <td>{{ registroBackup.jobName }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Tipo de Job JOB</th>
+                                        <td>{{ registroBackup.tipoJob }}</td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+
+                <div class="panel panel-default">
+
+                    <div class="panel-body">
+                        <div style="margin: auto; width: 85%">
+                            <small>RG.TI.02.002 - REGISTRO DE BACKUP -</small>
+                            <strong>Rev.02-13.05.17</strong>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    {% endblock %}
+
+    {% block footer %}
+        {#
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>IP: {{ app.request.clientIp }}</b>
+            </div>
+            <small>RG.TI.02.002 - REGISTRO DE BACKUP - Rev.02 - 13.05.17</small>
+        </footer>
+        #}
+    {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+
+        $("#print").click(function(){
+
+            window.print();
+        });
+
+    </script>
+
+{% endblock %}

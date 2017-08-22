@@ -1,0 +1,128 @@
+{% extends ':template:template.html.twig' %}
+
+
+
+    {% block contentheader %}
+
+        <section class="content-header">
+            <h1>
+                Troca de Fita
+                <small></small>
+                <button class="btn btn-default" id="print">
+                    <span class="fa fa-print"></span>
+                    Imprimir
+                </button>
+            </h1>
+        </section>
+
+    {% endblock %}
+
+
+    {% block content %}
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                <img src="{{ asset('logoRelatorio.jpeg') }}" alt="" width="200">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="table table-responsive">
+                                <table class="table table-bordered table-condensed">
+                                    <tbody>
+                                    <tr>
+                                        <th>Data de criação</th>
+                                        <td>{% if trocaFitum.dataCriacao %}{{ trocaFitum.dataCriacao|date('d-m-Y') }}{% endif %}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Usuário</th>
+                                        <td>{{ trocaFitum.user }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Barcode</th>
+                                        <td>{{ trocaFitum.fita.barCode }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Ciclo</th>
+                                        <td>{{ trocaFitum.fita.ciclo }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Jogo</th>
+                                        <td>{{ trocaFitum.fita.jogo }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Descrição</th>
+                                        <td>{{ trocaFitum.fita.descricao }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Unidade</th>
+                                        <td>{{ trocaFitum.fita.unidade }}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+
+                <div class="panel panel-default">
+
+                    <div class="panel-body">
+                        <div style="margin: auto; width: 85%">
+                            <small>        RG.TI.02.003 - REGISTRO DE TROCA DE FITA -</small>
+                            <strong>Rev.03 - 13.05.17</strong>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    {% endblock %}
+
+    {% block footer %}
+        {#
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>IP: {{ app.request.clientIp }}</b>
+            </div>
+            <small>RG.TI.02.002 - REGISTRO DE BACKUP - Rev.02 - 13.05.17</small>
+        </footer>
+        #}
+    {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+
+        $("#print").click(function(){
+
+            window.print();
+        });
+
+    </script>
+
+{% endblock %}

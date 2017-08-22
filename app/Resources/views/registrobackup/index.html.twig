@@ -40,11 +40,12 @@
                 <thead>
                 <tr>
                     <th>Ações</th>
-                    <th>Data</th>
+                    <th>Data de criação</th>
                     <th>Job</th>
                     <th>Status</th>
                     <th>Observacao</th>
                     <th>Usuário</th>
+                    <th>Unidade</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -70,6 +71,7 @@
                     <td>{{ registroBackup.status}}</td>
                     <td>{{ registroBackup.observacao}}</td>
                     <td>{{ registroBackup.user}}</td>
+                    <td>{{ registroBackup.job.unidade.nome }}</td>
                     </tr>
                 {% endfor %}
                 </tbody>

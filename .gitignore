@@ -15,5 +15,6 @@
 /web/anexos/backup/*
 /web/anexos/restore/*
 /web/anexos/equipamentos/*
+/web/anexos/backupcompartilhado/*
 /app/sessions/*
 !app/sessions/.gitkeep
