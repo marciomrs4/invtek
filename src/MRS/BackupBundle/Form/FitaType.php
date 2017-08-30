@@ -19,13 +19,13 @@ class FitaType extends AbstractType
                                            'attr'=>array('class'=>'input-sm')))
             ->add('ciclo',null,array('label'=>'ciclo',
                                            'attr'=>array('class'=>'input-sm')))
-            ->add('jogo',null,array('label'=>'jogo',
+            ->add('jogo',null,array('label'=>'Jogo',
                                            'attr'=>array('class'=>'input-sm')))
-            ->add('descricao',null,array('label'=>'descricao',
+            ->add('descricao',null,array('label'=>'Descrição',
                                            'attr'=>array('class'=>'input-sm')))
-            ->add('unidade',null,array('label'=>'unidade',
+            ->add('unidade',null,array('label'=>'Unidade',
                                            'attr'=>array('class'=>'input-sm')))
-            ->add('midia',null,array('label'=>'midia',
+            ->add('midia',null,array('label'=>'Mídia',
                                            'attr'=>array('class'=>'input-sm')))
         ;
     }

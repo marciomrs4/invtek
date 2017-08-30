@@ -31,10 +31,12 @@ class RegistroBackupController extends Controller
         $registroBackups = $repository->findBy(array(),array('id' => 'DESC'));
 
         $maxId = $repository->getMaxId();
+        $status_falha = $this->getParameter('status_falha');
 
         return $this->render('registrobackup/index.html.twig', array(
             'registroBackups' => $registroBackups,
-            'maxId' => $maxId['1']
+            'maxId' => $maxId['1'],
+            'status_falha' => $status_falha
         ));
     }
 
@@ -152,8 +154,6 @@ class RegistroBackupController extends Controller
             return $this->redirectToRoute('cadastro_registrobackup_show', array('id' => $id));
         }
 
-        $registroBackup->setTipoJob($registroBackup->getJob()->getTipoJob()->getDescricao())
-            ->setJobName($registroBackup->getJob()->getDescricao());
 
         $editForm = $this->createForm('MRS\BackupBundle\Form\RegistroBackupType', $registroBackup);
         $editForm->handleRequest($request);
@@ -166,7 +166,6 @@ class RegistroBackupController extends Controller
             foreach($regitrosBackupEquipamentos as $regitroBackupEquipamento) {
 
                 $em->remove($regitroBackupEquipamento);
-                $em->flush();
             }
 
             $jobId = $registroBackup->getJob();
@@ -187,12 +186,15 @@ class RegistroBackupController extends Controller
 
             }
 
+            $registroBackup->setTipoJob($registroBackup->getJob()->getTipoJob()->getDescricao())
+                           ->setJobName($registroBackup->getJob()->getDescricao());
 
             $em->persist($registroBackup);
+
             $em->flush();
 
             $mensagens = array('mensagem' => 'Registrado com sucesso!',
-                'tipo_mensagem' => 'success');
+                               'tipo_mensagem' => 'success');
 
             $this->addFlash('notice',$mensagens);
 

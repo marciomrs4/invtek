@@ -3,6 +3,7 @@
 namespace MRS\BackupBundle\Controller;
 
 use MRS\InventarioBundle\Entity\Unidade;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -122,9 +123,20 @@ class JobController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($job);
-            $em->flush();
+
+            try {
+                $em = $this->getDoctrine()->getManager();
+                $em->remove($job);
+                $em->flush();
+            }catch(\Exception $e){
+
+                $menssage = ['tipo_message' => 'danger',
+                             'message' => 'Não é possivel remover este item!'];
+
+                $this->addFlash('notice', $menssage);
+
+                return $this->redirectToRoute('cadastro_job_edit', array('id' => $job->getId()));
+            }
         }
 
         return $this->redirectToRoute('cadastro_job_index');

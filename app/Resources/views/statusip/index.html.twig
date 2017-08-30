@@ -19,7 +19,8 @@
     <a href="{{ path('cadastro_statusip_new') }}" class="btn btn-primary btn-sm">
             <span class="glyphicon glyphicon-plus"></span>
             Novo
-        </a>    {% endblock %}
+        </a>
+    {% endblock %}
 
     {% block panelbody %}
     <div class="table-responsive">
@@ -36,12 +37,10 @@
             <tr>
                 <td>
                     <a href="{{ path('cadastro_statusip_show', { 'id': statusIp.id }) }}" class="btn btn-primary btn-sm">
-                        <span class="glyphicon glyphicon-eye-open"></span>
-                        Mostrar
+                        <span class="glyphicon glyphicon-search"></span>
                     </a>
                     <a href="{{ path('cadastro_statusip_edit', { 'id': statusIp.id }) }}" class="btn btn-primary btn-sm">
                         <span class="glyphicon glyphicon-edit"></span>
-                        Editar
                     </a>
                 </td>
                 <td><a href="{{ path('cadastro_statusip_show', { 'id': statusIp.id }) }}">{{ statusIp.nome }}</a></td>

@@ -208,9 +208,17 @@ class JobServidorController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($jobServidor);
-            $em->flush();
+
+            try {
+                $em = $this->getDoctrine()->getManager();
+                $em->remove($jobServidor);
+                $em->flush();
+            }catch(\Exception $e){
+
+                $this->addFlash('notice','Criado com sucesso!');
+
+                return $this->redirectToRoute('cadastro_job_show', array('id' => $jobServidor->getJob()->getId()));
+            }
         }
 
         return $this->redirectToRoute('cadastro_job_show',array('id' => $job));

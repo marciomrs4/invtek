@@ -118,9 +118,23 @@ class StatusIpController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($statusIp);
-            $em->flush();
+
+            try {
+
+                $em = $this->getDoctrine()->getManager();
+                $em->remove($statusIp);
+                $em->flush();
+
+            }catch(\Exception $e){
+
+                $message = ['tipo_message' => 'danger',
+                            'message' =>'Não é possivel Excluir, este registro deve estar em uso no sistema!'];
+
+            $this->addFlash('notice',$message);
+
+            return $this->redirectToRoute('cadastro_statusip_edit', array('id' => $statusIp->getId()));
+
+            }
         }
 
         return $this->redirectToRoute('cadastro_statusip_index');

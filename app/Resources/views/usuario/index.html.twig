@@ -36,27 +36,24 @@
                 <thead>
                 <tr>
                     <th>Ações</th>
-                    <th>Nomecompleto</th>
+                    <th>Nome Completo</th>
                     <th>Nome</th>
                     <th>Número Identificação</th>
                     <th>Centro de Movimentacao</th>
                     <th>Unidade</th>
                     <th>Acesso</th>
                     <th>Status</th>
-                    <th>Observação</th>
                 </tr>
                 </thead>
                 <tbody>
                 {% for usuario in usuarios %}
                     <tr>
                         <td>
-                            <a href="{{ path('cadastro_usuario_show', { 'id': usuario.id }) }}" class="btn btn-primary btn-sm">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                                Mostrar
+                            <a href="{{ path('cadastro_usuario_show', { 'id': usuario.id }) }}" class="btn btn-primary btn-xs">
+                                <span class="glyphicon glyphicon-search"></span>
                             </a>
-                            <a href="{{ path('cadastro_usuario_edit', { 'id': usuario.id }) }}" class="btn btn-primary btn-sm">
+                            <a href="{{ path('cadastro_usuario_edit', { 'id': usuario.id }) }}" class="btn btn-primary btn-xs">
                                 <span class="glyphicon glyphicon-edit"></span>
-                                Editar
                             </a>
                         </td>
                         <td><a href="{{ path('cadastro_usuario_show', { 'id': usuario.id }) }}">{{ usuario.nomecompleto }}</a></td>
@@ -70,7 +67,6 @@
                             {% endif %}
                         </td>
                         <td>{% if usuario.status %}Ativo{% else %}Inativo{% endif %}</td>
-                        <td>{{ usuario.observacao }}</td>
 
                     </tr>
                 {% endfor %}

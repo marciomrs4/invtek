@@ -15,7 +15,7 @@ class StatusIpType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nome',null,array('label'=>'nome',
+            ->add('nome',null,array('label'=>'Nome',
                                            'attr'=>array('class'=>'input-sm')))
         ;
     }

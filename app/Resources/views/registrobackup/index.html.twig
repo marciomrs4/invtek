@@ -51,7 +51,7 @@
                 <tbody>
                 {% for registroBackup in registroBackups %}
 
-                    {% if registroBackup.status == 'FALHA' %}
+                    {% if registroBackup.status == status_falha %}
                         <tr class="danger">
                     {% else %}
                         <tr>

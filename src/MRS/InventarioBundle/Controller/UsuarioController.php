@@ -119,9 +119,21 @@ class UsuarioController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($usuario);
-            $em->flush();
+
+            try {
+                $em = $this->getDoctrine()->getManager();
+                $em->remove($usuario);
+                $em->flush();
+            }catch(\Exception $e){
+
+                $message = ['message' => 'Não é possivel remover o usuário, pois já foi usado em outro registro',
+                            'tipo_message' => 'danger',
+                            'trace_error' => $e->getMessage()];
+
+                $this->addFlash('notice',$message);
+
+                return $this->redirectToRoute('cadastro_usuario_edit',['id' => $usuario->getId()]);
+            }
         }
 
         return $this->redirectToRoute('cadastro_usuario_index');

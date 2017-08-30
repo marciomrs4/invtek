@@ -33,4 +33,7 @@ parameters:
     do_ping: false
     #App color
     color: green
+    #Tipos de Equipamentos para a criação do Job
     tiposequipamentos: [3, 13]
+    #Nome do Status para marcar como vermelho a linha no Registro Backup e Restore
+    status_falha: 'FALHA'
