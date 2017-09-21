@@ -18,7 +18,7 @@ class AppKernel extends Kernel
             new MRS\InventarioBundle\MRSInventarioBundle(),
             new MRS\UserBundle\UserBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
-            new \Endroid\Bundle\QrCodeBundle\EndroidQrCodeBundle(),
+            new \Endroid\QrCode\Bundle\QrCodeBundle\EndroidQrCodeBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new MRS\BackupBundle\MRSBackupBundle(),
         );
