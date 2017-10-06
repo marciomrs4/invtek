@@ -52,7 +52,7 @@ class TipoacompanhamentoController extends Controller
 
             $this->addFlash('notice','Criado com sucesso!');
 
-            return $this->redirectToRoute('cadastro_tipoacompanhamento_index');
+            return $this->redirectToRoute('cadastro_tipoacompanhamento_show', array('id' =>$tipoacompanhamento->getId()));
         }
 
         return $this->render('tipoacompanhamento/new.html.twig', array(
