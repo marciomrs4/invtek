@@ -111,12 +111,18 @@ vich_uploader:
           namer: vich_uploader.namer_origname
 
 #QrCode
-#endroid_qr_code:
-#    size: 100
-#    padding: 10
-#    extension: gif
-#    error_correction_level: high
-#    foreground_color: { r: 0, g: 0, b: 0, a: 0 }
-#    background_color: { r: 255, g: 255, b: 255, a: 0 }
-#    label: ''
-#    label_font_size: 16
+endroid_qr_code:
+    writer: 'png'
+    size: 150
+    margin: 10
+    foreground_color: { r: 0, g: 0, b: 0 }
+    background_color: { r: 255, g: 255, b: 255 }
+    error_correction_level: low # low, medium, quartile or high
+    encoding: UTF-8
+    label: ''
+    label_font_size: 20
+    label_alignment: left # left, center or right
+    label_margin: { b: 20 }
+    #logo_path: '%kernel.root_dir%/../vendor/endroid/qrcode/assets/symfony.png'
+    logo_width: 150
+    validate_result: false # checks if the result is readable
