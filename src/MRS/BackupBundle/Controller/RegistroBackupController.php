@@ -62,6 +62,20 @@ class RegistroBackupController extends Controller
             $jobsServidor = $em->getRepository('MRSBackupBundle:JobServidor')
                                ->findBy(array('job' => $jobId));
 
+            if(!$jobsServidor){
+
+                $mensagens = array('mensagem' => 'Não existe servidores neste jobs!',
+                                   'tipo_mensagem' => 'warning',
+                                    'job_id' => $jobId->getId());
+
+                $this->addFlash('notice',$mensagens);
+
+                return $this->redirectToRoute('cadastro_registrobackup_new');
+            }
+
+            //dump($jobsServidor); exit();
+
+
             foreach($jobsServidor as $jobServidor){
 
                 $registroBackupEquipamento = new RegistroBackupEquipamento();

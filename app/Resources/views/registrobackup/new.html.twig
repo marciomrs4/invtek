@@ -12,6 +12,27 @@
 
     {% endblock %}
 
+    {% block firstrow %}
+
+        {% for message in app.session.flashBag.get('notice') %}
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="alert alert-{{ message.tipo_mensagem }} alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <i class="fa fa-info"></i> {{ message.mensagem }}.
+
+                    <a href="{{ path('cadastro_jobservidor_new', { 'job': message.job_id }) }}" class="btn btn-primary btn-xs">
+                        <span class="fa fa-plus"></span>
+                        Incluir Servidor
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+
+
+    {% endblock %}
+
 
     {% block panelheading %}
 
@@ -55,6 +76,8 @@
             <script src="{{ asset('bundles/mrsinventario/js/select2.js') }}"></script>
 
             <script>
+
+            $("#registro_backup_job").select2();
 
 {#
                 $(document).ready(function(){

@@ -53,10 +53,10 @@ class EquipamentoType extends AbstractType
                     return $er->createQueryBuilder('t')
                         ->orderBy('t.descricao');
                 },'placeholder'=> ''))
-            ->add('validade', DateType::class,array('label'=>'Vigência de Garantia',
+            ->add('dataCompra',DateType::class,array('label'=>'Data da Compra',
                 'widget'=>'single_text',
                 'attr' => array('class'=>'input-sm')))
-            ->add('dataCompra',DateType::class,array('label'=>'Data da Compra',
+            ->add('validade', DateType::class,array('label'=>'Vigência de Garantia',
                 'widget'=>'single_text',
                 'attr' => array('class'=>'input-sm')))
             ->add('valorCompra', MoneyType::class, array('label' => 'Valor da Compra',

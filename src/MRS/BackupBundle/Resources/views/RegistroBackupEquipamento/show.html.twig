@@ -1,0 +1,46 @@
+<div class="box">
+    <div class="box-body">
+
+        <div class="table table-responsive">
+            <table class="table table-bordered table-condensed">
+                <tbody>
+                <tr>
+                    <th>Data</th>
+                    <td>{% if registroBackup.data %}{{ registroBackup.data|date('d-m-Y') }}{% endif %}</td>
+                </tr>
+
+                <tr>
+                    <th>Status</th>
+                    <td>{{ registroBackup.status }}</td>
+                </tr>
+                <tr>
+                    <th>Observacao</th>
+                    <td>{{ registroBackup.observacao }}</td>
+                </tr>
+                <tr>
+                    <th>Usuário</th>
+                    <td>{{ registroBackup.user }}</td>
+                </tr>
+
+                <tr>
+                    <th>Job</th>
+                    <td>{{ registroBackup.jobName }}</td>
+                </tr>
+
+                <tr>
+                    <th>Tipo de Job JOB</th>
+                    <td>{{ registroBackup.tipoJob }}</td>
+                </tr>
+
+                </tbody>
+            </table>
+
+            {{ render(path('cadastro_regitrobackupequipamento_index',{'registrobackup': registroBackup.id })) }}
+
+            {{ render(path('cadastro_anexobackup_index', { 'registroBackup' : registroBackup.id })) }}
+
+            {{ render(path('cadastro_registroanexobackup_to_show', { 'registroBackup' : registroBackup.id })) }}
+
+        </div>
+    </div>
+</div>

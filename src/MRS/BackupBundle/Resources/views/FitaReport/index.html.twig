@@ -1,0 +1,74 @@
+{% extends ':template:template.html.twig' %}
+
+{% block stylesheets %}
+
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('bundles/mrsinventario/css/dataTables.bootstrap.css') }}">
+
+{% endblock %}
+
+
+    {% block contentheader %}
+
+
+        <section class="content-header">
+            <h1>
+                Fita(s)
+                <small>Quantidade de Utilização</small>
+            </h1>
+        </section>
+
+
+    {% endblock %}
+
+
+    {% block panelheading %}
+
+    {% endblock %}
+
+    {% block panelbody %}
+        <div class="table-responsive">
+            <table class="table table-bordered table-condensed table-hover table-striped table-datatable" data-order='[]'>
+                <thead>
+                <tr>
+                    <th>Ações</th>
+                    <th>Barcode</th>
+                    <th>Ciclo</th>
+                    <th>Jogo</th>
+                    <th>Descrição</th>
+                    <th>Restore</th>
+                    <th>Troca</th>
+                 </tr>
+                </thead>
+                <tbody>
+                {% for fita in fitas %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('cadastro_fita_show', { 'id': fita.id }) }}" class="btn btn-primary btn-xs">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                            </a>
+                        </td>
+                        <td><a href="{{ path('cadastro_fita_show', { 'id': fita.id }) }}">{{ fita.bar_code }}</a></td>
+                        <td>{{ fita.ciclo }}</td>
+                        <td>{{ fita.jogo }}</td>
+                        <td>{{ fita.descricao }}</td>
+                        <td>{{ fita.restore }}</td>
+                        <td>{{ fita.troca }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="{{ asset('bundles/mrsinventario/js/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('bundles/mrsinventario/js/dataTables.bootstrap.js') }}"></script>
+    <script src="{{ asset('bundles/mrsinventario/js/mrs-dataTable.js') }}"></script>
+
+
+{% endblock %}

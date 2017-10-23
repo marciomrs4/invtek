@@ -25,6 +25,17 @@ class DefaultController extends Controller
      */
     public function homeAction()
     {
+
+        return $this->render('template/home.html.twig');
+    }
+
+    /**
+     * @Route("/version",name="dashboard_version")
+     * @Method("GET")
+     */
+    public function versionAction()
+    {
+
         return $this->render('MRSInventarioBundle:Default:index.html.twig');
     }
 }

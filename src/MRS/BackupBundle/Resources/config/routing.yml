@@ -1,3 +1,6 @@
-#mrs_backup_homepage:
-#    path:     /
-#    defaults: { _controller: MRSBackupBundle:Default:index }
+mrs_report_fita:
+    resource: "@MRSBackupBundle/Controller/FitaReportController.php"
+    type:     annotation
+mrs_report_equipamento_backup:
+    resource: "@MRSBackupBundle/Controller/RegistroBackupEquipamentoReportController.php"
+    type:     annotation

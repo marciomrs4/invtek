@@ -1,0 +1,188 @@
+{% extends ':template:template.html.twig' %}
+
+    {% block stylesheets %}
+        {{ parent() }}
+        <link rel="stylesheet" href="{{ asset('bundles/mrsinventario/css/nv.d3.css') }}">
+    {% endblock %}
+
+    {% block contentheader %}
+
+        <section class="content-header">
+            <h1>
+                Equipamento
+                <small>Gráfico de Equipamentos por àrea | Encontrado(s) {{ quantidadeEquipamentos }} </small>
+            </h1>
+        </section>
+
+    {% endblock %}
+
+    {% block content %}
+
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                <div class="box box-primary">
+                    <!-- /.box-header -->
+                    <div class="box-body">
+
+                        {{ form_start(form, { 'attr':{ 'novalidate':'novalidate' }}) }}
+
+                        <div class="row">
+
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+
+                                <div class="form-group">
+                                    {{ form_row(form.tipoequipamento) }}
+                                </div>
+
+                            </div>
+
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+
+                                <div class="form-group">
+                                    {{ form_row(form.centroMovimentacao) }}
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <div class="form-group">
+
+                                        <button class="btn btn-default btn-sm">
+                                            <span class="fa fa-pie-chart"></span>
+                                            Gerar
+                                        </button>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        {{ form_end(form) }}
+
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                <div class="box box-primary">
+
+                    <div class="box-body">
+                        <svg id="chart" style="display: block; float: left; width: 768px; height:550px">
+                        </svg>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="box box-primary">
+                    <div class="box-body">
+                        <svg id="barChart" style="display: block; float: left; height: 350px; width: 750px;">
+                        </svg>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    {% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+
+    <script src="{{ asset('bundles/mrsinventario/js/select2.js') }}"> </script>
+
+    <script src="{{ asset('bundles/mrsinventario/js/d3.min.js') }}"> </script>
+    <script src="{{ asset('bundles/mrsinventario/js/nv.d3.js') }}"> </script>
+
+    <script>
+        $('#chart_equipamentos_tipoequipamento').select2();
+        $('#chart_equipamentos_centroMovimentacao').select2();
+
+            //Regular pie chart example
+        nv.addGraph(function() {
+            var chart = nv.models.pieChart()
+                    .y(function(d) { return d.quantidade })
+                    .x(function(d) { return d.centro_equipamento })
+                    .showLabels(true)
+                    .labelThreshold(.01)
+                    .duration(500)
+                    .donut(false)
+                    .labelType("percent")
+                    .noData("Por favor clique em Gerar")
+                    .valueFormat(d3.format('.0f'));
+
+            d3.select("#chart")
+                    .datum(getData())
+                    .transition().duration(500)
+                    .call(chart);
+
+            nv.utils.windowResize(chart.update);
+
+            return chart;
+        });
+
+        //Pie chart data. is only a single array of key-value pairs.
+        function getData() {
+            return {{ equipamentos|raw }}
+//            return [{"Quantidade":"808","Status":"PENDENTE"},{"Quantidade":"512","Status":"EM ATENDIMENTO"},{"Quantidade":"1699","Status":"FINALIZADO"}]
+        }
+
+
+        nv.addGraph(function() {
+            var chart = nv.models.discreteBarChart()
+                    .x(function(d) { return d.centro_equipamento })    //Specify the data accessors.
+                    .y(function(d) { return d.quantidade })
+                    .staggerLabels(true)    //Too many bars and not enough room? Try staggering labels.
+                    .showValues(true)       //...instead, show the bar value right on top of each bar.
+                    .forceY([0,10,getMaxValue(getData())])
+                    .valueFormat(d3.format('.0f'))
+                   ;
+
+            d3.select('#barChart')
+                    .datum(getDataToChart())
+                    .transition().duration(500)
+                    .call(chart);
+
+            nv.utils.windowResize(chart.update);
+
+            return chart;
+        });
+
+
+        function getMaxValue(array) {
+            novoArray = [];
+            array.forEach(function (item) {
+                novoArray.push(item.quantidade);
+            });
+            return Math.max.apply(null, novoArray);
+        }
+
+        //Each bar represents a single discrete quantity.
+        function getDataToChart() {
+
+            return  [
+                {
+                    key: "Tipo de Equipamento por Centro de Movimentaçao",
+                    values: getData()
+                }
+            ]
+        }
+
+    </script>
+
+{% endblock %}

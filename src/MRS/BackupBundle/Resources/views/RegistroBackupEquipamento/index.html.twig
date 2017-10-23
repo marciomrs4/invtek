@@ -1,0 +1,149 @@
+{% extends ':template:template.html.twig' %}
+
+{% block stylesheets %}
+
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('bundles/mrsinventario/css/dataTables.bootstrap.css') }}">
+
+{% endblock %}
+
+
+    {% block contentheader %}
+
+
+        <section class="content-header">
+            <h1>
+                Equipamentos com Backup
+                <small></small>
+            </h1>
+        </section>
+
+
+    {% endblock %}
+
+
+    {% block panelheading %}
+
+        <div class="row">
+            {{ form_start(equipamento_form,{ 'attr' : { 'novalidate':'novalidate'}}) }}
+
+            <div class="col-md-3">
+                {{ form_label(equipamento_form.equipamento) }}
+                {{ form_widget(equipamento_form.equipamento) }}
+            </div>
+
+            <div class="col-md-3">
+                {{ form_label(equipamento_form.data1) }}
+                {{ form_widget(equipamento_form.data1) }}
+            </div>
+
+            <div class="col-md-3">
+                {{ form_label(equipamento_form.data2) }}
+                {{ form_widget(equipamento_form.data2) }}
+            </div>
+
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-default btn-sm" id="submit-click">
+                    <span class="glyphicon glyphicon-search"></span>
+                    Pesquisar
+                </button>
+            </div>
+
+
+
+        </div>
+        {{ form_end(equipamento_form) }}
+
+    {% endblock %}
+
+    {% block panelbody %}
+        <div class="table-responsive">
+            <table class="table table-bordered table-condensed table-hover table-striped table-datatable" data-order='[]'>
+                <thead>
+                <tr>
+                    <th>Ação</th>
+                    <th>Equipamento</th>
+                    <th>Data</th>
+                    <th>Unidade</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for backup in backups %}
+                <tr>
+                    <th>
+                        <a href="{{ path('show_report_equipamento_report', { 'id' : backup.id }) }}" class="btn btn-primary btn-xs backup"
+                           data-toggle="modal" data-target=".bs-maisinformacoes">
+                           <span class="fa fa-search"></span>
+                        </a>
+                    </th>
+                    <th>{{ backup.equipamento }}</th>
+                    <th>{{ backup.data | date('d-m-Y') }}</th>
+                    <th>{{  backup.unidade }}</th>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="modal fade bs-maisinformacoes" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel2">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+                    <div class="maisinformacoes">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="{{ asset('bundles/mrsinventario/js/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('bundles/mrsinventario/js/dataTables.bootstrap.js') }}"></script>
+    <script src="{{ asset('bundles/mrsinventario/js/mrs-dataTable.js') }}"></script>
+
+
+    <script>
+
+        /*
+        $(document).ready(function() {
+
+
+            var maisinformacao = $(".backup");
+
+            var urlMaisInformacao = $(maisinformacao).attr('href');
+
+            $(".backup").click(function (e) {
+
+                e.preventDefault();
+
+                //alert('OK');
+
+                $('.maisinformacoes').html('<p>TESTE</p>');
+
+                {#
+                $.get(urlMaisInformacao, function (data) {
+
+                    console.log(data);
+
+                    $('.maisinformacoes').replaceWith(
+
+                    '<p>TESTE</p>'
+
+                    );
+                });
+                #}
+
+
+            });
+
+        });
+*/
+    </script>
+
+{% endblock %}

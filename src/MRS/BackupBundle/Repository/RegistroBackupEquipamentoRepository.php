@@ -10,4 +10,41 @@ namespace MRS\BackupBundle\Repository;
  */
 class RegistroBackupEquipamentoRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    private function getQueryPrepare($query)
+    {
+        return $this->getEntityManager()
+                    ->getConnection()
+                    ->prepare($query);
+    }
+
+    private function validateValueEmpty($value)
+    {
+        return ($value == '' ) ? '%' : '%'.$value.'%';
+    }
+
+    public function listarEquipamentosBackup($data = array())
+    {
+        $query = "SELECT registro_backup_id as 'id', equipamento,
+	                     data_criacao as 'data', unidade
+                  FROM registro_backup_equipamento
+                  WHERE equipamento LIKE ?
+                  AND data_criacao >= ?
+                  AND data_criacao <= ?
+                  ORDER BY data_criacao DESC
+                  LIMIT 500;";
+
+        $stmt = $this->getQueryPrepare($query);
+
+        $stmt->execute([
+                $this->validateValueEmpty($data['equipamento']),
+                $data['data1'],
+                $data['data2']
+        ]);
+
+        return $stmt->fetchAll();
+
+    }
+
+
 }

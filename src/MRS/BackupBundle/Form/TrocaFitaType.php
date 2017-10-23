@@ -22,18 +22,17 @@ class TrocaFitaType extends AbstractType
             ->add('dataCriacao',DateType::class,array('label'=>'Data da troca',
                 'widget' => 'single_text',
                 'attr'=>array('class'=>'input-sm')))
-            ->add('unidade',EntityType::class,array('label' =>'Unidade',
+            ->add('fita',EntityType::class,array('label'=>'Fita',
                 'attr'=>array('class'=>'input-sm'),
-                'mapped' => false,
-                'class' => 'MRS\InventarioBundle\Entity\Unidade',
+                'class' => 'MRS\BackupBundle\Entity\Fita',
                 'query_builder' => function(EntityRepository $er){
-                    return $er->createQueryBuilder('U');
-                },'placeholder' => 'Selecione'))
-            ->add('fita',null,array('label'=>'Fita',
-                'attr'=>array('class'=>'input-sm')))
+                    return $er->createQueryBuilder('F')
+                        ->orderBy('F.unidade')
+                        ->addOrderBy('F.barCode');
+                }, 'placeholder' =>'Selecione'))
         ;
 
-        $builder->addEventSubscriber(new AddTrocaFita());
+        //$builder->addEventSubscriber(new AddTrocaFita());
     }
 
     /**

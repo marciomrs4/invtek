@@ -22,26 +22,17 @@ class RegistroBackupType extends AbstractType
             ->add('data',null,array('label'=>'Data',
                 'widget'=>'single_text',
                 'attr'=>array('class'=>'input-sm')))
-            ->add('unidade',EntityType::class,array('label' => 'Unidade',
-                'mapped' => false,
-                'class' => 'MRS\InventarioBundle\Entity\Unidade',
-                'placeholder' => 'Selecione'))
             ->add('job',EntityType::class,array('label'=>'Job',
                 'attr'=>array('class'=>'input-sm'),
                 'class' => 'MRS\BackupBundle\Entity\Job',
-                'query_builder' => function(EntityRepository $er){
-                    return $er->createQueryBuilder('JOB')
-                        ->where('JOB.status = 1')
-                        ->orderBy('JOB.descricao')
-                        ->addOrderBy('JOB.unidade');
-                },'placeholder'=>''))
+                'placeholder'=>''))
             ->add('status',null,array('label'=>'Status',
                 'attr'=>array('class'=>'input-sm')))
             ->add('observacao',null,array('label'=>'Observação',
                 'attr'=>array('class'=>'input-sm')))
         ;
 
-        $builder->addEventSubscriber(new AddJob());
+        //$builder->addEventSubscriber(new AddJob());
     }
 
     /**

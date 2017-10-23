@@ -43,7 +43,7 @@
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="{{ path('home') }}" class="logo">
+        <a href="{{ path('dashboard_version') }}" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>INV</b></span>
             <!-- logo for regular state and mobile devices -->
@@ -156,10 +156,17 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="{{ path('report_relatorio_equipamentos') }}"><i class="fa fa-file-text-o"></i>Equipamentos</a></li>
+                        <li><a href="{{ path('report_experied') }}"><i class="fa fa-file-text-o"></i>Equipamentos em Garantia</a></li>
                         <li><a href="{{ path('report_list_inventario') }}"><i class="fa fa-file-text-o"></i>Lista de Inventário</a></li>
                         <li><a href="{{ path('report_comprados') }}"><i class="fa fa-file-text-o"></i>Equipamentos Comprados</a></li>
                         <li><a href="{{ path('report_movimentacoes') }}"><i class="fa fa-file-text-o"></i>Movimentações</a></li>
 
+                        <li>
+                            <a href="#"><i class="fa fa-pie-chart"></i>Graficos<i class="fa fa-angle-left pull-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a href="{{ path('report_chart_equipamento_by_centro_movimentacao') }}"><i class="fa fa-file-text-o"></i>Equipamentos por Centros M</a></li>
+                            </ul>
+                        </li>
                         <li>
                             <a href="#"><i class="fa fa-file"></i>Acompanhamento<i class="fa fa-angle-left pull-right"></i></a>
                             <ul class="treeview-menu">
@@ -191,7 +198,7 @@
                         </li>
 
                         <li>
-                            <a href="#"><i class="fa fa-gears"></i>Cadastro de Movimentação<i class="fa fa-angle-left pull-right"></i></a>
+                            <a href="#"><i class="fa fa-gears"></i>Movimentação<i class="fa fa-angle-left pull-right"></i></a>
                             <ul class="treeview-menu">
                                 <li><a href="{{ path('cadastro_tipomovimentacao_index') }}"><i class="glyphicon glyphicon-retweet"></i>Tipo de Movimentação</a></li>
                                 <li><a href="{{ path('cadastro_motivomovimentacao_index') }}"><i class="glyphicon glyphicon-transfer"></i>Motivo de Movimentação</a></li>
@@ -199,7 +206,7 @@
                         </li>
 
                         <li>
-                            <a href="#"><i class="fa fa-gears"></i>Cadastro de Equipamento<i class="fa fa-angle-left pull-right"></i></a>
+                            <a href="#"><i class="fa fa-gears"></i>Equipamento<i class="fa fa-angle-left pull-right"></i></a>
                             <ul class="treeview-menu">
                                 <li><a href="{{ path('cadastro_equipamento_index') }}"><i class="fa fa-desktop"></i>Equipamento</a></li>
                                 <li><a href="{{ path('cadastro_tipoequipamento_index') }}"><i class="fa fa-mobile"></i>Tipo de Equipamento</a></li>
@@ -210,7 +217,7 @@
                         </li>
 
                         <li>
-                            <a href="#"><i class="fa fa-gears"></i>Cadastro de Software<i class="fa fa-angle-left pull-right"></i></a>
+                            <a href="#"><i class="fa fa-gears"></i>Software<i class="fa fa-angle-left pull-right"></i></a>
                             <ul class="treeview-menu">
                                 <li><a href="{{ path('cadastro_software_index') }}"><i class="fa fa-windows"></i>Software</a></li>
                                 <li><a href="{{ path('cadastro_tiposoftware_index') }}"><i class="fa fa-chrome"></i>Tipo de Software</a></li>
@@ -219,7 +226,7 @@
                         </li>
 
                         <li>
-                            <a href="#"><i class="fa fa-gears"></i>Cadastro de Componente<i class="fa fa-angle-left pull-right"></i></a>
+                            <a href="#"><i class="fa fa-gears"></i>Componente<i class="fa fa-angle-left pull-right"></i></a>
                             <ul class="treeview-menu">
                                 <li><a href="{{ path('cadastro_componente_index') }}"><i class="fa fa-plug"></i>Componente</a></li>
                                 <li><a href="{{ path('cadastro_tipocomponente_index') }}"><i class="fa fa-microphone"></i>Tipo de Componente</a></li>
@@ -257,6 +264,15 @@
                                 <li><a href="{{ path('cadastro_status_index') }}"><i class="fa fa-sort"></i>Status</a></li>
                             </ul>
                         </li>
+
+                        <li>
+                            <a href="#"><i class="fa fa-list"></i>Relatórios<i class="fa fa-angle-left pull-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a href="{{ path('report_utilizacao_by_fita') }}"><i class="fa fa-list"></i>Fitas X Utilização</a></li>
+                                <li><a href="{{ path('report_backup_equipamento') }}"><i class="fa fa-list"></i>Backup Equipamento</a></li>
+                            </ul>
+                        </li>
+
                     </ul>
                 </li>
 

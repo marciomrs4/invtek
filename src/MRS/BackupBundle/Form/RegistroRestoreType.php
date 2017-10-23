@@ -35,10 +35,6 @@ class RegistroRestoreType extends AbstractType
             ->add('data',DateType::class,array('label'=>'Data',
                 'widget' => 'single_text',
                 'attr'=>array('class'=>'input-sm')))
-            ->add('unidade',EntityType::class,array('label'=>'Unidade',
-                'mapped' => false,
-                'class' => 'MRS\InventarioBundle\Entity\Unidade',
-                'placeholder' => 'Selecione'))
             ->add('equipamento',EntityType::class,array('label'=>'Equipamento',
                 'attr'=>array('class'=>'input-sm'),
                 'class' => 'MRS\InventarioBundle\Entity\Equipamento',
@@ -63,7 +59,7 @@ class RegistroRestoreType extends AbstractType
             ->add('observacao',null,array('label'=>'Observação',
                 'attr'=>array('class'=>'input-sm')));
 
-        $builder->addEventSubscriber(new AddRegistroRestore($this->container));
+        //$builder->addEventSubscriber(new AddRegistroRestore($this->container));
     }
 
     /**

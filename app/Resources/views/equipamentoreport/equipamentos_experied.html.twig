@@ -1,0 +1,220 @@
+{% extends ':template:template.html.twig' %}
+
+{% block stylesheets %}
+
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('bundles/mrsinventario/css/dataTables.bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/mrsinventario/css/select2-bootstrap.css') }}">
+
+{% endblock %}
+
+    {% block contentheader %}
+
+        <section class="content-header">
+            <h1>
+                Equipamento
+                <small>Data de vigência expirada | Encontrado(s) {{ equipamentos|length }} </small>
+            </h1>
+        </section>
+
+    {% endblock %}
+
+    {% block content %}
+
+
+
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                <div class="box box-primary">
+                    <!-- /.box-header -->
+                    <div class="box-body">
+
+                        {{ form_start(form, { 'attr':{ 'novalidate':'novalidate' }}) }}
+
+                        <div class="row">
+
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+
+                                <div class="form-group">
+                                    {{ form_row(form.tipoequipamento) }}
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+
+                                <div class="form-group">
+                                    {{ form_row(form.centroMovimentacao) }}
+                                </div>
+
+                            </div>
+
+                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+
+                                <div class="form-group">
+                                    {{ form_row(form.status) }}
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+
+                                <div class="form-group">
+                                    {{ form_row(form.dataExperiedA) }}
+                                </div>
+
+                            </div>
+
+                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+
+                                <div class="form-group">
+                                    {{ form_row(form.dataExperiedB) }}
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <div class="form-group">
+
+                                            <button class="btn btn-default btn-sm">
+                                                <span class="glyphicon glyphicon-filter"></span>
+                                                Procurar
+                                            </button>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <div class="form-group">
+
+                                            <a href="{{ path('report_modal_equipamentos_sem_garantia') }}" class="btn btn-primary btn-sm"
+                                               data-toggle="modal" data-target=".bs-expirados"
+                                               data-toggle="tooltip" data-placement="top" title="Mostra os ultimos equipamentos vencidos">
+                                                <span class="fa fa-search"></span>
+                                                Mostrar Vencidos
+                                            </a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        {{ form_end(form) }}
+
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                <div class="box box-primary">
+
+                    <div class="box-body">
+
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-condensed table-hover table-striped table-datatable" data-order='[]'>
+
+                                <thead>
+                                <tr>
+                                    <th>Ações</th>
+                                    <th>Tipo de Equipamento</th>
+                                    <th>Fornecedor</th>
+                                    <th>Marca</th>
+                                    <th>Patrimônio</th>
+                                    <th>Validade</th>
+                                    <th>Número de Série</th>
+                                    <th>Status</th>
+                                    <th>Centro de Movimentação</th>
+                                    <th>Descrição</th>
+                                    <th>Observação</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                {% for equipamento in equipamentos %}
+
+                                    <tr>
+                                        <td>
+                                            <a href="{{ path('cadastro_equipamento_show', {'id': equipamento.id}) }}"
+                                               class="btn btn-primary btn-xs"
+                                               data-toggle="tooltip" data-placement="top" title="Ir para o Cadastro do item">
+                                                <span class="glyphicon glyphicon-search"></span>
+                                            </a>
+                                        </td>
+                                        <td>{{ equipamento.tipoEquipamento }}</td>
+                                        <td>{{ equipamento.fornecedor }}</td>
+                                        <td>{{ equipamento.marca }}</td>
+                                        <td>{{ equipamento.patrimonio }}</td>
+                                        <td>{{ equipamento.validade|date('d-m-Y') }}</td>
+                                        <td>{{ equipamento.numeroSerie }}</td>
+                                        <td>{{ equipamento.status }}</td>
+                                        <td>{{ equipamento.centroMovimentacao }}</td>
+                                        <td>{{ equipamento.descricao }}</td>
+                                        <td>{{ equipamento.observacao }}</td>
+                                    </tr>
+
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade bs-expirados" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel2">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+                    <div class="expirados">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+    {% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+
+    <script src="{{ asset('bundles/mrsinventario/js/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('bundles/mrsinventario/js/dataTables.bootstrap.js') }}"></script>
+    <script src="{{ asset('bundles/mrsinventario/js/mrs-dataTable.js') }}"></script>
+
+    <script src="{{ asset('bundles/mrsinventario/js/select2.js') }}"></script>
+
+    <script>
+
+        $('#report_equipamentos_tipoequipamento').select2();
+        $('#report_equipamentos_centroMovimentacao').select2();
+
+    </script>
+
+{% endblock %}

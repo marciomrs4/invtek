@@ -11,7 +11,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * Fita
  *
  * @ORM\Table(name="fita", uniqueConstraints={@ORM\UniqueConstraint(name="bar_code_UNIQUE", columns={"bar_code"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="MRS\BackupBundle\Repository\FitaRepository")
  * @UniqueEntity(fields={"barCode"},ignoreNull=false,message="Já existe um registro com este código")
  * @Gedmo\Loggable()
  */

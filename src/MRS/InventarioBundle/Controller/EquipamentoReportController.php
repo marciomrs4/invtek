@@ -11,6 +11,8 @@ use MRS\InventarioBundle\Form\Report\PainelEquipamentoReportType;
 use MRS\InventarioBundle\Form\Report\EquipamentoReportType;
 use MRS\InventarioBundle\Form\Report\ListInventarioReportType;
 use MRS\InventarioBundle\Form\Report\EquipamentoCompradoReportType;
+use MRS\InventarioBundle\Form\Report\EquipamentoExperiedType;
+use Symfony\Component\HttpFoundation\Response;
 
 
 /**
@@ -326,6 +328,81 @@ class EquipamentoReportController extends Controller
         $response->headers->set('Content-Disposition', 'attachment; filename=EquipamentosComprados.csv');
 
         return $response;
+
+    }
+
+    /**
+     * @Route("/experied",name="report_experied")
+     * @Method("GET|POST")
+     */
+    public function equipamentosSemGarantiaAction(Request $request)
+    {
+
+        $form = $this->createForm(EquipamentoExperiedType::class);
+
+        $date = new \DateTime('now');
+
+        $form->get('dataExperiedA')->setData($date->modify('-240 day'));
+
+        $form->get('dataExperiedB')->setData($date->modify('+240 day'));
+
+        $equipamentos = array();
+
+        if($request->isMethod('POST')) {
+
+            $form->handleRequest($request);
+
+            $equipamentosForm = $request->request->get('report_equipamentos');
+
+            $equipamentos = $this->getDoctrine()
+                                 ->getRepository('MRSInventarioBundle:Equipamento')
+                                 ->equipamentosSemGarantia($equipamentosForm);
+        }
+
+        return $this->render(':equipamentoreport:equipamentos_experied.html.twig',array(
+            'equipamentos' => $equipamentos,
+            'form' => $form->createView()
+        ));
+
+    }
+
+    /**
+     * @Route("/modal/equipamentosSemGarantia",name="report_modal_equipamentos_sem_garantia")
+     * @Method("GET")
+     */
+    public function equipamentosSemGarantiaModalAction()
+    {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $dataMinima = $em->getRepository('MRSInventarioBundle:Equipamento')
+            ->createQueryBuilder('EQUI')
+            ->select('min(EQUI.validade)')
+            ->getQuery()
+            ->getSingleResult();
+
+
+        $date = new \DateTime('now');
+
+        $dateInicio = new \DateTime($dataMinima['1']);
+
+        //dump($dateInicio); exit();
+
+        $dataForm = array('tipoequipamento' => '%',
+                          'centroMovimentacao' => '%',
+                          'dataExperiedA' => $dateInicio->format('Y-m-d'),
+                          'dataExperiedB' => $date->format('Y-m-d'),
+                          'status' => '%');
+
+        //dump($dataForm); exit();
+
+        $equipamentos = $this->getDoctrine()
+                             ->getRepository('MRSInventarioBundle:Equipamento')
+                             ->equipamentosSemGarantia($dataForm);
+
+        return $this->render(':equipamentoreport:semgarantia_modal.html.twig',array(
+            'equipamentos' => $equipamentos
+        ));
 
     }
 

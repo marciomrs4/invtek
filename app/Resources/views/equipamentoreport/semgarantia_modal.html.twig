@@ -1,0 +1,59 @@
+<div class="panel panel-primary">
+
+    <div class="panel-heading">
+        <h3 class="panel-title">Lista de equipamentos vencidos. Quantidade: {{ equipamentos|length }}</h3>
+    </div>
+
+    <div class="panel-body">
+
+        <div class="table-responsive">
+
+            <table class="table table-bordered table-condensed table-hover table-striped table-datatable" data-order='[]'>
+
+                <thead>
+                <tr>
+                    <th>Linha</th>
+                    <th>Ações</th>
+                    <th>Tipo de Equipamento</th>
+                    <th>Fornecedor</th>
+                    <th>Marca</th>
+                    <th>Patrimônio</th>
+                    <th>Validade</th>
+                    <th>Número de Série</th>
+                    <th>Status</th>
+                    <th>Centro de Movimentação</th>
+                    <th>Descrição</th>
+                    <th>Observação</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                {% for equipamento in equipamentos %}
+
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>
+                            <a href="{{ path('cadastro_equipamento_show', {'id': equipamento.id}) }}"
+                               class="btn btn-primary btn-xs"
+                               data-toggle="tooltip" data-placement="top" title="Ir para o Cadastro do item">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </a>
+                        </td>
+                        <td>{{ equipamento.tipoEquipamento }}</td>
+                        <td>{{ equipamento.fornecedor }}</td>
+                        <td>{{ equipamento.marca }}</td>
+                        <td>{{ equipamento.patrimonio }}</td>
+                        <td>{{ equipamento.validade|date('d-m-Y') }}</td>
+                        <td>{{ equipamento.numeroSerie }}</td>
+                        <td>{{ equipamento.status }}</td>
+                        <td>{{ equipamento.centroMovimentacao }}</td>
+                        <td>{{ equipamento.descricao }}</td>
+                        <td>{{ equipamento.observacao }}</td>
+                    </tr>
+
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
