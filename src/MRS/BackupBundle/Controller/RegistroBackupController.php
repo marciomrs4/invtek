@@ -192,7 +192,7 @@ class RegistroBackupController extends Controller
                 $registroBackupEquipamento = new RegistroBackupEquipamento();
 
                 $registroBackupEquipamento->setUnidade($jobId->getUnidade())
-                    ->setDataCriacao(new \DateTime('now'))
+                    ->setDataCriacao($registroBackup->getData())
                     ->setEquipamento($jobServidor->getEquipamento())
                     ->setRegistroBackupId($registroBackup);
 
