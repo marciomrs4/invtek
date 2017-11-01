@@ -1,14 +1,14 @@
-    {% extends ':template:template.html.twig' %}
+{% extends ':template:template.html.twig' %}
 
 
     {% block contentheader %}
 
-    <section class="content-header">
-        <h1>
-            Usuario
-            <small>Novo</small>
-        </h1>
-    </section>
+        <section class="content-header">
+            <h1>
+                Usuario
+                <small>Novo</small>
+            </h1>
+        </section>
 
     {% endblock %}
 
@@ -17,15 +17,15 @@
 
         <div class="row">
 
-    <div class="col-md-2 col-sm-3 col-xs-3">
+        <div class="col-md-2 col-sm-3 col-xs-3">
 
-        <a href="{{ path('cadastro_usuario_index') }}" class="btn btn-primary btn-sm">
-            <span class="fa fa-reply"></span>
-            Voltar
-        </a>
+            <a href="{{ path('cadastro_usuario_index') }}" class="btn btn-primary btn-sm">
+                <span class="fa fa-reply"></span>
+                Voltar
+            </a>
 
-    </div>
-</div>{% endblock %}
+        </div>
+        </div>{% endblock %}
 
 
     {% block panelbody %}
@@ -36,10 +36,16 @@
     {% endblock %}
 
     {% block panelfooter %}
-    <button type="submit" class="btn btn-primary btn-sm">
-        <span class="glyphicon glyphicon-floppy-disk"></span>
-        Salvar
-    </button>
-    {{ form_end(form) }}
+        <button type="submit" class="btn btn-primary btn-sm">
+            <span class="glyphicon glyphicon-floppy-disk"></span>
+            Salvar
+        </button>
+        {{ form_end(form) }}
 
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ parent() }}
+        <script src="{{ asset('bundles/mrsinventario/js/select2.js') }}"></script>
+        <script> $("#usuario_departamento").select2(); </script>
     {% endblock %}

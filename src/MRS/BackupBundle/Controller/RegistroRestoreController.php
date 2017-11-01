@@ -25,7 +25,7 @@ class RegistroRestoreController extends Controller
     public function indexAction()
     {
         $repository = $this->getDoctrine()
-                           ->getRepository('MRSBackupBundle:RegistroRestore');
+            ->getRepository('MRSBackupBundle:RegistroRestore');
 
         $registroRestores = $repository->findBy(array(),array('id' => 'DESC'));
 
@@ -55,9 +55,22 @@ class RegistroRestoreController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+            if($this->validateFitaEquipamento($registroRestore)){
+
+                $mensagens = [
+                    'mensagem' => 'O equipamento e fita não são da mesma unidade!',
+                    'tipo_mensagem' => 'warning'
+                ];
+
+                $this->addFlash('notice',$mensagens);
+
+                return $this->redirectToRoute('cadastro_registrorestore_new');
+
+            }
+
             $registroRestore->setTipoJobName($registroRestore->getTipoJob()->getDescricao())
-                            ->setEquipamentoName($registroRestore->getEquipamento()->getPatrimonio())
-                            ->setFitaName($registroRestore->getFita()->getBarCode());
+                ->setEquipamentoName($registroRestore->getEquipamento()->getPatrimonio())
+                ->setFitaName($registroRestore->getFita()->getBarCode());
 
             $em->persist($registroRestore);
             $em->flush();
@@ -106,7 +119,7 @@ class RegistroRestoreController extends Controller
 
         return $this->render('registrorestore/doc_show.html.twig', array(
             'registroRestore' => $registroRestore,
-         ));
+        ));
     }
 
 
@@ -141,10 +154,23 @@ class RegistroRestoreController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
 
+            if($this->validateFitaEquipamento($registroRestore)){
+
+                $mensagens = [
+                    'mensagem' => 'O equipamento e fita não são da mesma unidade!',
+                    'tipo_mensagem' => 'warning'
+                ];
+
+                $this->addFlash('notice',$mensagens);
+
+                return $this->redirectToRoute('cadastro_registrorestore_edit', array('id' => $registroRestore->getId()));
+
+            }
+
 
             $registroRestore->setTipoJobName($registroRestore->getTipoJob()->getDescricao())
-                            ->setEquipamentoName($registroRestore->getEquipamento()->getPatrimonio())
-                            ->setFitaName($registroRestore->getFita()->getBarCode());
+                ->setEquipamentoName($registroRestore->getEquipamento()->getPatrimonio())
+                ->setFitaName($registroRestore->getFita()->getBarCode());
 
             $em->persist($registroRestore);
             $em->flush();
@@ -199,7 +225,7 @@ class RegistroRestoreController extends Controller
             ->setAction($this->generateUrl('cadastro_registrorestore_delete', array('id' => $registroRestore->getId())))
             ->setMethod('DELETE')
             ->getForm()
-        ;
+            ;
     }
 
     /**
@@ -214,6 +240,21 @@ class RegistroRestoreController extends Controller
         return $this->render('logentry/logentry.html.twig',array(
             'logs' => $logs
         ));
+
+    }
+
+    private function validateFitaEquipamento(RegistroRestore $registroRestore)
+    {
+        $unidadeEquipamento = $registroRestore->getEquipamento()
+                                              ->getCentroMovimentacao()
+                                              ->getUnidade();
+
+        $unidadeFita = $registroRestore->getFita()
+                                       ->getUnidade();
+
+        if($unidadeEquipamento != $unidadeFita){
+            return true;
+        }
 
     }
 }

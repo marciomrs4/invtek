@@ -20,6 +20,14 @@ class UsuarioType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $data = $builder->getData();
+
+        $userId = null;
+        if($data->getUserId()) {
+            $userId = $data->getUserId()
+                           ->getId();
+        }
+
         $builder
             ->add('nomecompleto',null,array('label'=>'Nome Completo',
                 'attr'=>array('class'=>'input-sm')))
@@ -37,10 +45,12 @@ class UsuarioType extends AbstractType
                 },'placeholder' => 'Selecione'))
             ->add('user_id',EntityType::class,array('label'=>'Acesso',
                 'class' => 'MRS\UserBundle\Entity\User',
-                'query_builder' => function(EntityRepository $er){
+                'query_builder' => function(EntityRepository $er) use ($userId){
                     return $er->createQueryBuilder('u')
                         ->leftJoin('u.usuario','usuario')
                         ->where('usuario.user_id IS NULL')
+                        ->orWhere('usuario.user_id = :user_id')
+                        ->setParameter('user_id',$userId)
                         ->orderBy('u.username');
                 },'placeholder'=>'Selecione'))
             ->add('status',CheckboxType::class,array('label'=>'Status'))
