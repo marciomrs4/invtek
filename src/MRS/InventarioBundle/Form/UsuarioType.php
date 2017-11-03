@@ -49,10 +49,11 @@ class UsuarioType extends AbstractType
                     return $er->createQueryBuilder('u')
                         ->leftJoin('u.usuario','usuario')
                         ->where('usuario.user_id IS NULL')
+                        ->andWhere('u.isActive = true')
                         ->orWhere('usuario.user_id = :user_id')
                         ->setParameter('user_id',$userId)
                         ->orderBy('u.username');
-                },'placeholder'=>'Selecione'))
+                },'placeholder'=>'Nenhum'))
             ->add('status',CheckboxType::class,array('label'=>'Status'))
             ->add('observacao',TextareaType::class,array('label'=>'Observação',
                 'attr'=>array('class'=>'input-sm')))

@@ -1,5 +1,10 @@
 {% extends ':template:template.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/mrsinventario/css/dataTables.bootstrap.css') }}">
+{% endblock %}
+
 
     {% block contentheader %}
 
@@ -19,11 +24,12 @@
         <a href="{{ path('admin_usuario_new') }}" class="btn btn-primary btn-sm">
             <span class="glyphicon glyphicon-plus"></span>
             Novo
-        </a>    {% endblock %}
+        </a>
+    {% endblock %}
 
     {% block panelbody %}
         <div class="table-responsive">
-            <table class="table table-bordered table-condensed table-hover table-striped">
+            <table class="table table-bordered table-condensed table-hover table-striped table-datatable">
                 <thead>
                 <tr>
                     <th>Ações</th>
@@ -38,13 +44,11 @@
                 {% for user in users %}
                     <tr>
                         <td>
-                            <a href="{{ path('admin_usuario_show', { 'id': user.id }) }}" class="btn btn-primary btn-sm">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                                Mostrar
+                            <a href="{{ path('admin_usuario_show', { 'id': user.id }) }}" class="btn btn-primary btn-xs">
+                                <span class="glyphicon glyphicon-search"></span>
                             </a>
-                            <a href="{{ path('admin_usuario_edit', { 'id': user.id }) }}" class="btn btn-primary btn-sm">
+                            <a href="{{ path('admin_usuario_edit', { 'id': user.id }) }}" class="btn btn-primary btn-xs">
                                 <span class="glyphicon glyphicon-edit"></span>
-                                Editar
                             </a>
                         </td>
                         <td>{{ user.username }}</td>
@@ -60,3 +64,10 @@
         </div>
 
     {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/mrsinventario/js/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('bundles/mrsinventario/js/dataTables.bootstrap.js') }}"></script>
+    <script src="{{ asset('bundles/mrsinventario/js/mrs-dataTable.js') }}"></script>
+{% endblock %}

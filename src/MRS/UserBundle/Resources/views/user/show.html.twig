@@ -1,30 +1,30 @@
-    {% extends ':template:template.html.twig' %}
+{% extends ':template:template.html.twig' %}
 
 
 
     {% block contentheader %}
 
-    <section class="content-header">
-        <h1>
-            User
-            <small>Mostrar</small>
-        </h1>
-    </section>
+        <section class="content-header">
+            <h1>
+                User
+                <small>Mostrar</small>
+            </h1>
+        </section>
 
     {% endblock %}
 
     {% block firstrow %}
 
-    {% for message in app.session.flashBag.get('notice') %}
-    <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="alert alert-success alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <i class="fa fa-info"></i> {{ message }}. <i class="fa fa-smile-o"></i>
-        </div>
-    </div>
-    {% endfor %}
+        {% for message in app.session.flashBag.get('notice') %}
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <i class="fa fa-info"></i> {{ message }}. <i class="fa fa-smile-o"></i>
+                </div>
+            </div>
+        {% endfor %}
 
 
     {% endblock %}
@@ -34,14 +34,14 @@
 
         <div class="row">
 
-    <div class="col-md-2 col-sm-3 col-xs-3">
+        <div class="col-md-2 col-sm-3 col-xs-3">
 
-        <a href="{{ path('admin_usuario_index') }}" class="btn btn-primary btn-sm">
-            <span class="fa fa-reply"></span>
-            Voltar
-        </a>
+            <a href="{{ path('admin_usuario_index') }}" class="btn btn-primary btn-sm">
+                <span class="fa fa-reply"></span>
+                Voltar
+            </a>
 
-    </div>
+        </div>
         <div class="col-md-2 col-sm-3 col-xs-3">
 
             <a href="{{ path('admin_usuario_edit', { 'id': user.id }) }}" class="btn btn-primary btn-sm">
@@ -59,39 +59,39 @@
             {{ form_end(delete_form) }}
 
         </div>
-</div>{% endblock %}
+        </div>{% endblock %}
 
 
 
     {% block panelbody %}
 
-    <div class="table table-responsive">
-        <table class="table table-bordered table-condensed">
-            <tbody>
+        <div class="table table-responsive">
+            <table class="table table-bordered table-condensed">
+                <tbody>
                 <tr>
                     <th>Login</th>
-                        <td>{{ user.username }}</td>
+                    <td>{{ user.username }}</td>
                 </tr>
 
                 <tr>
                     <th>Permissões</th>
-                        <td>{% if user.roles %}{{ user.roles|join(', ') }}{% endif %}</td>
+                    <td>{% if user.roles %}{{ user.roles|join(', ') }}{% endif %}</td>
                 </tr>
                 <tr>
                     <th>Status</th>
-                        <td>{% if user.isActive %}Ativo{% else %}Inativo{% endif %}</td>
+                    <td>{% if user.isActive %}Ativo{% else %}Inativo{% endif %}</td>
                 </tr>
                 <tr>
                     <th>Email</th>
-                        <td>{{ user.email }}</td>
+                    <td>{{ user.email }}</td>
                 </tr>
                 <tr>
                     <th>Usuário</th>
-                    <td>{{ user.usuario.nome }}</td>
+                    <td>{% if user.usuario %}{{ user.usuario.nome }}{% else %} {% endif %}</td>
                 </tr>
-            </tbody>
-        </table>
-    </div>
+                </tbody>
+            </table>
+        </div>
 
 
     {% endblock %}

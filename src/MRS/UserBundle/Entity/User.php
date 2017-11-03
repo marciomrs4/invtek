@@ -5,6 +5,7 @@ namespace MRS\UserBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
@@ -27,6 +28,7 @@ class User implements AdvancedUserInterface
      * @var string
      *
      * @ORM\Column(name="username", type="string", length=255)
+     * @Assert\NotBlank(message="O campo nome é obrigátório")
      */
     private $username;
 
@@ -62,6 +64,7 @@ class User implements AdvancedUserInterface
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255)
+     * @Assert\NotBlank(message="O campo email é obrigatório")
      */
     private $email;
 
