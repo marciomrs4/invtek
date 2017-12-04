@@ -20,16 +20,44 @@ class CentroMovimentacaoController extends Controller
      * Lists all CentroMovimentacao entities.
      *
      * @Route("/", name="cadastro_centromovimentacao_index")
-     * @Method("GET")
+     * @Method("GET|POST")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
         $centroMovimentacaos = $em->getRepository('MRSInventarioBundle:CentroMovimentacao')
             ->findBy(array(),array('nome' => 'ASC'));
 
-        return $this->render('centromovimentacao/index.html.twig', array(
+
+        $file = '';
+        $posicao = '';
+        if($request->files->get('file_csv')) {
+
+            $file = $request->files->get('file_csv');
+
+            $file = file($file);
+
+            foreach($file as $item){
+
+                $posicao = explode(',',$item);
+
+
+                $centroMovimentacao = new CentroMovimentacao();
+
+
+                $centroMovimentacao->setNome($posicao['0']);
+
+                $em->persist($centroMovimentacao);
+            }
+
+            $em->flush();
+
+            return $this->redirectToRoute('cadastro_centromovimentacao_index');
+        }
+
+
+            return $this->render('centromovimentacao/index.html.twig', array(
             'centroMovimentacaos' => $centroMovimentacaos,
         ));
     }

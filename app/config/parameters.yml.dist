@@ -37,3 +37,4 @@ parameters:
     tiposequipamentos: [3, 13]
     #Nome do Status para marcar como vermelho a linha no Registro Backup e Restore
     status_falha: 'FALHA'
+    importacao: 'FALSE'

@@ -20,14 +20,39 @@ class TipoequipamentoController extends Controller
      * Lists all Tipoequipamento entities.
      *
      * @Route("/", name="cadastro_tipoequipamento_index")
-     * @Method("GET")
+     * @Method("GET|POST")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
         $tipoequipamentos = $em->getRepository('MRSInventarioBundle:Tipoequipamento')
             ->getAllOrderByDescricao();
+
+        $file = '';
+        $posicao = '';
+        if($request->files->get('file_csv')) {
+
+            $file = $request->files->get('file_csv');
+
+            $file = file($file);
+
+            foreach($file as $item){
+
+                $posicao = explode(',',$item);
+
+                $tipoequipamento = new Tipoequipamento();
+
+                $tipoequipamento->setDescricao($posicao['0']);
+
+                $em->persist($tipoequipamento);
+            }
+
+            $em->flush();
+
+            return $this->redirectToRoute('cadastro_tipoequipamento_index');
+        }
+
 
         return $this->render('tipoequipamento/index.html.twig', array(
             'tipoequipamentos' => $tipoequipamentos,

@@ -79,7 +79,10 @@
                 </tr>
                 <tr>
                     <th>Unidade</th>
-                    <td>{{ centroMovimentacao.unidade.nome }}</td>
+                    <td>{% if centroMovimentacao.unidade %}
+                            {{ centroMovimentacao.unidade.nome }}
+                        {% endif %}
+                    </td>
                 </tr>
                 </tbody>
             </table>

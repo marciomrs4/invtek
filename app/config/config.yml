@@ -44,6 +44,7 @@ twig:
         teamcreator: "%teamcreator%"
         enviroment: "%enviroment%"
         color: "%color%"
+        importacao: "%importacao%"
 
 # Doctrine Configuration
 doctrine:

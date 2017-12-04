@@ -20,13 +20,40 @@ class MarcaController extends Controller
      * Lists all Marca entities.
      *
      * @Route("/", name="cadastro_marca_index")
-     * @Method("GET")
+     * @Method("GET|POST")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
         $marcas = $em->getRepository('MRSInventarioBundle:Marca')->findAll();
+
+        $file = '';
+        $posicao = '';
+        if($request->files->get('file_csv')) {
+
+            $file = $request->files->get('file_csv');
+
+            $file = file($file);
+
+            foreach($file as $item){
+
+                $posicao = explode(',',$item);
+
+
+                $marca = new Marca();
+
+
+                $marca->setNome($posicao['0']);
+
+                $em->persist($marca );
+            }
+
+            $em->flush();
+
+            return $this->redirectToRoute('cadastro_marca_index');
+        }
+
 
         return $this->render('marca/index.html.twig', array(
             'marcas' => $marcas,

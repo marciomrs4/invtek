@@ -20,13 +20,39 @@ class FornecedorController extends Controller
      * Lists all Fornecedor entities.
      *
      * @Route("/", name="cadastro_fornecedor_index")
-     * @Method("GET")
+     * @Method("GET|POST")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
         $fornecedors = $em->getRepository('MRSInventarioBundle:Fornecedor')->findAll();
+
+        $file = '';
+        $posicao = '';
+        if($request->files->get('file_csv')) {
+
+            $file = $request->files->get('file_csv');
+
+            $file = file($file);
+
+            foreach($file as $item){
+
+                $posicao = explode(',',$item);
+
+
+                $fornecedor = new Fornecedor();
+
+
+                $fornecedor->setNome($posicao['0']);
+
+                $em->persist($fornecedor);
+            }
+
+            $em->flush();
+
+            return $this->redirectToRoute('cadastro_fornecedor_index');
+        }
 
         return $this->render('fornecedor/index.html.twig', array(
             'fornecedors' => $fornecedors,
