@@ -45,6 +45,8 @@ twig:
         enviroment: "%enviroment%"
         color: "%color%"
         importacao: "%importacao%"
+        gestao_dados: "%gestao_dados%"
+        gestao_ip: "%gestao_ip%"
 
 # Doctrine Configuration
 doctrine:

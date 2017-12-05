@@ -21,59 +21,61 @@
 
 {% block content %}
 
-    <div class="row">
+    {% if gestao_dados %}
+        <div class="row">
 
 
-        <div class="col-md-4">
+            <div class="col-md-4">
 
-            <div class="small-box bg-{{ color }}">
-                <div class="inner">
-                    <h3>Backup</h3>
+                <div class="small-box bg-{{ color }}">
+                    <div class="inner">
+                        <h3>Backup</h3>
 
-                    <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-upload"></i>
+                    </div>
+                    <a href="{{ path('cadastro_registrobackup_new') }}" class="small-box-footer">Registrar <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
-                <div class="icon">
-                    <i class="ion ion-upload"></i>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="small-box bg-{{ color }}">
+                    <div class="inner">
+                        <h3>Troca de Fita</h3>
+
+                        <p>&nbsp;</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-ios-paper"></i>
+                    </div>
+                    <a href="{{ path('cadastro_trocafita_new') }}" class="small-box-footer">Registrar <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
-                <a href="{{ path('cadastro_registrobackup_new') }}" class="small-box-footer">Registrar <i class="fa fa-arrow-circle-right"></i></a>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="small-box bg-{{ color }}">
+                    <div class="inner">
+                        <h3>Restore</h3>
+
+                        <p>&nbsp;</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-ios-download"></i>
+                    </div>
+                    <a href="{{ path('cadastro_registrobackup_new') }}" class="small-box-footer">Registrar <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+
             </div>
 
         </div>
-
-
-        <div class="col-md-4">
-
-            <div class="small-box bg-{{ color }}">
-                <div class="inner">
-                    <h3>Troca de Fita</h3>
-
-                    <p>&nbsp;</p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-ios-paper"></i>
-                </div>
-                <a href="{{ path('cadastro_trocafita_new') }}" class="small-box-footer">Registrar <i class="fa fa-arrow-circle-right"></i></a>
-            </div>
-
-        </div>
-
-        <div class="col-md-4">
-
-            <div class="small-box bg-{{ color }}">
-                <div class="inner">
-                    <h3>Restore</h3>
-
-                    <p>&nbsp;</p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-ios-download"></i>
-                </div>
-                <a href="{{ path('cadastro_registrobackup_new') }}" class="small-box-footer">Registrar <i class="fa fa-arrow-circle-right"></i></a>
-            </div>
-
-        </div>
-
-    </div>
+    {% endif %}
 
     <div class="row">
 

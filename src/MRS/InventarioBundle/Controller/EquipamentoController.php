@@ -20,14 +20,70 @@ class EquipamentoController extends Controller
      * Lists all Equipamento entities.
      *
      * @Route("/", name="cadastro_equipamento_index")
-     * @Method("GET")
+     * @Method("GET|POST")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
         $equipamentos = $em->getRepository('MRSInventarioBundle:Equipamento')
                            ->findBy(array(),array('id' => 'DESC'));
+
+        $file = '';
+        $posicao = '';
+        if($request->files->get('file_csv')) {
+
+            $file = $request->files->get('file_csv');
+
+            $file = file($file);
+
+            //dump($file); exit();
+
+            foreach($file as $item){
+
+
+                $posicao = explode(',',$item);
+
+
+                $equipamento = new Equipamento();
+
+                $centroMovimentacao = $em->getRepository('MRSInventarioBundle:CentroMovimentacao')
+                    ->findOneBy(['id' => $posicao[1]]);
+
+                $fornecedor = $em->getRepository('MRSInventarioBundle:Fornecedor')
+                    ->findOneBy(['id' => $posicao[2]]);
+
+                $marca = $em->getRepository('MRSInventarioBundle:Marca')
+                    ->findOneBy(['id' => $posicao[3]]);
+
+                $tipoEquipamento = $em->getRepository('MRSInventarioBundle:Tipoequipamento')
+                    ->findOneBy(['id' => $posicao[4]]);
+
+                $compradoPara = $em->getRepository('MRSInventarioBundle:CentroMovimentacao')
+                    ->findOneBy(['id' => $posicao[13]]);
+
+                $equipamento->setNome($posicao['0'])
+                            ->setCentroMovimentacao($centroMovimentacao)
+                            ->setFornecedor($fornecedor)
+                            ->setMarca($marca)
+                            ->setTipoequipamento($tipoEquipamento)
+                            ->setDataCompra(new \DateTime($posicao[5]))
+                            ->setValidade(new \DateTime($posicao[6]))
+                            ->setValorCompra($posicao[7])
+                            ->setNumeroserie($posicao[8])
+                            ->setStatus($posicao[9])
+                            ->setPatrimonio($posicao[10])
+                            ->setDescricao($posicao[11])
+                            ->setObservacao($posicao[12])
+                            ->setCompradoPara($compradoPara);
+
+                $em->persist($equipamento);
+            }
+
+            $em->flush();
+
+            return $this->redirectToRoute('cadastro_equipamento_index');
+        }
 
         return $this->render('equipamento/index.html.twig', array(
             'equipamentos' => $equipamentos,

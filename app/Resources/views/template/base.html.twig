@@ -237,6 +237,7 @@
 
                 </li>
 
+                {% if gestao_dados %}
                 <li class="treeview">
                     <a href="#">
                         <i class="fa fa-save"></i>
@@ -275,7 +276,9 @@
 
                     </ul>
                 </li>
+                {% endif  %}
 
+                {% if gestao_ip %}
                 <li class="treeview">
                     <a href="#">
                         <i class="fa fa-signal"></i>
@@ -288,6 +291,7 @@
                         <li><a href="{{ path('cadastro_tipoacessoip_index') }}"><i class="fa fa-unlock-alt"></i>Tipo de Acesso</a></li>
                     </ul>
                 </li>
+                {% endif %}
 
                 <li class="treeview">
                     <a href="#">

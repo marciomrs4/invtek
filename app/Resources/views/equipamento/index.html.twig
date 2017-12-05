@@ -26,7 +26,17 @@
         <a href="{{ path('cadastro_equipamento_new') }}" class="btn btn-primary btn-sm">
             <span class="glyphicon glyphicon-plus"></span>
             Novo
-        </a>    {% endblock %}
+        </a>
+
+        {% if importacao %}
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
+                    data-target=".bs-example-modal-sm">
+                <span class="glyphicon glyphicon-upload"></span>
+                Importar
+            </button>
+        {% endif %}
+
+    {% endblock %}
 
     {% block panelbody %}
         <div class="table-responsive">
@@ -52,7 +62,9 @@
                     <tr>
                         <td>
                             <a href="{{ path('cadastro_equipamento_show', { 'id': equipamento.id }) }}" class="btn btn-primary btn-sm">
-                                <span class="{{ equipamento.tipoequipamento.icone }}"></span>
+                                {% if equipamento.tipoequipamento  %}
+                                    <span class="{{ equipamento.tipoequipamento.icone }}"></span>
+                                {% endif %}
                             </a>
                         </td>
                         <td>{{ equipamento.tipoequipamento.descricao }}</td>
@@ -72,6 +84,105 @@
             </table>
         </div>
 
+
+        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+
+            <div class="col-md-3"></div>
+
+            <div class="col-md-6">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title">Importar Arquivo</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <form action="" method="post" enctype="multipart/form-data">
+                            <div class="row">
+
+                                <div class="col-md-4">
+                                    <input type="file" name="file_csv" required>
+                                </div>
+
+                            </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary btn-sm pull-left">
+                            <span class="glyphicon glyphicon-upload"></span>
+                            Importar
+                        </button>
+                        </form>
+                        <button type="button" class="btn btn-default btn-sm pull-right" data-dismiss="modal">Fechar</button>
+                    </div>
+
+                    <div class="panel panel-default">
+
+                        <div class="panel-heading">
+                            Enviar somente as colunas, sem o cabeçalho, cada coluna separada por virgula (",")
+                            Como um arquivo CSV.
+                            Colunas necessárias: Exemplo abaixo.
+                        </div>
+
+                        <div class="panel-body">
+
+                            <div class="table table-responsive">
+                                <table class="table table-bordered table-condensed">
+                                    <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>C. de Movimentação</th>
+                                        <th>Fornecedor</th>
+                                        <th>Marca</th>
+                                        <th>Tipo de Equipamento</th>
+                                        <th>Data da Compra</th>
+                                        <th>Vigencia Garantia</th>
+                                        <th>Valor da Compra</th>
+                                        <th>Numero de serie</th>
+                                        <th>Status</th>
+                                        <th>Patrimonio</th>
+                                        <th>Descricao</th>
+                                        <th>Observacao</th>
+                                        <th>Comprado para</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th>Texto</th>
+                                        <th>Código</th>
+                                        <th>Código</th>
+                                        <th>Código</th>
+                                        <th>Código</th>
+                                        <th>DIA/MES/ANO</th>
+                                        <th>DIA/MES/ANO</th>
+                                        <th>00,00</th>
+                                        <th>12345678</th>
+                                        <th>1 => Ativo ou 0 => Inativo</th>
+                                        <th>87654321</th>
+                                        <th>TEXTO</th>
+                                        <th>TEXTO</th>
+                                        <th>Código</th>
+                                    </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+            </div>
+
+        </div>
 
     {% endblock %}
 
