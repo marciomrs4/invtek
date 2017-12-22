@@ -39,10 +39,12 @@ class EquipamentoController extends Controller
 
             //dump($file); exit();
 
+            $equip = [];
+
             foreach($file as $item){
 
 
-                $posicao = explode(',',$item);
+                $posicao = explode(';',$item);
 
 
                 $equipamento = new Equipamento();
@@ -62,6 +64,8 @@ class EquipamentoController extends Controller
                 $compradoPara = $em->getRepository('MRSInventarioBundle:CentroMovimentacao')
                     ->findOneBy(['id' => $posicao[13]]);
 
+
+
                 $equipamento->setNome($posicao['0'])
                             ->setCentroMovimentacao($centroMovimentacao)
                             ->setFornecedor($fornecedor)
@@ -77,10 +81,14 @@ class EquipamentoController extends Controller
                             ->setObservacao($posicao[12])
                             ->setCompradoPara($compradoPara);
 
+                //$equip[] = $equipamento;
                 $em->persist($equipamento);
             }
 
             $em->flush();
+
+            //dump($equip); exit();
+
 
             return $this->redirectToRoute('cadastro_equipamento_index');
         }
