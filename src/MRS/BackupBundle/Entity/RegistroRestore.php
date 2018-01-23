@@ -28,6 +28,15 @@ class RegistroRestore
     private $data;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="data_criacao", type="date", nullable=true)
+     * @Gedmo\Versioned()
+     * @Assert\NotBlank(message="O Campo data de criação é obrigatório")
+     */
+    private $dataCriacao;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="observacao", type="text", length=65535, nullable=true)
@@ -155,9 +164,11 @@ class RegistroRestore
     private $tipoJobName;
 
 
+
     public function __construct()
     {
         $this->setData(new \DateTime('now'));
+        $this->setDataCriacao(new \DateTime('now'));
     }
 
     /**
@@ -206,6 +217,30 @@ class RegistroRestore
     public function getData()
     {
         return $this->data;
+    }
+
+    /**
+     * Set data
+     *
+     * @param \DateTime $data
+     *
+     * @return RegistroRestore
+     */
+    public function setDataCriacao($dataCriacao)
+    {
+        $this->dataCriacao = $dataCriacao;
+
+        return $this;
+    }
+
+    /**
+     * Get data
+     *
+     * @return \DateTime
+     */
+    public function getDataCriacao()
+    {
+        return $this->dataCriacao;
     }
 
     /**

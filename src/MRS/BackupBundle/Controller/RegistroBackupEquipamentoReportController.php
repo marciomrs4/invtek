@@ -3,6 +3,7 @@
 namespace MRS\BackupBundle\Controller;
 
 use MRS\BackupBundle\Entity\RegistroBackup;
+use MRS\BackupBundle\Form\JobPendenteType;
 use MRS\InventarioBundle\Entity\Equipamento;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -63,6 +64,38 @@ class RegistroBackupEquipamentoReportController extends Controller
     {
         return $this->render('MRSBackupBundle:RegistroBackupEquipamento:show.html.twig',[
            'registroBackup' => $id
+        ]);
+    }
+
+    /**
+     * @Route("/job",name="report_backup_job")
+     * @Method("GET|POST")
+     */
+    public function listRegistroBackupPendenteAction(Request $request)
+    {
+        $form = $this->createForm(JobPendenteType::class);
+        $date = new \DateTime('now');
+        $form->get('data')->setData($date->modify('-1day'));
+
+        $jobs = [];
+
+        if($request->isMethod('POST')) {
+
+            $form->handleRequest($request);
+
+            $dados = $request->request->all();
+
+            $em = $this->getDoctrine()->getManager();
+
+            $jobs = $em->getRepository('MRSBackupBundle:Job')
+                       ->getJobByDataRegisterBackup($dados['job_pendente']['data']);
+
+        }
+
+
+        return $this->render(':registrobackup:list_jobs.html.twig',[
+            'jobs' => $jobs,
+            'jobs_form' => $form->createView()
         ]);
     }
 

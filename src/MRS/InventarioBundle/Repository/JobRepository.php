@@ -24,5 +24,25 @@ class JobRepository extends EntityRepository
             ->getResult();
     }
 
+    public function getJobByDataRegisterBackup($data)
+    {
+        $em = $this->getEntityManager()->getConnection();
+
+        $stmt = $em->prepare("SELECT id,
+                                     (SELECT descricao FROM tipo_job WHERE id = tipo_job_id) AS tipo_job_id,
+                                     (SELECT nome FROM unidade WHERE id = unidade_id) AS unidade,
+                                     descricao,
+                                     status
+                              FROM job
+                              WHERE id
+                              NOT IN(SELECT job_id FROM registro_backup WHERE data = ?);");
+
+        $stmt->execute([$data]);
+
+        return $stmt->fetchAll();
+
+    }
+
+
 
 }

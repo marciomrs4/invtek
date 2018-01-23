@@ -28,12 +28,11 @@ class TrocaFitaController extends Controller
                            ->getRepository('MRSBackupBundle:TrocaFita');
 
         $trocaFitas = $repository->findBy(array(),array('id' => 'DESC','dataCriacao' => 'DESC'));
-        $maxId = $repository->getMaxId();
+
 
         return $this->render('trocafita/index.html.twig', array(
             'trocaFitas' => $trocaFitas,
-            'maxId' => $maxId['1']
-        ));
+         ));
     }
 
     /**
@@ -56,7 +55,10 @@ class TrocaFitaController extends Controller
             $em->persist($trocaFitum);
             $em->flush();
 
-            $this->addFlash('notice','Criado com sucesso!');
+            $mensagens = array('mensagem' => 'Criado com sucesso!',
+                               'tipo_mensagem' => 'success');
+
+            $this->addFlash('notice',$mensagens);
 
             return $this->redirectToRoute('cadastro_trocafita_show', array('id' => $trocaFitum->getId()));
         }
@@ -107,12 +109,15 @@ class TrocaFitaController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $maxId = $em->getRepository('MRSBackupBundle:TrocaFita')
-            ->getMaxId();
+        $date = new \DateTime('now');
 
-        if($maxId['1'] > $trocaFitum->getId()) {
+        if($trocaFitum->getCriadoEm()->format('Y-m-d') != $date->format('Y-m-d')) {
 
-            $this->addFlash('notice','Esse registro não pode ser alterado pois não é o ultimo registro criado.');
+            $mensagens = array('mensagem' => 'Este registro não pode ser alterado pois não foi criado hoje!',
+                               'tipo_mensagem' => 'danger');
+
+            $this->addFlash('notice',$mensagens);
+
             return $this->redirectToRoute('cadastro_trocafita_show',array('id' => $trocaFitum->getId()));
         }
 
@@ -125,7 +130,10 @@ class TrocaFitaController extends Controller
             $em->persist($trocaFitum);
             $em->flush();
 
-            $this->addFlash('notice','Alterado com sucesso!');
+            $mensagens = array('mensagem' => 'Este registro não pode ser alterado pois não foi criado hoje!',
+                               'tipo_mensagem' => 'success');
+
+            $this->addFlash('notice',$mensagens);
 
             return $this->redirectToRoute('cadastro_trocafita_show', array('id' => $trocaFitum->getId()));
         }

@@ -43,7 +43,7 @@
                     <th>Data de criação</th>
                     <th>Job</th>
                     <th>Status</th>
-                    <th>Observacao</th>
+                    <th>Observação</th>
                     <th>Usuário</th>
                     <th>Unidade</th>
                 </tr>
@@ -60,7 +60,7 @@
                         <a href="{{ path('cadastro_registrobackup_show', { 'id': registroBackup.id }) }}" class="btn btn-primary btn-xs">
                             <span class="glyphicon glyphicon-eye-open"></span>
                         </a>
-                        {% if maxId == registroBackup.id %}
+                        {% if "now"|date('Y-m-d') == registroBackup.dataCriacao|date('Y-m-d') %}
                             <a href="{{ path('cadastro_registrobackup_edit', { 'id': registroBackup.id }) }}" class="btn btn-primary btn-xs">
                                 <span class="glyphicon glyphicon-edit"></span>
                             </a>
@@ -79,6 +79,13 @@
         </div>
 
 
+    {% endblock %}
+
+    {% block panelfooter %}
+        <a href="{{ path('report_backup_job') }}" class="btn btn-primary btn-sm">
+            <span class="glyphicon glyphicon-list"></span>
+            Verificar Jobs
+        </a>
     {% endblock %}
 
     {% block javascripts %}

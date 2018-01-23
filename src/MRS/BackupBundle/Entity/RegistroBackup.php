@@ -30,6 +30,14 @@ class RegistroBackup
     private $data;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="data_criacao", type="date", nullable=true)
+     * @Assert\NotBlank(message="O campo data de criação é obrigatório")
+     */
+    private $data_criacao;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="observacao", type="text", length=65535, nullable=true)
@@ -124,6 +132,9 @@ class RegistroBackup
         $date = new \DateTime('now');
         $date->modify('-1day');
         $this->setData($date);
+
+        $dataCriacao = new \DateTime('now');
+        $this->setDataCriacao($dataCriacao);
     }
 
     /**
@@ -150,6 +161,32 @@ class RegistroBackup
     public function getData()
     {
         return $this->data;
+    }
+
+    /**
+     * Set data
+     *
+     * @param \DateTime $data_criacao
+     *
+     * @return RegistroBackup
+     */
+    public function setDataCriacao($dataCriacao)
+    {
+        $this->data_criacao = $dataCriacao;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Get data
+     *
+     * @return \DateTime
+     */
+    public function getDataCriacao()
+    {
+        return $this->data_criacao;
     }
 
     /**

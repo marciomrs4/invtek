@@ -30,12 +30,10 @@ class RegistroBackupController extends Controller
 
         $registroBackups = $repository->findBy(array(),array('id' => 'DESC'));
 
-        $maxId = $repository->getMaxId();
         $status_falha = $this->getParameter('status_falha');
 
         return $this->render('registrobackup/index.html.twig', array(
             'registroBackups' => $registroBackups,
-            'maxId' => $maxId['1'],
             'status_falha' => $status_falha
         ));
     }
@@ -153,19 +151,16 @@ class RegistroBackupController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $maxId = $em->getRepository('MRSBackupBundle:RegistroBackup')
-                    ->getMaxId();
+        $date = new \DateTime('now');
 
-        $id = $registroBackup->getId();
+        if($registroBackup->getDataCriacao()->format('Y-m-d') != $date->format('Y-m-d')){
 
-        if($maxId['1'] > $id){
-
-            $mensagens = array('mensagem' => 'Esse registro não pode ser alterado, pois não é o último',
+            $mensagens = array('mensagem' => 'Esse registro não pode ser alterado pois não foi criado hoje',
                                 'tipo_mensagem' => 'danger');
 
             $this->addFlash('notice',$mensagens);
 
-            return $this->redirectToRoute('cadastro_registrobackup_show', array('id' => $id));
+            return $this->redirectToRoute('cadastro_registrobackup_show', array('id' => $registroBackup->getId()));
         }
 
 

@@ -29,11 +29,8 @@ class RegistroRestoreController extends Controller
 
         $registroRestores = $repository->findBy(array(),array('id' => 'DESC'));
 
-        $maxId = $repository->getMaxId();
-
         return $this->render('registrorestore/index.html.twig', array(
-            'registroRestores' => $registroRestores,
-            'maxId' => $maxId['1']
+            'registroRestores' => $registroRestores
         ));
     }
 
@@ -134,19 +131,18 @@ class RegistroRestoreController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $maxId = $em->getRepository('MRSBackupBundle:RegistroRestore')
-            ->getMaxId();
-        $id = $registroRestore->getId();
-        if($maxId['1'] > $id ){
+        $date = new \DateTime('now');
+
+        if($registroRestore->getDataCriacao()->format('Y-m-d') != $date->format('Y-m-d')){
 
             $mensagens = [
-                'mensagem' => 'Esse registro não pode ser alterado pois não é o ultimo registro!',
+                'mensagem' => 'Esse registro não pode ser alterado pois não foi criado hoje!',
                 'tipo_mensagem' => 'danger'
             ];
 
             $this->addFlash('notice',$mensagens);
 
-            return $this->redirectToRoute('cadastro_registrorestore_show',array('id' => $id));
+            return $this->redirectToRoute('cadastro_registrorestore_show',array('id' => $registroRestore->getId()));
         }
 
         $editForm = $this->createForm('MRS\BackupBundle\Form\RegistroRestoreType', $registroRestore);

@@ -1,0 +1,88 @@
+{% extends ':template:template.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/mrsinventario/css/dataTables.bootstrap.css') }}">
+{% endblock %}
+
+    {% block contentheader %}
+
+        <section class="content-header">
+            <h1>
+                Lista de Jobs
+                <small>Jobs que não foram registrados hoje.</small>
+            </h1>
+        </section>
+
+    {% endblock %}
+
+
+    {% block panelheading %}
+
+        {{ form_start(jobs_form) }}
+
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                <div class="form-group">
+                {{ form(jobs_form) }}
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="form-group">
+                    <button class="btn btn-default btn-sm">
+                        <span class="glyphicon glyphicon-filter"></span>
+                        Pesquisar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        {{ form_end(jobs_form) }}
+
+    {% endblock %}
+
+    {% block panelbody %}
+    <div class="table-responsive">
+        <table class="table table-bordered table-condensed table-hover table-striped table-datatable" data-order='[]'>
+            <thead>
+            <tr>
+                <th>Descrição</th>
+                <th>Tipo de Job</th>
+                <th>Unidade</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for job in jobs %}
+                <tr>
+                    <td><a href="{{ path('cadastro_job_show', { 'id': job.id }) }}">{{ job.descricao }}</a></td>
+                    <td>{{ job.tipo_job_id}}</td>
+                    <td>{{ job.unidade }}</td>
+                    <td>
+                        {% if job.status %}Ativo{% else %}Inativo{% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+    {% endblock %}
+
+    {% block panelfooter %}
+        <a href="{{ path('cadastro_registrobackup_index') }}" class="btn btn-primary btn-sm">
+            <span class="glyphicon glyphicon-list"></span>
+            Registro de backup
+        </a>
+    {%  endblock %}
+
+    {% block javascripts %}
+        {{ parent() }}
+
+        <script src="{{ asset('bundles/mrsinventario/js/jquery.dataTables.js') }}"></script>
+        <script src="{{ asset('bundles/mrsinventario/js/dataTables.bootstrap.js') }}"></script>
+        <script src="{{ asset('bundles/mrsinventario/js/mrs-dataTable.js') }}"></script>
+
+
+    {% endblock %}

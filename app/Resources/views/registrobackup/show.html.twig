@@ -73,13 +73,13 @@
                     <li>
                         <a href="{{ path('cadastro_anexobackup_new', { 'registroBackup': registroBackup.id }) }}" >
                             <span class="fa fa-paperclip"></span>
-                            Exclusivo
+                            Exclusivos
                         </a>
                     </li>
                     <li>
                         <a href="{{ path('cadastro_registroanexobackup_new',{'registroBackup': registroBackup.id}) }}">
                             <span class="fa fa-paperclip"></span>
-                            Compartilhado
+                            Compartilhados
                         </a>
                     </li>
                 </ul>
@@ -114,7 +114,7 @@
                     <td>{{ registroBackup.status }}</td>
                 </tr>
                 <tr>
-                    <th>Observacao</th>
+                    <th>Observação</th>
                     <td>{{ registroBackup.observacao }}</td>
                 </tr>
                 {#<tr>#}
@@ -140,7 +140,7 @@
                 </tr>
 
                 <tr>
-                    <th>Tipo de Job JOB</th>
+                    <th>Tipo de Job</th>
                     <td>{{ registroBackup.tipoJob }}</td>
                 </tr>
 

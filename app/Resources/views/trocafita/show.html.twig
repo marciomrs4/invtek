@@ -17,11 +17,11 @@
 
         {% for message in app.session.flashBag.get('notice') %}
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="alert alert-success alert-dismissible" role="alert">
+                <div class="alert alert-{{ message.tipo_mensagem }} alert-dismissible" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <i class="fa fa-info"></i> {{ message }}. <i class="fa fa-smile-o"></i>
+                    <i class="fa fa-info"></i> {{ message.mensagem }}. <i class="fa fa-smile-o"></i>
                 </div>
             </div>
         {% endfor %}
@@ -83,7 +83,7 @@
                     <td>{% if trocaFitum.dataCriacao %}{{ trocaFitum.dataCriacao|date('d-m-Y') }}{% endif %}</td>
                 </tr>
                 <tr>
-                    <th>Usuario</th>
+                    <th>Usuário</th>
                     <td>{{ trocaFitum.user }}</td>
                 </tr>
                 <tr>

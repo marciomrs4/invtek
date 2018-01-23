@@ -28,6 +28,15 @@ class TrocaFita
     private $dataCriacao;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="criado_em", type="date", nullable=true)
+     * @Gedmo\Versioned()
+     * @Assert\NotBlank(message="A Data é obrigatória")
+     */
+    private $criadoEm;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
@@ -58,6 +67,7 @@ class TrocaFita
     public function __construct()
     {
         $this->setDataCriacao(new \DateTime('now'));
+        $this->setCriadoEm(new \DateTime('now'));
     }
 
 
@@ -83,6 +93,30 @@ class TrocaFita
     public function getDataCriacao()
     {
         return $this->dataCriacao;
+    }
+
+    /**
+     * Set dataCriacao
+     *
+     * @param \DateTime $criadoEm
+     *
+     * @return TrocaFita
+     */
+    public function setCriadoEm($criadoEm)
+    {
+        $this->criadoEm = $criadoEm;
+
+        return $this;
+    }
+
+    /**
+     * Get dataCriacao
+     *
+     * @return \DateTime
+     */
+    public function getCriadoEm()
+    {
+        return $this->criadoEm;
     }
 
     /**
