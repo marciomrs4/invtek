@@ -42,31 +42,30 @@
                     <th>Fornecedor de Software</th>
                     <th>Nº de licença</th>
                     <th>Nº de Reservas</th>
+                    <th>Em uso</th>
+                    <th>Disponiveis</th>
                 </tr>
                 </thead>
                 <tbody>
                 {% for software in softwares %}
                     <tr>
                         <td>
-                            <a href="{{ path('cadastro_software_show', { 'id': software.id }) }}" class="btn btn-primary btn-sm">
+                            <a href="{{ path('cadastro_software_show', { 'id': software.id }) }}" class="btn btn-primary btn-xs">
                                 <span class="glyphicon glyphicon-eye-open"></span>
-                                Mostrar
                             </a>
-                            <a href="{{ path('cadastro_software_edit', { 'id': software.id }) }}" class="btn btn-primary btn-sm">
+                            <a href="{{ path('cadastro_software_edit', { 'id': software.id }) }}" class="btn btn-primary btn-xs">
                                 <span class="glyphicon glyphicon-edit"></span>
-                                Editar
                             </a>
                         </td>
                         <td>{{ software.descricao }}</td>
                         <td>{{ software.versao }}</td>
                         <td>{{ software.serial }}</td>
-                        <td>{{ software.tiposoftware.descricao }}</td>
-                        <td>{% if software.fornecedor %}
-                        {{ software.fornecedor.nome }}
-                        {% endif %}
-                        </td>
+                        <td>{{ software.tiposoftware }}</td>
+                        <td>{{ software.fornecedor }}</td>
                         <td>{{ software.numerolicensa }}</td>
                         <td>{{ software.numeroReserva }}</td>
+                        <td>{{ software.quantidadeEquipamento }}</td>
+                        <td>{{ software.disponiveis }}</td>
                     </tr>
                 {% endfor %}
                 </tbody>

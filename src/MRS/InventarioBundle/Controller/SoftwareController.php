@@ -28,7 +28,8 @@ class SoftwareController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $softwares = $em->getRepository('MRSInventarioBundle:Software')->findAll();
+        $softwares = $em->getRepository('MRSInventarioBundle:Software')
+                        ->listAllSoftware();
 
         return $this->render('software/index.html.twig', array(
             'softwares' => $softwares,
