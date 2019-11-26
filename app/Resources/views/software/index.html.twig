@@ -36,11 +36,12 @@
                 <tr>
                     <th>Ações</th>
                     <th>Descricao</th>
-                    <th>Numero de licença</th>
                     <th>Versao</th>
                     <th>Serial</th>
                     <th>Tipo de Software</th>
                     <th>Fornecedor de Software</th>
+                    <th>Nº de licença</th>
+                    <th>Nº de Reservas</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -57,14 +58,15 @@
                             </a>
                         </td>
                         <td>{{ software.descricao }}</td>
-                        <td>{{ software.numerolicensa }}</td>
                         <td>{{ software.versao }}</td>
                         <td>{{ software.serial }}</td>
                         <td>{{ software.tiposoftware.descricao }}</td>
                         <td>{% if software.fornecedor %}
-                            {{ software.fornecedor.nome }}
-                            {% endif %}
+                        {{ software.fornecedor.nome }}
+                        {% endif %}
                         </td>
+                        <td>{{ software.numerolicensa }}</td>
+                        <td>{{ software.numeroReserva }}</td>
                     </tr>
                 {% endfor %}
                 </tbody>

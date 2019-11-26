@@ -38,7 +38,7 @@ parameters:
     #Nome do Status para marcar como vermelho a linha no Registro Backup e Restore
     status_falha: 'FALHA'
     #Habilita a importacao ou não em cadastros base
-    importacao: 'FALSE'
+    importacao: false
     #Habilita ou não o menu de gestão de dados
     gestao_dados: false
     #Habilita ou não o menu gestão de IPs

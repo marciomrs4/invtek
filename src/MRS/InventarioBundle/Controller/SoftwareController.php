@@ -77,8 +77,12 @@ class SoftwareController extends Controller
         $tags = $this->getDoctrine()->getRepository('MRSInventarioBundle:SoftwareTag')
             ->findBy(array('software'=>$software));
 
+        $quantidadeEquipamento = $this->getDoctrine()->getRepository('MRSInventarioBundle:Software')
+            ->countSoftwareOnEquipamento($software->getId());
+
         return $this->render('software/show.html.twig', array(
             'software' => $software,
+            'quantidadeEquipamento' => $quantidadeEquipamento,
             'tags' => $tags,
             'delete_form' => $deleteForm->createView(),
         ));

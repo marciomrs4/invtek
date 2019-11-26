@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Software
  *
  * @ORM\Table(name="software", indexes={@ORM\Index(name="fk_software_tipoSoftware1_idx", columns={"tipoSoftware_id"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="MRS\InventarioBundle\Repository\SoftwareRepository")
  */
 class Software
 {
@@ -23,9 +23,16 @@ class Software
     /**
      * @var string
      *
-     * @ORM\Column(name="numerolicensa", type="string", length=45, nullable=true)
+     * @ORM\Column(name="numerolicensa", type="integer", nullable=true)
      */
     private $numerolicensa;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="numeroreserva", type="integer", nullable=true)
+     */
+    private $numeroreserva;
 
     /**
      * @var string
@@ -113,11 +120,34 @@ class Software
     /**
      * Get numerolicensa
      *
-     * @return string 
+     * @return string
      */
     public function getNumerolicensa()
     {
         return $this->numerolicensa;
+    }
+
+    /**
+     * Set numeroreserva
+     *
+     * @param string $numeroreserva
+     * @return Software
+     */
+    public function setNumeroReserva($numeroreserva)
+    {
+        $this->numeroreserva = $numeroreserva;
+
+        return $this;
+    }
+
+    /**
+     * Get numeroreserva
+     *
+     * @return string
+     */
+    public function getNumeroReserva()
+    {
+        return $this->numeroreserva;
     }
 
     /**

@@ -5,6 +5,7 @@ namespace MRS\InventarioBundle\Form;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -18,8 +19,6 @@ class SoftwareType extends AbstractType
     {
         $builder
             ->add('descricao',null,array('label'=>'Descrição',
-                                           'attr'=>array('class'=>'input-sm')))
-            ->add('numerolicensa',null,array('label'=>'Número de licença',
                                            'attr'=>array('class'=>'input-sm')))
             ->add('versao',null,array('label'=>'Versão',
                                            'attr'=>array('class'=>'input-sm')))
@@ -42,6 +41,10 @@ class SoftwareType extends AbstractType
                         ->where('f.status = 1');
                 },
                 'placeholder'=>'Selecione'))
+            ->add('numerolicensa',IntegerType::class,array('label'=>'Número de licença',
+                'attr'=>array('class'=>'input-sm')))
+            ->add('numeroreserva',IntegerType::class,array('label'=>'Número de Reservas',
+                'attr'=>array('class'=>'input-sm')))
         ;
     }
     

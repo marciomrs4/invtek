@@ -1,7 +1,5 @@
 {% extends ':template:template.html.twig' %}
 
-
-
     {% block contentheader %}
 
         <section class="content-header">
@@ -82,26 +80,38 @@
                     <td>{{ software.descricao }}</td>
                 </tr>
                 <tr>
+                <th>Versão</th>
+                <td>{{ software.versao }}</td>
+                </tr>
+                <tr>
+                <th>Serial</th>
+                <td>{{ software.serial }}</td>
+                </tr>
+                <tr>
+                <th>Tipo de Software</th>
+                <td>{{ software.tiposoftware.descricao }}</td>
+                </tr>
+                <tr>
+                <th>Fornecedor de Software</th>
+                {% if software.fornecedor %}
+                <td>{{ software.fornecedor.nome }}</td>
+                {% endif  %}
+                </tr>
+                <tr>
                     <th>Número de licença</th>
                     <td>{{ software.numerolicensa }}</td>
                 </tr>
                 <tr>
-                    <th>Versão</th>
-                    <td>{{ software.versao }}</td>
+                    <th>Número de Reservas</th>
+                    <td>{{ software.numeroReserva }}</td>
                 </tr>
                 <tr>
-                    <th>Serial</th>
-                    <td>{{ software.serial }}</td>
+                    <th>Número de licenças em uso</th>
+                    <td>{{ quantidadeEquipamento }}</td>
                 </tr>
                 <tr>
-                    <th>Tipo de Software</th>
-                    <td>{{ software.tiposoftware.descricao }}</td>
-                </tr>
-                <tr>
-                    <th>Fornecedor de Software</th>
-                    {% if software.fornecedor %}
-                    <td>{{ software.fornecedor.nome }}</td>
-                    {% endif  %}
+                    <th>Número de licenças disponiveis</th>
+                    <td>{{ software.numerolicensa - (software.numeroReserva + quantidadeEquipamento) }}</td>
                 </tr>
                 </tbody>
             </table>
@@ -164,3 +174,68 @@
 
 
     {% endblock %}
+
+
+{% block panelfooter %}
+
+    <div class="modal fade bs-maisinformacoes" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="maisinformacoes">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3 col-sm-4 col-xs-4">
+            <a href="{{ path('cadastro_equipamentoaddsoftware_show', { 'software': software.id }) }}"
+               class="maisinformacao btn btn-primary btn-sm" data-toggle="modal" data-target=".bs-maisinformacoes">
+                <span class="glyphicon glyphicon-exclamation-sign"></span>
+                Equipamentos atrelados
+            </a>
+        </div>
+
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+
+    <script src="{{ asset('bundles/mrsinventario/js/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('bundles/mrsinventario/js/dataTables.bootstrap.js') }}"></script>
+    <script src="{{ asset('bundles/mrsinventario/js/mrs-dataTable.js') }}"></script>
+
+    <script>
+
+        $(document).ready(function() {
+
+
+            var maisinformacao = $(".maisinformacao");
+
+            var urlMaisInformacao = $(maisinformacao).attr('href');
+
+            $(".maisinformacao").click(function (e) {
+
+
+                e.preventDefault();
+
+                $.get(urlMaisInformacao, function (data) {
+                    $(".maisinformacoes").html(data);
+                });
+
+            });
+
+
+        });
+
+    </script>
+
+{% endblock %}
+
+

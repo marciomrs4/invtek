@@ -1,80 +1,70 @@
-    {% extends ':template:template.html.twig' %}
+<div class="panel panel-primary">
 
-
-
-    {% block contentheader %}
-
-    <section class="content-header">
-        <h1>
-            EquipamentoHasSoftware
-            <small>Mostrar</small>
-        </h1>
-    </section>
-
-    {% endblock %}
-
-    {% block firstrow %}
-
-    {% for message in app.session.flashBag.get('notice') %}
-    <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="alert alert-success alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <i class="fa fa-info"></i> {{ message }}. <i class="fa fa-smile-o"></i>
-        </div>
+    <div class="panel-heading">
+        <strong>Equipamentos atrelados</strong>
     </div>
-    {% endfor %}
 
+    <div class="panel-body">
 
-    {% endblock %}
+        <div class="table-responsive">
 
+            <table class="table table-bordered table-condensed table-datatable">
+                <thead>
+                <tr>
+                    <th>Ação</th>
+                    <th>Nome</th>
+                    <th>Nº Série</th>
+                    <th>Centro de Movimentação</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for equipamento in equipamentoHasSoftware %}
 
-    {% block panelheading %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('cadastro_equipamento_show', {'id': equipamento.equipamento.id }) }}"
+                            class="btn btn-primary btn-xs" data-toggle="tooltip" title="Ir para Movimentação">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                            </a>
+                        </td>
+
+                        <td>{{ equipamento.equipamento.nome }}</td>
+                        <td>{{ equipamento.equipamento.numeroserie }} </td>
+                        <td>{{ equipamento.equipamento.centroMovimentacao.nome }} </td>
+                        <td>
+                            {% if equipamento.equipamento.status == 1 %}
+                                Ativo
+                            {% else %}
+                                Inativo
+                            {% endif %}
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+    <div class="panel-footer">
 
         <div class="row">
 
-    <div class="col-md-2 col-sm-3 col-xs-3">
+            <div class="col-md-12">
 
-        <a href="{{ path('cadastro_equipamentoaddsoftware_index',{ 'equipamento':  }) }}" class="btn btn-primary btn-sm">
-            <span class="fa fa-reply"></span>
-            Voltar
-        </a>
+                <button type="button" class="btn btn-primary btn-xs pull-right" data-dismiss="modal" aria-label="Close">
+                    <span class="glyphicon glyphicon-remove"></span>
+                    Fechar
+                </button>
+
+            </div>
+        </div>
 
     </div>
-        <div class="col-md-2 col-sm-3 col-xs-3">
 
-            <a href="{{ path('cadastro_equipamentoaddsoftware_edit', { 'id': equipamentoHasSoftware.id }) }}" class="btn btn-primary btn-sm">
-                <span class="glyphicon glyphicon-edit"></span>
-                Editar
-            </a>
-
-        </div>
-        <div class="col-md-2 col-sm-3 col-xs-3">
-            {{ form_start(delete_form) }}
-            <button type="submit" class="btn btn-danger btn-sm remover-form">
-                <span class="glyphicon glyphicon-trash"></span>
-                Deletar
-            </button>
-            {{ form_end(delete_form) }}
-
-        </div>
-</div>{% endblock %}
-
-
-
-    {% block panelbody %}
-
-    <div class="table table-responsive">
-        <table class="table table-bordered table-condensed">
-            <tbody>
-                <tr>
-                    <th>Id</th>
-                        <td>{{ equipamentoHasSoftware.id }}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-
-    {% endblock %}
+</div>

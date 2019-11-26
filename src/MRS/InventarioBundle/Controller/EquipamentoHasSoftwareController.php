@@ -3,6 +3,7 @@
 namespace MRS\InventarioBundle\Controller;
 
 use MRS\InventarioBundle\Entity\Equipamento;
+use MRS\InventarioBundle\Entity\Software;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -78,16 +79,18 @@ class EquipamentoHasSoftwareController extends Controller
     /**
      * Finds and displays a EquipamentoHasSoftware entity.
      *
-     * @Route("/{id}", name="cadastro_equipamentoaddsoftware_show")
+     * @Route("/show/{software}", name="cadastro_equipamentoaddsoftware_show")
      * @Method("GET")
      */
-    public function showAction(EquipamentoHasSoftware $equipamentoHasSoftware)
+    public function showAction(Software $software)
     {
-        $deleteForm = $this->createDeleteForm($equipamentoHasSoftware);
+
+        $equipamentoHasSoftware = $this->getDoctrine()
+                           ->getRepository('MRSInventarioBundle:EquipamentoHasSoftware')
+                           ->findBy(array('software' => $software));
 
         return $this->render('equipamentohassoftware/show.html.twig', array(
             'equipamentoHasSoftware' => $equipamentoHasSoftware,
-            'delete_form' => $deleteForm->createView(),
         ));
     }
 
