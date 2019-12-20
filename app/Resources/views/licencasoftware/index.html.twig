@@ -1,0 +1,67 @@
+    {% extends ':template:template.html.twig' %}
+
+
+    {% block contentheader %}
+
+
+    <section class="content-header">
+        <h1>
+            Licença Software
+            <small>Listar</small>
+        </h1>
+    </section>
+
+
+    {% endblock %}
+
+
+    {% block panelheading %}
+    <a href="{{ path('cadastro_licencasoftware_new', { 'software' : software.id}) }}" class="btn btn-primary btn-sm">
+            <span class="glyphicon glyphicon-plus"></span>
+            Novo
+        </a>
+
+        <a href="{{ path('cadastro_software_show', { 'id' : software.id}) }}" class="btn btn-primary btn-sm">
+            <span class="glyphicon glyphicon-eye-open"></span>
+            Mostrar Software
+        </a>
+
+    {% endblock %}
+
+    {% block panelbody %}
+    <div class="table-responsive">
+        <table class="table table-bordered table-condensed table-hover table-striped">
+            <thead>
+            <tr>
+                <th>Ações</th>
+                    <th>Nota fiscal</th>
+                    <th>Data emissão</th>
+                    <th>Valor unitário</th>
+                    <th>Quantidade total</th>
+                    <th>Anotações</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for licencaSoftware in licencaSoftwares %}
+            <tr>
+                <td>
+                    <a href="{{ path('cadastro_licencasoftware_show', { 'id': licencaSoftware.id }) }}" class="btn btn-primary btn-xs">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                    </a>
+                    <a href="{{ path('cadastro_licencasoftware_edit', { 'id': licencaSoftware.id }) }}" class="btn btn-primary btn-xs">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </a>
+                </td>
+                <td><a href="{{ path('cadastro_licencasoftware_show', { 'id': licencaSoftware.id }) }}">{{ licencaSoftware.notafiscal }}</a></td>
+                <td>{% if licencaSoftware.dataemissao %}{{ licencaSoftware.dataemissao|date('Y-m-d') }}{% endif %}</td>
+                <td>R$ {{ licencaSoftware.valorunitario | number_format(2,',','.') }}</td>
+                <td>{{ licencaSoftware.quantidadetotal }}</td>
+                <td>{{ licencaSoftware.anotacoes }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+    {% endblock %}

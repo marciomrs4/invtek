@@ -1,0 +1,78 @@
+<?php
+
+namespace MRS\InventarioBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * LicencaSoftware
+ *
+ * @ORM\Table(name="licensa_software", indexes={@ORM\Index(name="fk_licenca_software_software_idx", columns={"software_id"})})
+ * @ORM\Entity
+ */
+class LicencaSoftware
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nota_fiscal", type="string", length=45, nullable=false)
+     * @Assert\NotBlank(message="O campo Nota Fiscal não pode ser vazio")
+     */
+    private $nota_fiscal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="data_emissao", type="date", nullable=false)
+     * @Assert\NotBlank(message="O campo Data Emissão não pode ser vazio")
+     */
+    private $data_emissao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="valor_unitario", type="decimal", precision=10, scale=2, nullable=false)
+     * @Assert\NotBlank(message="O campo Valor Unitário não pode ser vazio")
+     */
+    private $valor_unitario;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nome", type="integer", nullable=false)
+     * @Assert\NotBlank(message="O campo Quantidade Total não pode ser vazio")
+     */
+    private $quantidade_total;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="anotacoes", type="text", nullable=true)
+     */
+    private $anotacoes;
+
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \MRS\InventarioBundle\Entity\Software
+     *
+     * @ORM\ManyToOne(targetEntity="MRS\InventarioBundle\Entity\Software")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="software_id", referencedColumnName="id")
+     * })
+     */
+    private $software;
+
+
+
+
+}

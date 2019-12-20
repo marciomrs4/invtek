@@ -1,0 +1,95 @@
+{% extends ':template:template.html.twig' %}
+
+
+
+    {% block contentheader %}
+
+        <section class="content-header">
+            <h1>
+                Licença Software
+                <small>Mostrar</small>
+            </h1>
+        </section>
+
+    {% endblock %}
+
+    {% block firstrow %}
+
+        {% for message in app.session.flashBag.get('notice') %}
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <i class="fa fa-info"></i> {{ message }}. <i class="fa fa-smile-o"></i>
+                </div>
+            </div>
+        {% endfor %}
+
+
+    {% endblock %}
+
+
+    {% block panelheading %}
+
+        <div class="row">
+
+            <div class="col-md-2 col-sm-3 col-xs-3">
+
+                <a href="{{ path('cadastro_licencasoftware_index',{ 'software': software.id }) }}" class="btn btn-primary btn-sm">
+                    <span class="fa fa-reply"></span>
+                    Voltar
+                </a>
+
+            </div>
+            <div class="col-md-2 col-sm-3 col-xs-3">
+
+                <a href="{{ path('cadastro_licencasoftware_edit', { 'id': licencaSoftware.id }) }}" class="btn btn-primary btn-sm">
+                    <span class="glyphicon glyphicon-edit"></span>
+                    Editar
+                </a>
+
+            </div>
+
+        </div>
+    {% endblock %}
+
+
+
+    {% block panelbody %}
+
+        <div class="table table-responsive">
+            <table class="table table-bordered table-condensed">
+                <tbody>
+                <tr>
+                    <th>Nota fiscal</th>
+                    <td>{{ licencaSoftware.notafiscal }}</td>
+                </tr>
+                <tr>
+                    <th>Data emissão</th>
+                    <td>{% if licencaSoftware.dataemissao %}{{ licencaSoftware.dataemissao|date('d-m-Y') }}{% endif %}</td>
+                </tr>
+                <tr>
+                    <th>Valor unitário</th>
+                    <td>R$ {{ licencaSoftware.valorunitario | number_format(2,',','.') }}</td>
+                </tr>
+                <tr>
+                    <th>Quantidade total</th>
+                    <td>{{ licencaSoftware.quantidadetotal }}</td>
+                </tr>
+                <tr>
+                    <th>Anotações</th>
+                    <td>{{ licencaSoftware.anotacoes }}</td>
+                </tr>
+
+                <tr>
+                    <th>Valor Total</th>
+                    <td>R$ {{ licencaSoftware.quantidadetotal * licencaSoftware.valorunitario | number_format(2,',','.') }}</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+
+    {% endblock %}

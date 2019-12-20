@@ -55,6 +55,7 @@
                         Opções
                         <span class="caret"></span>
                     </button>
+
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                         <li>
                             <a href="{{ path('cadastro_softwaretag_new', { 'software': software.id }) }}" >
@@ -62,7 +63,15 @@
                                 Nova Tag
                             </a>
                         </li>
+
+                        <li>
+                            <a href="{{ path('cadastro_licencasoftware_new', { 'software': software.id }) }}" >
+                                <span class="fa fa-key"></span>
+                                Licença
+                            </a>
+                        </li>
                     </ul>
+
                 </div>
             </div>
         </div>
@@ -127,6 +136,7 @@
                             <span class="glyphicon glyphicon-plus"></span>
                             Nova Tag
                         </a>
+
                     </div>
                     <div class="col-xs-3 col-md-3 col-sm-3">
 

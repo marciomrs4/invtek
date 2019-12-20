@@ -41,8 +41,6 @@ class SoftwareType extends AbstractType
                         ->where('f.status = 1');
                 },
                 'placeholder'=>'Selecione'))
-            ->add('numerolicensa',IntegerType::class,array('label'=>'Número de licença',
-                'attr'=>array('class'=>'input-sm')))
             ->add('numeroreserva',IntegerType::class,array('label'=>'Número de Reservas',
                 'attr'=>array('class'=>'input-sm')))
         ;

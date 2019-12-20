@@ -1,3 +1,7 @@
+mrs_inventario_licenca_software:
+    resource: "@MRSInventarioBundle/Controller/LicencaSoftwareController.php"
+    type:     annotation
+
 mrs_backup_registro_anexo_backup:
     resource: "@MRSBackupBundle/Controller/RegistroAnexoBackupController.php"
     type:     annotation
