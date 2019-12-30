@@ -65,7 +65,12 @@
                         <td>{{ software.numerolicensa }}</td>
                         <td>{{ software.numeroReserva }}</td>
                         <td>{{ software.quantidadeEquipamento }}</td>
-                        <td>{{ software.disponiveis }}</td>
+                        <td {% if software.disponiveis < 0 %}
+                                style="background-color: red; color: white"
+                            {% endif %}
+                        >
+                            {{ software.disponiveis }}
+                        </td>
                     </tr>
                 {% endfor %}
                 </tbody>
