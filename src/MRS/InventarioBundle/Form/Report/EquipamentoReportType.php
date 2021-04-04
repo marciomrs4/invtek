@@ -44,7 +44,7 @@ class EquipamentoReportType extends AbstractType
             ->add('numeroserie',TextType::class,array('label'=>'Número de Série',
                 'attr'=>array('class'=>'input-sm')))
             ->add('status',ChoiceType::class,array('label'=>'Status',
-                'choices'=>array(''=>'Todos','1'=>'Ativo','0'=>'Inativo'),
+                'choices'=>array('Todos'=>'','Ativo'=>'1','Inativo'=>'0'),
                 'attr'=>array('class'=>'input-sm')))
             ->add('centroMovimentacao',EntityType::class,array('label'=>'Centro de Movimentação',
                 'attr'=>array('class'=>'input-sm'),

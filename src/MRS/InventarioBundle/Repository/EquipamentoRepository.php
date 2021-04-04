@@ -15,7 +15,7 @@ class EquipamentoRepository extends EntityRepository
 
     private function emptyValue($value)
     {
-        if($value == ''){
+        if($value == null){
             return '%';
         }
         return $value;

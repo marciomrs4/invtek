@@ -84,7 +84,7 @@
 
                 <tr>
                     <th>Valor Total</th>
-                    <td>R$ {{ licencaSoftware.quantidadetotal * licencaSoftware.valorunitario | number_format(2,',','.') }}</td>
+                   <td>R$ {{ (licencaSoftware.quantidadetotal * licencaSoftware.valorunitario) | number_format(2,',','.') }}</td>
                 </tr>
 
                 </tbody>

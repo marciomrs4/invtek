@@ -139,7 +139,11 @@
                             <td>R$ {{ custo.valor | number_format(2,',','.')}}</td>
                             <td>{{ custo.descricao }}</td>
                             <td>{{ custo.dataCriacao|date('d-m-Y') }}</td>
+
+                                {% if custo.usuario is not empty %}
                             <td>{{ custo.usuario.nome }}</td>
+                                {%  endif %}
+
                         </tr>
                     {% endfor %}
                     </tbody>

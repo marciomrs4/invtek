@@ -31,12 +31,17 @@ class EquipamentoReportController extends Controller
     public function painelEquipamentoAction(Request $request)
     {
 
-        $tipocomponente = $request->request->get('painel_equipamento');
-
         $em = $this->getDoctrine()->getManager();
 
-        $tipoEquipamento = $em->getRepository('MRSInventarioBundle:Tipoequipamento')
-            ->findBy(array('id'=>$tipocomponente['tipoequipamento']));
+        $tipoEquipamento = [];
+
+        if($request->getMethod() == 'POST') {
+
+            $tipocomponente = $request->request->get('painel_equipamento');
+
+            $tipoEquipamento = $em->getRepository('MRSInventarioBundle:Tipoequipamento')
+                ->findBy(array('id' => $tipocomponente['tipoequipamento']));
+        }
 
         $form = $this->createForm(PainelEquipamentoReportType::class);
 
@@ -60,20 +65,24 @@ class EquipamentoReportController extends Controller
      */
     public function qrcodeEquipamentoAction(Request $request)
     {
+        $equipamentos = [];
 
-        $tipocomponente = $request->request->get('painel_equipamento');
+        if($request->isMethod('POST')) {
 
-        $em = $this->getDoctrine()->getManager();
+            $tipocomponente = $request->request->get('painel_equipamento');
 
-        $tipoEquipamento = $em->getRepository('MRSInventarioBundle:Tipoequipamento')
-            ->findBy(array('id'=>$tipocomponente['tipoequipamento']));
+            $em = $this->getDoctrine()->getManager();
+
+            $tipoEquipamento = $em->getRepository('MRSInventarioBundle:Tipoequipamento')
+                ->findBy(array('id' => $tipocomponente['tipoequipamento']));
+
+            $equipamentos = $em->getRepository('MRSInventarioBundle:Equipamento')
+                ->findBy(array('tipoequipamento' => $tipoEquipamento));
+        }
 
         $form = $this->createForm(PainelEquipamentoReportType::class);
 
         $form->handleRequest($request);
-
-        $equipamentos = $em->getRepository('MRSInventarioBundle:Equipamento')
-            ->findBy(array('tipoequipamento'=> $tipoEquipamento));
 
         return $this->render('equipamentoqrcode/index.html.twig', array(
             'equipamentos' => $equipamentos,
@@ -169,11 +178,15 @@ class EquipamentoReportController extends Controller
             $form->handleRequest($request);
         }
 
-        $equipamentosForm = $request->request->get('report_equipamentos');
+        $equipamentos = [];
 
-        $equipamentos = $this->getDoctrine()
-            ->getRepository('MRSInventarioBundle:Equipamento')
-            ->reportEquipamentos($equipamentosForm);
+        if($request->getMethod() == 'POST') {
+            $equipamentosForm = $request->request->get('report_equipamentos');
+
+            $equipamentos = $this->getDoctrine()
+                ->getRepository('MRSInventarioBundle:Equipamento')
+                ->reportEquipamentos($equipamentosForm);
+        }
 
         return $this->render(':equipamentoreport:equipamentos.html.twig',array(
             'equipamentos' => $equipamentos,

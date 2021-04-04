@@ -38,10 +38,6 @@ mrs_backup_job_servidor:
     resource: "@MRSBackupBundle/Controller/JobServidorController.php"
     type:     annotation
 
-mrs_backup_job:
-    resource: "@MRSBackupBundle/Controller/JobController.php"
-    type:     annotation
-
 mrs_backup_tipo_job:
     resource: "@MRSBackupBundle/Controller/TipoJobController.php"
     type:     annotation
@@ -50,28 +46,12 @@ mrs_backup_troca_fita:
     resource: "@MRSBackupBundle/Controller/TrocaFitaController.php"
     type:     annotation
 
-mrs_backup_fita:
-    resource: "@MRSBackupBundle/Controller/FitaController.php"
-    type:     annotation
-
 mrs_backup_registro_restore:
     resource: "@MRSBackupBundle/Controller/RegistroRestoreController.php"
     type:     annotation
 
 mrs_backup_registro_backup:
     resource: "@MRSBackupBundle/Controller/RegistroBackupController.php"
-    type:     annotation
-
-mrs_backup_status:
-    resource: "@MRSBackupBundle/Controller/StatusController.php"
-    type:     annotation
-
-mrs_backup_status:
-    resource: "@MRSBackupBundle/Controller/StatusController.php"
-    type:     annotation
-
-mrs_backup_status:
-    resource: "@MRSBackupBundle/Controller/StatusController.php"
     type:     annotation
 
 mrs_backup_status:
@@ -104,14 +84,6 @@ mrs_inventario_endereco_ip:
 
 mrs_inventario_anexo_acompanhamento:
     resource: "@MRSInventarioBundle/Controller/AnexoAcompanhamentoController.php"
-    type:     annotation
-
-mrs_inventario_anexo:
-    resource: "@MRSInventarioBundle/Controller/AnexoController.php"
-    type:     annotation
-
-mrs_inventario_anexo:
-    resource: "@MRSInventarioBundle/Controller/AnexoController.php"
     type:     annotation
 
 mrs_inventario_anexo:
