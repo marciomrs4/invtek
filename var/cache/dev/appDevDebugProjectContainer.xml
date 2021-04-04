@@ -139,7 +139,7 @@
     <parameter key="version">2.0.0</parameter>
     <parameter key="teamcreator">InftekTecnologia</parameter>
     <parameter key="do_ping">false</parameter>
-    <parameter key="color">blue</parameter>
+    <parameter key="color">yellow</parameter>
     <parameter key="tiposequipamentos" type="collection">
       <parameter>3</parameter>
       <parameter>13</parameter>
@@ -3252,7 +3252,7 @@
       </call>
       <call method="addGlobal">
         <argument>color</argument>
-        <argument>blue</argument>
+        <argument>yellow</argument>
       </call>
       <call method="addGlobal">
         <argument>importacao</argument>
