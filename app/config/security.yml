@@ -3,7 +3,7 @@
 security:
     encoders:
         MRS\UserBundle\Entity\User:
-          algorithm: bcrypt
+          algorithm: argon2i
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
       db_user_provider:

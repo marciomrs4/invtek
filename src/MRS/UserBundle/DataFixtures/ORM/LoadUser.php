@@ -35,7 +35,8 @@ class LoadUser implements \Doctrine\Common\DataFixtures\FixtureInterface, \Symfo
             ->setIsActive(true)
             ->setRoles(array('ROLE_SUPER_ADMIN','ROLE_ADMIN','ROLE_USER','ROLE_BLA_BLA_BLA'))
             ->setEmail('admin@mrs.com')
-            ->setPlainPassword('admin');
+            ->setPlainPassword('admin')
+            ->eraseCredentials();
 
         $usuario2 = new \MRS\UserBundle\Entity\User();
 
@@ -44,7 +45,8 @@ class LoadUser implements \Doctrine\Common\DataFixtures\FixtureInterface, \Symfo
             ->setIsActive(true)
             ->setRoles(array('ROLE_USER'))
             ->setEmail('user@mrs.com')
-            ->setPlainPassword('user');
+            ->setPlainPassword('user')
+            ->eraseCredentials();
 
         $manager->persist($usuario1);
         $manager->persist($usuario2);

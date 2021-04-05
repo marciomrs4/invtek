@@ -54,6 +54,8 @@ class UserController extends Controller
             $user->setPassword($encoder->encodePassword($user->getPlainPassword(),
                                                         $user->getSalt()));
 
+            $user->eraseCredentials();
+
             $em->persist($user);
             $em->flush();
 
@@ -104,6 +106,8 @@ class UserController extends Controller
 
             $user->setPassword($encoder->encodePassword($user->getPlainPassword(),
                 $user->getSalt()));
+
+            $user->eraseCredentials();
 
             $em->persist($user);
             $em->flush();

@@ -65,7 +65,7 @@ class DoctrineExtensionListener implements EventSubscriberInterface
                 //$loggable = $this->container->get('gedmo.listener.loggable');
                 $this->loggableListener->setUserValue($securityContext->getToken()->getUsername());
             }
-        }
+        }invtek@ip-45-56-69-149.cloudezapp.io
         else {
             $tokenStorage = $this->container->get('security.token_storage')->getToken();
             $authorizationChecker = $this->container->get('security.authorization_checker');

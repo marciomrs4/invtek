@@ -5,6 +5,7 @@ namespace MRS\UserBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -13,7 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="MRS\UserBundle\Entity\UserRepository")
  */
-class User implements AdvancedUserInterface
+class User implements UserInterface
 {
     /**
      * @var integer
@@ -71,7 +72,7 @@ class User implements AdvancedUserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="plainPassword", type="string", length=255)
+     * @ORM\Column(name="plainPassword", type="string", length=255, nullable=true)
      */
     private $plainPassword;
 
